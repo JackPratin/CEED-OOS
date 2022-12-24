@@ -1,21 +1,33 @@
-function changeDisplay(selected, unselected){
-    selected = document.getElementById(selected);
-    unselected = document.getElementById(unselected);
-
-    let selected_style = window.getComputedStyle(selected);
-    let unselected_style = window.getComputedStyle(unselected);
-
-    if(selected_style.display == 'none'){
-        selected.style.display= "flex";
-        unselected.style.display= "none";
-    }
-    else{
-        selected.style.display= "none";
-        unselected.style.display= "flex";
-    }
-
-    // console.log(selected_style.display);
-    // console.log(unselected_style.display);
-
-    // document.getElementById("ageCheck").style.display=(document.getElementById("yes").checked) ? "block" : "none";
+function changeDisplay(source){
+    document.getElementById("iframe-source").value = source;
 }
+
+function source_locator(){
+    let source = document.getElementById("iframe-source").value;
+    
+    if(source == "menu.html"){
+        document.getElementById("menu-selected").style.display = "flex";
+        document.getElementById("menu-unselected").style.display = "none";
+        document.getElementById("order-list-selected").style.display = "none";
+        document.getElementById("order-list-unselected").style.display = "flex";
+        document.getElementById("history-selected").style.display = "none";
+        document.getElementById("history-unselected").style.display = "flex";
+    }
+    else if(source == "register.html"){
+        document.getElementById("menu-selected").style.display = "none";
+        document.getElementById("menu-unselected").style.display = "flex";
+        document.getElementById("order-list-selected").style.display = "flex";
+        document.getElementById("order-list-unselected").style.display = "none";
+        document.getElementById("history-selected").style.display = "none";
+        document.getElementById("history-unselected").style.display = "flex";
+    }
+    else if(source == ""){
+        document.getElementById("menu-selected").style.display = "none";
+        document.getElementById("menu-unselected").style.display = "flex";
+        document.getElementById("order-list-selected").style.display = "none";
+        document.getElementById("order-list-unselected").style.display = "flex";
+        document.getElementById("history-selected").style.display = "flex";
+        document.getElementById("history-unselected").style.display = "none";
+    }
+}
+
