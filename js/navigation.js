@@ -21,7 +21,7 @@ function source_locator(){
         document.getElementById("history-selected").style.display = "none";
         document.getElementById("history-unselected").style.display = "flex";
     }
-    else if(source == ""){
+    else if(source == "order-history.html"){
         document.getElementById("menu-selected").style.display = "none";
         document.getElementById("menu-unselected").style.display = "flex";
         document.getElementById("order-list-selected").style.display = "none";
