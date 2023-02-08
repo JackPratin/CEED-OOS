@@ -1,5 +1,5 @@
 <?php
-    $con = mysqli_connect("localhost","root","","ceed_db");
+    $con = mysqli_connect("localhost","root","","ceedoos_db");
 
     // Check connection
     if (mysqli_connect_errno()) {

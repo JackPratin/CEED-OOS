@@ -42,8 +42,8 @@
                         <label>Password</label>
                     </div>
 
-                    <div class="pass">Forgot Password?</div>
-                    <input type="submit" value="LOGIN" onclick="location.href='menu.php'">
+                    <div><a href="">Sign up here.</a><div class="pass">Forgot Password?</div></div>
+                    <input type="submit" value="LOGIN" onclick="location.href='main.php'">
                 </form>
                 <center>
                     <div>
