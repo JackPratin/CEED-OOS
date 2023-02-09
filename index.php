@@ -41,10 +41,11 @@
                         <span></span>
                         <label>Password</label>
                     </div>
-
-                    <div><a href="">Sign up here.</a><div class="pass">Forgot Password?</div></div>
-                    <input type="submit" value="LOGIN" onclick="location.href='main.php'">
                 </form>
+                
+                <div><a href="register.html">Sign up here.</a><div class="pass">Forgot Password?</div></div>
+                <input type="submit" value="LOGIN" onclick="location.href='main.php'">
+                
                 <center>
                     <div>
                         <hr style='display:inline-block; width:30%;'> OR <hr style='display:inline-block; width:30%;'>

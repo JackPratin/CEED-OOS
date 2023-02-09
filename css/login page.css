@@ -139,3 +139,8 @@ input[type="submit"]:hover{
 .fa-lock{
     color: #8C8989;
 }
+
+.regForm{
+    border: 2px solid black; 
+    background-color: white;
+}
