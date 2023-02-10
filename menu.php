@@ -1,5 +1,6 @@
 <?php
     require("php/menuFunctions.php");
+    session_start();
 ?>
 <html lang="en">
     <head>
@@ -98,7 +99,7 @@
                     </div>&nbsp; 
                     <div id="customer-name" class="bold">
                         <span style="color: white;">Hello!</span>
-                        <span>JAN PATRICK</span>
+                        <span><?php echo $_SESSION['first_name']; ?></span>
                     </div>
                 </div>
                 
@@ -111,58 +112,16 @@
                 <div id="cart-middle">
                     <span class="bold" style="font-size: 20px;">Your Cart</span><br>
                     <div id="cart-items-div">
-                        <div id="cart-items">
-                            <div id="item-img">
-                                <img src="css/system images/company logo.png" alt="1975 Old-Fashioned Burgers logo" height="60px" width="60px" style="border-radius: 10px;">
-                            </div>&nbsp; 
-                            <div id="item-details" class="bold">
-                                <span class="end-to-end">1975 Classic <button>X</button></span>
-                                <span class="end-to-end"> 
-                                    <span>
-                                        <span class="span-x">x </span>
-                                        1
-                                    </span> 
-                                    <span id="item-price" class="span-x">₱95.00</span>
-                                </span>
-                            </div>
-                        </div> <br>
-                        <div id="cart-items">
-                            <div id="item-img">
-                                <img src="css/system images/company logo.png" alt="1975 Old-Fashioned Burgers logo" height="60px" width="60px" style="border-radius: 10px;">
-                            </div>&nbsp; 
-                            <div id="item-details" class="bold">
-                                <span class="end-to-end">Cheesy Bacon Fries <button>X</button></span>
-                                <span class="end-to-end"> 
-                                    <span>
-                                        <span class="span-x">x </span>
-                                        1
-                                    </span> 
-                                    <span id="item-price" class="span-x">₱125.00</span>
-                                </span>
-                            </div>
-                        </div> <br>
-                        <div id="cart-items">
-                            <div id="item-img">
-                                <img src="css/system images/company logo.png" alt="1975 Old-Fashioned Burgers logo" height="60px" width="60px" style="border-radius: 10px;">
-                            </div>&nbsp; 
-                            <div id="item-details" class="bold">
-                                <span class="end-to-end">Double  Classic <button>X</button></span>
-                                <span class="end-to-end"> 
-                                    <span>
-                                        <span class="span-x">x </span>
-                                        1
-                                    </span> 
-                                    <span id="item-price" class="span-x">₱135.00</span>
-                                </span>
-                            </div>
-                        </div> 
+                        <?php
+                            cartDisplay();
+                        ?>
                     </div>
 
                     <div id="fees-div">
-                        <span class="end-to-end"><span class="bold">Subtotal</span><span>₱355.00</span></span><br>
-                        <span class="end-to-end"><span>Delivery Fee</span><span>₱70.00</span></span><br>
+                        <span class="end-to-end"><span class="bold">Subtotal</span><span>₱<?php $subtotal = subtotal(); echo $subtotal;?></span></span><br>
+                        <span class="end-to-end"><span>Delivery Fee</span><span>₱0.00</span></span><br>
                         <hr id="cart-hr">
-                        <span class="end-to-end bold"><span>Total</span><span>₱425.00</span></span>
+                        <span class="end-to-end bold"><span>Total</span><span>₱<?php echo $subtotal; ?></span></span>
                     </div> 
                 </div>
 

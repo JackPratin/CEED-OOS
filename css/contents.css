@@ -142,7 +142,8 @@ p{
     }
 
     #cart-items-div{
-        max-height: 25%;
+        max-height: 23%;
+        min-height: 23%;
         width: 100%;
         overflow: auto;
     }

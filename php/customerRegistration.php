@@ -12,9 +12,10 @@
     $city       = mysqli_real_escape_string($con, $_POST['city']);
     $username   = mysqli_real_escape_string($con, $_POST['username']);
   
-    mysqli_query($con, "INSERT INTO `customer_tb`( `first_name`, `middle_initial`, `last_name`, `contact_number`, `email`, `order_count`) VALUES ('$fname','$mi','$lname','$contact','$email','0')");
+    $hash_password = hash('sha256', $password);
 
-    mysqli_query($con, "INSERT INTO `customer_tb`(`first_name`, `middle_initial`, `last_name`, `contact_number`, `email`, `order_count`, `address`, `baranggay`, `city`, `username`, `password`) VALUES ('$fname','$mi','$lname','$contact','$email','0','$address','$brgy','$city','$username', $password)");
+    mysqli_query($con, "INSERT INTO `customer_tb`(`first_name`, `middle_initial`, `last_name`, `contact_number`, `email`, `order_count`, `address`, `baranggay`, `city`, `username`, `password`) VALUES ('$fname','$mi','$lname','$contact','$email','0','$address','$brgy','$city','$username', '$hash_password'
+    )");
 
     
 

@@ -30,21 +30,23 @@
                     <h1>WELCOME</h1>
                     <div class="text_field">
                         <i class="fa-solid fa-circle-user"></i>
-                        <input type="text" required>
+                        <input type="text" form="login" name="username" required>
                         <span></span>
                         <label>Username</label>    
                     </div>
 
                     <div class="text_field">
                         <i class="fa-solid fa-lock"></i>
-                        <input type="password" required>
+                        <input type="password" form="login" name="password" required>
                         <span></span>
                         <label>Password</label>
                     </div>
                 </form>
                 
                 <div><a href="register.html">Sign up here.</a><div class="pass">Forgot Password?</div></div>
-                <input type="submit" value="LOGIN" onclick="location.href='main.php'">
+                <input type="submit" value="LOGIN" form="login">
+
+                <form action="php/login-exec.php" method="post" id="login" name="login"></form>
                 
                 <center>
                     <div>
