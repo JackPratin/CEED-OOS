@@ -4,24 +4,17 @@ body{
     font-style: normal;
     background: rgb(255, 190, 90);
     height: 100%;
-    overflow: hidden;
+    overflow-y: hidden;
 }
 
 #company-logo{
     height: 100%;
-    max-width: 50%;
-    overflow-y: scroll;
     position: absolute;
     left: 6%;
     display: flex;
-    flex-wrap: wrap;
-    /* align-items: center; */
+    align-items: center;
     justify-content: center;
 }
-
-#company-logo::-webkit-scrollbar {
-    display: none;
-  }
 
 .logo{
     width: 130px;
@@ -37,14 +30,13 @@ body{
     justify-content: center;
     position: absolute;
     /* top: 50%; */
-    left: 62.5%;
+    left: 31.25%;
     bottom: 0%;
     /* transform: translate(70%, -50%); */
     background: white;
     width: 37.5%;
     height: 100%;
-    border-top-left-radius: 26px;
-    border-bottom-left-radius: 26px;
+    border-radius: 26px;
     /* padding: 600px; */
 }
 

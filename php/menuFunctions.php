@@ -18,6 +18,21 @@
         }
     }
 
+    function landingPageDisplay(){
+        require("config.php");
+
+        $products_qry = mysqli_query($con, "SELECT * FROM products_tb");
+       
+
+        while($products = mysqli_fetch_array($products_qry, MYSQLI_ASSOC)){
+            echo"
+            <div class='menu-item'> 
+                <img src='$products[product_image]' height='100%' width='75%'> <br>
+                $products[product_name] <br>
+            </div>";
+        }
+    }
+
     function cartDisplay(){
         require("config.php");
 

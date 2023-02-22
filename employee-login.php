@@ -1,6 +1,4 @@
-<?php
-    require("php/menuFunctions.php");
-?>
+
 <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -9,25 +7,19 @@
         <script src="https://kit.fontawesome.com/484fbcb614.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Montserrat'>
         <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
-        <link rel="stylesheet" type="text/css" href="css/login page.css">
-        
-        <link rel="stylesheet" href="css/contents.css">
+        <link rel="stylesheet" type="text/css" href="css/employee login page.css">
         <link rel="icon" type="image/x-icon" href="css/system images/favicon.ico">
         <title>Login Page</title>
     </head>
     
     <body>
-        <div id="company-logo">
-            <?php landingPageDisplay(); ?>
-        </div>
-        
         <div class="center">
             <div>
                 <form>
                     <center><div class="logocontainer">
-                        <a href="employee-login.php" ><img src="css/system images/company logo.png" alt="1975 Old-Fashioned Burgers logo" class="logo"></a>
+                        <img src="css/system images/company logo.png" alt="1975 Old-Fashioned Burgers logo" class="logo">
                     </div></center>
-                    <h1>WELCOME</h1>
+                    <h1>EMPLOYEE LOGIN</h1>
                     <div class="text_field">
                         <i class="fa-solid fa-circle-user"></i>
                         <input type="text" form="login" name="username" required>
@@ -43,19 +35,11 @@
                     </div>
                 </form>
                 
-                <div><a href="register.html">Sign up here.</a><div class="pass">Forgot Password?</div></div>
                 <input type="submit" value="LOGIN" form="login">
-                <input type="hidden" name='type' value="customer" form="login">
+                <input type="hidden" name='type' value="staff" form="login">
 
                 <form action="php/login-exec.php" method="post" id="login" name="login"></form>
                 
-                <center>
-                    <div>
-                        <hr style='display:inline-block; width:30%;'> OR <hr style='display:inline-block; width:30%;'>
-                    </div>
-                </center>
-                <input type="submit" value="EPBI">
-                <input type="submit" value="Login as Guest">
             </div>
         </div>
     
