@@ -2,7 +2,7 @@
     function itemDisplay() {
         require("config.php");
 
-        $products_qry = mysqli_query($con, "SELECT * FROM products_tb");
+        $products_qry = mysqli_query($con, "SELECT * FROM products_tb WHERE product_category < 4");
 
         while($products = mysqli_fetch_array($products_qry, MYSQLI_ASSOC)){
             echo"
@@ -21,7 +21,7 @@
     function landingPageDisplay(){
         require("config.php");
 
-        $products_qry = mysqli_query($con, "SELECT * FROM products_tb WHERE product_category < 4");
+        $products_qry = mysqli_query($con, "SELECT * FROM products_tb");
        
 
         while($products = mysqli_fetch_array($products_qry, MYSQLI_ASSOC)){
@@ -36,7 +36,7 @@
     function cartDisplay(){
         require("config.php");
 
-        $cart_qry = mysqli_query($con, "SELECT * FROM cart_tb WHERE customer_id = $_SESSION[customer_id]");
+        $cart_qry = mysqli_query($con, "SELECT * FROM cart_tb WHERE employee_id = $_SESSION[employee_id]");
 
         if(mysqli_num_rows($cart_qry) == 0){
             echo"<center>Cart is empty.</center>";
@@ -76,7 +76,7 @@
     function subtotal(){
         require("config.php");
 
-        $subtotal_qry = mysqli_query($con, "SELECT * FROM cart_tb WHERE customer_id = $_SESSION[customer_id]");
+        $subtotal_qry = mysqli_query($con, "SELECT * FROM cart_tb WHERE employee_id = $_SESSION[employee_id]");
 
         $subtotal = 0;
         while($item = mysqli_fetch_array($subtotal_qry, MYSQLI_ASSOC)){

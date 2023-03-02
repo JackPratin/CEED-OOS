@@ -6,5 +6,10 @@
 
     mysqli_query($con, "DELETE FROM `cart_tb` WHERE cart_id = '$cart_id '"); 
 
-    echo '<script>window.location="../menu.php"</script>';
+    if($_SESSION['account_type'] == 'customer'){
+        echo '<script>window.location="../menu.php"</script>';
+    }
+    else{
+        echo '<script>window.location="../employee-menu.php"</script>';
+    }
 ?>
