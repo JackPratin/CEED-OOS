@@ -28,7 +28,7 @@
         <div class="center">
             <div>
                 <form style="margin-bottom:0px">
-                    <button type="button" style="position: absolute;right: 5px;" onclick="location.href='employee-login.php'">Login as Employee</button>
+                    <button type="button" style="position: absolute;right: 5px;" onclick="location.href='employee-login.php'" class="button">Login as Employee</button>
                     <br>
                     <center>
                         <div class="logocontainer">

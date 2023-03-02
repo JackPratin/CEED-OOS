@@ -77,11 +77,11 @@
                     </center>
                 </div> <br>
                 <div id="categories">
-                    <div class="category-item">All</div>
-                    <div class="category-item">Burgers</div>
-                    <div class="category-item">Chicken</div>
-                    <div class="category-item">Sides</div>
-                    <div class="category-item">Extras</div>
+                    <button class="category-item-active" id="category0" onclick="filtering('none'); filterChanger('category0')"><img src="css/system images/category icons/all-icon.png"><center>All</center></button>
+                    <button class="category-item-inactive" id="category1" onclick="filtering(1); filterChanger('category1')"><img src="css/system images/category icons/burger-icon.png">Burgers</button>
+                    <button class="category-item-inactive" id="category2" onclick="filtering(2); filterChanger('category2')"><img src="css/system images/category icons/chick'n-icon.png">Chicken</button>
+                    <button class="category-item-inactive" id="category3" onclick="filtering(3); filterChanger('category3')"><img src="css/system images/category icons/sides-icon.png">Sides</button>
+                    <button class="category-item-inactive" id="category5" onclick="filtering(5); filterChanger('category5')"><img src="css/system images/category icons/extras-icon.png">Extras</button>
                 </div> <br>
                 <div id="menu-name">
                     Burger Menu
@@ -141,9 +141,71 @@
                 </div>
             </div>
         </div>
+
+       
+        <div class='popup' id='popup1'>
+            <p>This is a popup!</p>
+            <p>Overlay uses <b>:before</b> and <b>:after</b> pseudo-classes.</p>
+                <p>(This one does block elements on the background)</p>
+            <a href='#' onclick='hide("popup1")'>Ok!</a>
+        </div>
+        <div class='popup' id='popup2'>
+            <p>This is a popup!</p>
+            <p>Overlay uses <b>:before</b> and <b>:after</b> pseudo-classes.</p>
+                <p>(This one does block elements on the background)</p>
+            <a href='#' onclick='hide("popup2")'>Ok!</a>
+        </div>
+        <div class='popup' id='popup3'>
+            <p>This is a popup!</p>
+            <p>Overlay uses <b>:before</b> and <b>:after</b> pseudo-classes.</p>
+                <p>(This one does block elements on the background)</p>
+            <a href='#' onclick='hide("popup3")'>Ok!</a>
+        </div>
+        <div class='popup' id='popup5'>
+            <p>This is a popup!</p>
+            <p>Overlay uses <b>:before</b> and <b>:after</b> pseudo-classes.</p>
+                <p>(This one does block elements on the background)</p>
+            <a href='#' onclick='hide("popup5")'>Ok!</a>
+        </div>
         
 
         <script src="js/navigation.js"></script>
+
+        <script>
+            function filtering(cat){
+				let category;
+				<?php
+					require("php/config.php");
+
+					$item_qry = mysqli_query($con, "SELECT * FROM products_tb WHERE product_category < 4");
+					while($item = mysqli_fetch_array($item_qry, MYSQLI_ASSOC)){
+						$id = $item['product_id'];
+				?>
+				category = document.getElementById('cat'+<?php echo $id; ?>).value;
+
+				if(cat == 'none' || cat == category){
+					document.getElementById('card'+<?php echo $id; ?>).style.display="flex";
+				}
+				else{
+					document.getElementById('card'+<?php echo $id; ?>).style.display="none";
+				}
+
+				<?php
+					}
+				?>
+			}
+
+            $ = function(id) {
+                return document.getElementById(id);
+            }
+            
+            var show = function(id) {
+                $(id).style.display ='block';
+            }
+            var hide = function(id) {
+                $(id).style.display ='none';
+            }
+        </script>
         
         
     </body>

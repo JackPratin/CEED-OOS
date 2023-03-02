@@ -151,6 +151,24 @@ input[type="submit"]:hover{
     color: #8C8989;
 }
 
+.button{
+    font-weight: bold;
+    width: 30%;
+    height: 40px;
+    border: 1px solid;
+    border-radius: 26px;
+    background-color:#FFAE42;
+    font-size: 12px;
+    cursor: pointer;
+    outline: none;
+}
+
+.button:hover{
+    border-color:#FFAE42;
+    transition: .2s;
+}
+
+
 
 .regForm{
     left: 50%;

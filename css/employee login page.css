@@ -128,7 +128,7 @@ input[type="submit"]{
 
 input[type="submit"]:hover{
     border-color:#FFAE42;
-    transition: .5s;
+    transition: .2s;
 }
 
 .fa-circle-user{
@@ -142,4 +142,22 @@ input[type="submit"]:hover{
 .regForm{
     border: 2px solid black; 
     background-color: white;
+}
+
+
+.button{
+    font-weight: bold;
+    width: 30%;
+    height: 40px;
+    border: 1px solid;
+    border-radius: 26px;
+    background-color:#FFAE42;
+    font-size: px;
+    cursor: pointer;
+    outline: none;
+}
+
+.button:hover{
+    border-color:#FFAE42;
+    transition: .2s;
 }

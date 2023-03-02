@@ -31,3 +31,43 @@ function source_locator(){
     }
 }
 
+function filterChanger(category){
+    if(category == "category0"){
+        document.getElementById("category0").classList = "category-item-active";
+        document.getElementById("category1").classList = "category-item-inactive";
+        document.getElementById("category2").classList = "category-item-inactive";
+        document.getElementById("category3").classList = "category-item-inactive";
+        document.getElementById("category5").classList = "category-item-inactive";
+    }
+    else if(category == "category1"){
+       document.getElementById("category1").classList = "category-item-active";
+        document.getElementById("category0").classList = "category-item-inactive";
+        document.getElementById("category2").classList = "category-item-inactive";
+        document.getElementById("category3").classList = "category-item-inactive";
+        document.getElementById("category5").classList = "category-item-inactive";
+    }
+    else if(category == "category2"){
+        document.getElementById("category2").classList = "category-item-active";
+        document.getElementById("category1").classList = "category-item-inactive";
+        document.getElementById("category0").classList = "category-item-inactive";
+        document.getElementById("category3").classList = "category-item-inactive";
+        document.getElementById("category5").classList = "category-item-inactive";
+    }
+    else if(category == "category3"){
+        document.getElementById("category3").classList = "category-item-active";
+        document.getElementById("category1").classList = "category-item-inactive";
+        document.getElementById("category2").classList = "category-item-inactive";
+        document.getElementById("category0").classList = "category-item-inactive";
+        document.getElementById("category5").classList = "category-item-inactive";
+    }
+    else if(category == "category5"){
+        document.getElementById("category5").classList = "category-item-active";
+        document.getElementById("category1").classList = "category-item-inactive";
+        document.getElementById("category2").classList = "category-item-inactive";
+        document.getElementById("category3").classList = "category-item-inactive";
+        document.getElementById("category0").classList = "category-item-inactive";
+    }
+}
+
+
+

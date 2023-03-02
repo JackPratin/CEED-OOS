@@ -2,21 +2,30 @@
     function itemDisplay() {
         require("config.php");
 
-        $products_qry = mysqli_query($con, "SELECT * FROM products_tb");
+        $products_qry = mysqli_query($con, "SELECT * FROM products_tb WHERE product_category < 4");
 
         while($products = mysqli_fetch_array($products_qry, MYSQLI_ASSOC)){
             echo"
-            <div class='menu-item'> 
-                <img src='$products[product_image]' height='100%' width='75%'> <br>
-                $products[product_name] <br>
-                <form method='post' action='php/addtocart.php' id='form'>
-                    <input type='hidden' value='$products[product_id]' name='id'>
-                    <input type='hidden' value='$products[product_price]' name='price'>
-                    <button type='submit'>Add to cart</button>
-                </form>
-            </div>";
+            <a href='#' onclick='show(\"popup$products[product_category]\")' style=\"color:black; width:fit-content;\">
+                <div class='menu-item' id='card$products[product_id]'>
+                    <div class='menu-details'>$products[product_name] <br><br> ₱$products[product_price]</div>
+
+                    <div>
+                    <img src='$products[product_image]' height='100%' width='75%'> </div> 
+                    <input type='hidden' value='$products[product_category]' id='cat$products[product_id]'>
+                </div>
+            </a>
+            ";
         }
     }
+
+//     <form method='post' action='php/addtocart.php' id='form'>
+//     <input type='hidden' value='$products[product_id]' name='id'>
+//     <input type='hidden' value='$products[product_category]' id='cat$products[product_id]'>
+//     <input type='hidden' value='$products[product_price]' name='price'>
+//      <button type='submit'>Add to cart</button>
+// </form>
+
 
     function landingPageDisplay(){
         require("config.php");

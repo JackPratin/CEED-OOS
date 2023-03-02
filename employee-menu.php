@@ -26,11 +26,11 @@
                     </center>
                 </div> <br>
                 <div id="categories">
-                    <div class="category-item">All</div>
-                    <div class="category-item">Burgers</div>
-                    <div class="category-item">Chicken</div>
-                    <div class="category-item">Sides</div>
-                    <div class="category-item">Extras</div>
+                    <div class="category-item-inactive">All</div>
+                    <div class="category-item-inactive">Burgers</div>
+                    <div class="category-item-inactive">Chicken</div>
+                    <div class="category-item-inactive">Sides</div>
+                    <div class="category-item-inactive">Extras</div>
                 </div> <br>
                 <div id="menu-name">
                     Burger Menu
@@ -93,6 +93,31 @@
         
 
         <script src="js/navigation.js"></script>
+
+        <script>
+            function filtering(cat){
+				let category;
+				<?php
+					require("php/config.php");
+
+					$item_qry = mysqli_query($con, "SELECT * FROM products_tb");
+					while($item = mysqli_fetch_array($item_qry, MYSQLI_ASSOC)){
+						$id = $item['item_id'];
+				?>
+				category = document.getElementById('cat'+<?php echo $id; ?>).value;
+
+				if(cat == 'none' || cat == category){
+					document.getElementById('card'+<?php echo $id; ?>).style.display="block";
+				}
+				else{
+					document.getElementById('card'+<?php echo $id; ?>).style.display="none";
+				}
+
+				<?php
+					}
+				?>
+			}
+        </script>
         
         
     </body>

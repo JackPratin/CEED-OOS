@@ -6,7 +6,7 @@
     $price     = mysqli_real_escape_string($con, $_POST['price']);
 
     if($_SESSION['account_type'] == 'customer'){
-        $id_type = '"customer_id"';
+        $id_type = 'customer_id';
         
         $existing_qry = mysqli_query($con, "SELECT * FROM `cart_tb` WHERE customer_id = $_SESSION[$id_type] AND product_id = $id AND cart_number = $_SESSION[order_count]");
     }
