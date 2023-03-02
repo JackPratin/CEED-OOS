@@ -1,10 +1,13 @@
+*{
+    overflow: hidden;
+}
+
 body{
     width: auto;
     font-family: 'Inter';
     font-style: normal;
     background: rgb(255, 190, 90);
     height: 100%;
-    overflow: hidden;
 }
 
 #company-logo{
@@ -136,7 +139,7 @@ input[type="submit"]{
 
 input[type="submit"]:hover{
     border-color:#FFAE42;
-    transition: .5s;
+    transition: .2s;
 }
 
 .fa-circle-user{
@@ -148,6 +151,60 @@ input[type="submit"]:hover{
 }
 
 .regForm{
-    border: 2px solid black; 
-    background-color: white;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    padding-left: 5%;
+}
+
+#signUp{
+    font-size: 45px;
+    font-weight:bold;
+    color: #FFAE42;
+}
+
+.regInput{
+    border: none;
+    background-color: #EFEFEF;
+    width: 250px;
+    height: 25px;
+    margin-bottom: 5px;
+}
+
+#regSubmit{
+    min-width: 50%;
+    max-width: 75%;
+}
+
+@media only screen and (max-width: 600px) {
+    html{
+        overflow-y: scroll;
+    }
+    .regForm{
+        display: flex;
+        flex-wrap: wrap;
+        left: 0%;
+        top: 20%;
+        width: 95%;
+        height: fit-content;
+        border-top-right-radius: 26px;
+        border-top-left-radius: 26px;
+        border-bottom-right-radius: 0px;
+        border-bottom-left-radius: 0px;
+        padding-left: 5%;
+        overflow-x: hidden;
+        overflow-y: hidden;
+    }
+
+    #form{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #regSubmit{
+        min-width: 80%;
+        max-width: 90%;
+    }
+
 }

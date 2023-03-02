@@ -1,5 +1,9 @@
 <?php
-    require("php/menuFunctions.php");
+     session_start();
+     require("php/menuFunctions.php");
+     if(!isset($_SESSION['loginAttempt'])){
+         $_SESSION['loginAttempt'] = 0;
+     }
 ?>
 <html lang="en">
     <head>
@@ -18,15 +22,22 @@
     
     <body>
         <div id="company-logo">
-            <?php landingPageDisplay(); ?>
+            <?php landingPageDisplay(); echo $_SESSION['loginAttempt'];?>
         </div>
         
         <div class="center">
             <div>
                 <form>
-                    <center><div class="logocontainer">
-                        <a href="employee-login.php" ><img src="css/system images/company logo.png" alt="1975 Old-Fashioned Burgers logo" class="logo"></a>
-                    </div></center>
+                    <button type="button" style="position: absolute;right: 5px;" onclick="location.href='employee-login.php'">Login as Employee</button>
+                    <br>
+                    <center>
+                        <div class="logocontainer">
+                        <a href="employee-login.php">
+                            <img src="css/system images/company logo.png" alt="1975 Old-Fashioned Burgers logo" class="logo">
+                        </a>
+                        </div>
+                    </center>
+
                     <h1>WELCOME</h1>
                     <div class="text_field">
                         <i class="fa-solid fa-circle-user"></i>
@@ -38,13 +49,17 @@
                     <div class="text_field">
                         <i class="fa-solid fa-lock"></i>
                         <input type="password" form="login" name="password" required>
-                        <span></span>
                         <label>Password</label>
                     </div>
                 </form>
                 
-                <div><a href="register.html">Sign up here.</a><div class="pass">Forgot Password?</div></div>
-                <input type="submit" value="LOGIN" form="login">
+                <center>
+                    <div><a href="register.html">Sign up here.</a> &nbsp;&nbsp;&nbsp; <a href="forgotPassword.html" class="pass">Forgot Password?</a></div>
+                </center>
+
+
+                <input type="submit" value="LOGIN" form="login" id="loginButton">
+                <p id='countdown'></p>
                 <input type="hidden" name='type' value="customer" form="login">
 
                 <form action="php/login-exec.php" method="post" id="login" name="login"></form>
@@ -58,6 +73,113 @@
                 <input type="submit" value="Login as Guest">
             </div>
         </div>
+
+        <?php
+        if($_SESSION['loginAttempt'] >= 3){
+        ?>
+            <script>
+                document.getElementById('loginButton').disabled = true;
+
+                function startTimer(duration, display) {
+                    var timer = duration, minutes, seconds;
+                    check = setInterval(function () {
+                        minutes = parseInt(timer / 60, 10)
+                        seconds = parseInt(timer % 60, 10);
+
+                        minutes = minutes < 10 ? "0" + minutes : minutes;
+                        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                        display.textContent = minutes + " " + " " + seconds;
+
+                        if (--timer < 0) {
+                            timer = duration;
+                        }
+                    console.log(parseInt(seconds))
+
+                    if(minutes == 0 && seconds == 0){
+                        var done = false;
+                        document.getElementById('countdown').style.display = 'none';
+                        clearInterval(check);
+                        check = null;
+                        document.getElementById('loginButton').disabled = false;
+                        if(done){
+                            <?php $_SESSION['loginAttempt'] = 0;?>
+                        }
+                        done = true;
+                    }
+                    window.localStorage.setItem("seconds",seconds)
+                    window.localStorage.setItem("minutes",minutes)
+                    }, 1000);
+                    }
+
+                    window.onload = function () {
+                    sec  = parseInt(window.localStorage.getItem("seconds"))
+                    min = parseInt(window.localStorage.getItem("minutes"))
+                    
+                    if(parseInt(min*sec)){
+                        var threeMinutes = (parseInt(min*60)+sec);
+                    }else{
+                        // var threeMinutes = 60 * 3;
+                        var threeMinutes = 10;
+                    }
+                        // var threeMinutes = 60 * 5;
+                    display = document.getElementById('countdown');
+                    
+                    startTimer(threeMinutes, display);
+                    };
+
+
+
+            </script>
+
+            <!-- <script>
+
+                document.getElementById('loginButton').disabled = true;
+                
+                function startTimer(duration, display) {
+                var timer = duration, minutes, seconds;
+                setInterval(function () {
+                    minutes = parseInt(timer / 60, 10)
+                    seconds = parseInt(timer % 60, 10);
+
+                    minutes = minutes < 10 ? "0" + minutes : minutes;
+                    seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                    display.textContent = minutes + " :" + " " + seconds + " remaining before another login attempt";
+
+                    if (--timer < 0) {
+                        timer = duration;
+                    }
+                console.log(parseInt(seconds))
+                window.localStorage.setItem("seconds",seconds)
+                window.localStorage.setItem("minutes",minutes)
+                }, 1000);
+                }
+
+                window.onload = function () {
+                    sec  = parseInt(window.localStorage.getItem("seconds"))
+                    min = parseInt(window.localStorage.getItem("minutes"))
+
+                    if(parseInt(min*sec)){
+                        var threeMinutes = (parseInt(min*60)+sec);
+                    }else{
+                        var threeMinutes = 60 * 1;
+                    }
+                        // var threMinutes = 60 * 5;
+                    display = document.getElementById('countdown');
+                    startTimer(threeMinutes, display);
+
+                    if(min == 0 && sec == 0){
+                        document.getElementById("countdown").style.display = 'none';
+                        document.getElementById('loginButton').disabled = false;
+                        <?php //$_SESSION['loginAttempt'] = 0;?>
+                        exit();
+                    }
+                };
+            </script> -->
+        <?php
+         }
+        ?>
     
     </body>
 </html>

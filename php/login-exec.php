@@ -7,11 +7,11 @@
     $type           = mysqli_real_escape_string($con, $_POST['type']);
     $hash_password = hash('sha256', $password);
 
-    if($type == 'staff'){
-        $user_qry = mysqli_query($con, "SELECT * FROM `customer_tb` WHERE username = '$username' AND password = '$hash_password'");
+    if($type == 'employee'){
+        $user_qry = mysqli_query($con, "SELECT * FROM `employee_tb` WHERE username = '$username'");
     }
     else{
-        $user_qry = mysqli_query($con, "SELECT * FROM `customer_tb` WHERE username = '$username' AND password = '$hash_password'");
+        $user_qry = mysqli_query($con, "SELECT * FROM `customer_tb` WHERE username = '$username'");
     }
 
     if(mysqli_num_rows($user_qry) == 1){
@@ -19,11 +19,22 @@
         $row = mysqli_fetch_assoc($user_qry);
         if($row['password'] != $hash_password){
             echo "<script>alert('Wrong password.');</script>";
-            echo '<script>window.location="../index.php"</script>';
+            $_SESSION['loginAttempt']++;
+            if($type == 'employee'){
+                echo '<script>window.location="../employee-login.php"</script>';
+            }
+            else{
+                echo '<script>window.location="../index.php"</script>';
+            }
         }
 
-        if($type == 'staff'){
-            echo '<script>window.location="../employee-main.php"</script>';
+        if($type == 'employee'){
+            if($row['employee_type'] == 'admin'){
+                echo '<script>window.location="../admin-main.php"</script>';
+            }
+            else{
+                echo '<script>window.location="../employee-main.php"</script>';
+            }
         }
         else{
             // $_SESSION['user_id']        = $row['user_id'];
@@ -34,7 +45,14 @@
         }
     }
     else{
+        
         echo "<script>alert('No user found.');</script>";
-        echo '<script>window.location="../index.php"</script>';
+        $_SESSION['loginAttempt']++;
+        if($type == 'employee'){
+            echo '<script>window.location="../employee-login.php"</script>';
+        }
+        else{
+            echo '<script>window.location="../index.php"</script>';
+        }
     }
 ?>

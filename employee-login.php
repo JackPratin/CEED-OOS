@@ -16,6 +16,8 @@
         <div class="center">
             <div>
                 <form>
+                    <button type="button" style="position: absolute;right: 5px;" onclick="location.href='index.php'">Login as Customer</button>
+                    <br>
                     <center><div class="logocontainer">
                         <img src="css/system images/company logo.png" alt="1975 Old-Fashioned Burgers logo" class="logo">
                     </div></center>
@@ -36,7 +38,7 @@
                 </form>
                 
                 <input type="submit" value="LOGIN" form="login">
-                <input type="hidden" name='type' value="staff" form="login">
+                <input type="hidden" name='type' value="employee" form="login">
 
                 <form action="php/login-exec.php" method="post" id="login" name="login"></form>
                 

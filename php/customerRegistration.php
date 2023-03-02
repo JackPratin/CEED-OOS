@@ -18,6 +18,6 @@
     )");
 
     
-
+    echo "<script>alert('Account created.');</script>";
     echo '<script>window.location="../index.php"</script>';
 ?>
