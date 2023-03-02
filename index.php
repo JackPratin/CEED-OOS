@@ -27,14 +27,12 @@
         
         <div class="center">
             <div>
-                <form>
+                <form style="margin-bottom:0px">
                     <button type="button" style="position: absolute;right: 5px;" onclick="location.href='employee-login.php'">Login as Employee</button>
                     <br>
                     <center>
                         <div class="logocontainer">
-                        <a href="employee-login.php">
                             <img src="css/system images/company logo.png" alt="1975 Old-Fashioned Burgers logo" class="logo">
-                        </a>
                         </div>
                     </center>
 
@@ -54,7 +52,7 @@
                 </form>
                 
                 <center>
-                    <div><a href="register.html">Sign up here.</a> &nbsp;&nbsp;&nbsp; <a href="forgotPassword.html" class="pass">Forgot Password?</a></div>
+                    <div style="margin-top: -3px;"><a href="register.html" style="color:red;">Sign up here.</a> &nbsp;&nbsp;&nbsp; <a href="forgotPassword.html" class="pass">Forgot Password?</a></div>
                 </center>
 
 

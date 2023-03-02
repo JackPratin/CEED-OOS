@@ -19,7 +19,7 @@
             <div class="navigation-div">
                 <img src="css/system images/company logo.png" alt="1975 Old-Fashioned Burgers logo" class="side-logo">
                 
-                <a href="menu.php" target="main-frame" onclick="changeDisplay('menu.html')">
+                <a href="employee-menu.php" target="main-frame" onclick="changeDisplay('employee-menu.html')">
                     <div class="nav-item">
                         <div class="unselected" id="menu-unselected">
                             <img class="nav-vector" src="css/system images/nav icons/menu.png" alt="Menu Vector">
@@ -69,7 +69,7 @@
             </div>
 
             <div class="iframe-div">
-                <iframe src="menu.php" frameBorder="0" id="main-frame" name="main-frame" onload="source_locator()">
+                <iframe src="employee-menu.php" frameBorder="0" id="main-frame" name="main-frame" onload="source_locator()">
                 </iframe>
                 <input type="hidden" id="iframe-source" name="" value="menu.html">
             </div>

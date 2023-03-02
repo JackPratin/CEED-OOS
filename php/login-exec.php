@@ -33,6 +33,10 @@
                 echo '<script>window.location="../admin-main.php"</script>';
             }
             else{
+                $_SESSION['first_name']     = $row['first_name'];
+                $_SESSION['employee_id']    = $row['employee_id'];
+                $_SESSION['order_count']    = $row['order_count'];
+                $_SESSION['account_type']   = $row['employee_type'];
                 echo '<script>window.location="../employee-main.php"</script>';
             }
         }
@@ -41,6 +45,7 @@
             $_SESSION['first_name']     = $row['first_name'];
             $_SESSION['customer_id']    = $row['customer_id'];
             $_SESSION['order_count']    = $row['order_count'];
+            $_SESSION['account_type']   = "customer";
             echo '<script>window.location="../main.php"</script>';
         }
     }

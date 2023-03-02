@@ -34,6 +34,7 @@ body{
     margin-bottom: 20px;
 }
 
+
 .center{
     display: flex;
     align-items: center;
@@ -150,10 +151,11 @@ input[type="submit"]:hover{
     color: #8C8989;
 }
 
+
 .regForm{
     left: 50%;
     width: 50%;
-    height: 100%;
+    height: 103%;
     padding-left: 5%;
 }
 
@@ -176,15 +178,83 @@ input[type="submit"]:hover{
     max-width: 75%;
 }
 
+.logo-container{
+    position: absolute;
+    left: 12.5%;
+    bottom: 25%;
+    display: flex;
+    justify-content: center;
+    width: 25%;
+    height: 50%;
+    /* border: black solid 1px; */
+}
+
+.register-logo{
+    width: fit-content;
+    height: fit-content;
+    border-radius: 50px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.go-back {
+    color: #FFAE42;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1;
+    padding-left: 15px;
+    position: relative;
+    top:0%;
+    text-decoration: none;
+}
+.go-back::before,
+.go-back::after {
+    content: "";
+    display: block;
+    left: 0px;
+    position: absolute;
+    top: 50%;
+    transition: left 0.1s;
+}
+.go-back::before {
+    border-color: #FFAE42;
+    /* background: #FFAE42; */
+    border-style: solid;
+    border-width: 0 0 2px 2px;
+    height: 6px;
+    margin-top: -3px;
+    width: 6px;
+
+    transform: rotate( 45deg );
+    -webkit-transform: rotate( 45deg );
+}
+.go-back::after {
+    color: black;
+    background: #FFAE42;
+    height: 2px;
+    width: 11px;
+}
+.go-back:hover::before,
+.go-back:hover::after {
+    left: -3px;
+    /* background: #000000; */
+    border-color: #000000;
+    color: #000000;
+}
+
+
+
 @media only screen and (max-width: 600px) {
     html{
         overflow-y: scroll;
+        overflow-x: hidden;
     }
     .regForm{
         display: flex;
         flex-wrap: wrap;
         left: 0%;
-        top: 20%;
+        top: 27%;
         width: 95%;
         height: fit-content;
         border-top-right-radius: 26px;
@@ -207,4 +277,12 @@ input[type="submit"]:hover{
         max-width: 90%;
     }
 
+    .logo-container{
+        position: absolute;
+        left: 25%;
+        display: flex;
+        justify-content: center;
+        width: 50%;
+        height: 25%;
+    }
 }
