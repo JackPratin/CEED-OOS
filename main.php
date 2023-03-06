@@ -31,7 +31,7 @@
                     </div>
                 </a>
 
-                <a href="register.html" target="main-frame" onclick="changeDisplay('register.html')">
+                <a href="checkout-page.php" target="main-frame" onclick="changeDisplay('register.html')">
                     <div class="nav-item">
                         <div class="unselected" id="order-list-unselected">
                             <img class="nav-vector" src="css/system images/nav icons/order-list.png" alt="List Vector">
@@ -43,7 +43,7 @@
                     </div>
                 </a>
 
-                <a href="order-history.html" target="main-frame" onclick="changeDisplay('order-history.html')">
+                <a href="menu.php" target="main-frame" onclick="changeDisplay('order-history.html')">
                     <div class="nav-item">
                         <div class="unselected" id="history-unselected">
                             <img class="nav-vector-history" src="css/system images/nav icons/history.png" alt="History Vector"> 

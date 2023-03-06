@@ -1,5 +1,6 @@
 <?php
     require("php/menuFunctions.php");
+    require("php/config.php");
     session_start();
 ?>
 <html lang="en">
@@ -135,7 +136,7 @@
                             <button class="upper button"><img src="css/system images/menu icons/delivery.png" alt="Picture of motorcycle" height="60%" width="60%"></button> 
                         </div>
                         <div id="lower-button">
-                            <button class="button" id="submit">Submit</button>
+                           <button class="button" id="submit" onclick="checkout()">Proceed to Checkout</button>
                         </div>
                     </div>
                 </div>
@@ -144,16 +145,89 @@
 
        
         <div class='popup' id='popup1'>
-            <p>This is a popup!</p>
-            <p>Overlay uses <b>:before</b> and <b>:after</b> pseudo-classes.</p>
-                <p>(This one does block elements on the background)</p>
-            <a href='#' onclick='hide("popup1")'>Ok!</a>
+            <div > 
+                <div style="display:flex; justify-content: space-between;">
+                    <span>Recommended Extras</span>
+                    <span><button href="#" onclick="hide('popup1')">X</button></span>
+                </div><br>
+            Select additional ingredients(optional)<br>
+            
+                <div style="display:flex; flex-direction:column;";> 
+                    <?php
+
+                        $extras_qry = mysqli_query($con, "SELECT * FROM products_tb WHERE product_category = 4");
+                        
+                        while($extras = mysqli_fetch_array($extras_qry,MYSQLI_ASSOC)){
+                            echo"<div style=\"display:flex; justify-content: space-between;\";><span><input type='checkbox' class='checkbox'> $extras[product_name]</span> <span>₱$extras[product_price]</span></div>";
+                            // echo"<input type='checkbox'> &nbsp; Bacon";
+                        }
+                    ?>
+                </div>
+            </div>
+            <br>
+            
+            <div class="number-input">
+                <span>
+                    <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" ></button>
+
+                    <input class="quantity" id="currentQty" min="1" name="quantity" value="1" type="number">
+
+                    <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button> 
+                </span>
+
+                <span min-width="90%">     
+                    <input type="submit" value="Add to Cart" class="addCart" onclick='addToCart()'>
+                    <!-- hide("popup1") -->
+                </span>
+                <input type="hidden" name="" id="id" value="">
+            </div>
+
+            <!-- <a href='#' >Ok!</a> -->
         </div>
+
         <div class='popup' id='popup2'>
-            <p>This is a popup!</p>
-            <p>Overlay uses <b>:before</b> and <b>:after</b> pseudo-classes.</p>
-                <p>(This one does block elements on the background)</p>
-            <a href='#' onclick='hide("popup2")'>Ok!</a>
+            <div style="display:flex; justify-content: space-between;">
+                <span>Flavors</span>
+                <span><button href="#" onclick="hide('popup2')">X</button></span>
+            </div><br>
+
+            <div > <br>
+            
+                <div style="display:flex; flex-direction:column;";> 
+                    <?php
+
+                        // $extras_qry = mysqli_query($con, "SELECT * FROM products_tb WHERE product_category = 4");
+                        
+                        // while($extras = mysqli_fetch_array($extras_qry,MYSQLI_ASSOC)){
+                        //     echo"<div style=\"display:flex; justify-content: space-between;\";><span><input type='checkbox' class='checkbox'> $extras[product_name]</span> <span>₱$extras[product_price]</span></div>";
+                        //     // echo"<input type='checkbox'> &nbsp; Bacon";
+                        // }
+                        echo "<div><input type='checkbox' class='checkbox'> Barbecue</div>
+                        <div><input type='checkbox' class='checkbox'> Buffalo</div>
+                        <div><input type='checkbox' class='checkbox'> Garlic Parmesan</div>
+                        <div><input type='checkbox' class='checkbox'> Honey Garlic</div>
+                        <div><input type='checkbox' class='checkbox'> Salted Egg</div>
+                        ";
+                    ?>
+                </div>
+            </div>
+            <br>
+            
+            <div class="number-input">
+                <span>
+                    <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" ></button>
+
+                    <input class="quantity" id="currentQty" min="6" name="quantity" value="6" step="6" type="number">
+
+                    <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button> 
+                </span>
+
+                <span min-width="90%">     
+                    <input type="submit" value="Add to Cart" class="addCart" onclick='addToCart()'>
+                    <!-- hide("popup1") -->
+                </span>
+                <input type="hidden" name="" id="id" value="">
+            </div>
         </div>
         <div class='popup' id='popup3'>
             <p>This is a popup!</p>
@@ -204,6 +278,20 @@
             }
             var hide = function(id) {
                 $(id).style.display ='none';
+            }
+
+            function addDetails(id){
+                document.getElementById("id").value = id;
+            }
+
+            function addToCart(){
+                var id = document.getElementById("id").value;
+                document.getElementById("quantity"+id).value = document.getElementById("currentQty").value;
+                document.getElementById("form"+id).submit();
+            }
+
+            function checkout(){
+                window.location.href = "checkout-page.php";
             }
         </script>
         

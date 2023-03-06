@@ -1,0 +1,35 @@
+:root{
+    font-family: 'Inter';
+}
+ 
+    body{
+        background-color:#EFEFEF;
+    }
+  
+  .checkoutForm{
+    background-color: white; 
+    height :110%;
+    width:40%;
+    display: flex;
+    flex-direction:column;
+    position: absolute;
+    left: 15%;
+    padding: 15px;
+    border-radius: 10px;
+   }
+
+   .checkoutForm .example::-webkit-scrollbar {
+    display: none;}
+
+   .checkoutForm input{
+    min-height: 5%;
+    width: 50%
+   }
+
+   h2{
+    color:#FFA200;
+   }
+
+   #gcash{
+    display: none;
+   }

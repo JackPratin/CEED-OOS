@@ -4,6 +4,7 @@
 
     $id     = mysqli_real_escape_string($con, $_POST['id']);
     $price     = mysqli_real_escape_string($con, $_POST['price']);
+    $qty = mysqli_real_escape_string($con, $_POST['quantity']);
 
     if($_SESSION['account_type'] == 'customer'){
         $id_type = 'customer_id';
@@ -19,7 +20,7 @@
 
     if(mysqli_num_rows($existing_qry) > 0){
         $prodQuantity =  mysqli_fetch_array($existing_qry, MYSQLI_ASSOC);
-        $quantity = $prodQuantity['quantity']+1;
+        $quantity = $prodQuantity['quantity']+$qty;
 
 
         if($_SESSION['account_type'] == 'customer'){
@@ -31,7 +32,7 @@
         
     }
     else{
-        mysqli_query($con, "INSERT INTO `cart_tb`(`$id_type`, `product_id`, `cart_number`, `quantity`, `price`) VALUES ('$_SESSION[$id_type]','$id','$_SESSION[order_count]','1','$price')"); 
+        mysqli_query($con, "INSERT INTO `cart_tb`(`$id_type`, `product_id`, `cart_number`, `quantity`, `price`) VALUES ('$_SESSION[$id_type]','$id','$_SESSION[order_count]','$qty','$price')"); 
     }
 
 

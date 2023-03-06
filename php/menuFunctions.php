@@ -6,25 +6,25 @@
 
         while($products = mysqli_fetch_array($products_qry, MYSQLI_ASSOC)){
             echo"
-            <a href='#' onclick='show(\"popup$products[product_category]\")' style=\"color:black; width:fit-content;\">
+            <a href='#' onclick='show(\"popup$products[product_category]\"); addDetails($products[product_id])' style=\"color:black; width:fit-content;\">
                 <div class='menu-item' id='card$products[product_id]'>
                     <div class='menu-details'>$products[product_name] <br><br> ₱$products[product_price]</div>
 
                     <div>
                     <img src='$products[product_image]' height='100%' width='75%'> </div> 
                     <input type='hidden' value='$products[product_category]' id='cat$products[product_id]'>
+
+                    <form method='post' action='php/addtocart.php' id='form$products[product_id]'>
+                        <input type='hidden' value='$products[product_id]' name='id'>
+                        <input type='hidden' value='' id='quantity$products[product_id]' name='quantity'>
+                        <input type='hidden' value='$products[product_category]' id='cat$products[product_id]'>
+                        <input type='hidden' value='$products[product_price]' name='price'>
+                    </form>
                 </div>
             </a>
             ";
         }
     }
-
-//     <form method='post' action='php/addtocart.php' id='form'>
-//     <input type='hidden' value='$products[product_id]' name='id'>
-//     <input type='hidden' value='$products[product_category]' id='cat$products[product_id]'>
-//     <input type='hidden' value='$products[product_price]' name='price'>
-//      <button type='submit'>Add to cart</button>
-// </form>
 
 
     function landingPageDisplay(){
@@ -59,7 +59,7 @@
                 echo"
                 <div id='cart-items'>
                     <div id='item-img'>
-                        <img src='css/system images/company logo.png' alt='1975 Old-Fashioned Burgers logo' height='60px' width='60px' style='border-radius: 10px;'>
+                        <img src='$item[product_image]' alt='1975 Old-Fashioned Burgers logo' height='60px' width='60px' style='border-radius: 10px;'>
                     </div>&nbsp; 
                     <div id='item-details' class='bold'>
                         <span class='end-to-end'>$item[product_name] 

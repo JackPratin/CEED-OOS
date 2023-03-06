@@ -17,12 +17,12 @@
         
         <link rel="stylesheet" href="css/contents.css">
         <link rel="icon" type="image/x-icon" href="css/system images/favicon.ico">
-        <title>Login Page</title>
+        <title>1975 Old Fashioned Burgers' Ordering System</title>
     </head>
     
     <body>
         <div id="company-logo">
-            <?php landingPageDisplay(); echo $_SESSION['loginAttempt'];?>
+            <?php landingPageDisplay();?>
         </div>
         
         <div class="center">
@@ -67,8 +67,8 @@
                         <hr style='display:inline-block; width:30%;'> OR <hr style='display:inline-block; width:30%;'>
                     </div>
                 </center>
-                <input type="submit" value="EPBI">
-                <input type="submit" value="Login as Guest">
+                <input type="submit" value="Facebok ">
+                <input type="submit" value="Login as Guest" onclick="location.href='guest-login.html'">
             </div>
         </div>
 

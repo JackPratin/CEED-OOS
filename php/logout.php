@@ -8,7 +8,7 @@
 	//Kill the session
 	session_destroy();
 	
-	echo '<script>alert("Log out successful!")</script>';
+	// echo '<script>alert("Log out successful!")</script>';
 	echo '<script>window.location="../index.php"</script>';
 		
 ?>

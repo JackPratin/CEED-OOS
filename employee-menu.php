@@ -25,12 +25,13 @@
                         <input type="search" name="" id="search" placeholder="Search category or menu...">
                     </center>
                 </div> <br>
+               
                 <div id="categories">
-                    <div class="category-item-inactive">All</div>
-                    <div class="category-item-inactive">Burgers</div>
-                    <div class="category-item-inactive">Chicken</div>
-                    <div class="category-item-inactive">Sides</div>
-                    <div class="category-item-inactive">Extras</div>
+                    <button class="category-item-active" id="category0" onclick="filtering('none'); filterChanger('category0')"><img src="css/system images/category icons/all-icon.png"><center>All</center></button>
+                    <button class="category-item-inactive" id="category1" onclick="filtering(1); filterChanger('category1')"><img src="css/system images/category icons/burger-icon.png">Burgers</button>
+                    <button class="category-item-inactive" id="category2" onclick="filtering(2); filterChanger('category2')"><img src="css/system images/category icons/chick'n-icon.png">Chicken</button>
+                    <button class="category-item-inactive" id="category3" onclick="filtering(3); filterChanger('category3')"><img src="css/system images/category icons/sides-icon.png">Sides</button>
+                    <button class="category-item-inactive" id="category5" onclick="filtering(5); filterChanger('category5')"><img src="css/system images/category icons/extras-icon.png">Extras</button>
                 </div> <br>
                 <div id="menu-name">
                     Burger Menu
