@@ -28,7 +28,6 @@
             }
         }
 
-        $_SESSION['current_page'] = "";
         if($type == 'employee'){
             $_SESSION['first_name']     = $row['first_name'];
             $_SESSION['account_type']   = $row['employee_type'];

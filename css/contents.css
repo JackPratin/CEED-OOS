@@ -428,7 +428,12 @@ p{
         background-color: white;
         width: 30%;
         border-radius: 15px;
+        padding: 2%;
+    }
 
+    .order-card-bottom{
+        display: flex;
+        justify-content: flex-end;
     }
 
     .order-status{

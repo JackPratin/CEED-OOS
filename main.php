@@ -1,6 +1,9 @@
 <?php
     require("php/config.php");
     session_start();
+    if(!isset($_SESSION['current_page'])){
+        $_SESSION['current_page'] = "menu.php"; 
+    }
 ?>
 <html lang="en">
     <head>

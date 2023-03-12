@@ -36,7 +36,10 @@
                 
                 <div class="tracking">
                     <div class="order-card">
-                        hello
+                        Order #123<br>
+                        7 Apr 2023, 06:09PM<br>
+                        <hr>
+                        <span class="order-card-bottom">x2 Items<br>₱ 214.00</span>
                     </div>
 
                     <div class="order-status">
