@@ -16,60 +16,13 @@
     </head>
     
     <body>
-        <!-- <div class="navigation-div">
-            <img src="css/system images/company logo.png" alt="1975 Old-Fashioned Burgers logo" class="side-logo">
-            
-            <a onclick="changeDisplay('menu-selected', 'menu-unselected')">
-                <div class="nav-item">
-                    <div class="unselected" id="menu-unselected">
-                        <img class="nav-vector" src="css/system images/nav icons/menu.png" alt="Menu Vector">
-                    </div>
-                    <div class="selected" id="menu-selected">
-                        <img class="nav-vector" src="css/system images/nav icons/menu-selected.png" alt="Menu Vector">
-                    </div> <br>
-                    Menu
-                </div>
-            </a>
-
-            <a onclick="changeDisplay('order-list-selected', 'order-list-unselected')">
-                <div class="nav-item">
-                    <div class="unselected" id="order-list-unselected">
-                        <img class="nav-vector" src="css/system images/nav icons/order-list.png" alt="List Vector">
-                    </div>
-                    <div class="selected" id="order-list-selected">
-                        <img class="nav-vector" src="css/system images/nav icons/order-list-selected.png" alt="List Vector">
-                    </div> <br>
-                    Order List
-                </div>
-            </a>
-
-            <a onclick="changeDisplay('history-selected', 'history-unselected')">
-                <div class="nav-item">
-                    <div class="unselected" id="history-unselected">
-                        <img class="nav-vector-history" src="css/system images/nav icons/history.png" alt="History Vector"> 
-                    </div>
-                    <div class="selected" id="history-selected">
-                        <img class="nav-vector-history" src="css/system images/nav icons/history-selected.png" alt="History Vector"> 
-                    </div> <br>
-                    Order History
-                </div>
-            </a> -->
-
-            <!-- <div class="nav-item"> -->
-                <!-- <br>
-                <br> -->
-            <!-- </div> -->
-
-            <!-- <a>
-                <div class="nav-item">
-                    <img class="nav-vector"  src="css/system images/nav icons/logout.png"  alt="tabler:logout"> <br>
-                    Logout
-                </div>
-            </a>
-        </div> -->
         <div id="menu-div">
+
             <div id="main-menu">
+                <img src="css/ad banner/sample ads.png"> <br>
+
                 <div id="top-main-menu">
+
                     <p id="choose-category">
                         CHOOSE CATEGORY
                     </p>
@@ -77,16 +30,20 @@
                         <input type="search" name="" id="search" placeholder="Search category or menu...">
                     </center>
                 </div> <br>
+
                 <div id="categories">
                     <button class="category-item-active" id="category0" onclick="filtering('none'); filterChanger('category0')"><img src="css/system images/category icons/all-icon.png"><center>All</center></button>
                     <button class="category-item-inactive" id="category1" onclick="filtering(1); filterChanger('category1')"><img src="css/system images/category icons/burger-icon.png">Burgers</button>
                     <button class="category-item-inactive" id="category2" onclick="filtering(2); filterChanger('category2')"><img src="css/system images/category icons/chick'n-icon.png">Chicken</button>
+                    <button class="category-item-inactive" id="category2" onclick="filtering(6); filterChanger('category6')"><img src="css/system images/category icons/rice-meals-icon.png">Rice Meals</button>
                     <button class="category-item-inactive" id="category3" onclick="filtering(3); filterChanger('category3')"><img src="css/system images/category icons/sides-icon.png">Sides</button>
                     <button class="category-item-inactive" id="category5" onclick="filtering(5); filterChanger('category5')"><img src="css/system images/category icons/extras-icon.png">Extras</button>
                 </div> <br>
+
                 <div id="menu-name">
                     Burger Menu
                 </div> <br>
+
                 <div id="item-list">
                     <?php itemDisplay(); ?>
                 </div>
@@ -94,21 +51,22 @@
             </div>
             
             <div id="cart-div">
+
                 <div id="customer-card">
+
                     <div id="customer-img">
+
                         <img src="css/system images/company logo.png" alt="1975 Old-Fashioned Burgers logo" height="60px" width="60px" style="border-radius: 10px;">
                     </div>&nbsp; 
+
                     <div id="customer-name" class="bold">
+                        
                         <span style="color: white;">Hello!</span>
                         <span><?php echo $_SESSION['first_name']; ?></span>
                     </div>
                 </div>
                 
-                <br>
-                <br>
-                <br><br>
-                <br>
-                <br><br>
+                <br><br><br><br><br><br><br>
                 
                 <div id="cart-middle">
                     <span class="bold" style="font-size: 20px;">Your Cart</span><br>
@@ -123,6 +81,8 @@
                         <span class="end-to-end"><span>Delivery Fee</span><span>₱0.00</span></span><br>
                         <hr id="cart-hr">
                         <span class="end-to-end bold"><span>Total</span><span>₱<?php echo $subtotal; ?></span></span>
+                        <input type="radio" name="deliveryMode" id="pickup" value="pickup" class="deliveryBtn" onchange="radio('pickup')" required>
+                        <input type="radio" name="deliveryMode" id="deliver" value="deliver" class="deliveryBtn" onchange="radio('deliver')" required>
                     </div> 
                 </div>
 
@@ -132,8 +92,8 @@
                     Select Pick-up/Deliver: <br><br>
                     <div id="buttons">
                         <div id="upper-button">
-                            <button class="upper button">Pick-up</button>&nbsp;
-                            <button class="upper button"><img src="css/system images/menu icons/delivery.png" alt="Picture of motorcycle" height="60%" width="60%"></button> 
+                            <button class="upper button" id="pickupbtn" onclick="deliveryMode('pickup')">Pick-up</button>&nbsp;
+                            <button class="upper button" id="deliverbtn" onclick="deliveryMode('deliver')"><img src="css/system images/menu icons/delivery.png" alt="Picture of motorcycle" height="60%" width="60%"></button> 
                         </div>
                         <div id="lower-button">
                            <button class="button" id="submit" onclick="checkout()">Proceed to Checkout</button>
@@ -145,12 +105,15 @@
 
        
         <div class='popup' id='popup1'>
+            <div>
+                <img src="" alt="" id="extra-image">
+            </div>
             <div > 
                 <div style="display:flex; justify-content: space-between;">
                     <span>Recommended Extras</span>
                     <span><button href="#" onclick="hide('popup1')">X</button></span>
                 </div><br>
-            Select additional ingredients(optional)<br>
+                Select additional ingredients(optional)<br>
             
                 <div style="display:flex; flex-direction:column;";> 
                     <?php
@@ -292,6 +255,37 @@
 
             function checkout(){
                 window.location.href = "checkout-page.php";
+            }
+
+            function deliveryMode(type){
+                let prefix = document.getElementById(type);
+                let btn = document.getElementById(type+"btn");
+                if(type == "pickup"){
+                    prefix.checked = true;
+                    btn.className = "clicked button";
+                    document.getElementById("deliverbtn").className = "upper button";
+                }
+                else if(type == "deliver"){
+                    prefix.checked = true;
+                    btn.className = "clicked button";
+                    document.getElementById("pickupbtn").className = "upper button";
+                }
+            }
+
+            function radio(type){
+                let prefix = document.getElementById(type);
+                let btn = document.getElementById(type+"btn");
+                if(prefix.checked == true){
+                    btn.className = "clicked button";
+                }
+                else{
+                    btn.className = "upper button";
+                }
+            }
+
+            function getImage(id){
+                // document.getElementById('extra-image').src = document.getElementById(id).src;
+                console.log(document.getElementById(id).getAttribute("src")) ;
             }
         </script>
         
