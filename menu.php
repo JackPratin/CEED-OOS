@@ -2,6 +2,12 @@
     require("php/menuFunctions.php");
     require("php/config.php");
     session_start();
+    if(!isset($_SESSION['current_page'])){
+        $_SESSION['current_page'] = "menu.php"; 
+    }
+    else{
+        $_SESSION['current_page'] = "menu.php";
+    }
 ?>
 <html lang="en">
     <head>
@@ -33,7 +39,7 @@
 
                 <div id="categories">
                     <button class="category-item-active" id="category0" onclick="filtering('none'); filterChanger('category0')"><img src="css/system images/category icons/all-icon.png"><center>All</center></button>
-                    <button class="category-item-inactive" id="category1" onclick="filtering(1); filterChanger('category1')"><img src="css/system images/category icons/burger-icon.png">Burgers</button>
+                    <button class="category-item-inactive" id="category1" onclick="filtering(1); filterChanger('category1')"><img src="css/system images/category icons/burger-icon.png"><center>Burgers</center></button>
                     <button class="category-item-inactive" id="category2" onclick="filtering(2); filterChanger('category2')"><img src="css/system images/category icons/chick'n-icon.png">Chicken</button>
                     <button class="category-item-inactive" id="category2" onclick="filtering(6); filterChanger('category6')"><img src="css/system images/category icons/rice-meals-icon.png">Rice Meals</button>
                     <button class="category-item-inactive" id="category3" onclick="filtering(3); filterChanger('category3')"><img src="css/system images/category icons/sides-icon.png">Sides</button>

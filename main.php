@@ -1,5 +1,6 @@
 <?php
     require("php/config.php");
+    session_start();
 ?>
 <html lang="en">
     <head>
@@ -43,7 +44,7 @@
                     </div>
                 </a>
 
-                <a href="menu.php" target="main-frame" onclick="changeDisplay('order-history.html')">
+                <a href="register.html" target="main-frame" onclick="changeDisplay('order-history.html')">
                     <div class="nav-item">
                         <div class="unselected" id="history-unselected">
                             <img class="nav-vector-history" src="css/system images/nav icons/history.png" alt="History Vector"> 
@@ -69,7 +70,7 @@
             </div>
 
             <div class="iframe-div">
-                <iframe src="menu.php" frameBorder="0" id="main-frame" name="main-frame" onload="source_locator()">
+                <iframe src="<?php echo $_SESSION['current_page']; ?>" frameBorder="0" id="main-frame" name="main-frame" onload="source_locator()">
                 </iframe>
                 <input type="hidden" id="iframe-source" name="" value="menu.html">
             </div>
