@@ -9,6 +9,9 @@
     if($_SESSION['account_type'] == 'customer'){
         echo '<script>window.location="../menu.php"</script>';
     }
+    else if($_SESSION['account_type'] == 'admin'){
+        echo '<script>window.location="../admin-menu.php"</script>';
+    }
     else{
         echo '<script>window.location="../employee-menu.php"</script>';
     }

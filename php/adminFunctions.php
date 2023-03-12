@@ -7,7 +7,7 @@
         while($products = mysqli_fetch_array($products_qry, MYSQLI_ASSOC)){
             $id = $products['product_id'];
             echo"
-            <a href='#' onclick='show(\"popup$products[product_category]\"); addDetails($id); getImage(img$id)' style=\"color:black; width:fit-content;\">
+            <a href='#' onclick='show(\"popup$products[product_category]\"); addDetails($id)' style=\"color:black; width:fit-content;\">
                 <div class='menu-item' id='card$id'>
                     <div class='menu-details'>$products[product_name] <br><br> ₱$products[product_price]</div>
 
@@ -27,26 +27,10 @@
         }
     }
 
-
-    function landingPageDisplay(){
-        require("config.php");
-
-        $products_qry = mysqli_query($con, "SELECT * FROM products_tb WHERE product_category < 4");
-       
-
-        while($products = mysqli_fetch_array($products_qry, MYSQLI_ASSOC)){
-            echo"
-            <div class='menu-item'> 
-                <img src='$products[product_image]' height='100%' width='75%'> <br>
-                $products[product_name] <br>
-            </div>";
-        }
-    }
-
     function cartDisplay(){
         require("config.php");
 
-        $cart_qry = mysqli_query($con, "SELECT * FROM cart_tb WHERE customer_id = $_SESSION[customer_id]");
+        $cart_qry = mysqli_query($con, "SELECT * FROM cart_tb WHERE employee_id = $_SESSION[employee_id]");
 
         if(mysqli_num_rows($cart_qry) == 0){
             echo"<center>Cart is empty.</center>";
@@ -86,7 +70,7 @@
     function subtotal(){
         require("config.php");
 
-        $subtotal_qry = mysqli_query($con, "SELECT * FROM cart_tb WHERE customer_id = $_SESSION[customer_id]");
+        $subtotal_qry = mysqli_query($con, "SELECT * FROM cart_tb WHERE employee_id = $_SESSION[employee_id]");
 
         $subtotal = 0;
         while($item = mysqli_fetch_array($subtotal_qry, MYSQLI_ASSOC)){

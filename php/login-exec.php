@@ -29,14 +29,14 @@
         }
 
         if($type == 'employee'){
+            $_SESSION['first_name']     = $row['first_name'];
+            $_SESSION['account_type']   = $row['employee_type'];
+            $_SESSION['employee_id']    = $row['employee_id'];
             if($row['employee_type'] == 'admin'){
                 echo '<script>window.location="../admin-main.php"</script>';
             }
             else{
-                $_SESSION['first_name']     = $row['first_name'];
-                $_SESSION['employee_id']    = $row['employee_id'];
                 $_SESSION['order_count']    = $row['order_count'];
-                $_SESSION['account_type']   = $row['employee_type'];
                 echo '<script>window.location="../employee-main.php"</script>';
             }
         }

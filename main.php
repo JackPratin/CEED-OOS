@@ -31,7 +31,7 @@
                     </div>
                 </a>
 
-                <a href="checkout-page.php" target="main-frame" onclick="changeDisplay('register.html')">
+                <a href="order-list.php" target="main-frame" onclick="changeDisplay('register.html')">
                     <div class="nav-item">
                         <div class="unselected" id="order-list-unselected">
                             <img class="nav-vector" src="css/system images/nav icons/order-list.png" alt="List Vector">

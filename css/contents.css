@@ -32,8 +32,8 @@ iframe{
 #main-menu{
     display: flex;
     flex-direction: column;
-    width: 62%;
-    padding: 10px;
+    width: 64%;
+    padding: 0;
     overflow-y: auto;
     overflow-x: hidden;
     /* border: 1px black solid; */
@@ -95,12 +95,13 @@ p{
     position: fixed;
     padding: 10px;
     width: 25%;
-    left: 50%;
+    left: 37.5%;
     margin-left: -150px;
     height: 50%;
     top: 35%;
     margin-top: -100px;
     z-index: 20;
+    border-radius: 15px;
   }
 
 .popup:before {
@@ -241,6 +242,11 @@ p{
         display: flex;
         max-width: 100%;
         overflow-x: scroll ;
+    }
+
+    #categories::-webkit-scrollbar{
+        display: none;
+        /* width: 0 !important */
     }
 
     .category-item-inactive{
@@ -393,6 +399,17 @@ p{
         width: 80%;
         color: white;
         background-color: #FFAE42;
+    }
+
+    .deliveryBtn{
+        display: none;
+    }
+
+    .clicked{
+        width: 38%;
+        background-color: #FFA200;
+        border: 1px solid white;
+        color: white;
     }
 }
 @media only screen and (max-width: 900px) {
