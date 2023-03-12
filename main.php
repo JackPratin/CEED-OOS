@@ -23,7 +23,7 @@
             <div class="navigation-div">
                 <img src="css/system images/company logo.png" alt="1975 Old-Fashioned Burgers logo" class="side-logo">
                 
-                <a href="menu.php" target="main-frame" onclick="changeDisplay('menu.html')">
+                <a href="menu.php" target="main-frame" onclick="changeDisplay('menu.php')">
                     <div class="nav-item">
                         <div class="unselected" id="menu-unselected">
                             <img class="nav-vector" src="css/system images/nav icons/menu.png" alt="Menu Vector">
@@ -35,7 +35,7 @@
                     </div>
                 </a>
 
-                <a href="order-list.php" target="main-frame" onclick="changeDisplay('register.html')">
+                <a href="order-list.php" target="main-frame" onclick="changeDisplay('order-list.php')">
                     <div class="nav-item">
                         <div class="unselected" id="order-list-unselected">
                             <img class="nav-vector" src="css/system images/nav icons/order-list.png" alt="List Vector">
@@ -47,7 +47,7 @@
                     </div>
                 </a>
 
-                <a href="register.html" target="main-frame" onclick="changeDisplay('order-history.html')">
+                <a href="order-history.php" target="main-frame" onclick="changeDisplay('order-history.php')">
                     <div class="nav-item">
                         <div class="unselected" id="history-unselected">
                             <img class="nav-vector-history" src="css/system images/nav icons/history.png" alt="History Vector"> 
@@ -75,7 +75,7 @@
             <div class="iframe-div">
                 <iframe src="<?php echo $_SESSION['current_page']; ?>" frameBorder="0" id="main-frame" name="main-frame" onload="source_locator()">
                 </iframe>
-                <input type="hidden" id="iframe-source" name="" value="menu.html">
+                <input type="hidden" id="iframe-source" name="" value="<?php echo $_SESSION['current_page']; ?>">
             </div>
         </div>
 
