@@ -31,13 +31,15 @@ li a {
     text-decoration: none;
 }
 
-li a:hover:not(.active) {
-    background-color: #e6a32e;
+li a:hover:not(.admin-nav-active) {
+    background-color: rgb(255, 190, 90);
     color: white;
 }
 
-.active {
-    background-color: #FFA200;
+.admin-nav-active {
+    background-color: #e6a32e;
+    color: white;
+    /* background-color: #FFA200; */
 }
 
 /* iframe */
@@ -46,10 +48,11 @@ li a:hover:not(.active) {
     position: fixed;
     min-height: 100%;
     width: 89%;
+    overflow-y: scroll;
 }
 .admin-iframe{
     padding:0;
     position: fixed;
     width: 89%;
-    min-height: 100%;
+    height: 90%;
 }

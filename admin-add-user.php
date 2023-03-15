@@ -1,3 +1,4 @@
+
 <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -6,45 +7,43 @@
         <script src="https://kit.fontawesome.com/484fbcb614.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Montserrat'>
         <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
-        <link rel="stylesheet" type="text/css" href="css/login page.css">
+        <link rel="stylesheet" type="text/css" href="css/employee login page.css">
         <link rel="icon" type="image/x-icon" href="css/system images/favicon.ico">
-        <title>Customer Registration</title>
+        <title>Login Page</title>
     </head>
+    
     <body>
-        <div class="logo-container">
-            <img src="css/system images/company logo.png" alt="1975 Old-Fashioned Burgers logo" class="logo register-logo">
+        <div class="center">
+            <div>
+                <form>
+                    <button type="button" style="position: absolute;right: 5px;" onclick="location.href='index.php'" class="button">Login as Customer</button>
+                    <br>
+                    <center><div class="logocontainer">
+                        <img src="css/system images/company logo.png" alt="1975 Old-Fashioned Burgers logo" class="logo">
+                    </div></center>
+                    <h1>EMPLOYEE LOGIN</h1>
+                    <div class="text_field">
+                        <i class="fa-solid fa-circle-user"></i>
+                        <input type="text" form="login" name="username" required>
+                        <span></span>
+                        <label>Username</label>    
+                    </div>
+
+                    <div class="text_field">
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" form="login" name="password" required>
+                        <span></span>
+                        <label>Password</label>
+                    </div>
+                </form>
+                
+                <input type="submit" value="LOGIN" form="login">
+                <input type="hidden" name='type' value="employee" form="login">
+
+                <form action="php/login-exec.php" method="post" id="login" name="login"></form>
+                
+            </div>
         </div>
-        
-        <div class="center regForm">
-            <form action="php/customerRegistration.php" method="post" id="form"><br><br>
-                <a class="go-back" href="index.php">Go Back</a>
-                <div id="signUp">Sign up with us!</div> <br>
-                <div>
-                    User details <br>
-                    <input type="text" name="fname" class="regInput" placeholder="First Name">
-                    <input type="text" name="mi" class="regInput" maxlength="2" placeholder="Middle Initial">
-                    <input type="text" name="lname" class="regInput" placeholder="Last Name">
-                </div> <br>
-        
-                <div>
-                    Login & Contact Details <br>
-                    <input type="text" name="email" class="regInput" placeholder="Email"> 
-                    <input type="text" name="contact" class="regInput" placeholder="Contact Number"> <br>
-                    <input type="text" name="username" class="regInput" placeholder="Username">
-                    <input type="password" name="password" class="regInput" placeholder="Password"> 
-                    <input type="password" name="conPassword" class="regInput" placeholder="Confirm Password">
-                </div> <br>
-        
-                <div>
-                    Address Details <br>
-                    <input type="text" name="address" class="regInput" placeholder="Compound/Street/Subdivision"> 
-                    <input type="text" name="brgy" class="regInput" placeholder="Barangay">
-                    <input type="text" name="city" class="regInput" placeholder="City">
-                </div> <br>
-        
-                <input type="submit" value="Create your Account" id="regSubmit">
-            </form>
-        </div>
-        
+    
     </body>
 </html>

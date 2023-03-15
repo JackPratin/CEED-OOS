@@ -18,15 +18,38 @@
 <body>
 
 <ul>
-  <li><a href="#home">Stock Monitoring</a></li>
-  <li><a href="#news">Sales Report</a></li>
-  <li><a href="#contact">Add an account</a></li>
-  <li><a href="#about">About</a></li>
+  <li><a href="admin-stock-monitoring.php" onclick="changeIframe('stockMonitoring')" id="stockMonitoring" target="adminIframe">Stock Monitoring</a></li>
+  <li><a href="admin-sales-report.php" onclick="changeIframe('salesReport')" id="salesReport" target="adminIframe">Sales Report</a></li>
+  <li><a href="admin-add-user.php" onclick="changeIframe('addAccount')" id="addAccount" target="adminIframe">Add an account</a></li>
 </ul>
 
 <div class="admin-iframe-div">
-    <iframe src="admin-add-user.php" frameborder="0" class="admin-iframe"></iframe>
+    <iframe src="admin-add-user.php" frameborder="0" id="adminIframe"  name="adminIframe" class="admin-iframe"></iframe>
 </div>
+
+<script src="js/admin-function.js"></script>
+
+<script>
+    function changeIframe(option){
+    if(option == "stockMonitoring"){
+        document.getElementById("stockMonitoring").classList = "admin-nav-active";
+         document.getElementById("salesReport").classList = "";
+         document.getElementById("addAccount").classList = "";
+    }
+    else if(option == "salesReport"){
+        document.getElementById("salesReport").classList = "admin-nav-active";
+        document.getElementById("stockMonitoring").classList = "";
+        document.getElementById("addAccount").classList = "";
+    }
+    else if(option == "addAccount"){
+        document.getElementById("addAccount").classList = "admin-nav-active";
+        document.getElementById("stockMonitoring").classList = "";
+         document.getElementById("salesReport").classList = "";
+    }
+
+    document.getElementById("adminIframe").value = source;
+    }
+</script>
     
 </body>
 </html>
