@@ -128,7 +128,7 @@ input[type="submit"] {
     font-weight: bold;
     width: 100%;
     height: 40px;
-    border: 1px solid;
+    border: none;
     border-radius: 26px;
     background-color: #FFAE42;
     font-size: 22px;
@@ -138,7 +138,7 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-    border-color: #FFAE42;
+    border: 1px solid;
     transition: .2s;
 }
 
@@ -154,7 +154,7 @@ input[type="submit"]:hover {
     font-weight: bold;
     width: 30%;
     height: 40px;
-    border: 1px solid;
+    border: none;
     border-radius: 26px;
     background-color: #FFAE42;
     font-size: 12px;
@@ -163,7 +163,7 @@ input[type="submit"]:hover {
 }
 
 .button:hover {
-    border-color: #FFAE42;
+    border: 1px solid;
     transition: .2s;
 }
 
@@ -191,6 +191,12 @@ input[type="submit"]:hover {
 #regSubmit {
     min-width: 50%;
     max-width: 75%;
+    border: none;
+}
+
+#regSubmit:hover {
+    border: 1px solid;
+    transition: .2s;
 }
 
 .logo-container {
@@ -266,6 +272,9 @@ input[type="submit"]:hover {
         overflow-y: scroll;
         overflow-x: hidden;
     }
+    body {
+        vertical-align: middle;
+    }
     .regForm {
         display: flex;
         flex-wrap: wrap;
@@ -285,7 +294,7 @@ input[type="submit"]:hover {
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin-top: 50px;
+        margin-top: 100px;
     }
     #regSubmit {
         min-width: 80%;
@@ -302,13 +311,9 @@ input[type="submit"]:hover {
     }
     .logo-container {
         position: absolute;
-        left: 12.5%;
-        bottom: 25%;
+        left: 25.5%;
         display: flex;
-        justify-content: center;
         width: 50%;
-        height: 50%;
-        padding: 50px;
         z-index: 1;
     }
     .register-logo {
@@ -316,7 +321,20 @@ input[type="submit"]:hover {
         height: fit-content;
         border-radius: 50%;
         margin-top: -50px;
-        margin-bottom: 0;
-        bottom: 20%;
+    }
+    .center {
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        /* top: 50%; */
+        left: 62.5%;
+        bottom: 0%;
+        /* transform: translate(70%, -50%); */
+        background: white;
+        width: 37.5%;
+        height: 100%;
+        border-top-left-radius: 26px;
+        border-bottom-left-radius: 26px;
+        /* padding: 600px; */
     }
 }
