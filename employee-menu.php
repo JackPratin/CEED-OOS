@@ -82,6 +82,7 @@
                     <div id="buttons">
                         <div id="upper-button">
                             <button class="upper button">Pick-up</button>&nbsp;
+                            <button class="upper button">Walk in</button>&nbsp;
                             <button class="upper button"><img src="css/system images/menu icons/delivery.png" alt="Picture of motorcycle" height="60%" width="60%"></button> 
                         </div>
                         <div id="lower-button">

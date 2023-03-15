@@ -43,7 +43,7 @@
                     </div>
                 </a>
 
-                <a href="order-history.html" target="main-frame" onclick="changeDisplay('order-history.html')">
+                <a href="order-history.php" target="main-frame" onclick="changeDisplay('order-history.php')">
                     <div class="nav-item">
                         <div class="unselected" id="history-unselected">
                             <img class="nav-vector-history" src="css/system images/nav icons/history.png" alt="History Vector"> 
@@ -52,6 +52,18 @@
                             <img class="nav-vector-history" src="css/system images/nav icons/history-selected.png" alt="History Vector"> 
                         </div> <br>
                         <center>Order History</center>
+                    </div>
+                </a>
+
+                <a href="admin-functions.php" target="main-frame" onclick="changeDisplay('admin-functions.php')">
+                    <div class="nav-item">
+                        <div class="unselected" id="history-unselected">
+                            <img class="nav-vector-history" src="css/system images/nav icons/history.png" alt="History Vector"> 
+                        </div>
+                        <div class="selected" id="history-selected">
+                            <img class="nav-vector-history" src="css/system images/nav icons/history-selected.png" alt="History Vector"> 
+                        </div> <br>
+                        <center>Admin Functions</center>
                     </div>
                 </a>
 
