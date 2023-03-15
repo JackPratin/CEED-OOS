@@ -463,6 +463,13 @@ p{
     .order-list{
         background-color: transparent;
     }
+
+    /* ORDER HISTORY */
+
+    .header{
+        color: white;
+        background-color: orange;
+    }
       
 }
 @media only screen and (max-width: 900px) {

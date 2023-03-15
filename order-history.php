@@ -34,6 +34,29 @@
                     </center>
                 </div> <br>
             </div>
+
+            <table>
+                <tr class="header">
+                    <th> ID </th>
+                    <th> Name </th>
+                    <th> Payment </th>
+                    <th> Date </th>
+                    <th> Type </th>
+                    <th> Status </th>
+                    <th> Total </th>
+                    <th> Action </th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Jan Patrick</td>
+                    <td>COD</td>
+                    <td>1</td>
+                    <td>Jan Patrick</td>
+                    <td>COD</td>
+                    <td>Jan Patrick</td>
+                    <td>COD</td>
+                </tr>
+            </table>
             
             <div id="order-list cart-div">
                 <div id="customer-card">
