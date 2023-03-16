@@ -11,15 +11,16 @@ body {
 }
 
 #company-logo {
-    height: 100%;
+    display: flex;
+    height: 70%;
     max-width: 50%;
     overflow-y: scroll;
     position: absolute;
     left: 6%;
-    display: flex;
-    flex-wrap: wrap;
+    margin-top: 30px;
     /* align-items: center; */
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 #company-logo::-webkit-scrollbar {
@@ -35,13 +36,12 @@ body {
 }
 
 .center {
-    display: flex;
     align-items: center;
     justify-content: center;
     position: absolute;
     /* top: 50%; */
     left: 62.5%;
-    bottom: 0%;
+    bottom: -13px;
     /* transform: translate(70%, -50%); */
     background: white;
     width: 37.5%;
@@ -60,6 +60,35 @@ body {
 .center form {
     padding: 0 40px;
     box-sizing: border-box;
+    margin-top: 40px;
+}
+
+.center2 {
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    /* top: 50%; */
+    left: 62.5%;
+    bottom: -13px;
+    /* transform: translate(70%, -50%); */
+    background: white;
+    width: 37.5%;
+    height: 100%;
+    border-top-left-radius: 26px;
+    border-bottom-left-radius: 26px;
+    /* padding: 600px; */
+}
+
+.center2 h1 {
+    text-align: center;
+    padding: 0;
+    margin-top: 5px;
+}
+
+.center2 form {
+    padding: 0 40px;
+    box-sizing: border-box;
+    margin-top: 40px;
 }
 
 form .text_field {
@@ -126,7 +155,7 @@ form .text_field {
 
 input[type="submit"] {
     font-weight: bold;
-    width: 100%;
+    width: 50%;
     height: 40px;
     border: none;
     border-radius: 26px;
@@ -272,9 +301,6 @@ input[type="submit"]:hover {
         overflow-y: scroll;
         overflow-x: hidden;
     }
-    body {
-        vertical-align: middle;
-    }
     .regForm {
         display: flex;
         flex-wrap: wrap;
@@ -294,11 +320,12 @@ input[type="submit"]:hover {
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin-top: 100px;
+        margin-top: 60px;
     }
     #regSubmit {
         min-width: 80%;
         max-width: 90%;
+        margin-top: -10px;
     }
     .go-back {
         padding: 30px;
@@ -313,28 +340,91 @@ input[type="submit"]:hover {
         position: absolute;
         left: 25.5%;
         display: flex;
-        width: 50%;
         z-index: 1;
-    }
-    .register-logo {
-        width: fit-content;
-        height: fit-content;
+        width: 50%;
+        height: 30%;
         border-radius: 50%;
-        margin-top: -50px;
+        top: 70px;
     }
     .center {
         align-items: center;
         justify-content: center;
         position: absolute;
         /* top: 50%; */
-        left: 62.5%;
         bottom: 0%;
         /* transform: translate(70%, -50%); */
         background: white;
-        width: 37.5%;
+        width: 95%;
         height: 100%;
         border-top-left-radius: 26px;
-        border-bottom-left-radius: 26px;
+        border-top-right-radius: 26px;
         /* padding: 600px; */
+    }
+    .center2 {
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        /* top: 50%; */
+        /* transform: translate(70%, -50%); */
+        background: white;
+        left: -0%;
+        width: 100%;
+        height: 100%;
+        border-top-left-radius: 26px;
+        border-top-right-radius: 26px;
+        border-bottom-left-radius: 0px;
+        /* padding: 600px; */
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: -1200px;
+    }
+    .center2 form {
+        padding: 0 40px;
+        box-sizing: border-box;
+        margin-top: 230px;
+    }
+    #company-logo {
+        display: flex;
+        height: 90%;
+        max-width: 50%;
+        position: absolute;
+        left: 25%;
+        margin-top: 30px;
+        /* align-items: center; */
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .logo {
+        position: absolute;
+        left: 25.5%;
+        display: flex;
+        z-index: 1;
+        width: 50%;
+        height: 30%;
+        border-radius: 50%;
+        top: 10px;
+    }
+    #loginButton {
+        margin-top: -190px;
+        width: 50%;
+        margin-left: 100px;
+    }
+    #facebook {
+        margin-top: -260px;
+        width: 50%;
+        margin-left: -260px;
+    }
+    #guest {
+        margin-top: -170px;
+        width: 50%;
+        margin-left: 10px;
+    }
+    #or {
+        margin-top: -380px;
+        width: 50%;
+        margin-left: 60px;
+    }
+    button.button {
+        margin-bottom: 50px;
     }
 }
