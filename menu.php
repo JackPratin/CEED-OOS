@@ -263,31 +263,9 @@
                 window.location.href = "checkout-page.php";
             }
 
-            function deliveryMode(type){
-                let prefix = document.getElementById(type);
-                let btn = document.getElementById(type+"btn");
-                if(type == "pickup"){
-                    prefix.checked = true;
-                    btn.className = "clicked button";
-                    document.getElementById("deliverbtn").className = "upper button";
-                }
-                else if(type == "deliver"){
-                    prefix.checked = true;
-                    btn.className = "clicked button";
-                    document.getElementById("pickupbtn").className = "upper button";
-                }
-            }
+           
 
-            function radio(type){
-                let prefix = document.getElementById(type);
-                let btn = document.getElementById(type+"btn");
-                if(prefix.checked == true){
-                    btn.className = "clicked button";
-                }
-                else{
-                    btn.className = "upper button";
-                }
-            }
+            
 
             function getImage(id){
                 // document.getElementById('extra-image').src = document.getElementById(id).src;

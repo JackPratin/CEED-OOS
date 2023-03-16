@@ -1,5 +1,11 @@
 <?php
     require("php/config.php");
+    if(!isset($_SESSION['current_admin_page'])){
+        $_SESSION['current_admin_page'] = "admin-stock-monitoring.php"; 
+    }
+    else{
+        $_SESSION['current_admin_page'] = substr($_SERVER["SCRIPT_NAME"],strrpos($_SERVER["SCRIPT_NAME"],"/")+1); 
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">

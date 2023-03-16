@@ -33,9 +33,9 @@
 
                 <div id="categories">
                     <button class="category-item-active" id="category0" onclick="filtering('none'); filterChanger('category0')"><img src="css/system images/category icons/all-icon.png"><center>All</center></button>
-                    <button class="category-item-inactive" id="category1" onclick="filtering(1); filterChanger('category1')"><img src="css/system images/category icons/burger-icon.png">Burgers</button>
+                    <button class="category-item-inactive" id="category1" onclick="filtering(1); filterChanger('category1')"><img src="css/system images/category icons/burger-icon.png"><center>Burgers</center></button>
                     <button class="category-item-inactive" id="category2" onclick="filtering(2); filterChanger('category2')"><img src="css/system images/category icons/chick'n-icon.png">Chicken</button>
-                    <button class="category-item-inactive" id="category2" onclick="filtering(6); filterChanger('category6')"><img src="">Rice Meals</button>
+                    <button class="category-item-inactive" id="category2" onclick="filtering(6); filterChanger('category6')"><img src="css/system images/category icons/rice-meals-icon.png">Rice Meals</button>
                     <button class="category-item-inactive" id="category3" onclick="filtering(3); filterChanger('category3')"><img src="css/system images/category icons/sides-icon.png">Sides</button>
                     <button class="category-item-inactive" id="category5" onclick="filtering(5); filterChanger('category5')"><img src="css/system images/category icons/extras-icon.png">Extras</button>
                 </div> <br>
@@ -81,6 +81,9 @@
                         <span class="end-to-end"><span>Delivery Fee</span><span>₱0.00</span></span><br>
                         <hr id="cart-hr">
                         <span class="end-to-end bold"><span>Total</span><span>₱<?php echo $subtotal; ?></span></span>
+                        <input type="radio" name="deliveryMode" id="pickup" value="pickup" class="deliveryBtn" onchange="radio('pickup')" required>
+                        <input type="radio" name="deliveryMode" id="walkin" value="walkin" class="deliveryBtn" onchange="radio('walkin')" required>
+                        <input type="radio" name="deliveryMode" id="deliver" value="deliver" class="deliveryBtn" onchange="radio('deliver')" required>
                     </div> 
                 </div>
 
@@ -89,10 +92,10 @@
                 <div id="cart-bottom">
                     Select Pick-up/Deliver: <br><br>
                     <div id="buttons">
-                        <div id="upper-button">
-                            <button class="upper button">Pick-up</button>&nbsp;
-                            <button class="upper button">Walk in</button>&nbsp;
-                            <button class="upper button"><img src="css/system images/menu icons/delivery.png" alt="Picture of motorcycle" height="60%" width="60%"></button> 
+                    <div id="upper-button">
+                            <button class="upper button" id="pickupbtn" onclick="deliveryMode('pickup')">Pick-up</button>&nbsp;
+                            <button class="upper button" id="walkinbtn" onclick="deliveryMode('walkin')">Walk in</button>&nbsp;
+                            <button class="upper button" id="deliverbtn" onclick="deliveryMode('deliver')"><img src="css/system images/menu icons/delivery.png" alt="Picture of motorcycle" height="60%" width="60%"></button> 
                         </div>
                         <div id="lower-button">
                            <button class="button" id="submit" onclick="checkout()">Proceed to Checkout</button>

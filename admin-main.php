@@ -1,5 +1,9 @@
 <?php
     require("php/config.php");
+    session_start();
+    if(!isset($_SESSION['current_page'])){
+        $_SESSION['current_page'] = "admin-menu.php"; 
+    }
 ?>
 <html lang="en">
     <head>
@@ -19,7 +23,7 @@
             <div class="navigation-div">
                 <img src="css/system images/company logo.png" alt="1975 Old-Fashioned Burgers logo" class="side-logo">
                 
-                <a href="admin-menu.php" target="main-frame" onclick="changeDisplay('menu.html')">
+                <a href="admin-menu.php" target="main-frame" onclick="changeDisplay('admin-menu.php')">
                     <div class="nav-item">
                         <div class="unselected" id="menu-unselected">
                             <img class="nav-vector" src="css/system images/nav icons/menu.png" alt="Menu Vector">
@@ -31,7 +35,7 @@
                     </div>
                 </a>
 
-                <a href="register.html" target="main-frame" onclick="changeDisplay('register.html')">
+                <a href="admin-order-list.php" target="main-frame" onclick="changeDisplay('admin-order-list.php')">
                     <div class="nav-item">
                         <div class="unselected" id="order-list-unselected">
                             <img class="nav-vector" src="css/system images/nav icons/order-list.png" alt="List Vector">
@@ -43,7 +47,7 @@
                     </div>
                 </a>
 
-                <a href="order-history.php" target="main-frame" onclick="changeDisplay('order-history.php')">
+                <a href="admin-order-history.php" target="main-frame" onclick="changeDisplay('admin-order-history.php')">
                     <div class="nav-item">
                         <div class="unselected" id="history-unselected">
                             <img class="nav-vector-history" src="css/system images/nav icons/history.png" alt="History Vector"> 
@@ -57,11 +61,11 @@
 
                 <a href="admin-functions.php" target="main-frame" onclick="changeDisplay('admin-functions.php')">
                     <div class="nav-item">
-                        <div class="unselected" id="history-unselected">
-                            <img class="nav-vector-history" src="css/system images/nav icons/history.png" alt="History Vector"> 
+                        <div class="unselected" id="admin-others-unselected">
+                            <img class="nav-vector-history" src="css/system images/nav icons/admin-others.png" alt="History Vector"> 
                         </div>
-                        <div class="selected" id="history-selected">
-                            <img class="nav-vector-history" src="css/system images/nav icons/history-selected.png" alt="History Vector"> 
+                        <div class="selected" id="admin-others-selected">
+                            <img class="nav-vector-history" src="css/system images/nav icons/admin-others-selected.png" alt="History Vector"> 
                         </div> <br>
                         <center>Admin Functions</center>
                     </div>
@@ -81,9 +85,9 @@
             </div>
 
             <div class="iframe-div">
-                <iframe src="admin-menu.php" frameBorder="0" id="main-frame" name="main-frame" onload="source_locator()">
+                <iframe src="admin-menu.php" frameBorder="0" id="main-frame" name="main-frame" onload="admin_source_locator()">
                 </iframe>
-                <input type="hidden" id="iframe-source" name="" value="menu.html">
+                <input type="hidden" id="iframe-source" name="" value="<?php echo $_SESSION['current_page']; ?>">
             </div>
         </div>
 

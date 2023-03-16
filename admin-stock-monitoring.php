@@ -1,5 +1,8 @@
 <?php
     require("php/config.php");
+    if(!isset($_SESSION['current_admin_page'])){
+        $_SESSION['current_admin_page'] = "admin-stock-monitoring.php"; 
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,7 +20,8 @@
             <tr>
                 <th>Name of ingredient</th>
                 <th>Current quantity</th>
-                <th colspan="3">Actions</th>
+                <th></th>
+                <th colspan="2">Actions</th>
             </tr>
             <?php
                 $ingredient_qry = mysqli_query($con, "SELECT * FROM `products_tb` WHERE product_category = 4");
