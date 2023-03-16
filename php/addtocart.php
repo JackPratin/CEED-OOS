@@ -11,15 +11,16 @@
     if($_SESSION['account_type'] == 'customer'){
         $id_type = 'customer_id';
         $qry = "SELECT * FROM `cart_tb` WHERE customer_id = $_SESSION[$id_type] AND product_id = $id AND cart_number = $_SESSION[order_count]";
-        
-        $existing_qry = mysqli_query($con, $qry);
+    }
+    else if($_SESSION['account_type'] == 'guest'){
+        $id_type = 'guest_id';
+        $qry = "SELECT * FROM `cart_tb` WHERE guest_id = $_SESSION[$id_type] AND product_id = $id AND cart_number = $_SESSION[order_count]";
     }
     else{
         $id_type = 'employee_id';
         $qry = "SELECT * FROM `cart_tb` WHERE employee_id = $_SESSION[$id_type] AND product_id = $id";
-
-        $existing_qry = mysqli_query($con, $qry);
     }
+        $existing_qry = mysqli_query($con, $qry);
 
     //updating tha existing item's quantity or adding the item to the cart
     if(mysqli_num_rows($existing_qry) > 0){
@@ -28,6 +29,9 @@
 
 
         if($_SESSION['account_type'] == 'customer'){
+            mysqli_query($con, "UPDATE `cart_tb` SET `quantity`='$quantity' WHERE  `$id_type` = $_SESSION[$id_type] AND product_id = $id AND cart_number = $_SESSION[order_count]");
+        }
+        else if($_SESSION['account_type'] == 'guest'){
             mysqli_query($con, "UPDATE `cart_tb` SET `quantity`='$quantity' WHERE  `$id_type` = $_SESSION[$id_type] AND product_id = $id AND cart_number = $_SESSION[order_count]");
         }
         else{
@@ -51,6 +55,9 @@
     }
     else if($_SESSION['account_type'] == 'admin'){
         echo '<script>window.location="../admin-menu.php"</script>';
+    }
+    else if($_SESSION['account_type'] == 'guest'){
+        echo '<script>window.location="../guest-menu.php"</script>';
     }
     else{
         echo '<script>window.location="../employee-menu.php"</script>';
