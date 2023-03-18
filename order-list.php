@@ -26,30 +26,17 @@
         <div id="menu-div">
             <div id="main-menu">
                 <div id="top-main-menu">
-                    <p id="choose-category">
+                    <h1 id="choose-category">
                         Track Order
-                    </p>
+                    </h1>
                     <center>
                         <!-- <input type="search" name="" id="search" placeholder="Search category or menu..."> -->
                     </center>
                 </div> <br>
                 
-                <div class="tracking">
-                    <div class="order-card">
-                        Order #123<br>
-                        7 Apr 2023, 06:09PM<br>
-                        <hr>
-                        <span class="order-card-bottom">x2 Items<br>₱ 214.00</span>
-                    </div>
-
-                    <div class="order-status">
-                        <div class="circle"></div> 
-                        <div class="vertical-line"></div>
-                        <div class="circle-active circle"></div>
-                        <div class="vertical-line"></div>
-                        <div class="circle"></div>
-                    </div>
-                </div>
+                <?php
+                    trackOrderDisplay();
+                ?>
 
             </div>
             

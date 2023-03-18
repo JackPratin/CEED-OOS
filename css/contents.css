@@ -421,7 +421,7 @@ p{
     .tracking{
         display: flex;
         height: 100%;
-        border: red 1px solid;
+        /* border: red 1px solid; */
     }
 
     .order-card{

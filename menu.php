@@ -87,8 +87,9 @@
                         <span class="end-to-end"><span>Delivery Fee</span><span>₱0.00</span></span><br>
                         <hr id="cart-hr">
                         <span class="end-to-end bold"><span>Total</span><span>₱<?php echo $subtotal; ?></span></span>
-                        <input type="radio" name="deliveryMode" id="pickup" value="pickup" class="deliveryBtn" onchange="radio('pickup')" required>
-                        <input type="radio" name="deliveryMode" id="deliver" value="deliver" class="deliveryBtn" onchange="radio('deliver')" required>
+                        <input type="radio" name="deliveryMode" id="pickup" value="pickup" class="deliveryBtn" onchange="radio('pickup')" required form="checkout">
+                        <input type="radio" name="deliveryMode" id="deliver" value="deliver" class="deliveryBtn" onchange="radio('deliver')" required form="checkout">
+                        <input type="hidden" name="subtotal" value="<?php echo $subtotal; ?>" form="checkout">
                     </div> 
                 </div>
 
@@ -108,6 +109,7 @@
                 </div>
             </div>
         </div>
+        <form action="checkout-page.php" method="post" id="checkout"></form>
 
        
         <div class='popup' id='popup1'>
@@ -260,7 +262,7 @@
             }
 
             function checkout(){
-                window.location.href = "checkout-page.php";
+                document.getElementById("checkout").submit();
             }
 
            

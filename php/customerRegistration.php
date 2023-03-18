@@ -14,7 +14,7 @@
   
     $hash_password = hash('sha256', $password);
 
-    mysqli_query($con, "INSERT INTO `customer_tb`(`first_name`, `middle_initial`, `last_name`, `contact_number`, `email`, `order_count`, `address`, `baranggay`, `city`, `username`, `password`) VALUES ('$fname','$mi','$lname','$contact','$email','0','$address','$brgy','$city','$username', '$hash_password'
+    mysqli_query($con, "INSERT INTO `customer_tb`(`first_name`, `middle_initial`, `last_name`, `contact_number`, `email`, `order_count`, `address`, `baranggay`, `city`, `username`, `password`) VALUES ('$fname','$mi','$lname','$contact','$email','1','$address','$brgy','$city','$username', '$hash_password'
     )");
 
     

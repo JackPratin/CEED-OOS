@@ -2,6 +2,10 @@
     require("config.php");
     session_start();
 
+    if(!isset($_SESSION['order_count'])){
+        $_SESSION['order_count'] = 0;
+    }
+
     $id     = mysqli_real_escape_string($con, $_POST['id']);
     $price     = mysqli_real_escape_string($con, $_POST['price']);
     $qty = mysqli_real_escape_string($con, $_POST['quantity']);
@@ -31,22 +35,30 @@
         if($_SESSION['account_type'] == 'customer'){
             mysqli_query($con, "UPDATE `cart_tb` SET `quantity`='$quantity' WHERE  `$id_type` = $_SESSION[$id_type] AND product_id = $id AND cart_number = $_SESSION[order_count]");
         }
-        else if($_SESSION['account_type'] == 'guest'){
-            mysqli_query($con, "UPDATE `cart_tb` SET `quantity`='$quantity' WHERE  `$id_type` = $_SESSION[$id_type] AND product_id = $id AND cart_number = $_SESSION[order_count]");
-        }
         else{
             mysqli_query($con, "UPDATE `cart_tb` SET `quantity`='$quantity' WHERE  `$id_type` = $_SESSION[$id_type] AND product_id = $id");
         }
         
     }
     else{
-        $itemNumber = itemNumber($qry);
+        $itemNumber = itemNumber("SELECT * FROM `cart_tb` WHERE $id_type = $_SESSION[$id_type] AND cart_number = $_SESSION[order_count] ORDER BY cart_id DESC LIMIT 1");
+
         mysqli_query($con, "INSERT INTO `cart_tb`(`$id_type`, `product_id`, `cart_number`, `quantity`, `price`, `item_number`) VALUES ('$_SESSION[$id_type]','$id','$_SESSION[order_count]','$qty','$price', '$itemNumber')"); 
     }
 
+
     function itemNumber($qry){
         require("config.php");
-        $itemQry = mysqli_query($con, $qry." ORDER BY cart_id DESC LIMIT 1");
+        $itemQry = mysqli_query($con, $qry);
+        $num = mysqli_fetch_array($itemQry, MYSQLI_ASSOC);
+        if(mysqli_num_rows($itemQry) != 0){
+            return $num['item_number']+1;
+        }
+        else{
+            return 0;
+        }
+
+        
     }
 
 

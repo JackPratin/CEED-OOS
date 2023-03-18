@@ -27,7 +27,6 @@
         }
     }
 
-
     function landingPageDisplay(){
         require("config.php");
 
@@ -95,6 +94,38 @@
 
         return $subtotal;
 
+    }
+
+    function trackOrderDisplay(){
+        require("config.php");
+        $qry = mysqli_query($con, "SELECT * FROM order_info WHERE `customer_id` = $_SESSION[customer_id] AND `status` = 'pending' OR `status` = 'deliver'");
+
+
+        if(mysqli_num_rows($qry) == 0){
+            echo"<h2>No active order</h2>";
+        }
+        else{
+            echo"
+                <div class='tracking'>
+                    <div class='order-card'>
+                        Order 1#<br>
+                        17 Mar 2023, 04:00PM<br>
+                        1975 Classic<br>
+                        <hr>
+                        <span class='order-card-bottom'>x1 Items<br>₱ 105.00</span>
+                    </div>
+
+                    <div class='order-status'>
+                        <div class='circle-active circle'></div> 
+                        <div class='vertical-line'></div>
+                        <div class='circle'></div>
+                        <div class='vertical-line'></div>
+                        <div class='circle'></div>
+                    </div>
+                </div>
+            ";
+        }
+        
     }
 
 
