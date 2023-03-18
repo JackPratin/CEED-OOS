@@ -4,9 +4,9 @@
 
     $_SESSION['guest_id'] = 0;
 
-    $cart_qry = mysqli_query($con, "SELECT * FROM cart_tb WHERE guest_id != NULL ORDER BY cart_id DESC LIMIT 1");
-    $order_qry = mysqli_query($con, "SELECT * FROM order_table WHERE guest_id != NULL ORDER BY order_id DESC LIMIT 1");
-    $history_qry = mysqli_query($con, "SELECT * FROM order_history WHERE guest_id != NULL ORDER BY order_id DESC LIMIT 1");
+    $cart_qry = mysqli_query($con, "SELECT * FROM cart_tb WHERE guest_id IS NOT NULL ORDER BY cart_id DESC LIMIT 1");
+    $order_qry = mysqli_query($con, "SELECT * FROM order_table WHERE guest_id IS NOT NULL ORDER BY order_id DESC LIMIT 1");
+    $history_qry = mysqli_query($con, "SELECT * FROM order_history WHERE guest_id IS NOT NULL ORDER BY order_id DESC LIMIT 1");
 
     if(mysqli_num_rows($history_qry) > 0){
         $id = mysqli_fetch_row($history_qry);
