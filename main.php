@@ -17,7 +17,7 @@
         <link rel="stylesheet" href="css/navigation.css">
         <title>Menu</title>
     </head>
-    
+
     <body>
         <div id="main-div">
             <div class="navigation-div">
