@@ -546,8 +546,8 @@ input[type="submit"]:hover {
     }
     .logo2 {
         position: absolute;
-        top: 10%;
-        left: 25.5%;
+        top: 0%;
+        left: 15.5%;
         display: flex;
         z-index: 1;
         width: 50%;
