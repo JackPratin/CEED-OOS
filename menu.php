@@ -46,6 +46,18 @@
                     <button class="category-item-inactive" id="category5" onclick="filtering(5); filterChanger('category5')"><img src="css/system images/category icons/extras-icon.png">Extras</button>
                 </div> <br>
 
+                <div id="categoryDropdown">
+                    <select name="category" id="">
+                        <?php
+                            $category_qry = mysqli_query($con, "SELECT * FROM product_categories_tb WHERE category_id != 4");
+
+                            while($category = mysqli_fetch_array($category_qry, MYSQLI_ASSOC)){
+                                echo "<option value='$category[category_id]'>$category[category_name]</option>";
+                            }
+                        ?>
+                    </select>
+                </div>
+
                 <div id="menu-name">
                     Burger Menu
                 </div> <br>

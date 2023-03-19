@@ -254,6 +254,7 @@ input[type=number]::-webkit-outer-spin-button {
         display: none;
         /* width: 0 !important */
     }
+
     .category-item-inactive {
         color: #FFA200;
         background-color: white;
@@ -279,6 +280,10 @@ input[type=number]::-webkit-outer-spin-button {
         height: 5%;
         width: 15%;
         cursor: pointer;
+    }
+
+    #categoryDropdown{
+        display: none;
     }
     /*CART*/
     #cart-div {
@@ -452,4 +457,13 @@ input[type=number]::-webkit-outer-spin-button {
     #cart-div {
         display: none;
     }
+
+    #categories {
+        display: none;
+    }
+
+    #categoryDropdown{
+        display: block;
+    }
+
 }
