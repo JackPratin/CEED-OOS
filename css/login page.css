@@ -35,6 +35,16 @@ body {
     margin-bottom: 20px;
 }
 
+.logo2 {
+    width: 25%;
+    height: 50%;
+    border-radius: 50px;
+    margin-top: 15%;
+    margin-bottom: 10%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
 .center {
     align-items: center;
     justify-content: center;
@@ -154,6 +164,8 @@ form .text_field {
 }
 
 input[type="submit"] {
+    position: absolute;
+    left: 20%;
     font-weight: bold;
     width: 50%;
     height: 40px;
@@ -169,6 +181,45 @@ input[type="submit"] {
 input[type="submit"]:hover {
     border: 1px solid;
     transition: .2s;
+}
+
+#guest {
+    margin-top: 60px;
+    position: absolute;
+    left: 20%;
+    border: 1px solid #FFAE42;
+    background-color: #ffffff;
+}
+
+#guest:hover {
+    border: 1px solid;
+    transition: .2s;
+}
+
+#facebook {
+    margin-top: -100px;
+    position: absolute;
+    left: 20%;
+    font-weight: bold;
+    width: 50%;
+    height: 40px;
+    border: none;
+    border-radius: 26px;
+    background-color: #FFAE42;
+    font-size: 22px;
+    cursor: pointer;
+    outline: none;
+    margin: 7.5px 0;
+}
+
+#facebook:hover {
+    border: 1px solid;
+    transition: .2s;
+}
+
+.center2 #or {
+    margin-top: 20px;
+    margin-left: 90px;
 }
 
 .fa-circle-user {
@@ -224,6 +275,17 @@ input[type="submit"]:hover {
 }
 
 #regSubmit:hover {
+    border: 1px solid;
+    transition: .2s;
+}
+
+#regSubmit2 {
+    min-width: 50%;
+    max-width: 75%;
+    border: none;
+}
+
+#regSubmit2:hover {
     border: 1px solid;
     transition: .2s;
 }
@@ -296,6 +358,58 @@ input[type="submit"]:hover {
     color: #FFAE42;
 }
 
+
+/* _____ */
+
+.go-back2 {
+    color: #FFAE42;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1;
+    padding-left: 15px;
+    position: relative;
+    top: 0%;
+    text-decoration: none;
+}
+
+.go-back2::before,
+.go-back2::after {
+    content: "";
+    display: block;
+    left: 0px;
+    position: absolute;
+    top: 50%;
+    transition: left 0.1s;
+}
+
+.go-back2::before {
+    border-color: #FFAE42;
+    /* background: #FFAE42; */
+    border-style: solid;
+    border-width: 0 0 2px 2px;
+    height: 6px;
+    margin-top: -3px;
+    width: 6px;
+    transform: rotate( 45deg);
+    -webkit-transform: rotate( 45deg);
+}
+
+.go-back2::after {
+    color: #FFAE42;
+    background: #FFAE42;
+    height: 2px;
+    width: 11px;
+}
+
+.go-back2:hover::before,
+.go-back2:hover::after {
+    left: -3px;
+    /* background: #000000; */
+    border-color: #FFAE42;
+    color: #FFAE42;
+}
+
 @media only screen and (max-width: 600px) {
     html {
         overflow-y: scroll;
@@ -323,15 +437,35 @@ input[type="submit"]:hover {
         margin-top: 60px;
     }
     #regSubmit {
-        min-width: 80%;
-        max-width: 90%;
-        margin-top: -10px;
+        position: absolute;
+        left: 25%;
+        top: 86%;
+        width: 50%;
+    }
+    #regSubmit2 {
+        position: absolute;
+        left: 18%;
+        top: 90%;
+        width: 65%;
     }
     .go-back {
+        position: absolute;
+        top: 14%;
+        padding: 30px;
+        margin: 0;
+    }
+    .go-back2 {
+        position: absolute;
+        top: 12%;
         padding: 30px;
         margin: 0;
     }
     #signUp {
+        font-size: 25px;
+        font-weight: bold;
+        color: #FFAE42;
+    }
+    #signUp2 {
         font-size: 25px;
         font-weight: bold;
         color: #FFAE42;
@@ -355,7 +489,7 @@ input[type="submit"]:hover {
         /* transform: translate(70%, -50%); */
         background: white;
         width: 95%;
-        height: 100%;
+        height: 110%;
         border-top-left-radius: 26px;
         border-top-right-radius: 26px;
         /* padding: 600px; */
@@ -374,6 +508,7 @@ input[type="submit"]:hover {
         border-top-right-radius: 26px;
         border-bottom-left-radius: 0px;
         /* padding: 600px; */
+        padding-top: 50px;
         display: flex;
         flex-wrap: wrap;
         margin-bottom: -1200px;
@@ -382,6 +517,11 @@ input[type="submit"]:hover {
         padding: 0 40px;
         box-sizing: border-box;
         margin-top: 230px;
+    }
+    .signup-and-forgot {
+        position: absolute;
+        top: 65%;
+        left: 15%;
     }
     #company-logo {
         display: flex;
@@ -400,31 +540,50 @@ input[type="submit"]:hover {
         display: flex;
         z-index: 1;
         width: 50%;
-        height: 30%;
+        height: 25%;
         border-radius: 50%;
         top: 10px;
     }
-    #loginButton {
-        margin-top: -190px;
+    .logo2 {
+        position: absolute;
+        top: 10%;
+        left: 25.5%;
+        display: flex;
+        z-index: 1;
         width: 50%;
-        margin-left: 100px;
+        height: 30%;
+        border-radius: 50%;
+    }
+    #loginButton {
+        position: absolute;
+        left: 25%;
+        margin-top: 310px;
+        width: 50%;
     }
     #facebook {
-        margin-top: -260px;
+        position: absolute;
+        left: 25%;
+        top: 83%;
         width: 50%;
-        margin-left: -260px;
     }
     #guest {
-        margin-top: -170px;
+        position: absolute;
+        left: 25%;
+        top: 83%;
         width: 50%;
-        margin-left: 10px;
     }
     #or {
-        margin-top: -380px;
+        position: absolute;
+        left: 5%;
+        top: 75%;
         width: 50%;
-        margin-left: 60px;
     }
-    button.button {
-        margin-bottom: 50px;
+    .button {
+        position: absolute;
+        top: 35%;
+        left: 35%;
+        font-weight: bold;
+        width: 30%;
+        height: 40px;
     }
 }
