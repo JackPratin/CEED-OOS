@@ -11,13 +11,18 @@
     $brgy       = mysqli_real_escape_string($con, $_POST['brgy']);
     $city       = mysqli_real_escape_string($con, $_POST['city']);
     $username   = mysqli_real_escape_string($con, $_POST['username']);
+    $type       = mysqli_real_escape_string($con, $_POST['type']);
   
     $hash_password = hash('sha256', $password);
 
-    mysqli_query($con, "INSERT INTO `customer_tb`(`first_name`, `middle_initial`, `last_name`, `contact_number`, `email`, `order_count`, `address`, `baranggay`, `city`, `username`, `password`) VALUES ('$fname','$mi','$lname','$contact','$email','1','$address','$brgy','$city','$username', '$hash_password'
-    )");
+    mysqli_query($con, "
+    INSERT INTO `employee_tb`(`employee_type`, `first_name`, `middle_initial`, `last_name`, `contact_number`, `email`, `address`, `baranggay`, `city`, `username`, `password`) VALUES ('$type','$fname','$mi','$lname','$contact','$email','$address','$brgy','$city','$username','$hash_password'
+    )
+    ");
 
     
     echo "<script>alert('Account created.');</script>";
-    echo '<script>window.location="../index.php"</script>';
+    echo '<script>window.location="../admin-add-user.php"</script>';
 ?>
+
+

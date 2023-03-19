@@ -16,6 +16,7 @@
         <title>Stock Monitoring</title>
     </head>
     <body>
+        <h1>Stock Monitoring</h1>
         <table width="100%">
             <tr>
                 <th>Name of ingredient</th>

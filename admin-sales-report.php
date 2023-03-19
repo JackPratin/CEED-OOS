@@ -20,6 +20,36 @@
         <title>Sales Report</title>
     </head>
     <body>
-        <table></table>
+        <h1>Sales Report</h1>
+        <div>hello1
+            <div>
+                Most Ordered Item
+            </div>
+            <div>
+                Location with most orders
+            </div>
+        </div>
+        <table width="75%";>
+            <tr>
+                <th>Name of ingredient</th>
+                <th>Current quantity</th>
+                <th></th>
+                <th colspan="2">Actions</th>
+            </tr>
+            <?php
+                $ingredient_qry = mysqli_query($con, "SELECT * FROM `products_tb` WHERE product_category = 4");
+                while($ingredients = mysqli_fetch_array($ingredient_qry, MYSQLI_ASSOC)){
+                    echo"
+                        <tr>
+                            <td>$ingredients[product_name]</td>
+                            <td>5</td>
+                            <td><input type='button' value='Update' class='stock-actions'></td>
+                            <td><input type='button' value='Replacement/loss' class='stock-actions'></td>
+                            <td><input type='button' value='Delete' class='stock-actions'></td>
+                        </tr>
+                    ";
+                }
+            ?>
+        </table>
     </body>
 </html>

@@ -12,6 +12,9 @@
     else if($_SESSION['account_type'] == 'admin'){
         echo '<script>window.location="../admin-menu.php"</script>';
     }
+    else if($_SESSION['account_type'] == 'guest'){
+        echo '<script>window.location="../guest-menu.php"</script>';
+    }
     else{
         echo '<script>window.location="../employee-menu.php"</script>';
     }

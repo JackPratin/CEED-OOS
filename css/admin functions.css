@@ -9,6 +9,7 @@ body{
     min-height: 100%;
 }
 
+
 /* top navigation */
 
 ul {
@@ -62,6 +63,12 @@ li a:hover:not(.admin-nav-active) {
     height: 90%;
 }
 
+
+.admin-iframe::-webkit-scrollbar{
+    display: none;
+    /* width: 0 !important */
+}
+
 /* stock monitoring */
 table{
     border-radius: 10px;
@@ -107,4 +114,19 @@ th:first-child {
 td:last-child,
 th:last-child {
   border-radius: 0 10px 10px 0;
+}
+
+/* admin product */
+
+.center{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.productForm{
+    border: 1px solid red;
+    width: 40%;
+    border-radius: 15px;
+    background-color: white;
+    padding: 10px;
 }

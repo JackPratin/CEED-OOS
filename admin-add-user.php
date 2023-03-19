@@ -7,8 +7,7 @@
         <script src="https://kit.fontawesome.com/484fbcb614.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Montserrat'>
         <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
-        <link rel="stylesheet" type="text/css" href="css/employee login page.css">
-        <link rel="stylesheet" type="text/css" href="css/login page.css">
+        <link rel="stylesheet" type="text/css" href="css/admin functions.css">
         <link rel="icon" type="image/x-icon" href="css/system images/favicon.ico">
         <title>Login Page</title>
     </head>
@@ -16,13 +15,17 @@
     <body>
         <div class="center">
             <div>
-            <form action="php/customerRegistration.php" method="post" id="form"><br><br>
+            <form action="php/employeeRegistration.php" method="post" id="form"><br><br>
                 <div id="signUp">New employee account</div> <br>
                 <div>
                     User details <br>
                     <input type="text" name="fname" class="regInput" placeholder="First Name">
                     <input type="text" name="mi" class="regInput" maxlength="2" placeholder="Middle Initial">
                     <input type="text" name="lname" class="regInput" placeholder="Last Name">
+                    <select name="type">
+                        <option value="staff">Staff</option>
+                        <option value="admin">Admin</option>
+                    </select>
                 </div> <br>
         
                 <div>
