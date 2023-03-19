@@ -1,8 +1,8 @@
-*{
+* {
     overflow: hidden;
 }
 
-body{
+body {
     width: auto;
     font-family: 'Inter';
     font-style: normal;
@@ -10,23 +10,24 @@ body{
     height: 100%;
 }
 
-#company-logo{
-    height: 100%;
+#company-logo {
+    display: flex;
+    height: 70%;
     max-width: 50%;
     overflow-y: scroll;
     position: absolute;
     left: 6%;
-    display: flex;
-    flex-wrap: wrap;
+    margin-top: 30px;
     /* align-items: center; */
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 #company-logo::-webkit-scrollbar {
     display: none;
-  }
+}
 
-.logo{
+.logo {
     width: 130px;
     height: 130px;
     border-radius: 50px;
@@ -34,15 +35,13 @@ body{
     margin-bottom: 20px;
 }
 
-
-.center{
-    display: flex;
+.center {
     align-items: center;
     justify-content: center;
     position: absolute;
     /* top: 50%; */
     left: 62.5%;
-    bottom: 0%;
+    bottom: -13px;
     /* transform: translate(70%, -50%); */
     background: white;
     width: 37.5%;
@@ -52,25 +51,54 @@ body{
     /* padding: 600px; */
 }
 
-.center h1{
+.center h1 {
     text-align: center;
     padding: 0;
     margin-top: 5px;
 }
 
-.center form{
+.center form {
     padding: 0 40px;
     box-sizing: border-box;
+    margin-top: 40px;
 }
 
-form .text_field{
+.center2 {
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    /* top: 50%; */
+    left: 62.5%;
+    bottom: -13px;
+    /* transform: translate(70%, -50%); */
+    background: white;
+    width: 37.5%;
+    height: 100%;
+    border-top-left-radius: 26px;
+    border-bottom-left-radius: 26px;
+    /* padding: 600px; */
+}
+
+.center2 h1 {
+    text-align: center;
+    padding: 0;
+    margin-top: 5px;
+}
+
+.center2 form {
+    padding: 0 40px;
+    box-sizing: border-box;
+    margin-top: 40px;
+}
+
+form .text_field {
     border-bottom: 2px solid #8C8989;
-    position:relative;
+    position: relative;
     margin: 25px 0;
     margin-top: 12.5px;
 }
 
-.text_field input{
+.text_field input {
     width: 100%;
     padding: 0 5px;
     height: 20px;
@@ -80,7 +108,7 @@ form .text_field{
     outline: none;
 }
 
-.text_field label{
+.text_field label {
     position: absolute;
     top: 4%;
     left: 25px;
@@ -92,7 +120,7 @@ form .text_field{
     font-style: normal;
 }
 
-.text_field span::before{
+.text_field span::before {
     content: '';
     position: absolute;
     top: 40px;
@@ -103,87 +131,85 @@ form .text_field{
     transition: .5s;
 }
 
-.text_field input:focus ~ label,
-.text_field input:valid ~ label{
+.text_field input:focus~label,
+.text_field input:valid~label {
     top: -5px;
     color: #FFAE42;
 }
 
-.text_field input:focus ~ span::before,
-.text_field input:valid ~ span::before{
+.text_field input:focus~span::before,
+.text_field input:valid~span::before {
     width: 100%;
 }
 
-.pass{
+.pass {
     margin: -5px 0 20px 5px;
     color: #8C8989;
     cursor: pointer;
     text-align: right;
 }
 
-.pass:hover{
+.pass:hover {
     text-decoration: underline;
 }
 
-input[type="submit"]{
+input[type="submit"] {
     font-weight: bold;
-    width: 100%;
+    width: 50%;
     height: 40px;
-    border: 1px solid;
+    border: none;
     border-radius: 26px;
-    background-color:#FFAE42;
+    background-color: #FFAE42;
     font-size: 22px;
     cursor: pointer;
     outline: none;
     margin: 7.5px 0;
 }
 
-input[type="submit"]:hover{
-    border-color:#FFAE42;
+input[type="submit"]:hover {
+    border: 1px solid;
     transition: .2s;
 }
 
-.fa-circle-user{
+.fa-circle-user {
     color: #8C8989;
 }
 
-.fa-lock{
+.fa-lock {
     color: #8C8989;
 }
 
-.button{
+.button {
     font-weight: bold;
     width: 30%;
     height: 40px;
-    border: 1px solid;
+    border: none;
     border-radius: 26px;
-    background-color:#FFAE42;
+    background-color: #FFAE42;
     font-size: 12px;
     cursor: pointer;
     outline: none;
 }
 
-.button:hover{
-    border-color:#FFAE42;
+.button:hover {
+    border: 1px solid;
     transition: .2s;
 }
 
-
-
-.regForm{
+.regForm {
     left: 50%;
     width: 50%;
     height: 103%;
     padding-left: 5%;
 }
 
-#signUp{
+#signUp {
     font-size: 45px;
-    font-weight:bold;
+    font-weight: bold;
     color: #FFAE42;
 }
 
-.regInput{
+.regInput {
     border: none;
     background-color: #EFEFEF;
     width: 250px;
@@ -191,12 +217,18 @@ input[type="submit"]:hover{
     margin-bottom: 5px;
 }
 
-#regSubmit{
+#regSubmit {
     min-width: 50%;
     max-width: 75%;
+    border: none;
 }
 
-.logo-container{
+#regSubmit:hover {
+    border: 1px solid;
+    transition: .2s;
+}
+
+.logo-container {
     position: absolute;
     left: 12.5%;
     bottom: 25%;
@@ -207,7 +239,7 @@ input[type="submit"]:hover{
     /* border: black solid 1px; */
 }
 
-.register-logo{
+.register-logo {
     width: fit-content;
     height: fit-content;
     border-radius: 50px;
@@ -223,9 +255,10 @@ input[type="submit"]:hover{
     line-height: 1;
     padding-left: 15px;
     position: relative;
-    top:0%;
+    top: 0%;
     text-decoration: none;
 }
+
 .go-back::before,
 .go-back::after {
     content: "";
@@ -235,6 +268,7 @@ input[type="submit"]:hover{
     top: 50%;
     transition: left 0.1s;
 }
+
 .go-back::before {
     border-color: #FFAE42;
     /* background: #FFAE42; */
@@ -243,32 +277,31 @@ input[type="submit"]:hover{
     height: 6px;
     margin-top: -3px;
     width: 6px;
-
-    transform: rotate( 45deg );
-    -webkit-transform: rotate( 45deg );
+    transform: rotate( 45deg);
+    -webkit-transform: rotate( 45deg);
 }
+
 .go-back::after {
-    color: black;
+    color: #FFAE42;
     background: #FFAE42;
     height: 2px;
     width: 11px;
 }
+
 .go-back:hover::before,
 .go-back:hover::after {
     left: -3px;
     /* background: #000000; */
-    border-color: #000000;
-    color: #000000;
+    border-color: #FFAE42;
+    color: #FFAE42;
 }
 
-
-
 @media only screen and (max-width: 600px) {
-    html{
+    html {
         overflow-y: scroll;
         overflow-x: hidden;
     }
-    .regForm{
+    .regForm {
         display: flex;
         flex-wrap: wrap;
         left: 0%;
@@ -283,24 +316,115 @@ input[type="submit"]:hover{
         overflow-x: hidden;
         overflow-y: hidden;
     }
-
-    #form{
+    #form {
         display: flex;
         flex-direction: column;
         align-items: center;
+        margin-top: 60px;
     }
-
-    #regSubmit{
+    #regSubmit {
         min-width: 80%;
         max-width: 90%;
+        margin-top: -10px;
     }
-
-    .logo-container{
+    .go-back {
+        padding: 30px;
+        margin: 0;
+    }
+    #signUp {
+        font-size: 25px;
+        font-weight: bold;
+        color: #FFAE42;
+    }
+    .logo-container {
+        position: absolute;
+        left: 25.5%;
+        display: flex;
+        z-index: 1;
+        width: 50%;
+        height: 30%;
+        border-radius: 50%;
+        top: 70px;
+    }
+    .center {
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        /* top: 50%; */
+        bottom: 0%;
+        /* transform: translate(70%, -50%); */
+        background: white;
+        width: 95%;
+        height: 100%;
+        border-top-left-radius: 26px;
+        border-top-right-radius: 26px;
+        /* padding: 600px; */
+    }
+    .center2 {
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        /* top: 50%; */
+        /* transform: translate(70%, -50%); */
+        background: white;
+        left: -0%;
+        width: 100%;
+        height: 100%;
+        border-top-left-radius: 26px;
+        border-top-right-radius: 26px;
+        border-bottom-left-radius: 0px;
+        /* padding: 600px; */
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: -1200px;
+    }
+    .center2 form {
+        padding: 0 40px;
+        box-sizing: border-box;
+        margin-top: 230px;
+    }
+    #company-logo {
+        display: flex;
+        height: 90%;
+        max-width: 50%;
         position: absolute;
         left: 25%;
-        display: flex;
+        margin-top: 30px;
+        /* align-items: center; */
         justify-content: center;
+        flex-wrap: wrap;
+    }
+    .logo {
+        position: absolute;
+        left: 25.5%;
+        display: flex;
+        z-index: 1;
         width: 50%;
-        height: 25%;
+        height: 30%;
+        border-radius: 50%;
+        top: 10px;
+    }
+    #loginButton {
+        margin-top: -190px;
+        width: 50%;
+        margin-left: 100px;
+    }
+    #facebook {
+        margin-top: -260px;
+        width: 50%;
+        margin-left: -260px;
+    }
+    #guest {
+        margin-top: -170px;
+        width: 50%;
+        margin-left: 10px;
+    }
+    #or {
+        margin-top: -380px;
+        width: 50%;
+        margin-left: 60px;
+    }
+    button.button {
+        margin-bottom: 50px;
     }
 }

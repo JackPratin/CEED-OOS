@@ -21,12 +21,14 @@
     </head>
     
     <body>
+
         <div id="company-logo">
             <?php landingPageDisplay();?>
         </div>
         
-        <div class="center">
-            <div>
+
+        <div class="center2">
+       
                 <form style="margin-bottom:0px">
                     <button type="button" style="position: absolute;right: 5px;" onclick="location.href='employee-login.php'" class="button">Login as Employee</button>
                     <br>
@@ -51,6 +53,8 @@
                     </div>
                 </form>
                 
+                
+
                 <center>
                     <div style="margin-top: -3px;"><a href="register.html" style="color:red;">Sign up here.</a> &nbsp;&nbsp;&nbsp; <a href="forgotPassword.html" class="pass">Forgot Password?</a></div>
                 </center>
@@ -62,16 +66,16 @@
 
                 <form action="php/login-exec.php" method="post" id="login" name="login"></form>
                 
-                <center>
-                    <div>
+            
+                    <div id="or">
                         <hr style='display:inline-block; width:30%;'> OR <hr style='display:inline-block; width:30%;'>
                     </div>
-                </center>
-                <input type="submit" value="Facebok ">
-                <input type="submit" value="Login as Guest" onclick="location.href='guest-login.html'">
-            </div>
-        </div>
+               <br>
+                <input type="submit" value="Facebok" id="facebook">
+                <input type="submit" value="Login as Guest" id="guest" onclick="location.href='guest-login.html'">
 
+            </div>
+ 
         <?php
         if($_SESSION['loginAttempt'] >= 3){
         ?>
@@ -178,6 +182,6 @@
         <?php
          }
         ?>
-    
-    </body>
-</html>
+   
+   </body>
+ </html>
