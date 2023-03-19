@@ -2,6 +2,23 @@ function changeDisplay(source){
     document.getElementById("iframe-source").value = source;
 }
 
+function guest_source_locator(){
+    let source = document.getElementById("iframe-source").value;
+    
+    if(source == "guest-menu.php"){
+        document.getElementById("menu-selected").style.display = "flex";
+        document.getElementById("menu-unselected").style.display = "none";
+        document.getElementById("order-list-selected").style.display = "none";
+        document.getElementById("order-list-unselected").style.display = "flex";
+    }
+    else if(source == "guest-order-list.php"){
+        document.getElementById("menu-selected").style.display = "none";
+        document.getElementById("menu-unselected").style.display = "flex";
+        document.getElementById("order-list-selected").style.display = "flex";
+        document.getElementById("order-list-unselected").style.display = "none";
+    }
+}
+
 function source_locator(){
     let source = document.getElementById("iframe-source").value;
     

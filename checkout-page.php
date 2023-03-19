@@ -2,6 +2,16 @@
  require("php/menuFunctions.php");
  require("php/config.php");
     session_start();
+    if(!isset($_POST['deliveryMode'])){
+        echo "
+        <script>
+            alert('Select if pick up or for delivery.');
+            window.location='menu.php';
+        </script>
+        ";
+    }
+    $subtotal = mysqli_real_escape_string($con, $_POST['subtotal']);
+    $deliveryMode = mysqli_real_escape_string($con, $_POST['deliveryMode']);
 ?>
 <html lang="en">
 <head>
@@ -23,22 +33,20 @@
             Delivery Time:
             <br>
             <div style="display: flex;justify-content: space-between; height:5%;">
-                <input type="date"> &nbsp;
-                <input type="time">
+                <input type="date" form="submitOrder" name="date"> &nbsp;
+                <input type="time" form="submitOrder" name="time">
             </div><br>
             
 
             Delivery Address:<br>
             <div style="display: flex;justify-content: space-between; height:5%">
-                <input type="text" placeholder="Address">
-                <input type="text" placeholder="Baranggay">
+                <input type="text" placeholder="Address" form="submitOrder" name="address">
+                <input type="text" placeholder="Baranggay" form="submitOrder" name="baranggay">
             </div>
-                <input type="text" placeholder="City"><br>
+                <input type="text" placeholder="City" form="submitOrder" name="city"><br>
             
-            
-
             Note to rider: (ex. remarks, landmarks)<br>
-            <input type="text"><br>
+            <input type="text" form="submitOrder" name="note"><br>
             
             <div>
                 <div>
@@ -48,14 +56,14 @@
                 </div><br>
 
                 <div id="gcash">
-                    <input type="file"  accept=".jpg, .png, .jpeg" name="" id="">
+                    <input type="file"  accept=".jpg, .png, .jpeg" name="gcashProof" id="" form="submitOrder">
                     <img src="css/system images/scan to pay.png" alt="">
                 </div>
             </div>
             
             <h2>Personal Detail</h2>
             Email:
-            <input type="text" style="width: 100%"><br>
+            <input type="text" style="width: 100%" form="submitOrder" name="email"><br>
             <div style= "display: flex; justify-content: space-between;">
                 <div style="display: flex; flex-direction: column; width:90%">
                     <span>First Name:</span>
@@ -66,12 +74,15 @@
                 </div>
             </div>
             <div style= "display: flex; justify-content: space-between; height:5%">
-                <input type="text" style="width: 96%;">
-                <input type="text" style="width: 96%">
+                <input type="text" style="width: 96%;" form="submitOrder" name="fname">
+                <input type="text" style="width: 96%" form="submitOrder" name="lname">
             </div><br>
             
             Contact Num.
-            <input type="text"><br>
+            <input type="text" form="submitOrder"  name="number"><br>
+            <input type="hidden" name="subtotal" form="submitOrder" value="<?php echo $subtotal; ?>">
+            <input type="hidden" name="deliveryMode" form="submitOrder" value="<?php echo $deliveryMode; ?>">
+            <input type="hidden" name="modeOfPayment" id="modeOfPayment" form="submitOrder" value="">
         </div>
 
         <div id="cart-div">
@@ -110,26 +121,29 @@
             <br>
 
             <div id="cart-bottom">
-                Select Pick-up/Deliver: <br><br>
                 <div id="buttons">
                     <div id="upper-button">
-                        <button class="upper button">Pick-up</button>&nbsp;
-                        <button class="upper button"><img src="css/system images/menu icons/delivery.png" alt="Picture of motorcycle" height="60%" width="60%"></button> 
+                        <button class="<?php echo ($deliveryMode == 'pickup') ? 'clicked button' : 'upper button'?>" id="pickupbtn" onclick="deliveryMode('pickup')">Pick-up</button>&nbsp;
+                        <button class="<?php echo ($deliveryMode == 'deliver') ? 'clicked button' : 'upper button'?>" id="deliverbtn" onclick="deliveryMode('deliver')"><img src="css/system images/menu icons/delivery.png" alt="Picture of motorcycle" height="60%" width="60%"></button> 
                     </div>
                     <div id="lower-button">
-                        <button class="button" id="submit">Submit</button>
+                        <button class="button" id="submit" form="submitOrder">Submit</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
+    <form action="php/submitOrder.php" method="post" id="submitOrder"></form>
+
     <script>
         function openGcash(){
             document.getElementById("gcash").style.display = "flex";
+            document.getElementById("modeOfPayment").value = "gcash"
         }
         function closeGcash(){
             document.getElementById("gcash").style.display = "none";
+            document.getElementById("modeOfPayment").value = "cash"
         }
     </script>
     
