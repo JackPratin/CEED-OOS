@@ -220,6 +220,23 @@ input[type=number]::-webkit-outer-spin-button {
     /* #menu-div{
 
     } */
+    #main-menu {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+    #top-main-menu {
+        display: flex;
+        flex-direction: row;
+        /* justify-content: space-around; */
+        justify-content: space-evenly;
+        align-items: flex-end;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+    }
     #search {
         border: none;
         padding: 5%;
