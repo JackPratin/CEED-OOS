@@ -16,7 +16,7 @@
         <div class="center">
             <div>
                 <form>
-                    <button type="button" style="position: absolute;right: 5px;" onclick="location.href='index.php'" class="button">Login as Customer</button>
+                    <button type="button" style="position: absolute;right: 5px;" onclick="location.href='index.php'" class="button2">Login as Customer</button>
                     <br>
                     <center><div class="logocontainer">
                         <img src="css/system images/company logo.png" alt="1975 Old-Fashioned Burgers logo" class="logo">

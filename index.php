@@ -14,7 +14,8 @@
         <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Montserrat'>
         <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
         <link rel="stylesheet" type="text/css" href="css/login page.css">
-        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
         <link rel="stylesheet" href="css/contents.css">
         <link rel="icon" type="image/x-icon" href="css/system images/favicon.ico">
         <title>1975 Old Fashioned Burgers' Ordering System</title>
@@ -56,7 +57,7 @@
                 
 
                 <center>
-                    <div style="margin-top: -3px;"><a href="register.html" style="color:red;">Sign up here.</a> &nbsp;&nbsp;&nbsp; <a href="forgotPassword.html" class="pass">Forgot Password?</a></div>
+                    <div class="signup-and-forgot" style="margin-top: -3px;"><a href="register.html" style="color:red;">Sign up here.</a> &nbsp;&nbsp;&nbsp; <a href="forgotPassword.html" class="pass">Forgot Password?</a></div>
                 </center>
 
 
@@ -68,12 +69,13 @@
                 
             
                     <div id="or">
-                        <hr style='display:inline-block; width:30%;'> OR <hr style='display:inline-block; width:30%;'>
+                        <hr style='display:inline-block; width:30%; align-items:'> OR <hr style='display:inline-block; width:30%;'>
                     </div>
                <br>
-                <input type="submit" value="Facebok" id="facebook">
-                <input type="submit" value="Login as Guest" id="guest" onclick="location.href='guest-login.html'">
-
+                <input type="submit" value="Facebook" id="facebook">
+                
+               <input type="submit" value="Login as Guest" id="guest" onclick="location.href='guest-login.html'">
+             
             </div>
  
         <?php
