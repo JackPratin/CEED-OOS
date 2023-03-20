@@ -1,35 +1,90 @@
-:root{
+:root {
     font-family: 'Inter';
 }
- 
-    body{
-        background-color:#EFEFEF;
-    }
-  
-  .checkoutForm{
-    background-color: white; 
-    height :110%;
-    width:40%;
+
+body {
+    background-color: #EFEFEF;
+}
+
+.checkoutForm {
+    background-color: white;
+    height: 110%;
+    width: 40%;
     display: flex;
-    flex-direction:column;
+    flex-direction: column;
     position: absolute;
     left: 15%;
     padding: 15px;
     border-radius: 10px;
-   }
+}
 
-   .checkoutForm .example::-webkit-scrollbar {
-    display: none;}
-
-   .checkoutForm input{
-    min-height: 5%;
-    width: 50%
-   }
-
-   h2{
-    color:#FFA200;
-   }
-
-   #gcash{
+.checkoutForm .example::-webkit-scrollbar {
     display: none;
-   }
+}
+
+.checkoutForm .date {
+    min-height: 5%;
+    width: 30%;
+    background-color: #EFEFEF;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.checkoutForm .time {
+    min-height: 5%;
+    width: 30%;
+    background-color: #EFEFEF;
+    border: none;
+    border-radius: 5px;
+    margin-right: 300px;
+    margin-bottom: 10px;
+}
+
+.checkoutForm input {
+    min-height: 5%;
+    width: 50%;
+    background-color: #EFEFEF;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+h2 {
+    color: #FFA200;
+}
+
+#gcash {
+    display: none;
+}
+
+@media only screen and (max-width: 900px) {
+    body {
+        background-color: #fff;
+    }
+    .checkoutForm {
+        background-color: white;
+        height: 110%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        left: 15%;
+        padding: 15px;
+        border-radius: 10px;
+        margin: 0;
+    }
+    .checkoutForm input {
+        width: 50%;
+        height: 40px;
+        background-color: #EFEFEF;
+        border: none;
+        border-radius: 7px;
+        margin-left: 10px;
+        margin-top: 10px;
+        margin-right: 10px;
+        margin-bottom: 10px;
+    }
+}
