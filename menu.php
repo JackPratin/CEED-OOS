@@ -25,7 +25,7 @@
         <div id="menu-div">
 
             <div id="main-menu">
-                <img src="css/ad banner/sample ads.png"> <br>
+                <img src="css/ad banner/sample ads.png" class="banner"> <br>
 
                 <div id="top-main-menu">
 
@@ -38,6 +38,8 @@
                 </div> <br>
 
                 <div id="categories">
+                    
+                
                     <button class="category-item-active" id="category0" onclick="filtering('none'); filterChanger('category0')"><img src="css/system images/category icons/all-icon.png"><center>All</center></button>
                     <button class="category-item-inactive" id="category1" onclick="filtering(1); filterChanger('category1')"><img src="css/system images/category icons/burger-icon.png"><center>Burgers</center></button>
                     <button class="category-item-inactive" id="category2" onclick="filtering(2); filterChanger('category2')"><img src="css/system images/category icons/chick'n-icon.png">Chicken</button>
@@ -48,6 +50,8 @@
 
                 <div id="categoryDropdown">
                     <select name="category" id="">
+                        
+                      
                         <?php
                             $category_qry = mysqli_query($con, "SELECT * FROM product_categories_tb WHERE category_id != 4");
 
@@ -131,7 +135,7 @@
             <div > 
                 <div style="display:flex; justify-content: space-between;">
                     <span>Recommended Extras</span>
-                    <span><button href="#" onclick="hide('popup1')">X</button></span>
+                    <span class="cls"><button href="#" onclick="hide('popup1')">X</button></span>
                 </div><br>
                 Select additional ingredients(optional)<br>
             
@@ -286,7 +290,7 @@
                 console.log(document.getElementById(id).getAttribute("src")) ;
             }
         </script>
-        
+       
         
     </body>
 </html>

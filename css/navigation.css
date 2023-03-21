@@ -64,6 +64,6 @@
 
 @media only screen and (max-width: 900px) {
     .navigation-div {
-        display: none;
+        float: left;
     }
 }

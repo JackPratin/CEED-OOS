@@ -33,8 +33,8 @@
             Delivery Time:
             <br>
             <div style="display: flex;justify-content: space-between; height:5%;">
-                <input type="date" form="submitOrder" name="date"> &nbsp;
-                <input type="time" form="submitOrder" name="time">
+                <input class="date" type="date" form="submitOrder" name="date"> &nbsp;
+                <input class="time" type="time" form="submitOrder" name="time">
             </div><br>
             
 

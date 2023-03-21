@@ -20,7 +20,8 @@
 
     <body>
         <div id="main-div">
-            <div class="navigation-div">
+            <div class="navigation-div" id="navTop">
+                <i class="fa fa-bars"></i>
                 <img src="css/system images/company logo.png" alt="1975 Old-Fashioned Burgers logo" class="side-logo">
                 
                 <a href="menu.php" target="main-frame" onclick="changeDisplay('menu.php')">
@@ -69,6 +70,12 @@
                         <img class="nav-vector"  src="css/system images/nav icons/logout.png"  alt="tabler:logout"> <br>
                         Logout
                     </div>
+
+                    
+                </a>
+
+                <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                    <i class="fa fa-bars"></i>
                 </a>
             </div>
 
@@ -82,7 +89,14 @@
         <script src="js/navigation.js"></script>
 
         <script>
-            
+        function myFunction() {
+            var x = document.getElementById("navTop");
+            if (x.className === "navigation-div") {
+                x.className += " responsive";
+            } else {
+                x.className = "navigation-div";
+            }
+            }
             // document.getElementById("menu-selected").style.display = "flex";
             // document.getElementById("menu-unselected").style.display = "none";
         </script>
