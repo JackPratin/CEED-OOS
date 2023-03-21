@@ -1,4 +1,5 @@
 <?php
+    require("php/config.php");
     if(!isset($_SESSION['current_admin_page'])){
         $_SESSION['current_admin_page'] = "admin-stock-monitoring.php"; 
     }
@@ -22,13 +23,23 @@
     <body>
         <div class="center">
             <div class="productForm">
-                <form action="php/customerRegistration.php" method="post" id="form"><br><br>
+                <form action="php/addProduct.php" method="post" id="form" enctype="multipart/form-data"><br><br>
                     <div id="signUp">Add new product</div> <br>
                     <div>
                         User details <br>
-                        <input type="text" name="fname" class="regInput" placeholder="Product Name">
-                        <input type="text" name="mi" class="regInput" maxlength="2" placeholder="Price">
-                        <input type="text" name="lname" class="regInput" placeholder="Quantity">
+                        <input type="text" name="pName" class="regInput" placeholder="Product Name">
+                        <input type="text" name="price" class="regInput" maxlength="2" placeholder="Price">
+                        <input type="text" name="qty" class="regInput" placeholder="Quantity">
+                        <select name="category" id="" name="category">
+                            <?php
+                                $category_qry = mysqli_query($con, "SELECT * FROM product_categories_tb WHERE category_id != 4");
+                                while($category = mysqli_fetch_array($category_qry, MYSQLI_ASSOC)){
+                                    echo"<option value='$category[category_id]'>$category[category_name]</option>";
+                                }
+                            ?>
+                        </select> <br>
+                        Product Image:
+                        <input type="file" name="image" id="">
                     </div> <br>
             
                     <input type="submit" value="Add Product" id="regSubmit">
@@ -43,6 +54,7 @@
                         <input type="text" name="fname" class="regInput" placeholder="Ingredient Name">
                         <input type="text" name="mi" class="regInput" maxlength="2" placeholder="Price">
                         <input type="text" name="lname" class="regInput" placeholder="Last Name">
+                       
                     </div> <br>
 <!--             
                     <div>
