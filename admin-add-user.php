@@ -19,10 +19,11 @@
                 <div id="signUp">New employee account</div> <br>
                 <div>
                     User details <br>
-                    <input type="text" name="fname" class="regInput" placeholder="First Name">
-                    <input type="text" name="mi" class="regInput" maxlength="2" placeholder="Middle Initial">
-                    <input type="text" name="lname" class="regInput" placeholder="Last Name">
-                    <select name="type">
+                    <input type="text" name="fname" class="regInput" placeholder="First Name" required>
+                    <input type="text" name="mi" class="regInput" maxlength="2" placeholder="Middle Initial" required>
+                    <input type="text" name="lname" class="regInput" placeholder="Last Name" required>
+                    <select name="type" required>
+                        <option value="" hidden selected>Account Type</option>
                         <option value="staff">Staff</option>
                         <option value="admin">Admin</option>
                     </select>
@@ -30,18 +31,18 @@
         
                 <div>
                     Login & Contact Details <br>
-                    <input type="text" name="email" class="regInput" placeholder="Email"> 
-                    <input type="text" name="contact" class="regInput" placeholder="Contact Number"> <br>
-                    <input type="text" name="username" class="regInput" placeholder="Username">
-                    <input type="password" name="password" class="regInput" placeholder="Password"> 
-                    <input type="password" name="conPassword" class="regInput" placeholder="Confirm Password">
+                    <input type="text" name="email" class="regInput" placeholder="Email" required> 
+                    <input type="text" name="contact" class="regInput" placeholder="Contact Number" required> <br>
+                    <input type="text" name="username" class="regInput" placeholder="Username" required>
+                    <input type="password" name="password" class="regInput" placeholder="Password" required> 
+                    <input type="password" name="conPassword" class="regInput" placeholder="Confirm Password" required>
                 </div> <br>
         
                 <div>
                     Address Details <br>
-                    <input type="text" name="address" class="regInput" placeholder="Compound/Street/Subdivision"> 
-                    <input type="text" name="brgy" class="regInput" placeholder="Barangay">
-                    <input type="text" name="city" class="regInput" placeholder="City">
+                    <input type="text" name="address" class="regInput" placeholder="Compound/Street/Subdivision" required> 
+                    <input type="text" name="brgy" class="regInput" placeholder="Barangay" required>
+                    <input type="text" name="city" class="regInput" placeholder="City" required>
                 </div> <br>
         
                 <input type="submit" value="Create your Account" id="regSubmit">
