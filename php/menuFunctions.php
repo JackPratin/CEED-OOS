@@ -116,11 +116,36 @@
                     </div>
 
                     <div class='order-status'>
-                        <div class='circle-active circle'></div> 
+                        <div class='inner-order-status'>
+                            <div class='circle-active circle' id='placeCircle'></div>&nbsp;
+                            <img src='css/system images/order list icons/order-placed-icon.png' alt='Icon for placed order'>
+                            <div class='order-text'>
+                                <div class='order-upper-text'>Order Placed</div>
+                                <div class='order-lower-text'>We have received your order, please wait for a staff to accept your order.</div>
+                            </div>
+                        </div>
+
                         <div class='vertical-line'></div>
-                        <div class='circle'></div>
+
+                        <div class='inner-order-status'>
+                            <div class='circle' id='processCircle'></div>&nbsp;
+                            <img src='css/system images/order list icons/processed-icon.png' alt='Icon for order processing'>
+                            <div class='order-text'>
+                                <div class='order-upper-text'>Order Accepted</div>
+                                <div class='order-lower-text'>We are currently preparing your order.</div>
+                            </div>
+                        </div>
+
                         <div class='vertical-line'></div>
-                        <div class='circle'></div>
+
+                        <div class='inner-order-status'>
+                            <div class='circle' id='readyCircle'></div>&nbsp;
+                            <img src='css/system images/order list icons/ready-icon.png' alt='Icon for ready to deliver items'>
+                            <div class='order-text'>
+                                <div class='order-upper-text'>Ready to Deliver</div>
+                                <div class='order-lower-text'>Your order is ready to be deliverd, please wait for our rider to deliver your order.</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             ";
