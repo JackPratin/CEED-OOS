@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter'
+}
+
+body {
+    background-color: #F4F0F0;
+}
+
+
+/* The Receipt */
+
+.receipt {
+    width: 360px;
+    height: 650px;
+    background-color: white;
+    border-radius: 20px;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    margin-top: -360px;
+    margin-left: -180px;
+    box-shadow: 14px 14px 22px -18px;
+    padding: 20px
+}
+
+
+/* Heading */
+
+.name {
+    font-weight: 700;
+    text-align: center;
+    color: #FC8F0B;
+    font-size: 20px;
+    margin-top: 10px
+}
+
+.name1 {
+    text-align: center;
+    color: #FC8F0B;
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 50px;
+}
+
+
+/* Big thank */
+
+.greeting {
+    font-size: 9px;
+    text-align: center;
+    color: #4D453C;
+}
+
+
+/* Order info */
+
+.order p {
+    font-size: 13px;
+    color: #4D453C;
+    padding-left: 10px;
+    letter-spacing: .7px;
+}
+
+
+/* Our line */
+
+hr {
+    border: .7px solid #ddd;
+    margin: 15px 0;
+}
+
+
+/* Order details */
+
+.details {
+    padding-left: 10px;
+    margin-bottom: 35px;
+    overflow: hidden;
+}
+
+.details h3 {
+    font-weight: 400;
+    color: #4D453C;
+    font-size: 15px;
+    margin-bottom: 30px
+}
+
+
+/* Image and the info of the order */
+
+.product {
+    float: left;
+    width: 83%
+}
+
+.product .info {
+    float: left;
+    margin-left: 15px
+}
+
+.product .info h4 {
+    color: #4D453C;
+    font-weight: 400;
+    margin-top: 10px
+}
+
+.product .info p {
+    font-size: 12px;
+    color: #aaa;
+}
+
+
+/* Net price */
+
+.details>p {
+    color: #6f8d90;
+    margin-top: 25px;
+    font-size: 15px
+}
+
+
+/* Total price */
+
+.totalprice p {
+    padding-left: 10px
+}
+
+.totalprice .sub {
+    color: #FC8F0B;
+    font-size: 13px;
+}
+
+.totalprice .del {
+    font-size: 13px;
+    color: #000;
+}
+
+.totalprice span {
+    float: right;
+    margin-right: 17px
+}
+
+.totalprice .tot {
+    color: #000;
+    font-size: 13px
+}
+
+.thanks {
+    position: relative;
+    font-family: 'Sans Serif';
+    color: #FC8F0B;
+    text-align: center;
+    bottom: -20%;
+}

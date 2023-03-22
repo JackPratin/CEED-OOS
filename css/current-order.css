@@ -1,0 +1,204 @@
+:root {
+    font-family: 'Inter';
+}
+
+body {
+    background-color: #F4F0F0;
+    display: grid;
+    gap: 1rem;
+}
+
+#biryani {
+    position: absolute;
+    width: 20%;
+    height: 55%;
+    background-color: #FFFFFF;
+    border: none;
+    border-radius: 10px;
+    padding: 15px 15px;
+}
+
+#menu-div2 {
+    margin-top: 90px;
+}
+
+#search {
+    position: absolute;
+    left: 1%;
+    top: 5%;
+    width: 20%;
+    height: 5%;
+    background-color: #fff;
+    border: none;
+    border-radius: 7px;
+    font-family: 'Inter';
+}
+
+.searchBtn {
+    padding: 10px;
+}
+
+.icon {
+    position: absolute;
+    top: 6.5%;
+    right: 80%;
+}
+
+#fooddate {
+    color: #918a8a;
+    margin-top: -10px;
+    font-size: 15px;
+}
+
+.productName {
+    position: absolute;
+    top: 20%;
+    left: 30%;
+}
+
+.productName2 {
+    position: absolute;
+    top: 50%;
+    left: 30%;
+}
+
+#addons {
+    font-size: 12px;
+    color: #857d7d;
+}
+
+.status {
+    position: relative;
+    top: -15%;
+    left: 40%;
+    display: flex;
+    justify-content: space-evenly;
+    color: #FFA200;
+}
+
+.status .statusIcon {
+    border: 1px solid #FFA200;
+    padding: 15px;
+    border-radius: 7px;
+    margin-left: -110px;
+}
+
+.statusIcon:hover {
+    background-color: #FFA200;
+    color: #FFFFFF;
+}
+
+.first {
+    margin-bottom: 70px;
+}
+
+#qtyy {
+    position: absolute;
+    left: 170%;
+    top: 50%;
+    width: 15px;
+}
+
+#qtyy1 {
+    position: absolute;
+    left: 170%;
+    top: 50%;
+    width: 15px;
+}
+
+.items {
+    color: gray;
+}
+
+p {
+    padding: 0;
+}
+
+@media only screen and (max-width: 900px) {
+     :root {
+        font-family: 'Inter';
+    }
+    #search {
+        position: absolute;
+        left: 1%;
+        top: 5%;
+        width: 50%;
+        height: 5%;
+        background-color: #fff;
+        border: none;
+        border-radius: 7px;
+    }
+    .searchBtn {
+        padding: 10px;
+    }
+    .icon {
+        position: absolute;
+        top: 6.5%;
+        right: 53%;
+    }
+    #biryani {
+        position: absolute;
+        width: 57%;
+        height: 60%;
+        left: 17%;
+        background-color: #FFFFFF;
+        border: none;
+        border-radius: 10px;
+        padding: 15px 15px;
+    }
+    #fooddate {
+        color: #918a8a;
+        margin-top: -10px;
+        font-size: 15px;
+    }
+    .productName {
+        position: absolute;
+        top: 20%;
+        left: 30%;
+    }
+    .productName2 {
+        position: absolute;
+        top: 50%;
+        left: 30%;
+    }
+    #addons {
+        font-size: 12px;
+        color: #857d7d;
+    }
+    .status {
+        position: relative;
+        top: -15%;
+        left: 40%;
+        display: flex;
+        justify-content: space-evenly;
+        color: #FFA200;
+    }
+    .status .statusIcon {
+        border: 1px solid #FFA200;
+        padding: 15px;
+        border-radius: 7px;
+        margin-left: -110px;
+    }
+    .statusIcon:hover {
+        background-color: #FFA200;
+        color: #FFFFFF;
+    }
+    .first {
+        margin-bottom: 70px;
+    }
+    #qtyy {
+        position: absolute;
+        left: 170%;
+        top: 50%;
+        width: 15px;
+    }
+    #qtyy1 {
+        position: absolute;
+        left: 170%;
+        top: 50%;
+        width: 15px;
+    }
+    .items {
+        color: gray;
+    }
+}
