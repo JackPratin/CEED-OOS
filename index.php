@@ -57,7 +57,16 @@
                 
 
                 <center>
-                    <div class="signup-and-forgot" style="margin-top: -3px;"><a href="register.html" style="color:red;">Sign up here.</a> &nbsp;&nbsp;&nbsp; <a href="forgotPassword.html" class="pass">Forgot Password?</a></div>
+                    <div class="signup-and-forgot" style="margin-top: -3px;">
+                        <div>
+                            <a href="register.html" style="color:red;">Sign up here.</a>
+                        </div>&nbsp;
+                        <div>
+                            <a href="forgotPassword.html" class="pass">Forgot Password?</a>
+                        </div>
+                     
+                    
+                    </div>
                 </center>
 
 
@@ -69,7 +78,7 @@
                 
             
                     <div id="or">
-                        <hr style='display:inline-block; width:30%; align-items:'> OR <hr style='display:inline-block; width:30%;'>
+                        <hr style='display:inline-block; width:30%; '> OR <hr style='display:inline-block; width:30%;'>
                     </div>
                <br>
                 <input type="submit" value="Facebook" id="facebook">
