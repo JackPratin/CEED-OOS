@@ -13,16 +13,16 @@
 </head>
 
 <body>
-    <div class="center">
+    <div class="bannerPage">
         <div class="bannerForm">
             <form action="php/addProduct.php" method="post" id="form" enctype="multipart/form-data"><br><br>
                 <b><div id="addBanner">Add Banner Upload</div></br>
                         
                            
-                            Banner Name:&nbsp&nbsp&nbsp&nbsp<input type="text" name="pName" class="bannerInput" placeholder="Banner Name">
-                           
-                            <br>
-                            <b>Banner Image (Big):</b>
+                Banner Name:&nbsp&nbsp&nbsp&nbsp<input type="text" name="pName" class="bannerInput" placeholder="Banner Name">
+                
+                <br>
+                <b>Banner Image (Big):</b>
                 <div class="file-upload">
                     <div class="file-select">
 
@@ -43,12 +43,14 @@
 
                 <br>
 
-                <input type="submit" value="Add Banner" class="addBannerBtn" id="bannerSubmit">
+                <div id='bannerSubmitDiv'>
+                    <input type="submit" value="Add Banner" class="addBannerBtn" id="bannerSubmit">
+                </div>
             </form>
         </div>
 
 
-        <div class="adbanner">
+        <div class="bannerTable">
             <h1>Banner Management</h1>
             <table width="100%">
                 <tr>
@@ -58,6 +60,16 @@
                     <th colspan="3">Actions</th>
                     <th>Date</th>
 
+                </tr>
+
+                <tr>
+                    <td>Hakdog</td>
+                    <td><img src="css/ad banner/sample ads.png logo.png" height="20px" width="40px"></td>
+                    <td><img src="css/ad banner/sample ads.png logo.png" height="20px" width="40px"></td>
+                    <td><input type='button' value='Edit' class='banner-actions'></td>
+                    <td><input type='button' value='Hide' class='banner-actions'></td>
+                    <td><input type='button' value='Delete' class='banner-actions'></td>
+                    <td>03/27/23</td>
                 </tr>
 
                 <tr>
@@ -84,7 +96,7 @@
                     $("#noFile").text("No file chosen...");
                 } else {
                     $(".file-upload").addClass('active');
-                    $("#noFile").text(filename.replace("C:\\fakepath\\", ""));
+                    $("#noFile").text(filename);
                 }
             });
         </script>
