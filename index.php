@@ -78,7 +78,7 @@
             <br>
         
             <div id="or">
-                <hr style='display:inline-block; width:30%; '> OR <hr style='display:inline-block; width:30%;'>
+                <hr style='display:inline-block; width:42%; '> OR <hr style='display:inline-block; width:42%;'>
             </div>
             <input type="submit" value="Facebook" id="facebook">
             
