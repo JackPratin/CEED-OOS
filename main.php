@@ -76,9 +76,9 @@
                     
                 </a>
 
-                <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                <!-- <a href="javascript:void(0);" class="icon" onclick="myFunction()">
                     <i class="fa fa-bars"></i>
-                </a>
+                </a> -->
             </div>
 
             <div class="iframe-div">
@@ -91,14 +91,14 @@
         <script src="js/navigation.js"></script>
 
         <script>
-        function myFunction() {
-            var x = document.getElementById("navTop");
-            if (x.className === "navigation-div") {
-                x.className += " responsive";
-            } else {
-                x.className = "navigation-div";
-            }
-            }
+        // function myFunction() {
+        //     var x = document.getElementById("navTop");
+        //     if (x.className === "navigation-div") {
+        //         x.className += " responsive";
+        //     } else {
+        //         x.className = "navigation-div";
+        //     }
+        //     }
             // document.getElementById("menu-selected").style.display = "flex";
             // document.getElementById("menu-unselected").style.display = "none";
         </script>

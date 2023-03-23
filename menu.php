@@ -156,18 +156,18 @@
             <br>
             
             <div class="number-input">
-                <span>
+                <div>
                     <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" ></button>
 
                     <input class="quantity" id="currentQty" min="1" name="quantity" value="1" type="number">
 
                     <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button> 
-                </span>
+                </div>
 
-                <span min-width="90%">     
+                <div min-width="90%">     
                     <input type="submit" value="Add to Cart" class="addCart" onclick='addToCart()'>
                     <!-- hide("popup1") -->
-                </span>
+                </div>
                 <input type="hidden" name="" id="id" value="">
             </div>
 

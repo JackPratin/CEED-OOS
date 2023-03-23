@@ -30,62 +30,61 @@
 
         <div class="center2">
        
-                <form style="margin-bottom:0px">
-                    <button type="button" style="position: absolute;right: 5px;" onclick="location.href='employee-login.php'" class="button">Login as Employee</button>
-                    <br>
-                    <center>
-                        <div class="logocontainer">
-                            <img src="css/system images/company logo.png" alt="1975 Old-Fashioned Burgers logo" class="logo">
-                        </div>
-                    </center>
-
-                    <h1>WELCOME</h1>
-                    <div class="text_field">
-                        <i class="fa-solid fa-circle-user"></i>
-                        <input type="text" form="login" name="username" required>
-                        <span></span>
-                        <label>Username</label>    
-                    </div>
-
-                    <div class="text_field">
-                        <i class="fa-solid fa-lock"></i>
-                        <input type="password" form="login" name="password" required>
-                        <label>Password</label>
-                    </div>
-                </form>
-                
-                
-
+            <form style="margin-bottom:0px">
+                <button type="button" style="position: absolute;right: 5px;" onclick="location.href='employee-login.php'" class="button">Login as Employee</button>
+                <br>
                 <center>
-                    <div class="signup-and-forgot" style="margin-top: -3px;">
-                        <div>
-                            <a href="register.html" style="color:red;">Sign up here.</a>
-                        </div>&nbsp;
-                        <div>
-                            <a href="forgotPassword.html" class="pass">Forgot Password?</a>
-                        </div>
-                     
-                    
+                    <div class="logocontainer">
+                        <img src="css/system images/company logo.png" alt="1975 Old-Fashioned Burgers logo" class="logo">
                     </div>
                 </center>
 
+                <h1>WELCOME</h1>
+                <div class="text_field">
+                    <i class="fa-solid fa-circle-user"></i>
+                    <input type="text" form="login" name="username" required>
+                    <span></span>
+                    <label>Username</label>    
+                </div>
 
-                <input type="submit" value="LOGIN" form="login" id="loginButton">
-                <p id='countdown'></p>
-                <input type="hidden" name='type' value="customer" form="login">
-
-                <form action="php/login-exec.php" method="post" id="login" name="login"></form>
-                
+                <div class="text_field">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" form="login" name="password" required>
+                    <label>Password</label>
+                </div>
+            </form>
             
-                    <div id="or">
-                        <hr style='display:inline-block; width:30%; '> OR <hr style='display:inline-block; width:30%;'>
+            
+
+            <center>
+                <div class="signup-and-forgot" style="margin-top: -3px;">
+                    <div>
+                        <a href="register.html" style="color:red;">Sign up here.</a>
+                    </div>&nbsp;
+                    <div>
+                        <a href="forgotPassword.html" class="pass">Forgot Password?</a>
                     </div>
-               <br>
-                <input type="submit" value="Facebook" id="facebook">
+                    
                 
-               <input type="submit" value="Login as Guest" id="guest" onclick="location.href='guest-login.html'">
-             
+                </div>
+            </center>
+
+
+            <input type="submit" value="LOGIN" form="login" id="loginButton">
+            <p id='countdown'></p>
+            <input type="hidden" name='type' value="customer" form="login">
+
+            <form action="php/login-exec.php" method="post" id="login" name="login"></form>
+            <br>
+        
+            <div id="or">
+                <hr style='display:inline-block; width:30%; '> OR <hr style='display:inline-block; width:30%;'>
             </div>
+            <input type="submit" value="Facebook" id="facebook">
+            
+            <input type="submit" value="Login as Guest" id="guest" onclick="location.href='guest-login.html'">
+             
+        </div>
  
         <?php
         if($_SESSION['loginAttempt'] >= 3){
