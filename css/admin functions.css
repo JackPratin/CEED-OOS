@@ -163,11 +163,12 @@ th:last-child {
 }
 
 #prodSubmit {
-    position: absolute;
-    left: 38.6%;
-    top: 37%;
+    position: sticky;
+    /* left: 38.6%; */
+    /* top: 37%; */
     font-weight: bold;
-    width: 10%;
+    right:0%;
+    width: 30%;
     height: 40px;
     border: none;
     border-radius: 6px;
@@ -180,6 +181,12 @@ th:last-child {
 #prodSubmit:hover {
     border: 1px solid;
     transition: .2s;
+}
+
+#prodSubmitDiv{
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .productForm1 {

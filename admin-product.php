@@ -60,7 +60,9 @@
 
                  <br>
             
-                    <input type="submit" value="Add Product" class="addProdBtn" id="prodSubmit">
+                    <div id='prodSubmitDiv'>
+                        <input type="submit" value="Add Product" class="addProdBtn" id="prodSubmit">
+                    </div>
                 </form>
             </div>
 
