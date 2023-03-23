@@ -1,6 +1,11 @@
 <?php
     function typeCheck($pageType){
         require("config.php");
+        
+        if(!isset($_SESSION['account_type'])){
+            echo '<script>window.location="php/logout.php"</script>';
+        }
+        
         if($pageType != $_SESSION['account_type']){
             echo "<script>alert('Page not available.');</script>";
 
@@ -20,6 +25,8 @@
                 case 'guest':
                     echo '<script>window.location="guest-main.php"</script>';
                     break;
+                default:
+                    echo '<script>window.location="php/logout.php"</script>';
             }
         }
     }

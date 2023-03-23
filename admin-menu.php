@@ -2,6 +2,10 @@
     require("php/adminFunctions.php");
     require("php/config.php");
     session_start();
+
+    require("php/userType.php");
+    typeCheck('admin');
+    
     if(!isset($_SESSION['current_page'])){
         $_SESSION['current_page'] = "admin-menu.php"; 
     }
