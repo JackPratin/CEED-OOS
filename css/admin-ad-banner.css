@@ -8,6 +8,7 @@ html {
 
 body {
     min-height: 100%;
+    background-color: #EFEFEF;
 }
 
 
@@ -71,7 +72,14 @@ li a:hover:not(.admin-nav-active) {
 }
 
 
-/* stock monitoring */
+/* ad banner */
+
+.adbanner {
+    position: absolute;
+    top: 50%;
+    right: 1%;
+    left: 15%;
+}
 
 table {
     border-radius: 10px;
@@ -80,12 +88,20 @@ table {
     border-style: hidden;
 }
 
-.stock-actions {
+.banner-actions {
     background-color: #FFA200;
     color: white;
     border-radius: 10px;
     border: none;
     padding: 7px 10px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.banner-actions:hover {
+    background-color: white;
+    color: #FFA200;
+    border: 1px solid #FFA200;
 }
 
 th {
@@ -93,10 +109,13 @@ th {
     color: white;
     text-align: left;
     padding: 10px;
+    width: 250px;
+    text-align: center;
 }
 
 tr {
     background-color: white;
+    text-align: center;
 }
 
 tr:nth-child(odd) {
@@ -104,7 +123,8 @@ tr:nth-child(odd) {
 }
 
 td {
-    padding: 10px;
+    padding: 14px;
+    text-align: center;
 }
 
 
@@ -124,33 +144,37 @@ th:last-child {
 }
 
 
-/* admin product */
+/* banner form */
 
 .center {
     display: flex;
     justify-content: space-evenly;
 }
 
-.productForm {
+.bannerForm {
     border: none;
-    width: 500px;
-    height: 280px;
+    width: 330px;
+    height: 350px;
     border-radius: 15px;
     background-color: white;
     padding: 10px;
     margin-top: 30px;
-    margin-left: -170px;
+    margin-left: -230px;
 }
 
-#addProd {
+#addBanner {
     color: #FFAE42;
     font-size: 20px;
-    margin-top: -20px;
+    margin-top: -34px;
 }
 
-.prodInput {
+form {
+    padding: 9px;
+}
+
+.bannerInput {
     font-family: 'Inter';
-    width: 150px;
+    width: 177px;
     height: 40px;
     background-color: #EFEFEF;
     border: none;
@@ -162,10 +186,10 @@ th:last-child {
     margin-bottom: 15px;
 }
 
-#prodSubmit {
+#bannerSubmit {
     position: absolute;
-    left: 38.6%;
-    top: 37%;
+    left: 17%;
+    top: 42%;
     font-weight: bold;
     width: 10%;
     height: 40px;
@@ -177,140 +201,13 @@ th:last-child {
     outline: none;
 }
 
-#prodSubmit:hover {
+#bannerSubmit:hover {
     border: 1px solid;
     transition: .2s;
 }
 
-.productForm1 {
-    position: absolute;
-    left: 60%;
-    top: 5%;
-    width: 300px;
-    height: 300px;
-    border: none;
-    width: 20%;
-    border-radius: 15px;
-    background-color: white;
-    padding: 10px;
-}
 
-#addIngre {
-    color: #FFAE42;
-    font-size: 20px;
-    margin-top: -20px;
-}
-
-#IngreInput {
-    color: #FFAE42;
-    font-size: 20px;
-    margin-top: -20px;
-}
-
-.IngreInput {
-    font-family: 'Inter';
-    width: 150px;
-    height: 40px;
-    background-color: #EFEFEF;
-    border: none;
-    border-radius: 5px;
-    color: gray;
-    padding: 10px;
-    margin-top: 10px;
-    margin-right: 10px;
-    margin-bottom: 5px;
-}
-
-#IngreSubmit {
-    position: absolute;
-    left: 25.6%;
-    top: 83%;
-    font-weight: bold;
-    width: 50%;
-    height: 40px;
-    border: none;
-    border-radius: 6px;
-    background-color: #FFAE42;
-    font-size: 15px;
-    cursor: pointer;
-    outline: none;
-}
-
-#IngreSubmit:hover {
-    border: 1px solid;
-    transition: .2s;
-}
-
-.container {
-    width: 170px;
-    display: flex;
-    float: left;
-}
-
-.custom-select select {
-    display: none;
-}
-
-.custom-select {
-    width: 100%;
-    padding: 5px;
-}
-
-.selected-item {
-    padding: 13px 13px;
-    background-color: #FFAE42;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: .4s;
-    display: flex;
-    justify-content: space-between;
-}
-
-.selected-item:hover {
-    background-color: #FFAE42;
-}
-
-.option-list {
-    border-radius: 8px;
-    margin-top: 10px;
-    display: none;
-}
-
-.option {
-    margin-bottom: 10px;
-    padding: 8px 8px;
-    cursor: pointer;
-    background-color: #FFAE42;
-    border: none;
-    border-radius: 6px;
-    transition: .4s;
-    color: #000;
-    height: 20px;
-}
-
-.option:hover {
-    background-color: #fff;
-    border: 1px solid #FFAE42;
-    color: #FFAE42;
-}
-
-.option:last-child {
-    margin-bottom: 0px;
-}
-
-.arrow-down {
-    width: 10px;
-    height: 10px;
-    border-bottom: 3px solid #fff;
-    border-left: 3px solid #fff;
-    display: inline-block;
-    transform: rotate(-45deg);
-    transition: .4s;
-}
-
-.arrow-up {
-    transform: rotate(136deg);
-}
+/* file upload */
 
 .file-upload {
     display: block;
@@ -332,6 +229,8 @@ th:last-child {
     position: relative;
     border-radius: 5px;
     width: 308px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .file-upload .file-select .file-select-button {

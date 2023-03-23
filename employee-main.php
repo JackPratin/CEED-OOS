@@ -11,7 +11,7 @@
         
         <link rel="stylesheet" href="css/contents.css">
         <link rel="stylesheet" href="css/navigation.css">
-        <title>Menu</title>
+        <title>Employee Main</title>
     </head>
     
     <body>

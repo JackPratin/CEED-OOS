@@ -19,7 +19,7 @@
         <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
         <link rel="stylesheet" href="css/navigation.css">
         <link rel="stylesheet" href="css/contents.css">
-        <title>Menu</title>
+        <title>Order List</title>
     </head>
     
     <body>
