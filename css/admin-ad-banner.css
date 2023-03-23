@@ -74,10 +74,11 @@ li a:hover:not(.admin-nav-active) {
 
 /* ad banner */
 
-.bannerPage{
+.bannerPage {
     display: flex;
     flex-direction: column;
 }
+
 .bannerTable {
     overflow-x: scroll;
 }
@@ -187,7 +188,7 @@ form {
 
 #bannerSubmit {
     font-weight: bold;
-    width: 30%;
+    width: 40%;
     height: 40px;
     border: none;
     border-radius: 6px;
@@ -202,7 +203,7 @@ form {
     transition: .2s;
 }
 
-#bannerSubmitDiv{
+#bannerSubmitDiv {
     display: flex;
     justify-content: center;
 }
@@ -321,6 +322,126 @@ form {
 }
 
 .file-upload .file-select.file-select-disabled:hover .file-select-name {
+    line-height: 40px;
+    display: inline-block;
+    padding: 0 10px;
+    background: #EFEFEF;
+}
+
+
+/* file upload2 */
+
+.file-upload2 {
+    display: block;
+    text-align: center;
+    font-family: 'Inter';
+    font-size: 12px;
+}
+
+.file-upload2 .file-select2 {
+    display: block;
+    border: 2px solid #FFAE42;
+    color: #000;
+    cursor: pointer;
+    height: 40px;
+    line-height: 40px;
+    text-align: left;
+    background: #FFFFFF;
+    overflow: hidden;
+    position: relative;
+    border-radius: 5px;
+    width: 308px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.file-upload2 .file-select2 .file-select2-button2 {
+    background: #FFAE42;
+    padding: 0 10px;
+    display: inline-block;
+    height: 40px;
+    line-height: 40px;
+}
+
+.file-upload2 .file-select2 .file-select2-name2 {
+    line-height: 40px;
+    display: inline-block;
+    padding: 0 10px;
+}
+
+.file-upload2 .file-select2:hover {
+    border-color: #FFAE42;
+    transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -webkit-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+}
+
+.file-upload2 .file-select2:hover .file-select2-button2 {
+    background: gray;
+    color: #FFAE42;
+    transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -webkit-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+}
+
+.file-upload2.active .file-select2 {
+    transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -webkit-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+}
+
+.file-upload2.active .file-select2 .file-select2-button2 {
+    color: #FFFFFF;
+    transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -webkit-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+}
+
+.file-upload2 .file-select2 input[type=file] {
+    z-index: 100;
+    cursor: pointer;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
+.file-upload2 .file-select2.file-select2-disabled {
+    opacity: 0.65;
+}
+
+.file-upload2 .file-select2.file-select2-disabled:hover {
+    cursor: default;
+    display: block;
+    border: 2px solid #dce4ec;
+    color: #fff;
+    cursor: pointer;
+    height: 40px;
+    line-height: 40px;
+    margin-top: 5px;
+    text-align: left;
+    background: #EFEFEF;
+    overflow: hidden;
+    position: relative;
+}
+
+.file-upload2 .file-select2.file-select2-disabled:hover .file-select2-button2 {
+    background: #FFAE42;
+    color: #666666;
+    padding: 0 10px;
+    display: inline-block;
+    height: 40px;
+    line-height: 40px;
+}
+
+.file-upload2 .file-select2.file-select2-disabled:hover .file-select2-name2 {
     line-height: 40px;
     display: inline-block;
     padding: 0 10px;

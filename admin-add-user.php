@@ -7,49 +7,57 @@
         <script src="https://kit.fontawesome.com/484fbcb614.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Montserrat'>
         <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
-        <link rel="stylesheet" type="text/css" href="css/admin functions.css">
+        <link rel="stylesheet" type="text/css" href="css/admin-add-user.css">
         <link rel="icon" type="image/x-icon" href="css/system images/favicon.ico">
-        <title>Login Page</title>
+        <title>Add an account</title>
     </head>
-    
+
     <body>
-        <div class="center">
+        <div class="addUser">
             <div>
             <form action="php/employeeRegistration.php" method="post" id="form"><br><br>
-                <div id="signUp">New employee account</div> <br>
+                <b><div id="newAccount">New employee account</div> </b><br>
                 <div>
                     User details <br>
-                    <input type="text" name="fname" class="regInput" placeholder="First Name" required>
-                    <input type="text" name="mi" class="regInput" maxlength="2" placeholder="Middle Initial" required>
-                    <input type="text" name="lname" class="regInput" placeholder="Last Name" required>
-                    <select name="type" required>
-                        <option value="" hidden selected>Account Type</option>
-                        <option value="staff">Staff</option>
-                        <option value="admin">Admin</option>
-                    </select>
-                </div> <br>
+                    <input type="text" name="fname" class="adminInput" placeholder="First Name" required>
+                    <input type="text" name="mi" class="adminInput" maxlength="2" placeholder="Middle Initial" required>
+                    <input type="text" name="lname" class="adminInput" placeholder="Last Name" required>
+                            <div class="container">
+                                <div class="custom-select" >
+                                    <select name="type" class="emploType" id="" required>
+                                        <option value="" hidden selected>Account Type</option>
+                                        <option value="staff">Staff</option>
+                                        <option value="admin">Admin</option>
+                                    </select>
+                                </div>
+                            </div>
+                    
+               
         
                 <div>
                     Login & Contact Details <br>
-                    <input type="text" name="email" class="regInput" placeholder="Email" required> 
-                    <input type="text" name="contact" class="regInput" placeholder="Contact Number" required> <br>
-                    <input type="text" name="username" class="regInput" placeholder="Username" required>
-                    <input type="password" name="password" class="regInput" placeholder="Password" required> 
-                    <input type="password" name="conPassword" class="regInput" placeholder="Confirm Password" required>
+                    <input type="text" name="email" class="emailInput" placeholder="Email" required> 
+                    <input type="text" name="contact" class="adminInput" placeholder="Contact Number" required> <br>
+                    <input type="text" name="username" class="adminInput" placeholder="Username" required>
+                    <input type="password" name="password" class="adminInput" placeholder="Password" required> 
+                    <input type="password" name="conPassword" class="adminInput" placeholder="Confirm Password" required>
                 </div> <br>
         
                 <div>
                     Address Details <br>
-                    <input type="text" name="address" class="regInput" placeholder="Compound/Street/Subdivision" required> 
-                    <input type="text" name="brgy" class="regInput" placeholder="Barangay" required>
-                    <input type="text" name="city" class="regInput" placeholder="City" required>
+                    <input type="text" name="address" class="addressInput" placeholder="Compound/Street/Subdivision" required> 
+                    <input type="text" name="brgy" class="adminInput" placeholder="Barangay" required>
+                    <input type="text" name="city" class="adminInput" placeholder="City" required>
                 </div> <br>
         
-                <input type="submit" value="Create your Account" id="regSubmit">
+                <input type="submit" value="Create your Account" id="emploSubmit">
             </form>
                 
             </div>
         </div>
     
+        <script src="https://code.jquery.com/jquery-1.12.3.js" integrity="sha256-1XMpEtA4eKXNNpXcJ1pmMPs8JV+nwLdEqwiJeCQEkyc=" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script src="js/dropdown.js"></script>
     </body>
 </html>

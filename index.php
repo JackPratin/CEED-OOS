@@ -62,7 +62,7 @@
                         <a href="register.html" style="color:red;">Sign up here.</a>
                     </div>&nbsp;
                     <div>
-                        <a href="forgotPassword.html" class="pass">Forgot Password?</a>
+                        <a href="forgot-password.php" class="pass">Forgot Password?</a>
                     </div>
                     
                 
