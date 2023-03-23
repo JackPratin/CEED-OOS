@@ -2,10 +2,10 @@
     require("php/config.php");
     session_start();
     if(!isset($_SESSION['current_page'])){
-        $_SESSION['current_page'] = "menu.php"; 
+        $_SESSION['current_page'] = "admin-functions.php"; 
     }
     else{
-        $_SESSION['current_page'] = $_SESSION['current_page'] = substr($_SERVER["SCRIPT_NAME"],strrpos($_SERVER["SCRIPT_NAME"],"/")+1); 
+        $_SESSION['current_page'] = "admin-functions.php"; 
     }
 
     if(!isset($_SESSION['current_admin_page'])){

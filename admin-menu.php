@@ -2,6 +2,12 @@
     require("php/adminFunctions.php");
     require("php/config.php");
     session_start();
+    if(!isset($_SESSION['current_page'])){
+        $_SESSION['current_page'] = "admin-menu.php"; 
+    }
+    else{
+        $_SESSION['current_page'] = "admin-menu.php"; 
+    }
 ?>
 <html lang="en">
     <head>

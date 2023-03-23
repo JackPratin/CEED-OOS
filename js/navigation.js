@@ -47,50 +47,51 @@ function source_locator(){
         document.getElementById("history-unselected").style.display = "none";
     }
 }
-    function admin_source_locator(){
-        let source = document.getElementById("iframe-source").value;
-        
-        if(source == "admin-menu.php"){
-            document.getElementById("menu-selected").style.display = "flex";
-            document.getElementById("menu-unselected").style.display = "none";
-            document.getElementById("order-list-selected").style.display = "none";
-            document.getElementById("order-list-unselected").style.display = "flex";
-            document.getElementById("history-selected").style.display = "none";
-            document.getElementById("history-unselected").style.display = "flex";
-            document.getElementById("admin-others-selected").style.display = "none";
-            document.getElementById("admin-others-unselected").style.display = "flex";
-        }
-        else if(source == "admin-order-list.php"){
-            document.getElementById("menu-selected").style.display = "none";
-            document.getElementById("menu-unselected").style.display = "flex";
-            document.getElementById("order-list-selected").style.display = "flex";
-            document.getElementById("order-list-unselected").style.display = "none";
-            document.getElementById("history-selected").style.display = "none";
-            document.getElementById("history-unselected").style.display = "flex";
-            document.getElementById("admin-others-selected").style.display = "none";
-            document.getElementById("admin-others-unselected").style.display = "flex";
-        }
-        else if(source == "admin-order-history.php"){
-            document.getElementById("menu-selected").style.display = "none";
-            document.getElementById("menu-unselected").style.display = "flex";
-            document.getElementById("order-list-selected").style.display = "none";
-            document.getElementById("order-list-unselected").style.display = "flex";
-            document.getElementById("history-selected").style.display = "flex";
-            document.getElementById("history-unselected").style.display = "none";
-            document.getElementById("admin-others-selected").style.display = "none";
-            document.getElementById("admin-others-unselected").style.display = "flex";
-        }
-        else if(source == "admin-functions.php"){
-            document.getElementById("menu-selected").style.display = "none";
-            document.getElementById("menu-unselected").style.display = "flex";
-            document.getElementById("order-list-selected").style.display = "none";
-            document.getElementById("order-list-unselected").style.display = "flex";
-            document.getElementById("history-selected").style.display = "none";
-            document.getElementById("history-unselected").style.display = "flex";
-            document.getElementById("admin-others-selected").style.display = "flex";
-            document.getElementById("admin-others-unselected").style.display = "none";
-        }
+
+function admin_source_locator(){
+    let source = document.getElementById("iframe-source").value;
+    
+    if(source == "admin-menu.php"){
+        document.getElementById("menu-selected").style.display = "flex";
+        document.getElementById("menu-unselected").style.display = "none";
+        document.getElementById("order-list-selected").style.display = "none";
+        document.getElementById("order-list-unselected").style.display = "flex";
+        document.getElementById("history-selected").style.display = "none";
+        document.getElementById("history-unselected").style.display = "flex";
+        document.getElementById("admin-others-selected").style.display = "none";
+        document.getElementById("admin-others-unselected").style.display = "flex";
     }
+    else if(source == "admin-order-list.php"){
+        document.getElementById("menu-selected").style.display = "none";
+        document.getElementById("menu-unselected").style.display = "flex";
+        document.getElementById("order-list-selected").style.display = "flex";
+        document.getElementById("order-list-unselected").style.display = "none";
+        document.getElementById("history-selected").style.display = "none";
+        document.getElementById("history-unselected").style.display = "flex";
+        document.getElementById("admin-others-selected").style.display = "none";
+        document.getElementById("admin-others-unselected").style.display = "flex";
+    }
+    else if(source == "admin-order-history.php"){
+        document.getElementById("menu-selected").style.display = "none";
+        document.getElementById("menu-unselected").style.display = "flex";
+        document.getElementById("order-list-selected").style.display = "none";
+        document.getElementById("order-list-unselected").style.display = "flex";
+        document.getElementById("history-selected").style.display = "flex";
+        document.getElementById("history-unselected").style.display = "none";
+        document.getElementById("admin-others-selected").style.display = "none";
+        document.getElementById("admin-others-unselected").style.display = "flex";
+    }
+    else if(source == "admin-functions.php"){
+        document.getElementById("menu-selected").style.display = "none";
+        document.getElementById("menu-unselected").style.display = "flex";
+        document.getElementById("order-list-selected").style.display = "none";
+        document.getElementById("order-list-unselected").style.display = "flex";
+        document.getElementById("history-selected").style.display = "none";
+        document.getElementById("history-unselected").style.display = "flex";
+        document.getElementById("admin-others-selected").style.display = "flex";
+        document.getElementById("admin-others-unselected").style.display = "none";
+    }
+}
 
 function filterChanger(category){
     if(category == "category0"){
