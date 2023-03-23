@@ -2,6 +2,10 @@
     require("php/guestFunctions.php");
     require("php/config.php");
     session_start();
+
+    require("php/userType.php");
+    typeCheck('guest');
+
     if(!isset($_SESSION['current_page'])){
         $_SESSION['current_page'] = "guest-menu.php"; 
     }

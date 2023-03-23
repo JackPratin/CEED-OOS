@@ -2,6 +2,10 @@
  require("php/menuFunctions.php");
  require("php/config.php");
     session_start();
+    
+    require("php/userType.php");
+    typeCheck('customer');
+
     if(!isset($_POST['deliveryMode'])){
         echo "
         <script>

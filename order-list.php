@@ -34,6 +34,7 @@
                     </center>
                 </div> <br>
                 
+                <h2>Track Order</h2>
                 <?php
                     trackOrderDisplay();
                 ?>

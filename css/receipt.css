@@ -14,15 +14,12 @@ body {
 /* The Receipt */
 
 .receipt {
-    width: 360px;
-    height: 650px;
+    width: 31%;
+    height: 100%;
     background-color: white;
     border-radius: 20px;
     position: relative;
-    top: 50%;
-    left: 50%;
-    margin-top: -360px;
-    margin-left: -180px;
+    left: 34.5%;
     box-shadow: 14px 14px 22px -18px;
     padding: 20px
 }
@@ -70,23 +67,29 @@ body {
 
 hr {
     border: .7px solid #ddd;
-    margin: 15px 0;
+    margin: 3% 0;
 }
 
 
 /* Order details */
 
 .details {
-    padding-left: 10px;
-    margin-bottom: 35px;
+    padding: 0 10px;
+    margin-bottom: 5%;
     overflow: hidden;
 }
 
-.details h3 {
+h3 {
     font-weight: 400;
     color: #4D453C;
     font-size: 15px;
     margin-bottom: 30px
+}
+
+h5{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
 }
 
 
@@ -94,12 +97,15 @@ hr {
 
 .product {
     float: left;
-    width: 83%
+    width: 100%;
+    display:flex;
+    flex-direction: column;
+
 }
 
 .product .info {
     float: left;
-    margin-left: 15px
+    /* margin-left: 15px */
 }
 
 .product .info h4 {
@@ -154,5 +160,5 @@ hr {
     font-family: 'Sans Serif';
     color: #FC8F0B;
     text-align: center;
-    bottom: -20%;
+    /* bottom: -20%; */
 }
