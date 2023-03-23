@@ -60,9 +60,9 @@
 
                  <br>
             
-                    <div id='prodSubmitDiv'>
+                    
                         <input type="submit" value="Add Product" class="addProdBtn" id="prodSubmit">
-                    </div>
+                   
                 </form>
             </div>
 
@@ -98,21 +98,10 @@
             </div>
         </div>
     
-        <script>
-            $('#chooseFile').bind('change', function () {
-                var filename = $("#chooseFile").val();
-                if (/^\s*$/.test(filename)) {
-                    $(".file-upload").removeClass('active');
-                    $("#noFile").text("No file chosen..."); 
-            }
-            else {
-                $(".file-upload").addClass('active');
-                $("#noFile").text(filename.replace("C:\\fakepath\\", "")); 
-            }
-            });
-        </script>
+      
         <script src="https://code.jquery.com/jquery-1.12.3.js" integrity="sha256-1XMpEtA4eKXNNpXcJ1pmMPs8JV+nwLdEqwiJeCQEkyc=" crossorigin="anonymous"></script>
         <script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
         <script src="js/dropdown.js"></script>
+        <script src="js/upload-file.js"></script>
     </body>
 </html>

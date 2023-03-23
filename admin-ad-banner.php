@@ -8,6 +8,7 @@
     <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Montserrat'>
     <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
     <link rel="stylesheet" href="css/admin-ad-banner.css">
+    <script src="js/upload-file.js"></script>
     <link rel="icon" type="image/x-icon" href="css/system images/favicon.ico">
     <title>Upload ad Banner</title>
 </head>
@@ -22,25 +23,29 @@
                 Banner Name:&nbsp&nbsp&nbsp&nbsp<input type="text" name="pName" class="bannerInput" placeholder="Banner Name">
                 
                 <br>
-                <b>Banner Image (Big):</b>
-                <div class="file-upload">
-                    <div class="file-select">
+                <div class="desktop">
+                    <b>Banner Image (Desktop version):</b>
+                    <div class="file-upload">
+                        <div class="file-select">
 
-                        <div class="file-select-button" id="fileName">Choose File</div>
-                        <div class="file-select-name" id="noFile">No file chosen...</div>
-                        <input type="file" name="chooseFile" id="chooseFile">
-                    </div>
-                </div>
-                <b>Banner Image (Mobile):</b>
-                <div class="file-upload">
-                    <div class="file-select">
-
-                        <div class="file-select-button" id="fileName">Choose File</div>
-                        <div class="file-select-name" id="noFile">No file chosen...</div>
-                        <input type="file" name="chooseFile" id="chooseFile">
+                            <div class="file-select-button" id="fileName">Choose File</div>
+                            <div class="file-select-name" id="noFile">No file chosen...</div>
+                            <input type="file" name="chooseFile" id="chooseFile">
+                        </div>
                     </div>
                 </div>
 
+                <div class="mobile">
+                    <b>Banner Image (Mobile version):</b>
+                    <div class="file-upload2">
+                        <div class="file-select2">
+
+                            <div class="file-select2-button2" id="fileName2">Choose File</div>
+                            <div class="file-select2-name2" id="noFile2">No file chosen...</div>
+                            <input type="file" name="chooseFile2" id="chooseFile2">
+                        </div>
+                    </div>
+                </div>
                 <br>
 
                 <div id='bannerSubmitDiv'>
@@ -55,8 +60,8 @@
             <table width="100%">
                 <tr>
                     <th>Name</th>
-                    <th>Big Image</th>
-                    <th>Small Image</th>
+                    <th>Desktop version</th>
+                    <th>Mobile version</th>
                     <th colspan="3">Actions</th>
                     <th>Date</th>
 
@@ -88,21 +93,11 @@
 
 
 
-        <script>
-            $('#chooseFile').bind('change', function() {
-                var filename = $("#chooseFile").val();
-                if (/^\s*$/.test(filename)) {
-                    $(".file-upload").removeClass('active');
-                    $("#noFile").text("No file chosen...");
-                } else {
-                    $(".file-upload").addClass('active');
-                    $("#noFile").text(filename);
-                }
-            });
-        </script>
+
         <script src="https://code.jquery.com/jquery-1.12.3.js" integrity="sha256-1XMpEtA4eKXNNpXcJ1pmMPs8JV+nwLdEqwiJeCQEkyc=" crossorigin="anonymous"></script>
         <script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
-
+        <script src="js/upload-file.js"></script>
+        <script src="js/upload-file2.js"></script>
 </body>
 
 </html>
