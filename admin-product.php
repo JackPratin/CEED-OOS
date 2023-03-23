@@ -17,43 +17,61 @@
         <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
         <link rel="stylesheet" href="css/admin functions.css">
         <link rel="icon" type="image/x-icon" href="css/system images/favicon.ico">
-        <title>Login Page</title>
+        <title>Admin Product</title>
     </head>
     
     <body>
         <div class="center">
             <div class="productForm">
                 <form action="php/addProduct.php" method="post" id="form" enctype="multipart/form-data"><br><br>
-                    <div id="signUp">Add new product</div> <br>
-                    <div>
-                        User details <br>
-                        <input type="text" name="pName" class="regInput" placeholder="Product Name">
-                        <input type="text" name="price" class="regInput" maxlength="2" placeholder="Price">
-                        <input type="text" name="qty" class="regInput" placeholder="Quantity">
-                        <select name="category" id="" name="category">
-                            <?php
-                                $category_qry = mysqli_query($con, "SELECT * FROM product_categories_tb WHERE category_id != 4");
-                                while($category = mysqli_fetch_array($category_qry, MYSQLI_ASSOC)){
-                                    echo"<option value='$category[category_id]'>$category[category_name]</option>";
-                                }
-                            ?>
-                        </select> <br>
-                        Product Image:
-                        <input type="file" name="image" id="">
-                    </div> <br>
+                    <b><div id="addProd">Add new product</div></br>
+                        
+                            Product details <br>
+                            <input type="text" name="pName" class="prodInput" placeholder="Product Name">
+                            <input type="text" name="price" class="prodInput" maxlength="2" placeholder="Price">
+                            <input type="text" name="qty" class="prodInput" placeholder="Quantity">
+
+                            <div class="container">
+                                <!-- the select elemnt should go into div!!!!!  -->
+                                <div class="custom-select" >
+                                    <select name="category" class="categoryProd" id="" name="category">
+                                        <option>
+                                            <?php
+                                                $category_qry = mysqli_query($con, "SELECT * FROM product_categories_tb WHERE category_id != 4");
+                                                while($category = mysqli_fetch_array($category_qry, MYSQLI_ASSOC)){
+                                                    echo"<option value='$category[category_id]'>$category[category_name]</option>";
+                                                }
+                                            ?>
+                                        </option>
+                                    </select>   <br>
+                                </div>
+                            </div>
+    
+                            <b>Product Image:</b>
+                            <div class="file-upload">
+                                <div class="file-select">
+                                   
+                                    <div class="file-select-button" id="fileName">Choose File</div>
+                                    <div class="file-select-name" id="noFile">No file chosen...</div> 
+                                    <input type="file" name="chooseFile" id="chooseFile">
+                                </div>
+                            </div>
+
+
+                 <br>
             
-                    <input type="submit" value="Add Product" id="regSubmit">
+                    <input type="submit" value="Add Product" class="addProdBtn" id="prodSubmit">
                 </form>
             </div>
 
-            <div class="productForm">
+            <div class="productForm1">
                 <form action="php/customerRegistration.php" method="post" id="form"><br><br>
-                    <div id="signUp">Add new ingredient</div> <br>
+                    <div id="addIngre">Add new ingredient</div> <br>
                     <div>
-                        User details <br>
-                        <input type="text" name="fname" class="regInput" placeholder="Ingredient Name">
-                        <input type="text" name="mi" class="regInput" maxlength="2" placeholder="Price">
-                        <input type="text" name="lname" class="regInput" placeholder="Last Name">
+                        Ingredients <br>
+                        <input type="text" name="fname" class="IngreInput" placeholder="Ingredient Name">
+                        <input type="text" name="mi" class="IngreInput" maxlength="2" placeholder="Price">
+                        <input type="text" name="lname" class="IngreInput" placeholder="Last Name">
                        
                     </div> <br>
 <!--             
@@ -73,10 +91,26 @@
                         <input type="text" name="city" class="regInput" placeholder="City">
                     </div> <br> -->
             
-                    <input type="submit" value="Add Ingredient" id="regSubmit">
+                    <input type="submit" value="Add Ingredient" id="IngreSubmit">
                 </form>
             </div>
         </div>
     
+        <script>
+            $('#chooseFile').bind('change', function () {
+                var filename = $("#chooseFile").val();
+                if (/^\s*$/.test(filename)) {
+                    $(".file-upload").removeClass('active');
+                    $("#noFile").text("No file chosen..."); 
+            }
+            else {
+                $(".file-upload").addClass('active');
+                $("#noFile").text(filename.replace("C:\\fakepath\\", "")); 
+            }
+            });
+        </script>
+        <script src="https://code.jquery.com/jquery-1.12.3.js" integrity="sha256-1XMpEtA4eKXNNpXcJ1pmMPs8JV+nwLdEqwiJeCQEkyc=" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script src="js/dropdown.js"></script>
     </body>
 </html>

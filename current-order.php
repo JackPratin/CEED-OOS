@@ -26,7 +26,7 @@
         <link rel="stylesheet" href="css/navigation.css">
         <link rel="stylesheet" href="css/content.css">
         <link rel="stylesheet" href="css/current-order.css">
-        <title>Menu</title>
+        <title>Current Order</title>
     </head>
     
     <body>
