@@ -17,7 +17,7 @@ body {
     display: flex;
     height: 70%;
     max-width: 50%;
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
     position: absolute;
     left: 6%;
     margin-top: 30px;
