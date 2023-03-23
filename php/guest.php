@@ -35,7 +35,7 @@
     $_SESSION['address']        = mysqli_real_escape_string($con, $_POST['address']);
     $_SESSION['brgy']           = mysqli_real_escape_string($con, $_POST['brgy']);
     $_SESSION['city']           = mysqli_real_escape_string($con, $_POST['city']);
-    $_SESSION['account_type']   = "guest";
+    $_SESSION['account_type']   = 'guest';
     $_SESSION['order_count']    = 0;
 
     echo '<script>window.location="../guest-main.php"</script>';
