@@ -9,7 +9,7 @@
         <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
         <link rel="stylesheet" type="text/css" href="css/employee login page.css">
         <link rel="icon" type="image/x-icon" href="css/system images/favicon.ico">
-        <title>Login Page</title>
+        <title>Employee Login</title>
     </head>
     
     <body>
