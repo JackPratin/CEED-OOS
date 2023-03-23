@@ -7,7 +7,7 @@
         while($products = mysqli_fetch_array($products_qry, MYSQLI_ASSOC)){
             $id = $products['product_id'];
             echo"
-            <a href='#' onclick='show(\"popup$products[product_category]\"); addDetails($id); getImage(img$id)' style=\"color:black; width:fit-content;\">
+            <a href='#' onclick='show(\"popup$products[product_category]\"); addDetails($id); getImage(\"img$id\", \"$products[product_name]\", \"₱$products[product_price]\", $id, $products[product_category]);' style=\"color:black; width:fit-content;\">
                 <div class='menu-item' id='card$id'>
                     <div class='menu-details'>$products[product_name] <br><br> ₱$products[product_price]</div>
 
@@ -15,12 +15,12 @@
                     <img src='$products[product_image]' height='100%' width='75%' id='img$id'> </div> 
                     <input type='hidden' value='$products[product_category]' id='cat$id'>
 
-                    <form method='post' action='php/addtocart.php' id='form$id'>
-                        <input type='hidden' value='$id' name='id'>
-                        <input type='hidden' value='' id='quantity$id' name='quantity'>
-                        <input type='hidden' value='$products[product_category]' id='cat$id'>
-                        <input type='hidden' value='$products[product_price]' name='price'>
-                    </form>
+                    
+                    <input type='hidden' value='$id' name='id'>
+                    <input type='hidden' value='$id' name='id$id'>
+                    <input type='hidden' value='' id='quantity$id' name='quantity'>
+                    <input type='hidden' value='$products[product_category]' id='cat$id'>
+                    <input type='hidden' value='$products[product_price]' name='price'>
                 </div>
             </a>
             ";
