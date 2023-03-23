@@ -21,14 +21,25 @@
     </head>
     <body>
         <h1>Sales Report</h1>
-        <div>hello1
-            <div>
+        <div id='top-report'>
+            <div id='mostOrder'>
                 Most Ordered Item
             </div>
-            <div>
+            <div id='mostLocation'>
                 Location with most orders
             </div>
         </div>
+
+        <br>
+
+        <div id='select'>
+            <select id='salesSelect'>
+                <option class='salesOption'>Weekly</option>
+                <option class='salesOption'>Monthly</option>
+                <option class='salesOption'>Quarterly</option>
+            </select>
+        </div>
+
         <table width="75%";>
             <tr>
                 <th>Name of ingredient</th>
