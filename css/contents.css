@@ -129,11 +129,12 @@ p {
     z-index: -2;
 }
 
-#item-div{
+#item-div {
     /* width: 50%; */
-
     display: flex;
 }
+
+
 /* #extras-div{
     width: 50%;
 } */
@@ -216,7 +217,7 @@ input[type=number]::-webkit-outer-spin-button {
     background-color: transparent;
 }
 
-#counter{
+#counter {
     display: flex;
     align-content: center;
     height: 100%;
@@ -239,7 +240,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 
-                /* navigation-menu */
+/* navigation-menu */
 
 @media only screen and (min-width: 900px) {
     .iframe-div {
@@ -252,7 +253,7 @@ input[type=number]::-webkit-outer-spin-button {
 
     } */
     /* #main-menu { */
-        /* display: flex;
+    /* display: flex;
         flex-direction: column;
         width: 100%;
         padding: 0;
@@ -262,10 +263,10 @@ input[type=number]::-webkit-outer-spin-button {
         display: none;
     }
     /* #top-main-menu { */
-        /* display: flex;
+    /* display: flex;
         flex-direction: row; */
-        /* justify-content: space-around; */
-        /* justify-content: space-evenly;
+    /* justify-content: space-around; */
+    /* justify-content: space-evenly;
         align-items: flex-end;
         padding: 0;
         margin: 0;
@@ -317,7 +318,7 @@ input[type=number]::-webkit-outer-spin-button {
     #categoryDropdown {
         display: none;
     }
-                    /*CART*/
+    /*CART*/
     #cart-div {
         overflow-y: auto;
         overflow-x: hidden;
@@ -435,8 +436,7 @@ input[type=number]::-webkit-outer-spin-button {
         border: 1px solid white;
         color: white;
     }
-
-                    /*ORDER LIST PAGE*/
+    /*ORDER LIST PAGE*/
     .tracking {
         display: flex;
         height: 100%;
@@ -459,7 +459,7 @@ input[type=number]::-webkit-outer-spin-button {
         flex-direction: column;
         align-items: left;
     }
-    .inner-order-status{
+    .inner-order-status {
         display: flex;
         align-items: center;
     }
@@ -481,19 +481,18 @@ input[type=number]::-webkit-outer-spin-button {
     .order-list {
         background-color: transparent;
     }
-    .order-text{
+    .order-text {
         display: flex;
         flex-direction: column;
         margin-left: 5%;
     }
-    .order-upper-text{
+    .order-upper-text {
         font-weight: bold;
     }
-    .order-lower-text{
+    .order-lower-text {
         font-size: small;
     }
-    
-                    /* ORDER HISTORY */
+    /* ORDER HISTORY */
     .header {
         color: white;
         background-color: orange;
