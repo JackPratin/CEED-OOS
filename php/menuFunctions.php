@@ -44,6 +44,10 @@
 
     function cartDisplay(){
         require("config.php");
+        if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+    } 
 
         $cart_qry = mysqli_query($con, "SELECT * FROM cart_tb WHERE customer_id = $_SESSION[customer_id]");
 
@@ -68,6 +72,27 @@
                             <button type='submit'>X</button>
                         </form>
                         </span>
+                        
+                        <span>";
+                       
+
+                                //if ingredient is not empty
+                                if($products['extra_ingredients'] != ""){
+                                    echo "Extra: <br>";
+
+                                    //string to array
+                                    $ingredients = explode(",",$products['extra_ingredients']);
+
+                                    //loops through product names of ingredients
+                                    foreach($ingredients as $ingredients){
+                                        $nameqry = mysqli_query($con, "SELECT product_name FROM products_tb WHERE product_id = $ingredients");
+
+                                        $ingredients_name = mysqli_fetch_array($nameqry, MYSQLI_ASSOC);
+                                        echo $ingredients_name['product_name'].'<br>';
+                                    }
+                                }
+                            
+                        echo"</span>
                         <span class='end-to-end'> 
                             <span>
                                 <span class='span-x'>x </span>
