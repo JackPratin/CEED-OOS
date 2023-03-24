@@ -155,7 +155,7 @@ th:last-child {
 
 .bannerForm {
     border: none;
-    width: 330px;
+    width: 50%;
     /* height: 350px; */
     border-radius: 15px;
     background-color: white;
@@ -230,7 +230,7 @@ form {
     overflow: hidden;
     position: relative;
     border-radius: 5px;
-    width: 308px;
+    width: 90%;
     margin-top: 10px;
     margin-bottom: 10px;
 }
@@ -244,6 +244,7 @@ form {
 }
 
 .file-upload .file-select .file-select-name {
+    color: black;
     line-height: 40px;
     display: inline-block;
     padding: 0 10px;
@@ -322,6 +323,8 @@ form {
 }
 
 .file-upload .file-select.file-select-disabled:hover .file-select-name {
+    color: black;
+    overflow: hidden;
     line-height: 40px;
     display: inline-block;
     padding: 0 10px;
@@ -350,7 +353,7 @@ form {
     overflow: hidden;
     position: relative;
     border-radius: 5px;
-    width: 308px;
+    width: 90%;
     margin-top: 10px;
     margin-bottom: 10px;
 }

@@ -67,13 +67,13 @@
             </div>
 
             <div class="productForm1">
-                <form action="php/customerRegistration.php" method="post" id="form"><br><br>
+                <form action="php/addIngredient.php" method="post" id="form"><br><br>
                     <div id="addIngre">Add new ingredient</div> <br>
                     <div>
                         Ingredients <br>
                         <input type="text" name="fname" class="IngreInput" placeholder="Ingredient Name">
                         <input type="text" name="mi" class="IngreInput" maxlength="2" placeholder="Price">
-                        <input type="text" name="lname" class="IngreInput" placeholder="Last Name">
+                        <input type="text" name="lname" class="IngreInput" placeholder="Quantity">
                        
                     </div> <br>
 <!--             
