@@ -437,6 +437,11 @@ input[type=number]::-webkit-outer-spin-button {
         color: white;
     }
     /*ORDER LIST PAGE*/
+    /* a{
+        width: 30%;
+        text-decoration: none;
+        color: black;
+    } */
     .tracking {
         display: flex;
         height: 100%;
@@ -444,7 +449,7 @@ input[type=number]::-webkit-outer-spin-button {
     }
     .order-card {
         background-color: white;
-        width: 30%;
+        width: 100%;
         border-radius: 15px;
         padding: 2%;
     }
@@ -468,7 +473,7 @@ input[type=number]::-webkit-outer-spin-button {
         border-radius: 50%;
         width: 10px;
         height: 10px;
-        margin: 5px 0;
+        margin-right: 5%;
     }
     .circle-active {
         background: #FFA200;

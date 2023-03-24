@@ -45,9 +45,9 @@
     function cartDisplay(){
         require("config.php");
         if(!isset($_SESSION)) 
-    { 
+        { 
         session_start(); 
-    } 
+        } 
 
         $cart_qry = mysqli_query($con, "SELECT * FROM cart_tb WHERE customer_id = $_SESSION[customer_id]");
 
@@ -132,17 +132,20 @@
         else{
             echo"
                 <div class='tracking'>
-                    <div class='order-card'>
-                        Order 1#<br>
-                        17 Mar 2023, 04:00PM<br>
-                        1975 Classic<br>
-                        <hr>
-                        <span class='order-card-bottom'>x1 Items<br>₱ 105.00</span>
-                    </div>
+                    <a href='invoice.php'>
+                        <div class='order-card'>
+                            Order 1#<br>
+                            17 Mar 2023, 04:00PM<br>
+                            1975 Classic<br>
+                            <hr>
+                            <span class='order-card-bottom'>x1 Items<br>₱ 105.00</span>
+                        </div>
+                    </a>
+                    
 
                     <div class='order-status'>
                         <div class='inner-order-status'>
-                            <div class='circle-active circle' id='placeCircle'></div>&nbsp;
+                            <div class='circle-active circle' id='placeCircle'></div>
                             <img src='css/system images/order list icons/order-placed-icon.png' alt='Icon for placed order'>
                             <div class='order-text'>
                                 <div class='order-upper-text'>Order Placed</div>
