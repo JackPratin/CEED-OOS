@@ -2,8 +2,10 @@
     require("php/menuFunctions.php");
     require("php/config.php");
     session_start();
+
     require("php/userType.php");
     typeCheck('customer');
+    
     if(!isset($_SESSION['current_page'])){
         $_SESSION['current_page'] = "menu.php"; 
     }
@@ -131,47 +133,71 @@
 
        
         <div class='popup' id='popup1'>
-            <div>
-                <img src="" alt="" id="extra-image">
+            <div id='item-div'>
+                <img src="" alt="Item image" id="extra-image">&nbsp;
+                <div style='display:flex; flex-direction:column;'>
+                    <h2 id='extra-name'></h2>
+                    <h3 id='extra-price'></h3>
+                </div>
+                <span class="cls"><button href="#" onclick="hide('popup1')">X</button></span>
             </div>
-            <div > 
+            <div id='extras-div'> 
                 <div style="display:flex; justify-content: space-between;">
                     <span>Recommended Extras</span>
-                    <span class="cls"><button href="#" onclick="hide('popup1')">X</button></span>
+                    
                 </div><br>
                 Select additional ingredients(optional)<br>
             
-                <div style="display:flex; flex-direction:column;";> 
+                <div style="display:flex; flex-direction:column;"> 
                     <?php
-
+                        echo"<form method='post' action='php/addtocart.php'>";
                         $extras_qry = mysqli_query($con, "SELECT * FROM products_tb WHERE product_category = 4");
                         
                         while($extras = mysqli_fetch_array($extras_qry,MYSQLI_ASSOC)){
-                            echo"<div style=\"display:flex; justify-content: space-between;\";><span><input type='checkbox' class='checkbox'> $extras[product_name]</span> <span>₱$extras[product_price]</span></div>";
+                            echo"
+                            <div style=\"display:flex; justify-content: space-between;\";>
+                                <span>
+                                    <input type='checkbox' class='checkbox' name=\"extras[]\" value='$extras[product_id]' id='extra-checkbox'> $extras[product_name]
+                                </span> 
+                                <span>
+                                    ₱$extras[product_price]
+                                </span>
+                            </div>
+                            
+                            ";
                             // echo"<input type='checkbox'> &nbsp; Bacon";
                         }
+
+
+                        echo"
+                            
+                                <input type='hidden' value='' id='form-id' name='id'>
+                                <input type='hidden' value='' id='form-name' name='name'>
+                                <input type='hidden' value='' id='form-category' name='category' >
+                                <input type='hidden' value='' id='form-price' name='price'>
+                            
+                            ";
                     ?>
                 </div>
-            </div>
-            <br>
-            
-            <div class="number-input">
-                <div>
-                    <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" ></button>
+                <br>
+                <div class="number-input">
+                    <div id='counter'>
+                        <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" ></button>
 
-                    <input class="quantity" id="currentQty" min="1" name="quantity" value="1" type="number">
+                        <input class="quantity" id="currentQty" min="1" name="quantity" value="1" type="number">
 
-                    <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button> 
+                        <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button> 
+                    </div>
+
+                    <div width="100%">     
+                        <input type="submit" value="Add to Cart" class="addCart" onclick='addToCart()'>
+                        <?php
+                            echo"</form>";
+                        ?>
+                        <!-- hide("popup1") -->
+                    </div>
                 </div>
-
-                <div min-width="90%">     
-                    <input type="submit" value="Add to Cart" class="addCart" onclick='addToCart()'>
-                    <!-- hide("popup1") -->
-                </div>
-                <input type="hidden" name="" id="id" value="">
             </div>
-
-            <!-- <a href='#' >Ok!</a> -->
         </div>
 
         <div class='popup' id='popup2'>
@@ -287,9 +313,19 @@
 
             
 
-            function getImage(id){
+            function getImage(imageId, name, price, id, category){
                 // document.getElementById('extra-image').src = document.getElementById(id).src;
-                console.log(document.getElementById(id).getAttribute("src")) ;
+                let imgsrc = document.getElementById(imageId).getAttribute("src");
+                document.getElementById("extra-image").src = imgsrc;
+                document.getElementById("extra-image").style.height = '50%';
+                document.getElementById("extra-image").style.width = '50%';
+
+                document.getElementById("extra-name").textContent = name;
+                document.getElementById("extra-price").textContent = price;
+                document.getElementById("form-name").value = name;
+                document.getElementById("form-price").value = price;
+                document.getElementById("form-id").value = id;
+                document.getElementById("form-category").value = category;
             }
         </script>
        

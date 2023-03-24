@@ -98,9 +98,7 @@ p {
     width: 25%;
     left: 37.5%;
     margin-left: -150px;
-    /* height: 50%; */
-    top: 22%;
-    /* margin-top: -100px; */
+    top: 10%;
     z-index: 20;
     border-radius: 15px;
 }
@@ -114,6 +112,10 @@ p {
     right: 0;
     background-color: rgb(239, 239, 239);
     z-index: -1;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
 }
 
 .popup:after {
@@ -126,6 +128,15 @@ p {
     background: rgba(0, 0, 0, 0.5);
     z-index: -2;
 }
+
+#item-div{
+    /* width: 50%; */
+
+    display: flex;
+}
+/* #extras-div{
+    width: 50%;
+} */
 
 #login-form {
     background-color: white;
@@ -148,15 +159,15 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .number-input {
-    /* background-color: white;
+    /* background-color: white; */
     position: sticky;
     width: 100%;
     border: 0;
+    /* display: flex; */
+    bottom: 0;
+    /* background-color: white; */
     display: flex;
-    justify-content: space-between;
-    bottom: 0; */
-    background-color: white;
-    display: flex;
+    justify-content: space-evenly;
     padding: 0;
 }
 
@@ -184,7 +195,7 @@ input[type=number]::-webkit-outer-spin-button {
     position: absolute;
     content: '';
     width: 1rem;
-    height: 2px;
+    height: 3px;
     background-color: #212121;
     transform: translate(-50%, -50%);
 }
@@ -200,7 +211,15 @@ input[type=number]::-webkit-outer-spin-button {
     border-width: 0 2px;
     font-weight: bold;
     text-align: center;
+    font-size: large;
     color: black;
+    background-color: transparent;
+}
+
+#counter{
+    display: flex;
+    align-content: center;
+    height: 100%;
 }
 
 .checkbox {
@@ -214,7 +233,9 @@ input[type=number]::-webkit-outer-spin-button {
     border: none;
     color: white;
     background-color: #FFA200;
-    width: 90%;
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
 }
 
 
