@@ -34,7 +34,7 @@
         <div class="checkoutForm">
             <h2>Delivery Details</h2>
             <br>
-            Delivery Time:
+            <b>Delivery Time:</b>
             <br>
             <div style="display: flex;justify-content: space-between; height:5%;">
                 <input class="date" type="date" form="submitOrder" name="date"> &nbsp;
@@ -42,39 +42,49 @@
             </div><br>
             
 
-            Delivery Address:<br>
+            <b>Delivery Address:<br></b>
             <div style="display: flex;justify-content: space-between; height:5%">
-                <input type="text" placeholder="Address" form="submitOrder" name="address">
-                <input type="text" placeholder="Baranggay" form="submitOrder" name="baranggay">
+                <input type="text" class="address" placeholder="Address" form="submitOrder" name="address">
+                <input type="text" class="address" placeholder="Baranggay" form="submitOrder" name="baranggay">
             </div>
-                <input type="text" placeholder="City" form="submitOrder" name="city"><br>
+                <input type="text" class="address" placeholder="City" form="submitOrder" name="city"><br>
             
             Note to rider: (ex. remarks, landmarks)<br>
             <input type="text" form="submitOrder" name="note"><br>
-            
-            <div>
+
                 <div>
-                    Payment method:<br>
-                    <button onclick="closeGcash()"><img src="css/system images/cash.png" alt=""></button>
-                    <button onclick="openGcash()"><img src="css/system images/gcash.png" alt=""></button>
+                <b>Payment method:<br></b>
+                    <button class="cash"  onclick="closeGcash()"><img src="css/system images/cash.png" alt=""></button>
+                    <button class="gcash" id="icon-popup"><img src="css/system images/gcash.png" alt=""></button>
+                    <img src="css/system images/scan to pay.png" class="toPay" alt="">
                 </div><br>
 
-                <div id="gcash">
-                    <input type="file"  accept=".jpg, .png, .jpeg" name="gcashProof" id="" form="submitOrder">
-                    <img src="css/system images/scan to pay.png" alt="">
-                </div>
-            </div>
+                            <div id="popup">
+                                <div id="popup-bg"></div>
+                                    <div id="popup-fg">
+                                        <div class="actions">
+                                            <button id="cash">QR Code</button>
+                                          <div class="uploadFile">
+                                                <p>Upload File</p><br><br><br>
+                                                <input type="file"  accept=".jpg, .png, .jpeg" name="gcashProof" id="gcashUpload" form="submitOrder">
+                                      
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+            
+         
             
             <h2>Personal Detail</h2>
-            Email:
-            <input type="text" style="width: 100%" form="submitOrder" name="email"><br>
+            <b>Email:</b>
+            <input type="text" class="emailInput" style="width: 100%" form="submitOrder" name="email"><br>
             <div style= "display: flex; justify-content: space-between;">
                 <div style="display: flex; flex-direction: column; width:90%">
-                    <span>First Name:</span>
+                    <span><b>First Name:</b></span>
                 </div>
 
                 <div style="display: flex;flex-direction: column; width:90%">
-                    <span>Last Name:</span>  
+                    <span><b>Last Name:</b></span>  
                 </div>
             </div>
             <div style= "display: flex; justify-content: space-between; height:5%">
@@ -82,7 +92,7 @@
                 <input type="text" style="width: 96%" form="submitOrder" name="lname">
             </div><br>
             
-            Contact Num.
+            <b>Contact Num.</b>
             <input type="text" form="submitOrder"  name="number"><br>
             <input type="hidden" name="subtotal" form="submitOrder" value="<?php echo $subtotal; ?>">
             <input type="hidden" name="deliveryMode" form="submitOrder" value="<?php echo $deliveryMode; ?>">
@@ -139,7 +149,35 @@
     </div>
 
     <form action="php/submitOrder.php" method="post" id="submitOrder"></form>
+    <script>
+            document.addEventListener('DOMContentLoaded', function(){
+            var triggerPopup = document.querySelector('#icon-popup');
+            var popup = document.querySelector('#popup');
+            var popupBg = document.querySelector('#popup-bg');
+            var close = document.querySelector('#close');
+            
+            triggerPopup.addEventListener('click', function(){
+                show(popup);
+            });
+            
+            popupBg.addEventListener('click', function(){
+                hide(popup);
+                });
+            
+            close.addEventListener('click', function(){
+                hide(popup);
+                });
+            
+            });
 
+            function show(el){
+            el.style.display = 'block';
+            }
+
+            function hide(el){
+            el.style.display = 'none';
+            }
+        </script>
     <script>
         function openGcash(){
             document.getElementById("gcash").style.display = "flex";
