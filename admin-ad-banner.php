@@ -68,19 +68,9 @@
                 </tr>
 
                 <tr>
-                    <td>Hakdog</td>
-                    <td><img src="css/ad banner/sample ads.png logo.png" height="20px" width="40px"></td>
-                    <td><img src="css/ad banner/sample ads.png logo.png" height="20px" width="40px"></td>
-                    <td><input type='button' value='Edit' class='banner-actions'></td>
-                    <td><input type='button' value='Hide' class='banner-actions'></td>
-                    <td><input type='button' value='Delete' class='banner-actions'></td>
-                    <td>03/27/23</td>
-                </tr>
-
-                <tr>
-                    <td>Hakdog</td>
-                    <td><img src="css/ad banner/sample ads.png logo.png" height="20px" width="40px"></td>
-                    <td><img src="css/ad banner/sample ads.png logo.png" height="20px" width="40px"></td>
+                    <td>Sample</td>
+                    <td><img src="css/ad banner/sample ads.png" height="50px" width="400px"></td>
+                    <td><img src="css/ad banner/sample ads.png" height="50px" width="400px"></td>
                     <td><input type='button' value='Edit' class='banner-actions'></td>
                     <td><input type='button' value='Hide' class='banner-actions'></td>
                     <td><input type='button' value='Delete' class='banner-actions'></td>

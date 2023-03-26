@@ -45,7 +45,7 @@
                                         </option>
                                     </select>   <br>
                                 </div>
-                            </div>
+                            </div><br><br><br><br><br>
     
                             <b>Product Image:</b>
                             <div class="file-upload">
