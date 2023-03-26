@@ -450,15 +450,8 @@ form {
 
 @media only screen and (max-width: 900px) {
     .bannerForm {
-        border: none;
         width: 330px;
-        /* height: 350px; */
-        border-radius: 15px;
-        background-color: white;
-        padding: 10px;
         margin-left: 40px;
-        /* margin-top: 30px;
-    margin-left: -230px; */
     }
     .bannerTable {
         overflow-x: scroll;

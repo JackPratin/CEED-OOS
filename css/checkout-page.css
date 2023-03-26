@@ -234,12 +234,6 @@ h2 {
     color: #FFA200;
 }
 
-
-/* 
-#gcash {
-    display: none;
-} */
-
 @media only screen and (max-width: 900px) {
     .checkoutForm {
         background-color: white;
