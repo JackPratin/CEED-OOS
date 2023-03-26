@@ -6,6 +6,166 @@ body {
     background-color: #EFEFEF;
 }
 
+#popup {
+    display: none;
+}
+
+#popup-bg {
+    position: fixed;
+    top: 0;
+    background: black;
+    width: 200%;
+    height: 100%;
+    opacity: .5;
+}
+
+#popup-fg {
+    width: 34%;
+    height: 10%;
+    background: #FFFFFF;
+    border: 1px solid #FFA200;
+    z-index: 1;
+    position: absolute;
+    right: 50%;
+    top: 54%;
+    border-radius: 17px;
+    text-align: center;
+}
+
+#popup label {
+    display: block;
+    width: 100%;
+}
+
+#popup label {
+    margin-top: 1em;
+}
+
+#popup .actions {
+    padding: 10px;
+}
+
+#cash {
+    font-size: 15px;
+    font-family: 'Inter';
+    display: flex;
+    background-color: transparent;
+    border: none;
+    color: #000;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 17px;
+    text-align: center;
+}
+
+#cash:hover {
+    background-color: #FFA200;
+    border-bottom: 1px solid #FFA200;
+    color: #fff;
+    cursor: pointer;
+    padding-right: 120px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+#gcash {
+    width: 30px;
+    padding: 5px;
+    font-size: 15px;
+    font-family: 'Inter';
+    display: flex;
+    background-color: transparent;
+    border: none;
+    color: #000;
+    cursor: pointer;
+    border-radius: 17px;
+}
+
+#gcash:hover {
+    background-color: #FFA200;
+    border-bottom: 1px solid #FFA200;
+    color: #fff;
+    cursor: pointer;
+    width: 108px;
+    border-top-left-radius: 17px;
+    border-top-right-radius: 17px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+.cash {
+    position: sticky;
+    /* left: 38.6%; */
+    /* top: 37%; */
+    font-weight: bold;
+    top: 45%;
+    left: 2%;
+    width: 20%;
+    height: 30px;
+    border: none;
+    border-radius: 6px;
+    background-color: #FFAE42;
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
+}
+
+#icon-popup.gcash {
+    position: sticky;
+    /* left: 38.6%; */
+    /* top: 37%; */
+    font-weight: bold;
+    top: 49%;
+    left: 2%;
+    width: 20%;
+    height: 30px;
+    border: none;
+    border-radius: 6px;
+    background-color: #FFAE42;
+    font-size: 15px;
+    cursor: pointer;
+    outline: none;
+}
+
+.toPay {
+    position: sticky;
+    right: 0%;
+}
+
+.cash:hover {
+    border: 1px solid;
+    transition: .2s;
+}
+
+#icon-popup.gcash:hover {
+    border: 1px solid;
+    transition: .2s;
+}
+
+.actions p {
+    text-align: left;
+    font-size: 14px;
+    margin-left: 5px;
+}
+
+.uploadFile:hover {
+    background-color: #FFAE42;
+    height: 49px;
+}
+
+.uploadFile [type="file"] {
+    width: 190px;
+    font-family: 'Inter';
+    border: 1px solid #FFAE42;
+    margin-top: -50px;
+    padding: 0px;
+    margin-left: 5px;
+    background-color: white;
+    border-radius: 0px;
+}
+
 .checkoutForm {
     background-color: white;
     height: 110%;
@@ -43,7 +203,7 @@ body {
 }
 
 .checkoutForm input {
-    min-height: 5%;
+    height: 41px;
     width: 50%;
     background-color: #EFEFEF;
     border: none;
@@ -52,18 +212,29 @@ body {
     margin-bottom: 10px;
 }
 
+.checkoutForm input.address {
+    height: 41px;
+    width: 48%;
+    background-color: #EFEFEF;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.checkoutForm .emailInput {
+    height: 41px;
+    width: 50px;
+    background-color: #EFEFEF;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
 h2 {
     color: #FFA200;
 }
 
-#gcash {
-    display: none;
-}
-
 @media only screen and (max-width: 900px) {
-    body {
-        background-color: #fff;
-    }
     .checkoutForm {
         background-color: white;
         height: 110%;
@@ -71,13 +242,13 @@ h2 {
         display: flex;
         flex-direction: column;
         position: absolute;
-        left: 15%;
+        left: 0%;
         padding: 15px;
         border-radius: 10px;
         margin: 0;
     }
     .checkoutForm input {
-        width: 50%;
+        width: 60%;
         height: 40px;
         background-color: #EFEFEF;
         border: none;
@@ -85,6 +256,41 @@ h2 {
         margin-left: 10px;
         margin-top: 10px;
         margin-right: 10px;
+        margin-bottom: 10px;
+    }
+    .date {
+        min-height: 20px;
+        width: 200px;
+        background-color: #EFEFEF;
+        border: none;
+        border-radius: 5px;
+        margin-right: 10px;
+        margin-bottom: 10px;
+    }
+    .time {
+        min-height: 20px;
+        width: 200px;
+        background-color: #EFEFEF;
+        border: none;
+        border-radius: 5px;
+        margin-right: 300px;
+        margin-bottom: 10px;
+    }
+    .checkoutForm input.address {
+        display: block;
+        height: 41px;
+        width: 50%;
+        background-color: #EFEFEF;
+        border: none;
+        border-radius: 5px;
+        margin-bottom: 10px;
+    }
+    .checkoutForm .emailInput {
+        height: 41px;
+        width: 50px;
+        background-color: #EFEFEF;
+        border: none;
+        border-radius: 5px;
         margin-bottom: 10px;
     }
 }

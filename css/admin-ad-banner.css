@@ -450,3 +450,17 @@ form {
     padding: 0 10px;
     background: #EFEFEF;
 }
+
+@media only screen and (max-width: 900px) {
+    .bannerForm {
+        width: 330px;
+        margin-left: 40px;
+    }
+    .bannerTable {
+        overflow-x: scroll;
+        margin-top: 20px;
+    }
+    .bannerTable h1 {
+        font-size: 22px;
+    }
+}

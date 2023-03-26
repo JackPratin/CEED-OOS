@@ -181,13 +181,13 @@ input[type="submit"]:hover {
     }
     .logo {
         position: absolute;
-        left: 25.5%;
+        left: 29.5%;
         display: flex;
         z-index: 1;
-        width: 50%;
+        width: 40%;
         height: 30%;
         border-radius: 50%;
-        top: -90px;
+        top: -120px;
     }
     .button2 {
         position: absolute;

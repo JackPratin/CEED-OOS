@@ -38,7 +38,7 @@
                     Login & Contact Details <br>
                     <input type="text" name="email" class="emailInput" placeholder="Email" required> 
                     <input type="text" name="contact" class="adminInput" placeholder="Contact Number" required> <br>
-                    <input type="text" name="username" class="adminInput" placeholder="Username" required>
+                    <input type="text" name="username" class="adminInputUN" placeholder="Username" required>
                     <input type="password" name="password" class="adminInput" placeholder="Password" required> 
                     <input type="password" name="conPassword" class="adminInput" placeholder="Confirm Password" required>
                 </div> <br>

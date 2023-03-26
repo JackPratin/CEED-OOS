@@ -59,7 +59,7 @@
 
 
                  <br>
-            
+        
                     
                         <input type="submit" value="Add Product" class="addProdBtn" id="prodSubmit">
                    

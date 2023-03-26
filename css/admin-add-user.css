@@ -105,6 +105,20 @@ li a:hover:not(.admin-nav-active) {
     margin-bottom: 15px;
 }
 
+.adminInputUN {
+    font-family: 'Inter';
+    width: 170px;
+    height: 40px;
+    background-color: #EFEFEF;
+    border: none;
+    border-radius: 5px;
+    color: gray;
+    padding: 10px;
+    margin-top: 15px;
+    margin-right: 10px;
+    margin-bottom: 15px;
+}
+
 .emailInput {
     font-family: 'Inter';
     width: 280px;
@@ -226,4 +240,29 @@ li a:hover:not(.admin-nav-active) {
 
 .arrow-up {
     transform: rotate(136deg);
+}
+
+@media only screen and (max-width: 900px) {
+    .addUser {
+        display: block;
+        flex-wrap: wrap;
+        width: 370px;
+        height: 863px;
+        margin-top: 30px;
+        margin-left: 10px;
+    }
+    .container {
+        position: absolute;
+        left: 47%;
+        top: 28.5%;
+        width: 170px;
+        display: flex;
+    }
+    #emploSubmit {
+        position: absolute;
+        left: 24.6%;
+        top: 105%;
+        width: 40%;
+        height: 40px;
+    }
 }

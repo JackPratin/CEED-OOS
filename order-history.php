@@ -31,43 +31,42 @@
     <body>
 
     <div class="orderHistory">
-    <h1>Order History</h1>
-        <table width="100%">
-            <tr>
-            <th> ID </th>
-                    <th> Name </th>
-                    <th> Payment </th>
-                    <th> Date </th>
-                    <th> Type </th>
-                    <th> Status </th>
-                    <th> Total </th>
-                    <th> Action </th>
-            </tr>
-            
+        <h1>Order History</h1>
+            <table width="100%">
                 <tr>
-                    <td>#110</td>
-                    <td>Jan Patrick</td>
-                    <td>COD</td>
-                    <td>10-21-22</td>
-                    <td>Delivery</td>
-                    <td class="delivered">Delivered</td>
-                    <td>₱ 214.00</td>
-                    <td><i class="fa-solid fa-ellipsis-vertical" id="icon-popup"></i></td>
-                    
+                <th> ID </th>
+                        <th> Name </th>
+                        <th> Payment </th>
+                        <th> Date </th>
+                        <th> Type </th>
+                        <th> Status </th>
+                        <th> Total </th>
+                        <th> Action </th>
                 </tr>
                 
-   
-        </table>
+                    <tr>
+                        <td>#110</td>
+                        <td>Jan Patrick</td>
+                        <td>COD</td>
+                        <td>10-21-22</td>
+                        <td>Delivery</td>
+                        <td class="delivered">Delivered</td>
+                        <td>₱ 214.00</td>
+                        <td><i class="fa-solid fa-ellipsis-vertical" id="icon-popup"></i></td>
+                        
+                    </tr>
+                
+            </table>
 
                             <div id="popup">
-                            <div id="popup-bg"></div>
-                            <div id="popup-fg">
-                            <div class="actions">
-                                <button id="submitOrder1">Order Again</button>
-                                <button id="submitOrder">Order Invoice</button>
-                                
-                            </div>
-                            </div>
+                                <div id="popup-bg"></div>
+                                    <div id="popup-fg">
+                                        <div class="actions">
+                                            <button id="submitOrder1">Order Again</button>
+                                            <button id="submitOrder">Order Invoice</button>
+                                            
+                                        </div>
+                                </div>
                             </div>
 </div>
 
