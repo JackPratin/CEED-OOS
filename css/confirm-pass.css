@@ -207,16 +207,16 @@ input[type="submit"]:hover {
     }
     input[type="submit"] {
         position: absolute;
-        left: 25%;
+        left: 16%;
         width: 50%;
         height: 40px;
     }
     .logo {
         position: absolute;
-        left: 25.5%;
+        left: 29.5%;
         display: flex;
         z-index: 1;
-        width: 50%;
+        width: 40%;
         height: 30%;
         border-radius: 50%;
         top: -90px;
@@ -225,8 +225,11 @@ input[type="submit"]:hover {
         position: absolute;
         top: 25%;
         left: 35%;
-        font-weight: bold;
         width: 30%;
         height: 40px;
+    }
+    .go-back {
+        position: absolute;
+        top: 24%;
     }
 }
