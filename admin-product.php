@@ -46,7 +46,7 @@
                                     </select>   <br>
                                 </div>
                             </div>
-    
+                          
                             <b>Product Image:</b>
                             <div class="file-upload">
                                 <div class="file-select">
@@ -59,7 +59,7 @@
 
 
                  <br>
-            
+        
                     
                         <input type="submit" value="Add Product" class="addProdBtn" id="prodSubmit">
                    
