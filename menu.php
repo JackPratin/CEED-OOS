@@ -19,6 +19,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" type="image/x-icon" href="css/system images/favicon.ico">
+        <script src="https://kit.fontawesome.com/484fbcb614.js" crossorigin="anonymous"></script>
         <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
         <link rel="stylesheet" href="css/navigation.css">
         <link rel="stylesheet" href="css/contents.css">
@@ -27,15 +28,21 @@
     
     <body>
         <div id="menu-div">
-
+     
             <div id="main-menu">
                 <img src="css/ad banner/sample ads.png" class="banner"> <br>
 
                 <div id="top-main-menu">
-
+               
                     <p id="choose-category">
                         CHOOSE CATEGORY
                     </p>
+                    <div class="container" onclick="myFunction(this)">
+                        <div class="bar1"></div>
+                        <div class="bar2"></div>
+                        <div class="bar3"></div>
+                    </div>
+                    <i class="fa-solid fa-cart-plus"></i>
                     <center>
                         <input type="search" name="" id="search" placeholder="Search category or menu...">
                     </center>
@@ -51,7 +58,6 @@
                     <button class="category-item-inactive" id="category3" onclick="filtering(3); filterChanger('category3')"><img src="css/system images/category icons/sides-icon.png">Sides</button>
                     <button class="category-item-inactive" id="category5" onclick="filtering(5); filterChanger('category5')"><img src="css/system images/category icons/extras-icon.png">Extras</button>
                 </div> <br>
-
                 <div id="categoryDropdown">
                     <select name="category" id="">
                         
@@ -328,7 +334,11 @@
                 document.getElementById("form-category").value = category;
             }
         </script>
-       
+       <script>
+            function myFunction(x) {
+            x.classList.toggle("change");
+            }
+        </script>
         
     </body>
 </html>
