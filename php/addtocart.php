@@ -9,90 +9,103 @@
     $id     = mysqli_real_escape_string($con, $_POST['id']);
     $price     = mysqli_real_escape_string($con, $_POST['price']);
     $qty = mysqli_real_escape_string($con, $_POST['quantity']);
+    $ingredients = '';
+    $ingredients_prices= '';
 
   
    if(isset($_POST['extras'])){
-    $ingredients = '';
     foreach($_POST['extras'] as $extras){
+        $ingqry = mysqli_query($con, "SELECT product_price FROM products_tb WHERE product_id = $extras");
+        $ingprice = mysqli_fetch_array($ingqry, MYSQLI_ASSOC);
         if($_POST['extras'][0] == $extras){
             $ingredients = $extras;
+            $ingredients_prices =  $ingprice['product_price'];
         }
         else{
             $ingredients = $ingredients.', '.$extras;
+            $ingredients_prices = $ingredients_prices.', '.$ingprice['product_price'];
         }
-        echo $extras;
+        // echo $extras;
         
         }
-        echo $ingredients;
-        print_r($_POST['extras']);
+        // echo $ingredients;
+        // print_r($_POST['extras']);
+        // echo'<br>';
 
-        $try = explode(",",$ingredients);
-        print_r($try);
+        // echo $ingredients;
+        // echo'<br>';
+        // echo $ingredients_prices;
+        // echo '<br>';
+        // $try = explode(",",$ingredients);
+        // $try1 = explode(",",$ingredients_prices);
+        // print_r($try);
+        // echo'<br>';
+        // print_r($try1);
 
    }
 
-    //checking for existing item in user's cart
-    // if($_SESSION['account_type'] == 'customer'){
-    //     $id_type = 'customer_id';
-    //     $qry = "SELECT * FROM `cart_tb` WHERE customer_id = $_SESSION[$id_type] AND product_id = $id AND cart_number = $_SESSION[order_count]";
-    // }
-    // else if($_SESSION['account_type'] == 'guest'){
-    //     $id_type = 'guest_id';
-    //     $qry = "SELECT * FROM `cart_tb` WHERE guest_id = $_SESSION[$id_type] AND product_id = $id AND cart_number = $_SESSION[order_count]";
-    // }
-    // else{
-    //     $id_type = 'employee_id';
-    //     $qry = "SELECT * FROM `cart_tb` WHERE employee_id = $_SESSION[$id_type] AND product_id = $id";
-    // }
-        // $existing_qry = mysqli_query($con, $qry);
+    // checking for existing item in user's cart
+    if($_SESSION['account_type'] == 'customer'){
+        $id_type = 'customer_id';
+        $qry = "SELECT * FROM `cart_tb` WHERE customer_id = $_SESSION[$id_type] AND product_id = $id AND cart_number = $_SESSION[order_count] AND extra_ingredients = '$ingredients'";
+    }
+    else if($_SESSION['account_type'] == 'guest'){
+        $id_type = 'guest_id';
+        $qry = "SELECT * FROM `cart_tb` WHERE guest_id = $_SESSION[$id_type] AND product_id = $id AND cart_number = $_SESSION[order_count]";
+    }
+    else{
+        $id_type = 'employee_id';
+        $qry = "SELECT * FROM `cart_tb` WHERE employee_id = $_SESSION[$id_type] AND product_id = $id";
+    }
+        $existing_qry = mysqli_query($con, $qry);
 
-    //updating tha existing item's quantity or adding the item to the cart
+    // updating tha existing item's quantity or adding the item to the cart
 
-    // if(mysqli_num_rows($existing_qry) > 0){
-    //     $prodQuantity =  mysqli_fetch_array($existing_qry, MYSQLI_ASSOC);
-    //     $quantity = $prodQuantity['quantity']+$qty;
+    if(mysqli_num_rows($existing_qry) > 0){
+        $prodQuantity =  mysqli_fetch_array($existing_qry, MYSQLI_ASSOC);
+        $quantity = $prodQuantity['quantity']+$qty;
 
 
-    //     if($_SESSION['account_type'] == 'customer'){
-    //         mysqli_query($con, "UPDATE `cart_tb` SET `quantity`='$quantity' WHERE  `$id_type` = $_SESSION[$id_type] AND product_id = $id AND cart_number = $_SESSION[order_count]");
-    //     }
-    //     else{
-    //         mysqli_query($con, "UPDATE `cart_tb` SET `quantity`='$quantity' WHERE  `$id_type` = $_SESSION[$id_type] AND product_id = $id");
-    //     }
+        if($_SESSION['account_type'] == 'customer'){
+            mysqli_query($con, "UPDATE `cart_tb` SET `quantity`='$quantity' WHERE  `$id_type` = $_SESSION[$id_type] AND product_id = $id AND cart_number = $_SESSION[order_count]");
+        }
+        else{
+            mysqli_query($con, "UPDATE `cart_tb` SET `quantity`='$quantity' WHERE  `$id_type` = $_SESSION[$id_type] AND product_id = $id");
+        }
         
-    // }
-    // else{
-    //     $itemNumber = itemNumber("SELECT * FROM `cart_tb` WHERE $id_type = $_SESSION[$id_type] AND cart_number = $_SESSION[order_count] ORDER BY cart_id DESC LIMIT 1");
+    }
+    else{
+        $itemNumber = itemNumber("SELECT * FROM `cart_tb` WHERE $id_type = $_SESSION[$id_type] AND cart_number = $_SESSION[order_count] ORDER BY cart_id DESC LIMIT 1");
 
-    //     mysqli_query($con, "INSERT INTO `cart_tb`(`$id_type`, `product_id`, `cart_number`, `quantity`, `price`, `item_number`) VALUES ('$_SESSION[$id_type]','$id','$_SESSION[order_count]','$qty','$price', '$itemNumber')"); 
-    // }
+        mysqli_query($con, "INSERT INTO `cart_tb`(`$id_type`, `product_id`, `cart_number`, `quantity`, `price`, `item_number`, `extra_ingredients`, `extra_prices`) VALUES ('$_SESSION[$id_type]','$id','$_SESSION[order_count]','$qty','$price', '$itemNumber', '$ingredients', '$ingredients_prices')"); 
+    }
 
 
-    // function itemNumber($qry){
-    //     require("config.php");
-    //     $itemQry = mysqli_query($con, $qry);
-    //     $num = mysqli_fetch_array($itemQry, MYSQLI_ASSOC);
-    //     if(mysqli_num_rows($itemQry) != 0){
-    //         return $num['item_number']+1;
-    //     }
-    //     else{
-    //         return 0;
-    //     }
+    function itemNumber($qry){
+        require("config.php");
+        $itemQry = mysqli_query($con, $qry);
+        $num = mysqli_fetch_array($itemQry, MYSQLI_ASSOC);
+        if(mysqli_num_rows($itemQry) != 0){
+            return $num['item_number']+1;
+        }
+        else{
+            return 0;
+        }
 
         
-    // }
+    }
 
 
-    // if($_SESSION['account_type'] == 'customer'){
-    //     echo '<script>window.location="../menu.php"</script>';
-    // }
-    // else if($_SESSION['account_type'] == 'admin'){
-    //     echo '<script>window.location="../admin-menu.php"</script>';
-    // }
-    // else if($_SESSION['account_type'] == 'guest'){
-    //     echo '<script>window.location="../guest-menu.php"</script>';
-    // }
-    // else{
-    //     echo '<script>window.location="../employee-menu.php"</script>';
-    // }
+    if($_SESSION['account_type'] == 'customer'){
+        echo '<script>window.location="../menu.php"</script>';
+    }
+    else if($_SESSION['account_type'] == 'admin'){
+        echo '<script>window.location="../admin-menu.php"</script>';
+    }
+    else if($_SESSION['account_type'] == 'guest'){
+        echo '<script>window.location="../guest-menu.php"</script>';
+    }
+    else{
+        echo '<script>window.location="../employee-menu.php"</script>';
+    }
 ?>

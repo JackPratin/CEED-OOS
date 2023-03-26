@@ -372,7 +372,7 @@ input[type=number]::-webkit-outer-spin-button {
 .productForm {
     border: none;
     width: 500px;
-    height: 280px;
+    /* height: 280px; */
     border-radius: 15px;
     background-color: white;
     padding: 10px;
