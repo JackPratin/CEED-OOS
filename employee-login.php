@@ -22,6 +22,7 @@
                         <img src="css/system images/company logo.png" alt="1975 Old-Fashioned Burgers logo" class="logo">
                     </div></center>
                     <h1>EMPLOYEE LOGIN</h1>
+                    <div class="field">
                     <div class="text_field">
                         <i class="fa-solid fa-circle-user"></i>
                         <input type="text" form="login" name="username" required>
@@ -35,6 +36,7 @@
                         <span></span>
                         <label>Password</label>
                     </div>
+</div>
                 </form>
                 
                 <input type="submit" value="LOGIN" form="login">

@@ -453,14 +453,31 @@ form {
 
 @media only screen and (max-width: 900px) {
     .bannerForm {
-        width: 330px;
-        margin-left: 40px;
+        width: 100%;
+        margin-left: 2%;
     }
     .bannerTable {
         overflow-x: scroll;
-        margin-top: 20px;
+        margin-top: 10%;
     }
     .bannerTable h1 {
         font-size: 22px;
+    }
+    .file-upload {
+        display: block;
+        font-size: 12px;
+    }
+    .file-upload .file-select {
+        width: 110%;
+    }
+    .file-upload2 .file-select2 {
+        width: 110%;
+    }
+    #bannerSubmit {
+        position: sticky;
+        left: 60%;
+        width: 40%;
+        height: 20%;
+        padding: 2%;
     }
 }

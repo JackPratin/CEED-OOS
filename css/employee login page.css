@@ -165,36 +165,46 @@ input[type="submit"]:hover {
     .center {
         position: absolute;
         left: -0%;
+        bottom: -10%;
         width: 100%;
         height: 90%;
-        border-top-left-radius: 26px;
-        border-top-right-radius: 26px;
-        border-bottom-left-radius: 0px;
-        border-bottom-right-radius: 0px;
-        margin-bottom: -30px;
+        border-top-left-radius: 10%;
+        border-top-right-radius: 10%;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
     }
     input[type="submit"] {
-        position: absolute;
-        left: 25%;
-        width: 50%;
-        height: 40px;
+        position: sticky;
+        margin-left: 19%;
+        top: 30%;
+        width: 60%;
+        height: 5%;
     }
     .logo {
-        position: absolute;
+        position: sticky;
         left: 29.5%;
         display: flex;
         z-index: 1;
-        width: 40%;
+        width: 90%;
         height: 30%;
         border-radius: 50%;
-        top: -120px;
+        margin-top: -190%;
+    }
+    h1 {
+        font-size: 20px;
+        position: sticky;
+        margin-left: 2%;
+        top: 43%;
     }
     .button2 {
-        position: absolute;
-        top: 25%;
+        position: sticky;
+        top: 15%;
         left: 35%;
         font-weight: bold;
         width: 30%;
-        height: 40px;
+        height: 7%;
+    }
+    .field {
+        margin-top: 65%;
     }
 }

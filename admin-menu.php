@@ -37,7 +37,7 @@
                     <p id="choose-category">
                         CHOOSE CATEGORY
                     </p>
-                    <div class="container" onclick="myFunction(this)">
+                    <div class="menuBar" onclick="myFunction(this)">
                         <div class="bar1"></div>
                         <div class="bar2"></div>
                         <div class="bar3"></div>
