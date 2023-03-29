@@ -57,6 +57,10 @@ p {
     font-weight: bolder;
 }
 
+.fa-cart-plus{
+    display: none;
+}
+
 #menu-name {
     font-size: 130%;
     font-weight: bolder;
@@ -259,9 +263,7 @@ input[type=number]::-webkit-outer-spin-button {
         padding: 0;
         margin: 0; */
     /* } */
-    #choose-category {
-        display: none;
-    }
+    
     /* #top-main-menu { */
     /* display: flex;
         flex-direction: row; */
@@ -666,3 +668,4 @@ input[type=number]::-webkit-outer-spin-button {
         height: 10px;
     }
 }
+

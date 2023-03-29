@@ -7,7 +7,7 @@
         while($products = mysqli_fetch_array($products_qry, MYSQLI_ASSOC)){
             $id = $products['product_id'];
             echo"
-            <a href='#' onclick='show(\"popup$products[product_category]\"); addDetails($id); getImage(\"img$id\", \"$products[product_name]\", \"₱$products[product_price]\", $id, $products[product_category]);' style=\"color:black; width:fit-content;\">
+            <a href='#' onclick='show(\"popup$products[product_category]\"); addDetails($id); getImage(\"img$id\", \"$products[product_name]\", $products[product_price], $id, $products[product_category]);' style=\"color:black; width:fit-content;\">
                 <div class='menu-item' id='card$id'>
                     <div class='menu-details'>$products[product_name] <br><br> ₱$products[product_price]</div>
 
@@ -59,7 +59,8 @@
             $item_qry = mysqli_query($con, "SELECT * FROM products_tb WHERE product_id = $products[product_id]");
             
             while($item = mysqli_fetch_array($item_qry, MYSQLI_ASSOC)){
-                $subtotal = $products['quantity'] * $item['product_price'];
+                // $subtotal = $products['quantity'] * $products['item_subtotal'];
+                $subtotal = $products['item_subtotal'];
                 echo"
                 <div id='cart-items'>
                     <div id='item-img'>
@@ -114,7 +115,7 @@
 
         $subtotal = 0;
         while($item = mysqli_fetch_array($subtotal_qry, MYSQLI_ASSOC)){
-            $subtotal += ($item['quantity']*$item['price']);
+            $subtotal += ($item['quantity']*$item['item_subtotal']);
         }
 
         return $subtotal;
