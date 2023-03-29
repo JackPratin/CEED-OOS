@@ -43,8 +43,14 @@
         else{
             // $_SESSION['user_id']        = $row['user_id'];
             $_SESSION['first_name']     = $row['first_name'];
+            $_SESSION['last_name']      = $row['last_name'];
             $_SESSION['customer_id']    = $row['customer_id'];
             $_SESSION['order_count']    = $row['order_count'];
+            $_SESSION['email']          = $row['email'];
+            $_SESSION['contact_number'] = $row['contact_number'];
+            $_SESSION['address']        = $row['address'];
+            $_SESSION['baranggay']      = $row['baranggay'];
+            $_SESSION['city']           = $row['city'];
             $_SESSION['account_type']   = "customer";
             echo '<script>window.location="../main.php"</script>';
         }

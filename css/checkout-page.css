@@ -168,7 +168,7 @@ body {
 
 .checkoutForm {
     background-color: white;
-    height: 110%;
+    height: 100%;
     width: 40%;
     display: flex;
     flex-direction: column;
@@ -182,29 +182,36 @@ body {
     display: none;
 }
 
+.dateTime{
+    display: flex; 
+    /* justify-content: space-between;  */
+    height:5%; 
+    width:100%
+}
+
 .checkoutForm .date {
-    min-height: 5%;
-    width: 30%;
+    min-height: 100%;
+    width: 50%;
     background-color: #EFEFEF;
     border: none;
     border-radius: 5px;
-    margin-right: 10px;
+    /* margin-right: 10px; */
     margin-bottom: 10px;
 }
 
 .checkoutForm .time {
-    min-height: 5%;
-    width: 30%;
+    min-height: 100%;
+    width: 50%;
     background-color: #EFEFEF;
     border: none;
     border-radius: 5px;
-    margin-right: 300px;
+    /* margin-right: 300px; */
     margin-bottom: 10px;
 }
 
 .checkoutForm input {
-    height: 41px;
-    width: 50%;
+    height: 25%;
+    width: 100%;
     background-color: #EFEFEF;
     border: none;
     border-radius: 5px;
@@ -213,7 +220,7 @@ body {
 }
 
 .checkoutForm input.address {
-    height: 41px;
+    height: 100%;
     width: 48%;
     background-color: #EFEFEF;
     border: none;
@@ -228,6 +235,10 @@ body {
     border: none;
     border-radius: 5px;
     margin-bottom: 10px;
+}
+
+.noteAndPayment{
+    margin-top: 13%;
 }
 
 h2 {
@@ -259,7 +270,7 @@ h2 {
         margin-bottom: 2%;
     }
     .date {
-        width: 30%;
+        width: 50%;
         background-color: #EFEFEF;
         border: none;
         border-radius: 5px;

@@ -16,6 +16,19 @@
     }
     $subtotal = mysqli_real_escape_string($con, $_POST['subtotal']);
     $deliveryMode = mysqli_real_escape_string($con, $_POST['deliveryMode']);
+    // $currentDate = new DateTime('now',new DateTimeZone('Asia/Manila'));
+    date_default_timezone_set('Asia/Manila');
+    $currentDate = date("Y-m-d");
+    $currentDay = date('w');
+    if($currentDay == 1){
+        $min = "13:30";
+        $max = "20:30";
+    }
+    else{
+        $min = "12:00";
+        $max = "23:30";
+    }
+
 ?>
 <html lang="en">
 <head>
@@ -33,51 +46,51 @@
     <div id="menu-div">
         <div class="checkoutForm">
             <h2>Delivery Details</h2>
+            <b>Delivery Date and Time:</b>
             <br>
-            <b>Delivery Time:</b>
-            <br>
-            <div style="display: flex;justify-content: space-between; height:5%;">
-                <input class="date" type="date" form="submitOrder" name="date"> &nbsp;
-                <input class="time" type="time" form="submitOrder" name="time">
+            <div class='dateTime'>
+                <input class="date" type="date" id='date' form="submitOrder" name="date" min='<?php echo $currentDate; ?>'> &nbsp;
+                <input class="time" type="time" id='time'  form="submitOrder" name="time" min='<?php echo $min;?>' max='<?php echo $max;?>'>
             </div><br>
             
-
             <b>Delivery Address:<br></b>
-            <div style="display: flex;justify-content: space-between; height:5%">
-                <input type="text" class="address" placeholder="Address" form="submitOrder" name="address">
-                <input type="text" class="address" placeholder="Baranggay" form="submitOrder" name="baranggay">
-            </div>
-                <input type="text" class="address" placeholder="City" form="submitOrder" name="city"><br>
+            <div style="display: flex; height:10%; flex-wrap: wrap; ">
+                <input type="text" class="address" placeholder="Address" form="submitOrder" name="address" value='<?php echo $_SESSION['address']?>'>
+                <input type="text" class="address" placeholder="Baranggay" form="submitOrder" name="baranggay" value='<?php echo $_SESSION['baranggay']?>'>
+                <input type="text" class="address" placeholder="City" form="submitOrder" name="city" value='<?php echo $_SESSION['city']?>'>
+            </div><br>
+
             
-            Note to rider: (ex. remarks, landmarks)<br>
+                
+            <div class='noteAndPayment'>
+            <h4>Note to rider: (ex. remarks, landmarks)</h4><br>
             <input type="text" form="submitOrder" name="note"><br>
 
-                <div>
-                <b>Payment method:<br></b>
-                    <button class="cash"  onclick="closeGcash()"><img src="css/system images/cash.png" alt=""></button>
-                    <button class="gcash" id="icon-popup"><img src="css/system images/gcash.png" alt=""></button>
-                    <img src="css/system images/scan to pay.png" class="toPay" alt="">
-                </div><br>
+            <b>Payment method:<br></b>
+                <button class="cash"  onclick="closeGcash()"><img src="css/system images/cash.png" alt=""></button>
+                <button class="gcash" id="icon-popup"><img src="css/system images/gcash.png" alt=""></button>
+                <img src="css/system images/scan to pay.png" class="toPay" alt="">
+            </div><br>
 
-                            <div id="popup">
-                                <div id="popup-bg"></div>
-                                    <div id="popup-fg">
-                                        <div class="actions">
-                                            <button id="cash">QR Code</button>
-                                          <div class="uploadFile">
-                                                <p>Upload File</p><br><br><br>
-                                                <input type="file"  accept=".jpg, .png, .jpeg" name="gcashProof" id="gcashUpload" form="submitOrder">
-                                      
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+            <div id="popup">
+                <div id="popup-bg"></div>
+                    <div id="popup-fg">
+                        <div class="actions">
+                            <button id="cash">QR Code</button>
+                            <div class="uploadFile">
+                                <p>Upload File</p><br><br><br>
+                                <input type="file"  accept=".jpg, .png, .jpeg" name="gcashProof" id="gcashUpload" form="submitOrder">
+                        
+                            </div>
+                        </div>
+                    </div>
+                </div>
             
          
             
             <h2>Personal Detail</h2>
             <b>Email:</b>
-            <input type="text" class="emailInput" style="width: 100%" form="submitOrder" name="email"><br>
+            <input type="text" class="emailInput" style="width: 100%" form="submitOrder" name="email" value='<?php echo $_SESSION['email']?>'><br>
             <div style= "display: flex; justify-content: space-between;">
                 <div style="display: flex; flex-direction: column; width:90%">
                     <span><b>First Name:</b></span>
@@ -88,12 +101,12 @@
                 </div>
             </div>
             <div style= "display: flex; justify-content: space-between; height:5%">
-                <input type="text" style="width: 96%;" form="submitOrder" name="fname">
-                <input type="text" style="width: 96%" form="submitOrder" name="lname">
+                <input type="text" style="width: 96%;" form="submitOrder" name="fname" value='<?php echo $_SESSION['first_name']?>'>
+                <input type="text" style="width: 96%" form="submitOrder" name="lname" value='<?php echo $_SESSION['last_name']?>'>
             </div><br>
             
             <b>Contact Num.</b>
-            <input type="text" form="submitOrder"  name="number"><br>
+            <input type="text" form="submitOrder"  name="number" value="<?php echo $_SESSION['contact_number']?>"><br>
             <input type="hidden" name="subtotal" form="submitOrder" value="<?php echo $subtotal; ?>">
             <input type="hidden" name="deliveryMode" form="submitOrder" value="<?php echo $deliveryMode; ?>">
             <input type="hidden" name="modeOfPayment" id="modeOfPayment" form="submitOrder" value="">
@@ -188,6 +201,13 @@
             document.getElementById("modeOfPayment").value = "cash"
         }
     </script>
+    <!-- <script language="javascript">
+        $(document).ready(function () {
+            $("#date").datepicker({
+                minDate: 0
+            });
+        });
+</script> -->
     
 </body>
 </html>
