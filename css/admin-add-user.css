@@ -246,23 +246,44 @@ li a:hover:not(.admin-nav-active) {
     .addUser {
         display: block;
         flex-wrap: wrap;
-        width: 370px;
-        height: 863px;
-        margin-top: 30px;
-        margin-left: 10px;
+        width: 80%;
+        height: 120%;
+        margin-top: 15%;
+        margin-left: 2%;
     }
     .container {
         position: absolute;
         left: 47%;
-        top: 28.5%;
-        width: 170px;
+        top: 22.7%;
+        width: 39%;
         display: flex;
     }
     #emploSubmit {
-        position: absolute;
-        left: 24.6%;
+        position: sticky;
+        left: 25.6%;
         top: 105%;
-        width: 40%;
-        height: 40px;
+        width: 47%;
+        height: 5%;
+    }
+    .adminInput {
+        width: 50%;
+        height: 4.6%;
+        margin-top: 2%;
+        margin-right: 5%;
+        margin-bottom: 2%;
+    }
+    .emailInput {
+        width: 80%;
+        height: 4.6%;
+        margin-top: 2%;
+        margin-right: 5%;
+        margin-bottom: 2%;
+    }
+    .addressInput {
+        width: 80%;
+        height: 4.6%;
+        margin-top: 2%;
+        margin-right: 5%;
+        margin-bottom: 2%;
     }
 }
