@@ -115,7 +115,7 @@
                         <span class="end-to-end bold"><span>Total</span><span>₱<?php echo $subtotal; ?></span></span>
                         <input type="radio" name="deliveryMode" id="pickup" value="pickup" class="deliveryBtn" onchange="radio('pickup')" required form="checkout">
                         <input type="radio" name="deliveryMode" id="deliver" value="deliver" class="deliveryBtn" onchange="radio('deliver')" required form="checkout">
-                        <input type="hidden" name="subtotal" value="<?php echo $subtotal; ?>" form="checkout">
+                        <input type="hidden" name="subtotal" id='subtotal' value="<?php echo $subtotal; ?>" form="checkout">
                     </div> 
                 </div>
 
@@ -312,7 +312,12 @@
             }
 
             function checkout(){
-                document.getElementById("checkout").submit();
+                if(document.getElementById('subtotal').value == 0){
+                    alert("Cart is empty.");
+                }
+                else{
+                    document.getElementById("checkout").submit();
+                }
             }
 
            

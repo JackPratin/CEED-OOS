@@ -7,26 +7,31 @@
     }
 
     $id     = mysqli_real_escape_string($con, $_POST['id']);
-    $price     = mysqli_real_escape_string($con, $_POST['price']);
-    $qty = mysqli_real_escape_string($con, $_POST['quantity']);
+    $price  = mysqli_real_escape_string($con, $_POST['price']);
+    $qty    = mysqli_real_escape_string($con, $_POST['quantity']);
     $ingredients = '';
     $ingredients_prices= '';
+    $price = floatval($price);
+    $item_price = $price;
+    $item_price = $item_price;
 
   
    if(isset($_POST['extras'])){
-    foreach($_POST['extras'] as $extras){
-        $ingqry = mysqli_query($con, "SELECT product_price FROM products_tb WHERE product_id = $extras");
-        $ingprice = mysqli_fetch_array($ingqry, MYSQLI_ASSOC);
-        if($_POST['extras'][0] == $extras){
-            $ingredients = $extras;
-            $ingredients_prices =  $ingprice['product_price'];
-        }
-        else{
-            $ingredients = $ingredients.', '.$extras;
-            $ingredients_prices = $ingredients_prices.', '.$ingprice['product_price'];
-        }
-        // echo $extras;
-        
+        foreach($_POST['extras'] as $extras){
+            $ingqry = mysqli_query($con, "SELECT product_price FROM products_tb WHERE product_id = $extras");
+            $ingprice = mysqli_fetch_array($ingqry, MYSQLI_ASSOC);
+            if($_POST['extras'][0] == $extras){
+                $ingredients = $extras;
+                $ingredients_prices =  $ingprice['product_price'];
+            }
+            else{
+                $ingredients = $ingredients.', '.$extras;
+                $ingredients_prices = $ingredients_prices.', '.$ingprice['product_price'];
+            }
+
+            $item_price += (float)$ingprice['product_price'];
+            // echo $extras;
+            
         }
         // echo $ingredients;
         // print_r($_POST['extras']);
@@ -41,7 +46,6 @@
         // print_r($try);
         // echo'<br>';
         // print_r($try1);
-
    }
 
     // checking for existing item in user's cart
@@ -77,7 +81,9 @@
     else{
         $itemNumber = itemNumber("SELECT * FROM `cart_tb` WHERE $id_type = $_SESSION[$id_type] AND cart_number = $_SESSION[order_count] ORDER BY cart_id DESC LIMIT 1");
 
-        mysqli_query($con, "INSERT INTO `cart_tb`(`$id_type`, `product_id`, `cart_number`, `quantity`, `price`, `item_number`, `extra_ingredients`, `extra_prices`) VALUES ('$_SESSION[$id_type]','$id','$_SESSION[order_count]','$qty','$price', '$itemNumber', '$ingredients', '$ingredients_prices')"); 
+         $qry = "INSERT INTO `cart_tb`(`$id_type`, `product_id`, `cart_number`, `quantity`, `price`, `item_number`, `extra_ingredients`, `extra_prices`, `item_subtotal`) VALUES ('$_SESSION[$id_type]','$id','$_SESSION[order_count]','$qty','$price', '$itemNumber', '$ingredients', '$ingredients_prices', '$item_price')";
+
+        mysqli_query($con, $qry); 
     }
 
 
