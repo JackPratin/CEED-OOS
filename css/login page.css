@@ -1,9 +1,9 @@
 * {
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 *::-webkit-scrollbar {
-    visibility: collapse;
+    visibility: none;
 }
 
 body {
@@ -11,7 +11,8 @@ body {
     font-family: 'Inter';
     font-style: normal;
     background: rgb(255, 190, 90);
-    height: 80%;
+    height: 100%;
+    margin: 0;
 }
 
 #company-logo {
@@ -43,7 +44,7 @@ body {
     width: 25%;
     height: 50%;
     border-radius: 50px;
-    margin-top: 15%;
+    margin-top: 10%;
     margin-bottom: 10%;
     margin-left: 10%;
     margin-right: 10%;
@@ -83,12 +84,12 @@ body {
     justify-content: center;
     position: absolute;
     top: -1%;
-    left: 61.3%;
-    bottom: -13px;
+    left: 63.3%;
+    /* bottom: -13px; */
     /* transform: translate(70%, -50%); */
     background: white;
-    width: 37.5%;
-    height: 860px;
+    width: 38.5%;
+    height: 101%;
     border-top-left-radius: 26px;
     border-bottom-left-radius: 26px;
     /* padding: 15px; */
@@ -172,6 +173,10 @@ form .text_field {
 .text_field input:focus~span::before,
 .text_field input:valid~span::before {
     width: 100%;
+}
+
+.text_field input:focus~span::-webkit-scrollbar {
+    display: collapse;
 }
 
 .pass {
@@ -272,10 +277,14 @@ input[type="submit"]:hover {
 }
 
 .regForm {
+    margin: 0;
     left: 50%;
     width: 50%;
-    height: 103%;
+    top: -1%;
+    height: 101%;
     padding-left: 5%;
+    padding-top: 0;
+    padding-bottom: 0;
 }
 
 #signUp {
@@ -322,6 +331,7 @@ input[type="submit"]:hover {
     justify-content: center;
     width: 25%;
     height: 50%;
+    overflow-y: hidden;
     /* border: black solid 1px; */
 }
 
@@ -434,7 +444,7 @@ input[type="submit"]:hover {
     color: #FFAE42;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 900px) {
     html {
         overflow-y: scroll;
         overflow-x: hidden;
@@ -580,12 +590,15 @@ input[type="submit"]:hover {
     .logo2 {
         position: absolute;
         top: 0%;
-        left: 15.5%;
-        display: flex;
+        left: 30%;
+        /* display: flex; */
         z-index: 1;
-        width: 50%;
-        height: 30%;
+        max-width: 40%;
+        max-height: 40%;
+        width: auto;
+        height: auto;
         border-radius: 50%;
+        margin: 0;
     }
     #loginButton {
         position: absolute;

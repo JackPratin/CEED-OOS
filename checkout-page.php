@@ -45,71 +45,73 @@
 <body>
     <div id="menu-div">
         <div class="checkoutForm">
-            <h2>Delivery Details</h2>
-            <b>Delivery Date and Time:</b>
+            <div><h2>Delivery Details</h2></div>
             <br>
-            <div class='dateTime'>
+            <div>
+            <b>Delivery Date and Time:</b><br>
                 <input class="date" type="date" id='date' form="submitOrder" name="date" min='<?php echo $currentDate; ?>'> &nbsp;
                 <input class="time" type="time" id='time'  form="submitOrder" name="time" min='<?php echo $min;?>' max='<?php echo $max;?>'>
             </div><br>
+
             
-            <b>Delivery Address:<br></b>
-            <div style="display: flex; height:10%; flex-wrap: wrap; ">
+            <div width='100%'>
+            <b>Delivery Address:</b><br>
                 <input type="text" class="address" placeholder="Address" form="submitOrder" name="address" value='<?php echo $_SESSION['address']?>'>
                 <input type="text" class="address" placeholder="Baranggay" form="submitOrder" name="baranggay" value='<?php echo $_SESSION['baranggay']?>'>
                 <input type="text" class="address" placeholder="City" form="submitOrder" name="city" value='<?php echo $_SESSION['city']?>'>
             </div><br>
 
-            
-                
-            <div class='noteAndPayment'>
-            <h4>Note to rider: (ex. remarks, landmarks)</h4><br>
-            <input type="text" form="submitOrder" name="note"><br>
+            <div>
+                <b>Note to rider: (ex. Remarks, Landmarks, etc.)</b>
+                <input type="text" id='note' form="submitOrder" name="note">
 
-            <b>Payment method:<br></b>
-                <button class="cash"  onclick="closeGcash()"><img src="css/system images/cash.png" alt=""></button>
-                <button class="gcash" id="icon-popup"><img src="css/system images/gcash.png" alt=""></button>
-                <img src="css/system images/scan to pay.png" class="toPay" alt="">
+                <b>Payment method:<br></b>
+                    <button class="cash"  onclick="closeGcash()"><img src="css/system images/cash.png" alt=""></button>
+                    <!-- <br><br> -->
+                    <button class="gcash" onclick="openGcash()" id="icon-popup"><img src="css/system images/gcash.png" alt=""></button>
+                    <img src="css/system images/scan to pay.png" class="toPay" alt="" id='gcash'>
             </div><br>
 
-            <div id="popup">
+            <!-- <div id="popup">
                 <div id="popup-bg"></div>
-                    <div id="popup-fg">
-                        <div class="actions">
-                            <button id="cash">QR Code</button>
-                            <div class="uploadFile">
-                                <p>Upload File</p><br><br><br>
-                                <input type="file"  accept=".jpg, .png, .jpeg" name="gcashProof" id="gcashUpload" form="submitOrder">
-                        
-                            </div>
+
+                <div id="popup-fg">
+                    <div class="actions">
+                        <button id="cash">QR Code</button>
+                        <div class="uploadFile">
+                            <p>Upload File</p><br><br><br>
+                            <input type="file"  accept=".jpg, .png, .jpeg" name="gcashProof" id="gcashUpload" form="submitOrder">
+                    
                         </div>
                     </div>
                 </div>
-            
-         
-            
-            <h2>Personal Detail</h2>
-            <b>Email:</b>
-            <input type="text" class="emailInput" style="width: 100%" form="submitOrder" name="email" value='<?php echo $_SESSION['email']?>'><br>
-            <div style= "display: flex; justify-content: space-between;">
-                <div style="display: flex; flex-direction: column; width:90%">
-                    <span><b>First Name:</b></span>
-                </div>
+            </div> -->
 
-                <div style="display: flex;flex-direction: column; width:90%">
-                    <span><b>Last Name:</b></span>  
+            <div>
+                <div>
+                    <h2>Personal Details</h2><br>
+                    <b>Email:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="email" class="emailInput" form="submitOrder" name="email" value='<?php echo $_SESSION['email']?>'><br>
+                    <div >
+                        <span><b>First Name:&nbsp;</b></span>
+                        <input type="text" form="submitOrder" name="fname" value='<?php echo $_SESSION['first_name']?>'>
+                    
+                    </div>
+
+                    <div >
+                        <span><b>Last Name:&nbsp;</b></span>
+                        <input type="text" form="submitOrder" name="lname" value='<?php echo $_SESSION['last_name']?>'>
+                    </div>
                 </div>
             </div>
-            <div style= "display: flex; justify-content: space-between; height:5%">
-                <input type="text" style="width: 96%;" form="submitOrder" name="fname" value='<?php echo $_SESSION['first_name']?>'>
-                <input type="text" style="width: 96%" form="submitOrder" name="lname" value='<?php echo $_SESSION['last_name']?>'>
-            </div><br>
-            
-            <b>Contact Num.</b>
-            <input type="text" form="submitOrder"  name="number" value="<?php echo $_SESSION['contact_number']?>"><br>
-            <input type="hidden" name="subtotal" form="submitOrder" value="<?php echo $subtotal; ?>">
-            <input type="hidden" name="deliveryMode" form="submitOrder" value="<?php echo $deliveryMode; ?>">
-            <input type="hidden" name="modeOfPayment" id="modeOfPayment" form="submitOrder" value="">
+
+            <div>
+                <b>Contact Num:</b>
+                <input type="text" form="submitOrder"  name="number" value="<?php echo $_SESSION['contact_number']?>"><br>
+                <input type="hidden" name="subtotal" form="submitOrder" value="<?php echo $subtotal; ?>">
+                <input type="hidden" name="deliveryMode" form="submitOrder" value="<?php echo $deliveryMode; ?>">
+                <input type="hidden" name="modeOfPayment" id="modeOfPayment" form="submitOrder" value="">
+            </div>
         </div>
 
         <div id="cart-div">

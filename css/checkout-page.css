@@ -75,7 +75,7 @@ body {
     padding: 5px;
     font-size: 15px;
     font-family: 'Inter';
-    display: flex;
+    display: none;
     background-color: transparent;
     border: none;
     color: #000;
@@ -96,7 +96,7 @@ body {
 }
 
 .cash {
-    position: sticky;
+    /* position: sticky; */
     /* left: 38.6%; */
     /* top: 37%; */
     font-weight: bold;
@@ -113,7 +113,7 @@ body {
 }
 
 #icon-popup.gcash {
-    position: sticky;
+    /* position: sticky; */
     /* left: 38.6%; */
     /* top: 37%; */
     font-weight: bold;
@@ -130,7 +130,8 @@ body {
 }
 
 .toPay {
-    position: sticky;
+    /* position: sticky; */
+    display: none;
     right: 0%;
 }
 
@@ -168,30 +169,37 @@ body {
 
 .checkoutForm {
     background-color: white;
-    height: 100%;
-    width: 40%;
+    height: 95%;
+    width: 45%;
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    /* flex-direction: column; */
     position: absolute;
-    left: 15%;
+    left: 10%;
     padding: 15px;
     border-radius: 10px;
+    align-items: flex-start;
+    overflow-y: scroll;
 }
 
-.checkoutForm .example::-webkit-scrollbar {
-    display: none;
+.checkoutForm ::-webkit-scrollbar {
+    display: collapse;
 }
 
 .dateTime{
     display: flex; 
+    flex-wrap: wrap;
+    position: absolute;
+    z-index: 1;
     /* justify-content: space-between;  */
     height:5%; 
     width:100%
 }
 
 .checkoutForm .date {
-    min-height: 100%;
-    width: 50%;
+    /* min-height: 100%; */
+    /* min-width: 40%;
+    width: 250px; */
     background-color: #EFEFEF;
     border: none;
     border-radius: 5px;
@@ -200,8 +208,9 @@ body {
 }
 
 .checkoutForm .time {
-    min-height: 100%;
-    width: 50%;
+    /* min-height: 100%; */
+    /* min-width: 40%;
+    width: 250px; */
     background-color: #EFEFEF;
     border: none;
     border-radius: 5px;
@@ -210,8 +219,10 @@ body {
 }
 
 .checkoutForm input {
-    height: 25%;
-    width: 100%;
+    height: 8%;
+    min-width: 40%;
+    width: 250px;
+    /* width: 100%; */
     background-color: #EFEFEF;
     border: none;
     border-radius: 5px;
@@ -219,9 +230,15 @@ body {
     margin-bottom: 10px;
 }
 
+#note{
+    width: 100%;
+    min-width: 100%;
+}
+
 .checkoutForm input.address {
-    height: 100%;
-    width: 48%;
+    /* height: 100%; */
+    /* min-width: 40%; */
+    /* width: 48%; */
     background-color: #EFEFEF;
     border: none;
     border-radius: 5px;
@@ -229,8 +246,8 @@ body {
 }
 
 .checkoutForm .emailInput {
-    height: 41px;
-    width: 50px;
+    /* height: 41px;
+    width: 50px; */
     background-color: #EFEFEF;
     border: none;
     border-radius: 5px;
@@ -248,10 +265,10 @@ h2 {
 @media only screen and (max-width: 900px) {
     .checkoutForm {
         background-color: white;
-        height: 110%;
+        height: 25%;
         width: 100%;
-        display: flex;
-        flex-direction: column;
+        /* display: block; */
+        /* flex-direction: column; */
         position: absolute;
         left: 0%;
         padding: 5%;
@@ -269,8 +286,18 @@ h2 {
         margin-right: 1%;
         margin-bottom: 2%;
     }
-    .date {
-        width: 50%;
+    .checkoutForm .date {
+        max-height: 25%;
+        width: 100%;
+        background-color: #EFEFEF;
+        border: none;
+        border-radius: 5px;
+        margin-right: 5%;
+        margin-bottom: 5%;
+    }
+    .checkoutForm .time {
+        max-height: 25%;
+        width: 100%;
         background-color: #EFEFEF;
         border: none;
         border-radius: 5px;
@@ -278,8 +305,8 @@ h2 {
         margin-bottom: 5%;
     }
     .checkoutForm .emailInput {
-        height: 100%;
-        width: 50%;
+        /* height: 100%; */
+        /* width: 50%; */
         background-color: #EFEFEF;
         border: none;
         border-radius: 5px;
