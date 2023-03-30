@@ -139,7 +139,7 @@
                             17 Mar 2023, 04:00PM<br>
                             1975 Classic<br>
                             <hr>
-                            <span class='order-card-bottom'>x1 Items<br>₱ 105.00</span>
+                            <span class='order-card-bottom'>x1 Item/s<br>₱ 105.00</span>
                         </div>
                     </a>
                     

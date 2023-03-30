@@ -320,6 +320,11 @@ input[type=number]::-webkit-outer-spin-button {
     #categoryDropdown {
         display: none;
     }
+
+    .tracking{
+        text-decoration: none;
+        color: black;
+    }
     /*CART*/
     #cart-div {
         overflow-y: auto;
@@ -352,8 +357,8 @@ input[type=number]::-webkit-outer-spin-button {
         font-size: medium;
     }
     #cart-items-div {
-        max-height: 23%;
-        min-height: 23%;
+        max-height: 30%;
+        min-height: 30%;
         width: 100%;
         overflow: auto;
     }
@@ -454,6 +459,7 @@ input[type=number]::-webkit-outer-spin-button {
         width: 100%;
         border-radius: 15px;
         padding: 2%;
+        color: black;
     }
     .order-card-bottom {
         display: flex;
