@@ -42,10 +42,10 @@
                         <div class="bar2"></div>
                         <div class="bar3"></div>
                     </div>
-                    <i class="fa-solid fa-cart-plus"></i>
+                    <!-- <i class="fa-solid fa-cart-plus"></i>
                     <center>
                         <input type="search" name="" id="search" placeholder="Search category or menu...">
-                    </center>
+                    </center> -->
                 </div> <br>
 
                 <div id="categories">
@@ -110,9 +110,10 @@
 
                     <div id="fees-div">
                         <span class="end-to-end"><span class="bold">Subtotal</span><span>₱<?php $subtotal = subtotal(); echo $subtotal;?></span></span><br>
-                        <span class="end-to-end"><span>Delivery Fee</span><span>₱0.00</span></span><br>
+                        <!-- <span class="end-to-end"><span>Delivery Fee</span><span>₱0.00</span></span><br>
                         <hr id="cart-hr">
-                        <span class="end-to-end bold"><span>Total</span><span>₱<?php echo $subtotal; ?></span></span>
+                        <span class="end-to-end bold"><span>Total</span><span>₱<?php //echo $subtotal; ?></span></span> -->
+                        <br>
                         <input type="radio" name="deliveryMode" id="pickup" value="pickup" class="deliveryBtn" onchange="radio('pickup')" required form="checkout">
                         <input type="radio" name="deliveryMode" id="deliver" value="deliver" class="deliveryBtn" onchange="radio('deliver')" required form="checkout">
                         <input type="hidden" name="subtotal" id='subtotal' value="<?php echo $subtotal; ?>" form="checkout">
