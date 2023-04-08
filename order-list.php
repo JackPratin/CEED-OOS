@@ -34,7 +34,7 @@
                     </center>
                 </div> <br>
                 
-                <h2>Track Order</h2>
+                <h2>Current Orders</h2>
                 <?php
                     trackOrderDisplay();
                 ?>
@@ -164,7 +164,9 @@
         <script src="js/navigation.js"></script>
 
         <script>
-           
+           function sub(cart){
+                document.getElementById('form'+cart).submit();
+           }
         </script>
         
         

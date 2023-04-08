@@ -94,7 +94,7 @@
             }
             else{
                 return false;
-                // echo"<script>alert('$message.')</script>";
+                echo"<script>alert('$message.')</script>";
                 // echo '<script>window.history.go(-1)</script>';
             }
         }

@@ -42,24 +42,41 @@
 
         <table width="75%";>
             <tr>
-                <th>Name of ingredient</th>
-                <th>Current quantity</th>
-                <th></th>
-                <th colspan="2">Actions</th>
+                <th>Date</th>
+                <th>Total No. of items</th>
+                <th>No.of locations</th>
+                <th>No. of orders</th>
+                <th>Total Sales</th>
+                <th>Dine in</th>
+                <th>Delivery</th>
+                <th>Pick Up</th>
+                <th>COD</th>
+                <th>GCash</th>
+                <th>Guest Account</th>
+                <th>Social Account</th>
+                <th>Personal Account</th>
             </tr>
             <?php
-                $ingredient_qry = mysqli_query($con, "SELECT * FROM `products_tb` WHERE product_category = 4");
-                while($ingredients = mysqli_fetch_array($ingredient_qry, MYSQLI_ASSOC)){
+                // $ingredient_qry = mysqli_query($con, "SELECT * FROM `products_tb` WHERE product_category = 4");
+                // while($ingredients = mysqli_fetch_array($ingredient_qry, MYSQLI_ASSOC)){
                     echo"
                         <tr>
-                            <td>$ingredients[product_name]</td>
-                            <td>5</td>
-                            <td><input type='button' value='Update' class='stock-actions'></td>
-                            <td><input type='button' value='Replacement/loss' class='stock-actions'></td>
-                            <td><input type='button' value='Delete' class='stock-actions'></td>
+                            <td>11-13-22</td>
+                            <td>300</td>
+                            <td>6</td>
+                            <td>6</td>
+                            <td>20</td>
+                            <td>12</td>
+                            <td>15</td>
+                            <td>4</td>
+                            <td>10</td>
+                            <td>2</td>
+                            <td>8</td>
+                            <td>3</td>
+                            <td>9</td>
                         </tr>
                     ";
-                }
+                // }
             ?>
         </table>
     </body>

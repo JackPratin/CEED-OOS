@@ -4,7 +4,7 @@
     session_start();
     
     require("php/userType.php");
-    typeCheck('customer');
+    typeCheck('staff');
 
 
     if(!isset($_SESSION['current_page'])){

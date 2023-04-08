@@ -21,9 +21,9 @@
                     <p id="choose-category">
                         CHOOSE CATEGORY
                     </p>
-                    <center>
+                    <!-- <center>
                         <input type="search" name="" id="search" placeholder="Search category or menu...">
-                    </center>
+                    </center> -->
                 </div> <br>
                
                 <div id="categories">

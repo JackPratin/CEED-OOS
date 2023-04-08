@@ -324,6 +324,7 @@ input[type=number]::-webkit-outer-spin-button {
     .tracking{
         text-decoration: none;
         color: black;
+        width: 75%
     }
     /*CART*/
     #cart-div {
@@ -456,14 +457,20 @@ input[type=number]::-webkit-outer-spin-button {
     }
     .order-card {
         background-color: white;
-        width: 100%;
+        width: 50%;
         border-radius: 15px;
         padding: 2%;
         color: black;
     }
+
     .order-card-bottom {
         display: flex;
         justify-content: flex-end;
+    }
+
+    .order-card-items{
+        display: flex;
+        justify-content: space-between;
     }
     .order-status {
         margin-left: 5%;
@@ -478,10 +485,11 @@ input[type=number]::-webkit-outer-spin-button {
     }
     .circle {
         background: black;
-        border-radius: 50%;
-        width: 10px;
-        height: 10px;
+        border-radius: 60%;
+        width: 20px;
+        height: 15px;
         margin-right: 5%;
+        padding: 2px;
     }
     .circle-active {
         background: #FFA200;

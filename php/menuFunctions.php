@@ -2,7 +2,7 @@
     function itemDisplay() {
         require("config.php");
 
-        $products_qry = mysqli_query($con, "SELECT * FROM products_tb WHERE product_category < 4");
+        $products_qry = mysqli_query($con, "SELECT * FROM products_tb WHERE product_category != 4");
 
         while($products = mysqli_fetch_array($products_qry, MYSQLI_ASSOC)){
             $id = $products['product_id'];
@@ -30,7 +30,7 @@
     function landingPageDisplay(){
         require("config.php");
 
-        $products_qry = mysqli_query($con, "SELECT * FROM products_tb WHERE product_category < 4");
+        $products_qry = mysqli_query($con, "SELECT * FROM products_tb WHERE product_category != 4");
        
 
         while($products = mysqli_fetch_array($products_qry, MYSQLI_ASSOC)){
@@ -124,29 +124,57 @@
 
     function trackOrderDisplay(){
         require("config.php");
+
+        function name($id){
+            require("config.php");
+            $qry = mysqli_query($con, "SELECT product_name FROM products_tb WHERE product_id = $id");
+
+            $name = mysqli_fetch_array($qry, MYSQLI_ASSOC);
+            return $name['product_name'];
+        }
+
+        function price($id){
+            require("config.php");
+            $qry = mysqli_query($con, "SELECT product_price FROM products_tb WHERE product_id = $id");
+
+            $price = mysqli_fetch_array($qry, MYSQLI_ASSOC);
+            return $price['product_price'];
+            
+        }
+
+        function ingredients($ingredients, $prices){
+            require("config.php");
+
+            $ing = explode(",",$ingredients);
+            $pri = explode(",",$prices);
+            $i = 0;
+
+            $count = count($ing);
+
+            foreach($ing as $ingredient ){
+                $qry = mysqli_query($con, "SELECT product_name FROM products_tb WHERE product_id = $ingredient");
+
+                $name = mysqli_fetch_array($qry, MYSQLI_ASSOC);
+                echo "<span class='order-card-items'><span>&nbsp;+".$name['product_name']."</span> <span>₱".$pri[$i]."</span></span>";
+                $i++;
+            }
+            echo "<br>";
+         
+        }
+
+
+        
         $qry = mysqli_query($con, "SELECT * FROM order_info WHERE `customer_id` = $_SESSION[customer_id] AND `status` = 'pending' OR `status` = 'deliver'");
 
 
         if(mysqli_num_rows($qry) == 0){
-            echo"<h2>No active order</h2>";
-        }
-        else{
             echo"
-                <div class='tracking'>
-                    <a href='invoice.php'>
-                        <div class='order-card'>
-                            Order 1#<br>
-                            17 Mar 2023, 04:00PM<br>
-                            1975 Classic<br>
-                            <hr>
-                            <span class='order-card-bottom'>x1 Item/s<br>₱ 105.00</span>
-                        </div>
-                    </a>
-                    
-
+            
+            <div class='tracking'>
+                <h4>No active order</h4>
                     <div class='order-status'>
                         <div class='inner-order-status'>
-                            <div class='circle-active circle' id='placeCircle'></div>
+                            <div class=' circle' id='placeCircle'></div>
                             <img src='css/system images/order list icons/order-placed-icon.png' alt='Icon for placed order'>
                             <div class='order-text'>
                                 <div class='order-upper-text'>Order Placed</div>
@@ -178,8 +206,184 @@
                     </div>
                 </div>
             ";
+
+
+        }
+        else{
+
+            while($orders = mysqli_fetch_array($qry, MYSQLI_ASSOC)){
+                $itemsQry = mysqli_query($con, "SELECT * FROM order_table WHERE `customer_id` = $_SESSION[customer_id] AND cart_number = $orders[cart_number]"); 
+
+                
+                    echo"
+                        <div class='tracking'>
+                        <form action='php/receiptSetter.php' id='form$orders[cart_number]' method='post'>
+                        <input type='hidden' name='cart' value='$orders[cart_number]'>
+                        </form>
+                            <a href='#' onclick='sub($orders[cart_number])'>
+                                <div class='order-card'>
+                                    <b>Order #$orders[cart_number]</b><br>
+                                    <span style='color: \'gray\''>$orders[order_date], $orders[order_time]</span><br><br>";
+                while($items = mysqli_fetch_array($itemsQry, MYSQLI_ASSOC)){
+                    $id = $items['product_id'];
+                    echo "<hr width='50%'>";
+                    echo "<span class='order-card-items'><span>$items[quantity]x ".name($id)."</span> <span>₱".price($id)."</span></span>";
+                    if($items['extra_ingredients'] != ""){
+                        echo ingredients($items['extra_ingredients'], $items['extra_prices']);
+                    }
+                }
+                
+                    $subQry = mysqli_query($con, "SELECT total FROM order_info WHERE `customer_id` = $_SESSION[customer_id] AND cart_number = $orders[cart_number]");
+                while($sub = mysqli_fetch_array($subQry, MYSQLI_ASSOC)){
+                    echo "
+                        <hr>
+                        <span class='order-card-bottom'>x1 Item/s<br>₱ $sub[total]</span>
+                    ";
+                }
+                echo"
+                                    
+                                    
+                                </div>
+                            </a>
+                            
+
+                            <div class='order-status'>
+                                <div class='inner-order-status'>
+                                    <div class='circle-active circle' id='placeCircle'></div>
+                                    <img src='css/system images/order list icons/order-placed-icon.png' alt='Icon for placed order'>
+                                    <div class='order-text'>
+                                        <div class='order-upper-text'>Order Placed</div>
+                                        <div class='order-lower-text'>We have received your order, please wait for a staff to accept your order.</div>
+                                    </div>
+                                </div>
+
+                                <div class='vertical-line'></div>
+
+                                <div class='inner-order-status'>
+                                    <div class='circle' id='processCircle'></div>&nbsp;
+                                    <img src='css/system images/order list icons/processed-icon.png' alt='Icon for order processing'>
+                                    <div class='order-text'>
+                                        <div class='order-upper-text'>Order Accepted</div>
+                                        <div class='order-lower-text'>We are currently preparing your order.</div>
+                                    </div>
+                                </div>
+
+                                <div class='vertical-line'></div>
+
+                                <div class='inner-order-status'>
+                                    <div class='circle' id='readyCircle'></div>&nbsp;
+                                    <img src='css/system images/order list icons/ready-icon.png' alt='Icon for ready to deliver items'>
+                                    <div class='order-text'>
+                                        <div class='order-upper-text'>Ready to Deliver</div>
+                                        <div class='order-lower-text'>Your order is ready to be deliverd, please wait for our rider to deliver your order.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><hr width='50%'><br>
+                        
+                    ";
+                
+
+            }
+            
+        }
+
+
+        
+    }
+
+    function invoiceInfo(){
+        require("config.php");
+
+        $qry = mysqli_query($con, "SELECT * FROM order_info WHERE customer_id = $_SESSION[invoice_id] AND cart_number = $_SESSION[invoice_cart]");
+        while($info = mysqli_fetch_array($qry, MYSQLI_ASSOC)){
+            echo"
+            <div class='order'>
+
+            <p> Order #: $info[cart_number]</p>
+            <p> Sold to: $info[cust_lname], $info[cust_fname]</p>
+            <p> Order Date: $info[order_date]</p>
+            <p> Order Time: $info[order_time]</p>
+            <p> Sales Person: $info[staff_name]</p>
+            <p>Mode of Payment: $info[payment_method]</p>
+            <p> Mode of Acquirement: $info[acquirement_type]</p>
+
+            </div>
+
+        <hr>
+
+        <h3> Note: $info[note]</h3>
+            ";
         }
         
+    }
+
+    function invoiceItems(){
+        require("config.php");
+
+        function extraIngredients($ingredients, $prices){
+            require("config.php");
+
+            $ing = explode(",",$ingredients);
+            $pri = explode(",",$prices);
+            $i = 0;
+
+            $count = count($ing);
+
+            foreach($ing as $ingredient ){
+                $qry = mysqli_query($con, "SELECT product_name FROM products_tb WHERE product_id = $ingredient");
+
+                $name = mysqli_fetch_array($qry, MYSQLI_ASSOC);
+                echo"
+                    <div>^$name[product_name]</div>
+                    <div>₱$pri[$i]</div><br>
+                ";
+                $i++;
+            }
+            echo "<br>";
+            echo "<br>";
+         
+        }
+
+        $qry = mysqli_query($con, "SELECT * FROM order_table WHERE customer_id = $_SESSION[invoice_id] AND cart_number = $_SESSION[invoice_cart]");
+
+        while($items = mysqli_fetch_array($qry, MYSQLI_ASSOC)){
+            $nameqry = mysqli_query($con, "SELECT * FROM products_tb WHERE product_id = $items[product_id]");
+            $name = mysqli_fetch_array($nameqry, MYSQLI_ASSOC);
+            $product = $name['product_price'] * $items['quantity'];
+
+            echo"
+            <div class='info'>
+
+                <h5>
+                    <div>$name[product_name]</div>
+                    <div>₱$name[product_price]</div>
+                    <div>x $items[quantity]</div>
+                    <div>₱$product</div>
+                </h5>
+                <h5>";
+
+                if($items['extra_ingredients'] != ""){
+                    echo extraIngredients($items['extra_ingredients'], $items['extra_prices']);
+                }
+
+                echo"
+                
+                    
+                </h5>
+            </div> <br>
+        ";
+        }
+        
+    }
+
+    function invoiceSubtotal(){
+        require("config.php");
+        $qry = mysqli_query($con, "SELECT total FROM order_info WHERE customer_id = $_SESSION[invoice_id] AND cart_number = $_SESSION[invoice_cart]");
+        $info = mysqli_fetch_array($qry, MYSQLI_ASSOC);
+
+        echo $info['total'] ;
+
     }
 
 

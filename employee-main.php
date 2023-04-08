@@ -19,7 +19,7 @@
             <div class="navigation-div">
                 <img src="css/system images/company logo.png" alt="1975 Old-Fashioned Burgers logo" class="side-logo">
                 
-                <a href="employee-menu.php" target="main-frame" onclick="changeDisplay('employee-menu.html')">
+                <a href="employee-menu.php" target="main-frame" onclick="changeDisplay('employee-menu.php')">
                     <div class="nav-item">
                         <div class="unselected" id="menu-unselected">
                             <img class="nav-vector" src="css/system images/nav icons/menu.png" alt="Menu Vector">
@@ -31,7 +31,7 @@
                     </div>
                 </a>
 
-                <a href="register.html" target="main-frame" onclick="changeDisplay('register.html')">
+                <a href="employee-order-list.php" target="main-frame" onclick="changeDisplay('employee-order-list.php')">
                     <div class="nav-item">
                         <div class="unselected" id="order-list-unselected">
                             <img class="nav-vector" src="css/system images/nav icons/order-list.png" alt="List Vector">
@@ -43,7 +43,7 @@
                     </div>
                 </a>
 
-                <a href="order-history.html" target="main-frame" onclick="changeDisplay('order-history.html')">
+                <a href="employee-order-history.php" target="main-frame" onclick="changeDisplay('employee-order-history.php')">
                     <div class="nav-item">
                         <div class="unselected" id="history-unselected">
                             <img class="nav-vector-history" src="css/system images/nav icons/history.png" alt="History Vector"> 

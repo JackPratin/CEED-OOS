@@ -1,3 +1,10 @@
+<?php
+require("php/config.php");
+require("php/menuFunctions.php");
+    session_start();
+    // $qry = mysqli_query($con, "SELECT * FROM order_info WHERE customer_id = $_SESSION[invoice_id] AND cart_number = $_SESSION[invoice_cart]");
+
+?>
 <html lang="en">
 
 <head>
@@ -13,6 +20,12 @@
 </head>
 
 <body>
+
+<div class='upper-buttons'>
+    <span>&nbsp;&nbsp;<a class="go-back2" href="order-list.php">Go Back</a></span>
+    <span><input type="button" class='print' onclick="window.print();" value="Print" /></span>
+</div>
+
     <div class="receipt">
 
         <h2 class="name"> 1975 Old Fashioned Burgers </h2>
@@ -21,45 +34,22 @@
         <p class="greeting"> 09487177577 </p>
         <h1 class="name1"> Receipt </h1>
         <!-- Order info -->
-        <div class="order">
+        
 
-            <p> Order #: </p>
-            <p> Sold to: </p>
-            <p> Order Date: </p>
-            <p> Order Time: </p>
-            <p> Sales Person: </p>
-            <p>Mode of Payment: </p>
-            <p> Mode of Acquirement: </p>
+            <?php
+                invoiceInfo();
+            ?>
 
-        </div>
-
-        <hr>
-
-        <h3> Note: </h3>
+        
         <hr>
         <!-- Details -->
         <div class="details">
 
             <div class="product">
-                <div class="info">
-
-                    <h5>
-                        <div>1975 Classic</div>
-                        <div>P105.00</div>
-                        <div>x 3</div>
-                        <div>P315.00</div>
-                    </h5>
-                    <h5>
-                        <div>^Extra Patty</div>
-                        <div></div>
-                        <div></div>
-                        <div>P65.00</div>
-                    </h5>
-                </div> <br>
-                <div class="info">
-
-                    <h5><span>1975 Classic</span> <span>P105.00</span> <span>x 3</span> <span>P315.00</span></h5>
-                </div>
+                
+            <?php
+                invoiceItems();
+            ?>
 
 
             </div>
@@ -69,11 +59,11 @@
         <!-- Sub and total price -->
         <div class="totalprice">
 
-            <b><p class="sub"> Subtotal <span> P695</span></p></b>
+            <b><p class="sub"> Subtotal <span> ₱<?php invoiceSubtotal(); ?></span></p></b>
 
-            <p class="del"> Cash <b><span> P700 </span></b> </p>
+            <p class="del"> Cash <b><span> ₱ </span></b> </p>
 
-            <p class="tot"> Change <b><span> P5</span></b> </p>
+            <p class="tot"> Change <b><span> ₱</span></b> </p>
 
         </div>
         <br><br>

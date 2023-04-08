@@ -57,8 +57,8 @@
             <div width='100%'>
             <b>Delivery Address:</b><br>
                 <input type="text" class="address" placeholder="Address" form="submitOrder" name="address" value='<?php echo $_SESSION['address']?>'>
-                <input type="text" class="address" placeholder="Baranggay" form="submitOrder" name="baranggay" value='<?php echo $_SESSION['baranggay']?>'>
-                <input type="text" class="address" placeholder="City" form="submitOrder" name="city" value='<?php echo $_SESSION['city']?>'>
+                <input type="text" class="address" id='baranggay' placeholder="Baranggay" form="submitOrder" name="baranggay" value='<?php echo $_SESSION['baranggay']?>' >
+                <input type="text" class="address" id='city' placeholder="City" form="submitOrder" name="city" value='<?php echo $_SESSION['city']?>' >
             </div><br>
 
             <div>
@@ -112,6 +112,9 @@
                 <input type="hidden" name="deliveryMode" form="submitOrder" value="<?php echo $deliveryMode; ?>">
                 <input type="hidden" name="modeOfPayment" id="modeOfPayment" form="submitOrder" value="">
             </div>
+            <br>
+            <br>
+            <center><a href="">Cancellation policy and Terms of use</a></center>
         </div>
 
         <div id="cart-div">
@@ -141,7 +144,7 @@
 
                 <div id="fees-div">
                     <span class="end-to-end"><span class="bold">Subtotal</span><span>₱<?php $subtotal = subtotal(); echo $subtotal;?></span></span><br>
-                    <span class="end-to-end"><span>Delivery Fee</span><span>₱0.00</span></span><br>
+                    <span class="end-to-end"><span>Delivery Fee</span><span id='delFee'>₱0.00</span></span><br>
                     <hr id="cart-hr">
                     <span class="end-to-end bold"><span>Total</span><span>₱<?php echo $subtotal; ?></span></span>
                 </div> 
@@ -202,6 +205,18 @@
             document.getElementById("gcash").style.display = "none";
             document.getElementById("modeOfPayment").value = "cash"
         }
+
+        // function deliveryFee(){
+        //     const cities = [];
+        //     const baranggays = [];
+        //     const prices = [];
+        //     let brgyObj = document.getElementById('baranggay');
+        //     let cityObj = document.getElementById('city');
+
+        //     if(){
+
+        //     }
+        // }
     </script>
     <!-- <script language="javascript">
         $(document).ready(function () {

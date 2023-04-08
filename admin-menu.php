@@ -37,15 +37,15 @@
                     <p id="choose-category">
                         CHOOSE CATEGORY
                     </p>
-                    <div class="menuBar" onclick="myFunction(this)">
+                    <!-- <div class="menuBar" onclick="myFunction(this)">
                         <div class="bar1"></div>
                         <div class="bar2"></div>
                         <div class="bar3"></div>
-                    </div>
-                    <i class="fa-solid fa-cart-plus" id="cartIcon"></i>
-                    <center>
+                    </div> -->
+                    <!-- <i class="fa-solid fa-cart-plus" id="cartIcon"></i> -->
+                    <!-- <center>
                         <input type="search" name="" id="search" placeholder="Search category or menu...">
-                    </center>
+                    </center> -->
                 </div> <br>
 
                 <div id="categories">
@@ -56,7 +56,7 @@
                     <button class="category-item-inactive" id="category3" onclick="filtering(3); filterChanger('category3')"><img src="css/system images/category icons/sides-icon.png">Sides</button>
                     <button class="category-item-inactive" id="category5" onclick="filtering(5); filterChanger('category5')"><img src="css/system images/category icons/extras-icon.png">Extras</button>
                 </div> <br>
-                <div id="categoryDropdownadmin">
+                <!-- <div id="categoryDropdownadmin">
                     <select name="category" id="">
                         
                       
@@ -68,7 +68,7 @@
                             }
                         ?>
                     </select>
-                </div>
+                </div> -->
                 <div id="menu-name">
                     Burger Menu
                 </div> <br>
@@ -107,9 +107,9 @@
 
                     <div id="fees-div">
                         <span class="end-to-end"><span class="bold">Subtotal</span><span>₱<?php $subtotal = subtotal(); echo $subtotal;?></span></span><br>
-                        <span class="end-to-end"><span>Delivery Fee</span><span>₱0.00</span></span><br>
+                        <!-- <span class="end-to-end"><span>Delivery Fee</span><span>₱0.00</span></span><br>
                         <hr id="cart-hr">
-                        <span class="end-to-end bold"><span>Total</span><span>₱<?php echo $subtotal; ?></span></span>
+                        <span class="end-to-end bold"><span>Total</span><span>₱<?php echo $subtotal; ?></span></span> -->
                         <input type="radio" name="deliveryMode" id="pickup" value="pickup" class="deliveryBtn" onchange="radio('pickup')" required>
                         <input type="radio" name="deliveryMode" id="walkin" value="walkin" class="deliveryBtn" onchange="radio('walkin')" required>
                         <input type="radio" name="deliveryMode" id="deliver" value="deliver" class="deliveryBtn" onchange="radio('deliver')" required>

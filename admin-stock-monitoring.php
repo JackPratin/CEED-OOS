@@ -23,7 +23,7 @@
             <tr>
                 <th>Name of ingredient</th>
                 <th>Current quantity</th>
-                <th>Actions</th>
+                <th colspan="3">Actions</th>
             </tr>
             <?php
                 $ingredient_qry = mysqli_query($con, "SELECT * FROM `products_tb` WHERE product_category = 4");
@@ -32,7 +32,9 @@
                         <tr>
                             <td>$ingredients[product_name]</td>
                             <td>5</td>
-                            <td><i class='fa-solid fa-ellipsis-vertical' id='icon-popup'></i></td>
+                            <td><input type='button' value='Update' class='stock-actions'></td>
+                            <td><input type='button' value='Replacement/loss' class='stock-actions'></td>
+                            <td><input type='button' value='Delete' class='stock-actions'></td>
                         </tr>
                     ";
                 }

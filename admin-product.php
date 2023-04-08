@@ -28,7 +28,7 @@
                         
                             Product details <br>
                             <input type="text" name="pName" class="prodInput" placeholder="Product Name">
-                            <input type="text" name="price" class="prodInput" maxlength="2" placeholder="Price">
+                            <input type="text" name="price" class="prodInput" placeholder="Price">
                             <input type="text" name="qty" class="prodInput" placeholder="Quantity">
 
                             <div class="container">
@@ -53,7 +53,7 @@
                                    
                                     <div class="file-select-button" id="fileName">Choose File</div>
                                     <div class="file-select-name" id="noFile">No file chosen...</div> 
-                                    <input type="file" name="chooseFile" id="chooseFile">
+                                    <input type="file" name="image" id="chooseFile">
                                 </div>
                             </div>
 
@@ -71,9 +71,9 @@
                     <div id="addIngre">Add new ingredient</div> <br>
                     <div>
                         Ingredients <br>
-                        <input type="text" name="fname" class="IngreInput" placeholder="Ingredient Name">
-                        <input type="text" name="mi" class="IngreInput" maxlength="2" placeholder="Price">
-                        <input type="text" name="lname" class="IngreInput" placeholder="Quantity">
+                        <input type="text" name="name" class="IngreInput" placeholder="Ingredient Name">
+                        <input type="text" name="price" class="IngreInput" placeholder="Price">
+                        <input type="text" name="qty" class="IngreInput" placeholder="Quantity">
                        
                     </div> <br>
 <!--             

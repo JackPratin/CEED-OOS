@@ -80,7 +80,7 @@
             <div id="or">
                 <hr style='display:inline-block; width:42%; '> OR <hr style='display:inline-block; width:42%;'>
             </div>
-            <input type="submit" value="Facebook" id="facebook">
+            <a onclick='fb()'><input type="submit" value="Facebook" id="facebook"></a>
             
             <input type="submit" value="Login as Guest" id="guest" onclick="location.href='guest-login.html'">
              
@@ -192,6 +192,13 @@
         <?php
          }
         ?>
+
+        <script>
+            function fb(){
+                // window.location.href="../../../facebook.com";
+                window.open('facebook.com');
+            }
+        </script>
    
    </body>
  </html>

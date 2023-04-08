@@ -30,12 +30,12 @@
     $item_count_qry = mysqli_query($con,"SELECT SUM(`quantity`) AS sumqty FROM cart_tb WHERE customer_id = $_SESSION[customer_id] AND cart_number = $_SESSION[order_count];");
     $quantity = mysqli_fetch_array($item_count_qry, MYSQLI_ASSOC);
 
-    $info_qry = mysqli_query($con, "INSERT INTO `order_info`(`order_date`, `order_time`, `cart_number`, `number_of_items`, `customer_id`, `cust_fname`, `cust_lname`, `cust_address`, `cust_baranggay`, `cust_city`, `cust_contact`, `cust_email`, `acquirement_type`, `del_pickup_time`, `payment_method`, `ordered_from`, `total`, `status`) VALUES ('$date','$current_time','$_SESSION[order_count]','$quantity[sumqty]','$_SESSION[customer_id]','$fname','$lname','$address','$baranggay','$city','$number','$email','$deliveryMode','$time','$modeOfPayment','website','$subtotal','pending')");
+    $info_qry = mysqli_query($con, "INSERT INTO `order_info`(`order_date`, `order_time`, `cart_number`, `number_of_items`, `customer_id`, `cust_fname`, `cust_lname`, `cust_address`, `cust_baranggay`, `cust_city`, `cust_contact`, `cust_email`, `acquirement_type`, `del_pickup_time`, `del_pickup_date`, `payment_method`, `ordered_from`, `total`, `status`, `note`) VALUES ('$current_date','$current_time','$_SESSION[order_count]','$quantity[sumqty]','$_SESSION[customer_id]','$fname','$lname','$address','$baranggay','$city','$number','$email','$deliveryMode','$time','$date','$modeOfPayment','website','$subtotal','pending','$note')");
 
     $item_transfer = mysqli_query($con, "SELECT * FROM cart_tb WHERE customer_id = $_SESSION[customer_id] AND cart_number = $_SESSION[order_count]");
 
     while($items = mysqli_fetch_array($item_transfer, MYSQLI_ASSOC)){
-        $transfer_qry = mysqli_query($con, "INSERT INTO `order_table`(`order_date`, `cart_number`, `item_number`, `customer_id`, `price`, `quantity`) VALUES ('$current_date','$items[cart_number]','$items[item_number]','$items[customer_id]','$items[price]','$items[quantity]')");
+        $transfer_qry = mysqli_query($con, "INSERT INTO `order_table`(`order_date`, `cart_number`, `item_number`, `customer_id`, `price`, `quantity`, `extra_ingredients`, `extra_prices`, `product_id`) VALUES ('$current_date','$items[cart_number]','$items[item_number]','$items[customer_id]','$items[price]','$items[quantity]','$items[extra_ingredients]','$items[extra_prices]','$items[product_id]')");
 
         $delete_qry = mysqli_query($con, "DELETE FROM `cart_tb` WHERE cart_id = $items[cart_id]");
     }
@@ -43,6 +43,8 @@
     $_SESSION['order_count']++;
 
     $order_count_update = (mysqli_query($con, "UPDATE `customer_tb` SET `order_count`='$_SESSION[order_count]' WHERE customer_id = $_SESSION[customer_id];"));
+
+    $_SESSION['current_page'] = "order-list.php";
 
     echo '<script>window.location="../order-list.php"</script>';
 ?>

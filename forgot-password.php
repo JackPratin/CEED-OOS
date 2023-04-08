@@ -34,7 +34,7 @@
                 <input type="submit" value="Submit" form="login" onclick="location.href='verification-code.php'">
                 <input type="hidden" name='type' value="employee" form="login">
 
-                <form action="php/login-exec.php" method="post" id="login" name="login"></form>
+                <form action="verification-code.php" method="post" id="login" name="login"></form>
                 
             </div>
         </div>

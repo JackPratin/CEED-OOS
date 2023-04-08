@@ -34,7 +34,7 @@
                 <input type="submit" value="Verify" form="login" onclick="location.href='confirm-pass.php'">
                 <input type="hidden" name='type' value="employee" form="login">
 
-                <form action="php/login-exec.php" method="post" id="login" name="login"></form>
+                <form action="confirm-pass.php" method="post" id="login" name="login"></form>
                 
             </div>
         </div>
