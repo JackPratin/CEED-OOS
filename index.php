@@ -31,8 +31,8 @@
         <div class="center2">
        
             <form style="margin-bottom:0px">
-                <button type="button" style="position: absolute;right: 5px;" onclick="location.href='employee-login.php'" class="button">Login as Employee</button>
-                <br>
+                <!-- <button type="button" style="position: absolute;right: 5px;" onclick="location.href='employee-login.php'" class="button">Login as Employee</button>
+                <br> -->
                 <center>
                     <div class="logocontainer">
                         <img src="css/system images/company logo.png" alt="1975 Old-Fashioned Burgers logo" class="logo">
@@ -78,7 +78,7 @@
             <br>
         
             <div id="or">
-                <hr style='display:inline-block; width:42%; '> OR <hr style='display:inline-block; width:42%;'>
+                <hr style='display:inline-block; width:40%; '> OR <hr style='display:inline-block; width:40%;'>
             </div>
             <a onclick='fb()'><input type="submit" value="Facebook" id="facebook"></a>
             
@@ -194,9 +194,36 @@
         ?>
 
         <script>
-            function fb(){
-                // window.location.href="../../../facebook.com";
-                window.open('facebook.com');
+            // function fb(){
+            //     // window.location.href="../../../facebook.com";
+            //     window.open('facebook.com');
+            // }
+
+            var slideIndex = 1;
+            showSlides(slideIndex);
+
+            function plusSlides(n) {
+            showSlides(slideIndex += n);
+            }
+
+            function currentSlide(n) {
+            showSlides(slideIndex = n);
+            }
+
+            function showSlides(n) {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("dot");
+            if (n > slides.length) {slideIndex = 1}
+            if (n < 1) {slideIndex = slides.length} ;
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex-1].style.display = "block";
+            dots[slideIndex-1].className += " active";
             }
         </script>
    
