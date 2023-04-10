@@ -415,5 +415,44 @@
 
     }
 
+    function historyDisplay(){
+        require("config.php");
+
+        $qry = mysqli_query($con, "SELECT * FROM order_info WHERE status = 'done' || status = 'cancelled'");
+
+        if(mysqli_num_rows($qry) == 0){
+            echo "<center>No past orders.</center>";
+        }
+        else{
+            while($order = mysqli_fetch_array($qry, MYSQLI_ASSOC)){
+                echo"
+                    <tr>
+                        <td>#$order[cart_number]</td>
+                        <td>$order[cust_fname]</td>
+                        <td>$order[payment_method]</td>
+                        <td>$order[order_date]</td>
+                        <td>$order[acquirement_type]</td>
+                        <td class='delivered'>$order[status]</td>
+                        <td>₱ $order[total]</td>
+                        <td><i class='fa-solid fa-ellipsis-vertical' id='icon-popup'></i></td>
+                    </tr>
+                ";
+            }
+        }
+
+        // echo"
+        //     <tr>
+        //         <td>#110</td>
+        //         <td>Jan Patrick</td>
+        //         <td>COD</td>
+        //         <td>10-21-22</td>
+        //         <td>Delivery</td>
+        //         <td class='delivered'>Delivered</td>
+        //         <td>₱ 214.00</td>
+        //         <td><i class='fa-solid fa-ellipsis-vertical' id='icon-popup'></i></td>
+        //     </tr>
+        // ";
+    }
+
 
 ?>
