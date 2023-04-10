@@ -28,60 +28,10 @@
                     <?php pendingList(); ?>
                 </td>
                 <td>
-                    <div class='orderLists'>
-                        <div class='orderCard'>
-                            helooo <br>
-                            <input type="submit" value="Invoice">
-                            <input type="submit" value="Deliver">
-                            <input type="submit" value="Cancel">
-                        </div>
-                        <div class='orderCard'>helooo</div>
-                        <div class='orderCard'>helooo</div>
-                        <div class='orderCard'>helooo</div>
-                        <div class='orderCard'>helooo</div>
-                        <div class='orderCard'>helooo</div>
-                        <div class='orderCard'>helooo</div>
-                        <div class='orderCard'>helooo</div>
-                        <div class='orderCard'>helooo</div>
-                        <div class='orderCard'>helooo</div>
-                        <div class='orderCard'>helooo</div>
-                        <div class='orderCard'>helooo</div>
-                        <div class='orderCard'>helooo</div>
-                        <div class='orderCard'>helooo</div>
-                        <div class='orderCard'>helooo</div>
-                        <div class='orderCard'>helooo</div>
-                        <div class='orderCard'>helooo</div>
-                        <div class='orderCard'>helooo</div>
-                        <div class='orderCard'>helooo</div>
-                    </div>
+                    <?php preparationList(); ?>
                 </td>
                 <td >
-                    <div class='orderLists'>
-                        <div class='orderCard'>
-                            helooo<br>
-                            <input type="submit" value="Invoice">
-                            <input type="submit" value="Done">
-                            <input type="submit" value="Cancel">
-                        </div>
-                        <div class='orderCard'>helooo</div>
-                        <div class='orderCard'>helooo</div>
-                        <div class='orderCard'>helooo</div>
-                        <div class='orderCard'>helooo</div>
-                        <div class='orderCard'>helooo</div>
-                        <div class='orderCard'>helooo</div>
-                        <div class='orderCard'>helooo</div>
-                        <div class='orderCard'>helooo</div>
-                        <div class='orderCard'>helooo</div>
-                        <div class='orderCard'>helooo</div>
-                        <div class='orderCard'>helooo</div>
-                        <div class='orderCard'>helooo</div>
-                        <div class='orderCard'>helooo</div>
-                        <div class='orderCard'>helooo</div>
-                        <div class='orderCard'>helooo</div>
-                        <div class='orderCard'>helooo</div>
-                        <div class='orderCard'>helooo</div>
-                        <div class='orderCard'>helooo</div>
-                    </div>
+                    <?php deliveryList(); ?>
                 </td>
             </tr>
 

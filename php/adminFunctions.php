@@ -90,20 +90,102 @@
             <div class='orderLists'>
         ";
 
-        while($order = mysqli_fetch_array($qry, MYSQLI_ASSOC)){
-            echo"
-                <div class='orderCard'>
-                    Order# $order[customer_id]-$order[cart_number] <br>
-                    <input type='submit' value='Invoice'>
-                    <input type='submit' value='Prepare'>
-                    <input type='submit' value='Remove'>
-                </div>
-            ";
+        if(mysqli_num_rows($qry) == 0){
+            echo "<center>No pending orders</center>";
+        }
+        else{
+            while($order = mysqli_fetch_array($qry, MYSQLI_ASSOC)){
+                echo"
+                    <div class='orderCard'>
+                        Order# $order[customer_id]-$order[cart_number] <br>
+                        <form method='post' action='php/orderManipulation.php'>
+                            <input type='hidden' name='info_id' value='$order[info_id]'>
+                            <input type='hidden' name='cart_number' value='$order[cart_number]'>
+                            <input type='hidden' name='customer_id' value='$order[customer_id]'>
+                            <input type='submit' name='submit' value='Invoice'>
+                            <input type='submit' name='submit' value='Prepare'>
+                            <input type='submit' name='submit' value='Remove'>
+                        </form>
+                    </div>
+                ";
+            }
         }
                 
                 
         echo"
-            </div
+            </div>
+        ";
+    }
+
+    function preparationList(){
+        require("config.php");
+
+        $qry = mysqli_query($con, "SELECT * FROM order_info WHERE status = 'preparing'");
+        echo"
+        
+            <div class='orderLists'>
+        ";
+
+        if(mysqli_num_rows($qry) == 0){
+            echo "<center>No in-preparation orders</center>";
+        }
+        else{
+            while($order = mysqli_fetch_array($qry, MYSQLI_ASSOC)){
+                echo"
+                    <div class='orderCard'>
+                        Order# $order[customer_id]-$order[cart_number] <br>
+                        <form method='post' action='php/orderManipulation.php'>
+                            <input type='hidden' name='info_id' value='$order[info_id]'>
+                            <input type='hidden' name='cart_number' value='$order[cart_number]'>
+                            <input type='hidden' name='customer_id' value='$order[customer_id]'>
+                            <input type='submit' name='submit' value='Invoice'>
+                            <input type='submit' name='submit' value='Deliver'>
+                            <input type='submit' name='submit' value='Cancel'>
+                        </form>
+                    </div>
+                ";
+            }
+        }
+                
+                
+        echo"
+            </div>
+        ";
+    }
+
+    function deliveryList(){
+        require("config.php");
+
+        $qry = mysqli_query($con, "SELECT * FROM order_info WHERE status = 'delivering'");
+        echo"
+        
+            <div class='orderLists'>
+        ";
+
+        if(mysqli_num_rows($qry) == 0){
+            echo "<center>No in-delivery orders</center>";
+        }
+        else{
+            while($order = mysqli_fetch_array($qry, MYSQLI_ASSOC)){
+                echo"
+                    <div class='orderCard'>
+                        Order# $order[customer_id]-$order[cart_number] <br>
+                        <form method='post' action='php/orderManipulation.php'>
+                            <input type='hidden' name='info_id' value='$order[info_id]'>
+                            <input type='hidden' name='cart_number' value='$order[cart_number]'>
+                            <input type='hidden' name='customer_id' value='$order[customer_id]'>
+                            <input type='submit' name='submit' value='Invoice'>
+                            <input type='submit' name='submit' value='Done'>
+                            <input type='submit' name='submit' value='Cancel'>
+                        </form>
+                    </div>
+                ";
+            }
+        }
+                
+                
+        echo"
+            </div>
         ";
     }
 
