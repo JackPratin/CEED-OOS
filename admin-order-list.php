@@ -1,3 +1,7 @@
+<?php
+    require("php/config.php");
+    require("php/adminFunctions.php");
+?>
 <html lang="en">
     <head>
             <meta charset="UTF-8">
@@ -21,32 +25,7 @@
             </tr>    
             <tr>
                 <td >
-                    <div class='orderLists'>
-                        <div class='orderCard'>
-                            helooo <br>
-                            <input type="submit" value="Invoice">
-                            <input type="submit" value="Prepare">
-                            <input type="submit" value="Remove">
-                        </div>
-                        <div class='orderCard'>helooo</div>
-                        <div class='orderCard'>helooo</div>
-                        <div class='orderCard'>helooo</div>
-                        <div class='orderCard'>helooo</div>
-                        <div class='orderCard'>helooo</div>
-                        <div class='orderCard'>helooo</div>
-                        <div class='orderCard'>helooo</div>
-                        <div class='orderCard'>helooo</div>
-                        <div class='orderCard'>helooo</div>
-                        <div class='orderCard'>helooo</div>
-                        <div class='orderCard'>helooo</div>
-                        <div class='orderCard'>helooo</div>
-                        <div class='orderCard'>helooo</div>
-                        <div class='orderCard'>helooo</div>
-                        <div class='orderCard'>helooo</div>
-                        <div class='orderCard'>helooo</div>
-                        <div class='orderCard'>helooo</div>
-                        <div class='orderCard'>helooo</div>
-                    </div>
+                    <?php pendingList(); ?>
                 </td>
                 <td>
                     <div class='orderLists'>

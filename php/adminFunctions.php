@@ -81,5 +81,31 @@
 
     }
 
+    function pendingList(){
+        require("config.php");
+
+        $qry = mysqli_query($con, "SELECT * FROM order_info WHERE status = 'pending'");
+        echo"
+        
+            <div class='orderLists'>
+        ";
+
+        while($order = mysqli_fetch_array($qry, MYSQLI_ASSOC)){
+            echo"
+                <div class='orderCard'>
+                    Order# $order[customer_id]-$order[cart_number] <br>
+                    <input type='submit' value='Invoice'>
+                    <input type='submit' value='Prepare'>
+                    <input type='submit' value='Remove'>
+                </div>
+            ";
+        }
+                
+                
+        echo"
+            </div
+        ";
+    }
+
 
 ?>
