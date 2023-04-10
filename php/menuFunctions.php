@@ -33,13 +33,42 @@
         $products_qry = mysqli_query($con, "SELECT * FROM products_tb WHERE product_category != 4");
        
 
+        // while($products = mysqli_fetch_array($products_qry, MYSQLI_ASSOC)){
+        //     echo"
+        //     <div class='menu-item'> 
+        //         <img src='$products[product_image]' height='100%' width='75%'> <br>
+        //         $products[product_name] <br>
+        //     </div>";
+        // }
+
+
+            $current_num = 1;
         while($products = mysqli_fetch_array($products_qry, MYSQLI_ASSOC)){
+            $count = mysqli_num_rows($products_qry);
             echo"
-            <div class='menu-item'> 
-                <img src='$products[product_image]' height='100%' width='75%'> <br>
-                $products[product_name] <br>
-            </div>";
+            
+            <div class='slideshow-container'>
+                <div class='mySlides fade'>
+                    <div class='numbertext'>$current_num / $count</div>
+                    <img src='$products[product_image]' class='prodDisplay'>
+                    <div class='text'>$products[product_name]</div>
+                </div>
+          
+            <a class='prev' onclick='plusSlides(-1)'>&#10094;</a>
+            <a class='next' onclick='plusSlides(1)'>&#10095;</a>
+          </div>
+          <br>
+            ";
+            $current_num++;
         }
+
+        echo"
+            <div style='text-align:center'>
+                <span class='dot' onclick='currentSlide(1)'></span>
+                <span class='dot' onclick='currentSlide(2)'></span>
+                <span class='dot' onclick='currentSlide(3)'></span>
+            </div>
+        ";
     }
 
     function cartDisplay(){
