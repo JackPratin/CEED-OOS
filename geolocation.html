@@ -18,6 +18,8 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
 	<script>
 		var mymap = L.map('map').setView([51.505, -0.09], 13);
+        const lat1 = 14.622234; // latitude of location 1 in decimal degrees
+        const lon1 = 121.097365; // longitude of location 1 in decimal degrees
 
 		L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 			maxZoom: 19,
@@ -28,13 +30,18 @@
 		}).addTo(mymap);
 
 		var marker = L.marker([51.5, -0.09], { draggable: true }).addTo(mymap)
-			;
+		;
+        
 
 		function onLocationFound(e) {
 			var radius = e.accuracy / 2;
 
 			marker.setLatLng(e.latlng);
 			mymap.setView(e.latlng);
+            var pos = e.latlng;
+
+            const dist = distance(lat1, lon1, pos.lat, pos.lng);
+            document.getElementById("location").innerHTML = "The distance between your location and The 1975 old fashioned burgers store is " + dist.toFixed(2) + " km.";
 
 			// L.circle(e.latlng, radius).addTo(mymap);
 		}
@@ -55,8 +62,7 @@
 
             splitPos = strPos.split(", ");
              // Example usage
-            const lat1 = 14.622234; // latitude of location 1 in decimal degrees
-            const lon1 = 121.097365; // longitude of location 1 in decimal degrees
+            
             const lat2 = position.lat; // latitude of location 2 in decimal degrees
             const lon2 = position.lng; // longitude of location 2 in decimal degrees
             const dist = distance(lat1, lon1, lat2, lon2);
