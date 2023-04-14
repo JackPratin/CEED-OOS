@@ -25,7 +25,7 @@
                             <div class="container">
                                 <div class="custom-select" >
                                     <select name="type" class="emploType" id="" required>
-                                        <option value="" hidden disabled>Account Type</option>
+                                        <!-- <option value="" hidden='hidden' disabled selected>Account Type</option> -->
                                         <option value="staff">Staff</option>
                                         <option value="admin">Admin</option>
                                     </select>

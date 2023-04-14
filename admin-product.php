@@ -21,6 +21,7 @@
     </head>
     
     <body>
+    <h1>Product Management</h1>
         <div class="center">
             <div class="productForm">
                 <form action="php/addProduct.php" method="post" id="form" enctype="multipart/form-data"><br><br>
@@ -28,7 +29,7 @@
                         
                     Product details <br>
                     <input type="text" name="pName" class="prodInput" placeholder="Product Name">
-                    <input type="text" name="price" class="prodInput" placeholder="Price">
+                    <input type="text" name="price" class="prodInput" placeholder="Price"><br>
                     <input type="text" name="qty" class="prodInput" placeholder="Quantity"><br><br>
 
 
@@ -36,7 +37,7 @@
                     <div class="container">
                         <!-- the select elemnt should go into div!!!!!  -->
                         <div class="custom-select" >
-                        Product Category:<br>
+                        Product Category:<br><br>
                             <select name="category" class="categoryProd" id="" name="category">
                                 <?php
                                     $category_qry = mysqli_query($con, "SELECT * FROM product_categories_tb WHERE category_id != 4");
@@ -44,9 +45,9 @@
                                         echo"<option value='$category[category_id]'>$category[category_name]</option>";
                                     }
                                 ?>
-                            </select>   <br>
+                            </select>
                         </div>
-                    </div>
+                    </div><br>
     
                     Product Image:<br><br>
                     <div class="file-upload">
@@ -64,39 +65,94 @@
                 </form>
             </div>
 
-            <div class="productForm1">
-                <form action="php/addIngredient.php" method="post" id="form"><br><br>
-                    <div id="addIngre"><b>Add new ingredient</b></div> <br>
-                    <div>
-                        Ingredients <br>
-                        <input type="text" name="name" class="IngreInput" placeholder="Ingredient Name">
-                        <input type="text" name="price" class="IngreInput" placeholder="Price">
-                        <input type="text" name="qty" class="IngreInput" placeholder="Quantity">
-                       
-                    </div> <br>
-            
-                    <input type="submit" value="Add Ingredient" id="IngreSubmit">
-                </form>
-            </div>
+            <div style="width: 30%">
+                <div class="productForm1">
+                    <form action="php/addIngredient.php" method="post" id="form"><br><br>
+                        <div id="addIngre"><b>Add new ingredient</b></div> <br>
+                        <div>
+                            Ingredients <br>
+                            <input type="text" name="name" class="IngreInput" placeholder="Ingredient Name">
+                            <input type="text" name="price" class="IngreInput" placeholder="Price">
+                            <input type="text" name="qty" class="IngreInput" placeholder="Quantity">
+                        
+                        </div> <br>
+                
+                        <input type="submit" value="Add Ingredient" id="IngreSubmit">
+                    </form>
+                </div><br>
 
-            <div class="productForm2">
-                <form action="php/addIngredient.php" method="post" id="form"><br><br>
-                    <div id="addIngre"><b>Add new category</b></div> <br>
-                    <div>
-                        Ingredients <br>
-                        <input type="text" name="name" class="IngreInput" placeholder="Ingredient Name">
-                        <input type="text" name="price" class="IngreInput" placeholder="Price">
-                        <input type="text" name="qty" class="IngreInput" placeholder="Quantity">
-                       
-                    </div> <br>
+                <div class="productForm2">
+                    <form action="php/addIngredient.php" method="post" id="form"><br><br>
+                        <div id="addIngre"><b>Add new category</b></div> <br>
+                        <div>
+                            <!-- Ingredients <br> -->
+                            <input type="text" name="name" class="IngreInput" placeholder="Category Name">
+                        
+                        </div> <br>
+                
+                        <!-- <input type="submit" value="Add Ingredient" id="IngreSubmit"> -->
+                        <input type="submit" value="Add Category" id="cateSubmit">
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <br>
+        <div class="orderHistory">
             
-                    <!-- <input type="submit" value="Add Ingredient" id="IngreSubmit"> -->
-                    <input type="submit" value="Add Ingredient" id="cateSubmit">
-                </form>
+            <table width="100%">
+                <tr>
+                    <th>Product Name</th>
+                    <th>Product Image</th>
+                    <th colspan="3">Actions</th>
+                </tr>
+                <?php
+                    $ingredient_qry = mysqli_query($con, "SELECT * FROM `products_tb` WHERE product_category != 4");
+                    while($products = mysqli_fetch_array($ingredient_qry, MYSQLI_ASSOC)){
+                        echo"
+                            <tr>
+                                <td>$products[product_name]</td>
+                                <td><image src='$products[product_image]' width=30%; height=auto;></image></td>
+                                <td><input type='button' value='Update' class='stock-actions'></td>
+                                <td><input type='button' value='Replacement/loss' class='stock-actions'></td>
+                                <td><input type='button' value='Delete' class='stock-actions'></td>
+                            </tr>
+                        ";
+                    }
+                ?>
+            </table>
+
+
+            <div id="popup">
+                <div id="popup-bg"></div>
+                    <div id="popup-fg">
+                        <div class="actions">
+                            <button id="close">X</button>
+                            <b><p class="header">Update product details</p></b>
+                            <input type="text" name="fname" class="updateInput" placeholder="Name" required>
+                            <p class="Qty">Quantity</p>
+                            <div class="number-input">
+                                <div id='counter'>
+                                    <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" ></button>
+
+                                    <input class="quantity" id="currentQty" min="1" name="quantity" value="0" type="number">
+
+                                    <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button> 
+                                </div>
+
+                            </div>    
+        
+                            <div width="100%">     
+                                    <input type="submit" value="Submit" class="updateBtn" onclick='addToCart()'>
+                                    <?php
+                                        echo"</form>";
+                                    ?>
+                        </div>                    
+                    </div>
+                </div>
             </div>
 
         </div>
-        <br>
     
       
         <script src="https://code.jquery.com/jquery-1.12.3.js" integrity="sha256-1XMpEtA4eKXNNpXcJ1pmMPs8JV+nwLdEqwiJeCQEkyc=" crossorigin="anonymous"></script>
