@@ -24,51 +24,49 @@
         <div class="center">
             <div class="productForm">
                 <form action="php/addProduct.php" method="post" id="form" enctype="multipart/form-data"><br><br>
-                    <b><div id="addProd">Add new product</div></br>
+                    <b><div id="addProd">Add new product</div></b><br>
                         
-                            Product details <br>
-                            <input type="text" name="pName" class="prodInput" placeholder="Product Name">
-                            <input type="text" name="price" class="prodInput" placeholder="Price">
-                            <input type="text" name="qty" class="prodInput" placeholder="Quantity">
-
-                            <div class="container">
-                                <!-- the select elemnt should go into div!!!!!  -->
-                                <div class="custom-select" >
-                                    <select name="category" class="categoryProd" id="" name="category">
-                                        <option>
-                                            <?php
-                                                $category_qry = mysqli_query($con, "SELECT * FROM product_categories_tb WHERE category_id != 4");
-                                                while($category = mysqli_fetch_array($category_qry, MYSQLI_ASSOC)){
-                                                    echo"<option value='$category[category_id]'>$category[category_name]</option>";
-                                                }
-                                            ?>
-                                        </option>
-                                    </select>   <br>
-                                </div>
-                            </div><br>
-    
-                            <b>Product Image:</b>
-                            <div class="file-upload">
-                                <div class="file-select">
-                                   
-                                    <div class="file-select-button" id="fileName">Choose File</div>
-                                    <div class="file-select-name" id="noFile">No file chosen...</div> 
-                                    <input type="file" name="image" id="chooseFile">
-                                </div>
-                            </div>
+                    Product details <br>
+                    <input type="text" name="pName" class="prodInput" placeholder="Product Name">
+                    <input type="text" name="price" class="prodInput" placeholder="Price">
+                    <input type="text" name="qty" class="prodInput" placeholder="Quantity"><br><br>
 
 
-                 <br>
-        
                     
-                        <input type="submit" value="Add Product" class="addProdBtn" id="prodSubmit">
+                    <div class="container">
+                        <!-- the select elemnt should go into div!!!!!  -->
+                        <div class="custom-select" >
+                        Product Category:<br>
+                            <select name="category" class="categoryProd" id="" name="category">
+                                <?php
+                                    $category_qry = mysqli_query($con, "SELECT * FROM product_categories_tb WHERE category_id != 4");
+                                    while($category = mysqli_fetch_array($category_qry, MYSQLI_ASSOC)){
+                                        echo"<option value='$category[category_id]'>$category[category_name]</option>";
+                                    }
+                                ?>
+                            </select>   <br>
+                        </div>
+                    </div>
+    
+                    Product Image:<br><br>
+                    <div class="file-upload">
+                        <div class="file-select">
+                            
+                            <div class="file-select-button" id="fileName">Choose File</div>
+                            <div class="file-select-name" id="noFile">No file chosen...</div> 
+                            <input type="file" name="image" id="chooseFile">
+                        </div>
+                    </div>
+
+                    <br>
+                    <input type="submit" value="Add Product" class="addProdBtn" id="prodSubmit">
                    
                 </form>
             </div>
 
             <div class="productForm1">
                 <form action="php/addIngredient.php" method="post" id="form"><br><br>
-                    <div id="addIngre">Add new ingredient</div> <br>
+                    <div id="addIngre"><b>Add new ingredient</b></div> <br>
                     <div>
                         Ingredients <br>
                         <input type="text" name="name" class="IngreInput" placeholder="Ingredient Name">
@@ -76,27 +74,29 @@
                         <input type="text" name="qty" class="IngreInput" placeholder="Quantity">
                        
                     </div> <br>
-<!--             
-                    <div>
-                        Login & Contact Details <br>
-                        <input type="text" name="email" class="regInput" placeholder="Email"> 
-                        <input type="text" name="contact" class="regInput" placeholder="Contact Number"> <br>
-                        <input type="text" name="username" class="regInput" placeholder="Username">
-                        <input type="password" name="password" class="regInput" placeholder="Password"> 
-                        <input type="password" name="conPassword" class="regInput" placeholder="Confirm Password">
-                    </div> <br>
-            
-                    <div>
-                        Address Details <br>
-                        <input type="text" name="address" class="regInput" placeholder="Compound/Street/Subdivision"> 
-                        <input type="text" name="brgy" class="regInput" placeholder="Barangay">
-                        <input type="text" name="city" class="regInput" placeholder="City">
-                    </div> <br> -->
             
                     <input type="submit" value="Add Ingredient" id="IngreSubmit">
                 </form>
             </div>
+
+            <div class="productForm2">
+                <form action="php/addIngredient.php" method="post" id="form"><br><br>
+                    <div id="addIngre"><b>Add new category</b></div> <br>
+                    <div>
+                        Ingredients <br>
+                        <input type="text" name="name" class="IngreInput" placeholder="Ingredient Name">
+                        <input type="text" name="price" class="IngreInput" placeholder="Price">
+                        <input type="text" name="qty" class="IngreInput" placeholder="Quantity">
+                       
+                    </div> <br>
+            
+                    <!-- <input type="submit" value="Add Ingredient" id="IngreSubmit"> -->
+                    <input type="submit" value="Add Ingredient" id="cateSubmit">
+                </form>
+            </div>
+
         </div>
+        <br>
     
       
         <script src="https://code.jquery.com/jquery-1.12.3.js" integrity="sha256-1XMpEtA4eKXNNpXcJ1pmMPs8JV+nwLdEqwiJeCQEkyc=" crossorigin="anonymous"></script>

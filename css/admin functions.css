@@ -2,13 +2,13 @@
     font-family: 'Inter';
 }
 
-html {
+/* html {
     min-height: 100%;
-}
+} */
 
-body {
+/* body {
     min-height: 100%;
-}
+} */
 
 
 /* top navigation */
@@ -366,18 +366,20 @@ input[type=number]::-webkit-outer-spin-button {
 
 .center {
     display: flex;
-    justify-content: space-evenly;
+    /* justify-content: space-evenly; */
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .productForm {
     border: none;
-    width: 500px;
+    /* width: 50%; */
     /* height: 280px; */
     border-radius: 15px;
     background-color: white;
     padding: 10px;
-    margin-top: 30px;
-    margin-left: -170px;
+    /* margin-top: 30px;
+    margin-left: -170px; */
 }
 
 #addProd {
@@ -401,11 +403,11 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 #prodSubmit {
-    position: sticky;
+    position: relative;
     /* left: 38.6%; */
     /* top: 37%; */
     font-weight: bold;
-    left: 26%;
+    left: 35%;
     width: 30%;
     height: 40px;
     border: none;
@@ -414,6 +416,7 @@ input[type=number]::-webkit-outer-spin-button {
     font-size: 15px;
     cursor: pointer;
     outline: none;
+    /* width: 50%; */
 }
 
 #prodSubmit:hover {
@@ -422,11 +425,24 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .productForm1 {
-    position: absolute;
+    /* position: absolute;
     left: 60%;
-    top: 5%;
-    width: 300px;
-    height: 300px;
+    top: 5%; */
+    /* width: 300px; */
+    /* height: 300px; */
+    border: none;
+    width: 20%;
+    border-radius: 15px;
+    background-color: white;
+    padding: 10px;
+}
+
+.productForm2 {
+    /* position: absolute;
+    left: 60%;
+    top: 5%; */
+    /* width: 300px; */
+    /* height: 300px; */
     border: none;
     width: 20%;
     border-radius: 15px;
@@ -448,7 +464,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 .IngreInput {
     font-family: 'Inter';
-    width: 150px;
+    width: 60%;
     height: 40px;
     background-color: #EFEFEF;
     border: none;
@@ -456,12 +472,12 @@ input[type=number]::-webkit-outer-spin-button {
     color: gray;
     padding: 10px;
     margin-top: 10px;
-    margin-right: 10px;
-    margin-bottom: 5px;
+    /* margin-right: 10px; */
+    /* margin-bottom: 5px; */
 }
 
 #IngreSubmit {
-    position: absolute;
+    position: relative;
     left: 25.6%;
     top: 83%;
     font-weight: bold;
@@ -480,10 +496,31 @@ input[type=number]::-webkit-outer-spin-button {
     transition: .2s;
 }
 
+#cateSubmit {
+    position: relative;
+    left: 25.6%;
+    top: 83%;
+    align-self: center;
+    font-weight: bold;
+    width: 50%;
+    height: 40px;
+    border: none;
+    border-radius: 6px;
+    background-color: #FFAE42;
+    font-size: 15px;
+    cursor: pointer;
+    outline: none;
+}
+
+#cateSubmit:hover {
+    border: 1px solid;
+    transition: .2s;
+}
+
 .container {
     width: 170px;
     display: flex;
-    float: left;
+    /* float: left; */
 }
 
 .custom-select select {
@@ -556,6 +593,7 @@ input[type=number]::-webkit-outer-spin-button {
     text-align: center;
     font-family: 'Inter';
     font-size: 12px;
+    width: 100%;
 }
 
 .file-upload .file-select {
@@ -570,7 +608,7 @@ input[type=number]::-webkit-outer-spin-button {
     overflow: hidden;
     position: relative;
     border-radius: 5px;
-    width: 308px;
+    width: 65%;
 }
 
 .file-upload .file-select .file-select-button {
@@ -579,12 +617,15 @@ input[type=number]::-webkit-outer-spin-button {
     display: inline-block;
     height: 40px;
     line-height: 40px;
+    margin-right: 10px;
 }
 
 .file-upload .file-select .file-select-name {
     line-height: 40px;
+    width: 50%;
+    /* margin-left: 20%; */
     display: inline-block;
-    padding: 0 10px;
+    /* padding: 0 10px; */
 }
 
 .file-upload .file-select:hover {
