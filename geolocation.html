@@ -17,7 +17,7 @@
 	<div id="location"></div>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
 	<script>
-		var mymap = L.map('map').setView([51.505, -0.09], 13);
+		var mymap = L.map('map').setView([14.622234, 121.097365], 13);
         const lat1 = 14.622234; // latitude of location 1 in decimal degrees
         const lon1 = 121.097365; // longitude of location 1 in decimal degrees
 
@@ -29,7 +29,7 @@
 			id: 'mapbox.streets'
 		}).addTo(mymap);
 
-		var marker = L.marker([51.5, -0.09], { draggable: true }).addTo(mymap)
+		var marker = L.marker([14.622234, 121.097365], { draggable: true }).addTo(mymap)
 		;
         
 
@@ -90,9 +90,6 @@
         return deg * (Math.PI/180)
         }
 
-       
-
-        
 	</script>
 </body>
 </html>
