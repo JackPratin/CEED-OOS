@@ -50,7 +50,7 @@
             <div class='slideshow-container'>
                 <div class='mySlides fade'>
                     <div class='numbertext'>$current_num / $count</div>
-                    <img src='$products[product_image]' class='prodDisplay'>
+                    <center><img src='$products[product_image]' class='prodDisplay'></center>
                     <div class='text'>$products[product_name]</div>
                 </div>
           
@@ -62,13 +62,14 @@
             $current_num++;
         }
 
-        echo"
-            <div style='text-align:center'>
-                <span class='dot' onclick='currentSlide(1)'></span>
-                <span class='dot' onclick='currentSlide(2)'></span>
-                <span class='dot' onclick='currentSlide(3)'></span>
-            </div>
-        ";
+        // for($i = 1; $i < $current_num; $i++){
+        //     echo"
+        //     <div style='text-align:center'>
+        //         <span class='dot' onclick='currentSlide($i)'></span>
+        //     </div>
+        // ";
+        // }
+        
     }
 
     function cartDisplay(){
