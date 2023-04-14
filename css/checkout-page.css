@@ -6,6 +6,11 @@ body {
     background-color: #EFEFEF;
 }
 
+#map {
+    height: 50%;
+    width: 100%;
+}
+
 #popup {
     display: none;
 }
@@ -44,7 +49,7 @@ body {
 #popup .actions {
     padding: 10px;
 }
-
+/* 
 #cash {
     font-size: 15px;
     font-family: 'Inter';
@@ -56,9 +61,9 @@ body {
     padding: 6px;
     border-radius: 17px;
     text-align: center;
-}
+} */
 
-#cash:hover {
+/* #cash:hover {
     background-color: #FFA200;
     border-bottom: 1px solid #FFA200;
     color: #fff;
@@ -68,9 +73,9 @@ body {
     border-top-right-radius: 0px;
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;
-}
+} */
 
-#gcash {
+/* #gcash {
     width: 30px;
     padding: 5px;
     font-size: 15px;
@@ -93,7 +98,7 @@ body {
     border-top-right-radius: 17px;
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;
-}
+} */
 
 .cash {
     /* position: sticky; */
@@ -104,9 +109,10 @@ body {
     left: 2%;
     width: 20%;
     height: 30px;
-    border: none;
+    border: black 1px solid;
     border-radius: 6px;
-    background-color: #FFAE42;
+    /* background-color: #FFAE42; */
+    background-color: white;
     font-size: 14px;
     cursor: pointer;
     outline: none;
@@ -231,8 +237,8 @@ body {
 }
 
 #note{
-    width: 100%;
-    min-width: 100%;
+    /* width: 100%; */
+    min-width: 60%;
 }
 
 .checkoutForm input.address {
