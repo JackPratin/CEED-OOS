@@ -1,42 +1,92 @@
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Leaflet.js Map</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css" />
+	<style>
+		#map {
+			height: 500px;
+			width: 100%;
+		}
+	</style>
+</head>
+<body>
+	<div id="map"></div>
+	<div id="location"></div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
+	<script>
+		var mymap = L.map('map').setView([51.505, -0.09], 13);
 
-        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
-        integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
-        crossorigin=""/>
-        <!-- Make sure you put this AFTER Leaflet's CSS -->
-        <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
-        integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
-        crossorigin=""></script>
+		L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+			maxZoom: 19,
+			attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+				'<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+				'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+			id: 'mapbox.streets'
+		}).addTo(mymap);
 
-        <style>
-            #map { height: 350px; }
-        </style>
-    </head>
+		var marker = L.marker([51.5, -0.09], { draggable: true }).addTo(mymap)
+			;
 
-    <body>
-        <div id="map"></div>
+		function onLocationFound(e) {
+			var radius = e.accuracy / 2;
 
-        <script>
-            var map = L.map('map');
-            setView([51.505, -0.09], 13);
+			marker.setLatLng(e.latlng);
+			mymap.setView(e.latlng);
 
-            L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                maxZoom: 19,
-                attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-            }).addTo(map);
+			// L.circle(e.latlng, radius).addTo(mymap);
+		}
 
-            navigator.geolocation.watchPosition(success, error);
+		function onLocationError(e) {
+			alert(e.message);
+		}
 
-            function success(pos){
-                const lat = pos.cords.latitude;
-                const lon = pos.cords.longitude;
-                const accuracy = pos.cords.accuracy;
-            }
-        </script>
-    </body>
+		mymap.on('locationfound', onLocationFound);
+		mymap.on('locationerror', onLocationError);
+
+		mymap.locate({setView: true, maxZoom: 16});
+
+		marker.on('dragend', function (e) {
+			var position = marker.getLatLng();
+			// alert("Marker dragged to new location: " + position);
+            var strPos = JSON.stringify(position);
+
+            splitPos = strPos.split(", ");
+             // Example usage
+            const lat1 = 14.622234; // latitude of location 1 in decimal degrees
+            const lon1 = 121.097365; // longitude of location 1 in decimal degrees
+            const lat2 = position.lat; // latitude of location 2 in decimal degrees
+            const lon2 = position.lng; // longitude of location 2 in decimal degrees
+            const dist = distance(lat1, lon1, lat2, lon2);
+            // console.log("The distance between the two locations is " + dist.toFixed(2) + " km.");
+            document.getElementById("location").innerHTML = "The distance between your location and The 1975 old fashioned burgers store is " + dist.toFixed(2) + " km.";
+		});
+
+        // 14.622234, 121.097365  = 1975 coordinates
+
+        
+        function distance(lat1, lon1, lat2, lon2) {
+            const R = 6371; // Radius of the earth in km
+            const dLat = deg2rad(lat2-lat1);
+            const dLon = deg2rad(lon2-lon1); 
+            const a = 
+                Math.sin(dLat/2) * Math.sin(dLat/2) +
+                Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * 
+                Math.sin(dLon/2) * Math.sin(dLon/2);
+            const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+            const distance = R * c; // Distance in km
+            return distance;
+        }
+
+        function deg2rad(deg) {
+        return deg * (Math.PI/180)
+        }
+
+       
+
+        
+	</script>
+</body>
 </html>
