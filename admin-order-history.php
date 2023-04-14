@@ -8,10 +8,10 @@
 
 
     if(!isset($_SESSION['current_page'])){
-        $_SESSION['current_page'] = "menu.php"; 
+        $_SESSION['current_page'] = "admin-order-history.php"; 
     }
     else{
-        $_SESSION['current_page'] = substr($_SERVER["SCRIPT_NAME"],strrpos($_SERVER["SCRIPT_NAME"],"/")+1);
+        $_SESSION['current_page'] = "admin-order-history.php"; 
     }
 ?>
 <html lang="en">

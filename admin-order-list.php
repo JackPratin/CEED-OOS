@@ -1,6 +1,17 @@
 <?php
     require("php/config.php");
     require("php/adminFunctions.php");
+    session_start();
+
+    require("php/userType.php");
+    typeCheck('admin');
+    
+    if(!isset($_SESSION['current_page'])){
+        $_SESSION['current_page'] = "admin-order-list.php"; 
+    }
+    else{
+        $_SESSION['current_page'] = "admin-order-list.php"; 
+    }
 ?>
 <html lang="en">
     <head>

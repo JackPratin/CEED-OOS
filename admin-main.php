@@ -89,7 +89,7 @@
             </div>
 
             <div class="iframe-div">
-                <iframe src="admin-menu.php" frameBorder="0" id="main-frame" name="main-frame" onload="admin_source_locator()">
+                <iframe src="<?php echo $_SESSION['current_page']; ?>" frameBorder="0" id="main-frame" name="main-frame" onload="admin_source_locator()">
                 </iframe>
                 <input type="hidden" id="iframe-source" name="" value="<?php echo $_SESSION['current_page']; ?>">
             </div>

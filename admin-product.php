@@ -1,7 +1,8 @@
 <?php
     require("php/config.php");
+    session_start();
     if(!isset($_SESSION['current_admin_page'])){
-        $_SESSION['current_admin_page'] = "admin-stock-monitoring.php"; 
+        $_SESSION['current_admin_page'] = "admin-product.php"; 
     }
     else{
         $_SESSION['current_admin_page'] = "admin-product.php";

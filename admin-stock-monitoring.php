@@ -1,7 +1,11 @@
 <?php
     require("php/config.php");
+    session_start();
     if(!isset($_SESSION['current_admin_page'])){
         $_SESSION['current_admin_page'] = "admin-stock-monitoring.php"; 
+    }
+    else{
+        $_SESSION['current_admin_page'] = "admin-stock-monitoring.php";
     }
 ?>
 <!DOCTYPE html>
