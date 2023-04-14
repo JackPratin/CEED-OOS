@@ -10,6 +10,9 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- google meta -->
+        <meta name="google-site-verification" content="yVghcgd5WgaspO4yJG6fe-cst5ZBw3tKBk9m2prrFmA" />
+        
         <script src="https://kit.fontawesome.com/484fbcb614.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Montserrat'>
         <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
