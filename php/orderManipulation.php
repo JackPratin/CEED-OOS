@@ -20,7 +20,8 @@
         mysqli_query($con, "UPDATE `order_info` SET `status`='cancelled' WHERE `info_id`='$_POST[info_id]'");
     }
     elseif($_POST['submit'] == 'Remove'){
-        // mysqli_query($con, "DELETE FROM `order_info` WHERE `info_id`='$_POST[info_id]'");
+         mysqli_query($con, "DELETE FROM `order_info` WHERE `info_id`='$_POST[info_id]'");
+         mysqli_query($con, "DELETE FROM `order_table` WHERE `cart_number`='$_POST[cart_number]' AND `customer_id`='$_POST[customer_id]'");
     }
     else{
 
