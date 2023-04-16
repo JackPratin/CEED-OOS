@@ -87,7 +87,7 @@
                         <div id="addIngre"><b>Add new category</b></div> <br>
                         <div>
                             <!-- Ingredients <br> -->
-                            <input type="text" name="name" class="IngreInput" placeholder="Category Name">
+                            <input type="text" name="category" class="IngreInput" placeholder="Category Name">
                         
                         </div> <br>
                 
