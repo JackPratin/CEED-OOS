@@ -12,6 +12,10 @@
     else{
         $_SESSION['current_page'] = "menu.php";
     }
+
+    // if(isset($_GET['queryid'])){
+    //     $queryid = $_GET['queryid'];
+    // }
 ?>
 <html lang="en">
     <head>
@@ -139,74 +143,7 @@
         <form action="checkout-page.php" method="post" id="checkout"></form>
 
        
-        <div class='popup' id='popup1'>
-            <div id='item-div'>
-                <img src="" alt="Item image" id="extra-image">&nbsp;
-                <div style='display:flex; flex-direction:column;'>
-                    <h2 id='extra-name'></h2>
-                    <h3 id='extra-price'></h3>
-                </div>
-                <span class="cls"><button href="#" onclick="hide('popup1')">X</button></span>
-            </div>
-            <div id='extras-div'> 
-                <div style="display:flex; justify-content: space-between;">
-                    <span>Recommended Extras</span>
-                    
-                </div><br>
-                Select additional ingredients(optional)<br>
-            
-                <div style="display:flex; flex-direction:column;"> 
-                    <?php
-                        echo"<form method='post' action='php/addtocart.php'>";
-                        $extras_qry = mysqli_query($con, "SELECT * FROM products_tb WHERE product_category = 4");
-                        
-                        while($extras = mysqli_fetch_array($extras_qry,MYSQLI_ASSOC)){
-                            echo"
-                            <div style=\"display:flex; justify-content: space-between;\";>
-                                <span>
-                                    <input type='checkbox' class='checkbox' name=\"extras[]\" value='$extras[product_id]' id='extra-checkbox'> $extras[product_name]
-                                </span> 
-                                <span>
-                                    ₱$extras[product_price]
-                                </span>
-                            </div>
-                            
-                            ";
-                            // echo"<input type='checkbox'> &nbsp; Bacon";
-                        }
-
-
-                        echo"
-                            
-                                <input type='hidden' value='' id='form-id' name='id'>
-                                <input type='hidden' value='' id='form-name' name='name'>
-                                <input type='hidden' value='' id='form-category' name='category' >
-                                <input type='hidden' value='' id='form-price' name='price'>
-                            
-                            ";
-                    ?>
-                </div>
-                <br>
-                <div class="number-input">
-                    <div id='counter'>
-                        <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" ></button>
-
-                        <input class="quantity" id="currentQty" min="1" name="quantity" value="1" type="number">
-
-                        <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button> 
-                    </div>
-
-                    <div width="100%">     
-                        <input type="submit" value="Add to Cart" class="addCart" onclick='addToCart()'>
-                        <?php
-                            echo"</form>";
-                        ?>
-                        <!-- hide("popup1") -->
-                    </div>
-                </div>
-            </div>
-        </div>
-
+        
         <div class='popup' id='popup2'>
             <div style="display:flex; justify-content: space-between;">
                 <span>Flavors</span>
@@ -306,9 +243,9 @@
                 document.getElementById("id").value = id;
             }
 
-            function addToCart(){
-                var id = document.getElementById("id").value;
-                document.getElementById("quantity"+id).value = document.getElementById("currentQty").value;
+            function addToCart(id){
+                // var id = document.getElementById("id").value;
+                // document.getElementById("quantity"+id).value = document.getElementById("currentQty").value;
                 document.getElementById("form"+id).submit();
             }
 
@@ -338,6 +275,16 @@
                 document.getElementById("form-price").value = price;
                 document.getElementById("form-id").value = id;
                 document.getElementById("form-category").value = category;
+
+            //     var xhttp = new XMLHttpRequest();
+            //     xhttp.onreadystatechange = function() {
+            //         if (this.readyState == 4 && this.status == 200) {
+            //             // Response from PHP script
+            //             console.log(this.responseText);
+            //         }
+            //     };
+            //     xhttp.open("GET", "menu.php?id=" + queryid, true);
+            //     xhttp.send();
             }
         </script>
        <script>
