@@ -115,7 +115,7 @@
                                 <td>$products[product_name]</td>
                                 <td><image src='$products[product_image]' width=30%; height=auto;></image></td>
                                 <td><input type='button' value='Update' class='stock-actions'></td>
-                                <td><input type='button' value='Replacement/loss' class='stock-actions'></td>
+                                <td><input type='button' value='Hide' class='stock-actions'></td>
                                 <td><input type='button' value='Delete' class='stock-actions'></td>
                             </tr>
                         ";
