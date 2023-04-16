@@ -83,7 +83,7 @@
                 </div><br>
 
                 <div class="productForm2">
-                    <form action="php/addIngredient.php" method="post" id="form"><br><br>
+                    <form action="php/addCategory.php" method="post" id="form"><br><br>
                         <div id="addIngre"><b>Add new category</b></div> <br>
                         <div>
                             <!-- Ingredients <br> -->
