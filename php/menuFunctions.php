@@ -29,9 +29,9 @@
                     <img src='$products[product_image]' alt='Item image' id='extra-image' width='50%' height='50%'>&nbsp;
                     <div style='display:flex; flex-direction:column;'>
                         <h2 id='extra-name'>$products[product_name]</h2>
-                        <h3 id='extra-price'>$products[product_price]</h3>
+                        <h3 id='extra-price'>₱$products[product_price]</h3>
                     </div>
-                    <span class='cls'><button href='#' onclick='hide('popup1')'>X</button></span>
+                    <span class='cls'><button href='#' onclick='hide(\"popup$id\")'>X</button></span>
                 </div>
                 <div id='extras-div'>
                     <div style='display:flex; justify-content: space-between;'>
@@ -41,22 +41,70 @@
                     Select additional ingredients(optional)<br>
                     <div style='display:flex; flex-direction:column;'>
                         <form method='post' action='php/addtocart.php' id='form$id'>";
-                            $extras_qry = mysqli_query($con, "SELECT * FROM products_tb WHERE product_category = 4");
 
-                                while($extras = mysqli_fetch_array($extras_qry,MYSQLI_ASSOC)){
-                                echo"
-                                    <div style=\"display:flex; justify-content: space-between;\";>
-                                        <span>
-                                            <input type='checkbox' class='checkbox' name=\"extras[]\" value='$extras[product_id]' id='extra-checkbox'> $extras[product_name]
-                                        </span> 
-                                        <span>
-                                            ₱$extras[product_price]
-                                        </span>
-                                    </div>
+                        
+
+                        //loops through product names of ingredients
+                        
+
+
+                            // $extras_qry = mysqli_query($con, "SELECT * FROM products_tb WHERE product_category = 4");
+
+                            //     while($extras = mysqli_fetch_array($extras_qry,MYSQLI_ASSOC)){
+                            //     echo"
+                            //         <div style=\"display:flex; justify-content: space-between;\";>
+                            //             <span>
+                            //                 <input type='checkbox' class='checkbox' name=\"extras[]\" value='$extras[product_id]' id='extra-checkbox'> $extras[product_name]
+                            //             </span> 
+                            //             <span>
+                            //                 ₱$extras[product_price]
+                            //             </span>
+                            //         </div>
+                                    
+                            //         ";
+                        // }
+
+
+                            $prod_adds_qry = mysqli_query($con, "SELECT * FROM products_tb WHERE product_id = $products[product_id]");
+                            $cat_adds_qry = mysqli_query($con, "SELECT * FROM product_categories_tb WHERE category_id = $products[product_category]");
+
+                            $prod_query = mysqli_fetch_array($prod_adds_qry,MYSQLI_ASSOC);
+                            $cat_query = mysqli_fetch_array($cat_adds_qry,MYSQLI_ASSOC);
+                            // $ingredients = '';
+
+                            if($prod_query['has_additionals'] == 'yes'){
+                                $ingredients = explode(", ",$prod_query['product_additionals']);
+                                
+                            }
+                            else if($cat_query['has_additionals'] == 'yes'){ 
+                                $ingredients = explode(", ",$cat_query['category_additionals']);
+                            }
+
+                            if($prod_query['has_additionals'] == 'yes' || $cat_query['has_additionals'] == 'yes'){
+                                foreach($ingredients as $ingredients){
+
+                                    $nameqry = mysqli_query($con, "SELECT * FROM products_tb WHERE product_id = '$ingredients'");
+        
+                                    $ingredients_name = mysqli_fetch_array($nameqry, MYSQLI_ASSOC);
+                                    // echo $ingredients_name['product_name'];
+
+
+                                    echo"
+                                        <div style=\"display:flex; justify-content: space-between;\";>
+                                            <span>
+                                                <input type='checkbox' class='checkbox' name=\"extras[]\" value='$ingredients_name[product_id]' id='extra-checkbox'> $ingredients_name[product_name]
+                                            </span> 
+                                            <span>
+                                                ₱$ingredients_name[product_price]
+                                            </span>
+                                        </div>
                                     
                                     ";
-                                    // echo"<input type='checkbox'> &nbsp; Bacon";
                                 }
+                            }
+                           
+                                    // echo"<input type='checkbox'> &nbsp; Bacon";
+                                
                                 
                                 echo"
                                 <input type='hidden' value='$id' id='form-id' name='id'>
