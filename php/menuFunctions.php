@@ -551,13 +551,17 @@
                         <div id='popup-bg$order[cart_number]' class='popup-bg'></div>
                         <div id='popup-fg$order[cart_number]' class='popup-fg'>
                             <div class='actions$order[cart_number]' class='actions'>
-                                <button id='submitOrder1' >Order Again</button>
+                                <button id='submitOrder1'onclick=orderAgain($order[cart_number]) >Order Again</button>
                                 <button id='submitOrder' onclick=sub($order[cart_number])>Order Invoice</button>
                                 
                             </div>
                         </div>
                     </div>
                     <form action='php/receiptSetter.php' id='form$order[cart_number]' method='post'>
+                        <input type='hidden' name='cart' value='$order[cart_number]'>
+                    </form>
+
+                    <form action='php/orderAgain.php' id='orderForm$order[cart_number]' method='post'>
                         <input type='hidden' name='cart' value='$order[cart_number]'>
                     </form>
                     
