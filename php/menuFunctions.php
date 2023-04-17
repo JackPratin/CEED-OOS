@@ -544,8 +544,23 @@
                         <td>$order[acquirement_type]</td>
                         <td class='delivered'>$order[status]</td>
                         <td>₱ $order[total]</td>
-                        <td><i class='fa-solid fa-ellipsis-vertical' id='icon-popup'></i></td>
+                        <td><i class='fa-solid fa-ellipsis-vertical' id='icon-popup$order[cart_number]' onclick='showActions($order[cart_number])'></i>
+                        </td>
                     </tr>
+                    <div id='popup$order[cart_number]' class='popup'>
+                        <div id='popup-bg$order[cart_number]' class='popup-bg'></div>
+                        <div id='popup-fg$order[cart_number]' class='popup-fg'>
+                            <div class='actions$order[cart_number]' class='actions'>
+                                <button id='submitOrder1' >Order Again</button>
+                                <button id='submitOrder' onclick=sub($order[cart_number])>Order Invoice</button>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <form action='php/receiptSetter.php' id='form$order[cart_number]' method='post'>
+                        <input type='hidden' name='cart' value='$order[cart_number]'>
+                    </form>
+                    
                 ";
             }
         }

@@ -22,7 +22,7 @@ require("php/menuFunctions.php");
 <body>
 
 <div class='upper-buttons'>
-    <span>&nbsp;&nbsp;<a class="go-back2" href="order-list.php">Go Back</a></span>
+    <span>&nbsp;&nbsp;<a class="go-back2" href="<?php echo $_SESSION['current_page']; ?>">Go Back</a></span>
     <span><input type="button" class='print' onclick="window.print();" value="Print" /></span>
 </div>
 

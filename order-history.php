@@ -48,16 +48,7 @@
                 
             </table>
 
-            <div id="popup">
-                <div id="popup-bg"></div>
-                    <div id="popup-fg">
-                        <div class="actions">
-                            <button id="submitOrder1">Order Again</button>
-                            <button id="submitOrder">Order Invoice</button>
-                            
-                        </div>
-                </div>
-            </div>
+            
     </div>
 
         <div id="menu-div2">
@@ -99,25 +90,35 @@
         </div>
         
         <script>
-            document.addEventListener('DOMContentLoaded', function(){
-            var triggerPopup = document.querySelector('#icon-popup');
-            var popup = document.querySelector('#popup');
-            var popupBg = document.querySelector('#popup-bg');
-            var close = document.querySelector('#close');
+            // document.addEventListener('DOMContentLoaded', function(){
             
-            triggerPopup.addEventListener('click', function(){
-                show(popup);
-            });
             
-            popupBg.addEventListener('click', function(){
-                hide(popup);
+            // });
+
+            function showActions(id){
+
+                var triggerPopup = document.querySelector('#icon-popup'+id);
+                var popup = document.querySelector('#popup'+id);
+                var popupBg = document.querySelector('#popup-bg'+id);
+                // var close = document.querySelector('#close'+id);
+
+                // console.log(triggerPopup);
+                // console.log(popup);
+                // console.log(popupBg);
+                // console.log(close);
+                
+                triggerPopup.addEventListener('click', function(){
+                    show(popup);
                 });
-            
-            close.addEventListener('click', function(){
-                hide(popup);
-                });
-            
-            });
+                
+                popupBg.addEventListener('click', function(){
+                    hide(popup);
+                    });
+                
+                // close.addEventListener('click', function(){
+                //     hide(popup);
+                //     });
+            }
 
             function show(el){
             el.style.display = 'block';
@@ -126,6 +127,10 @@
             function hide(el){
             el.style.display = 'none';
             }
+
+            function sub(cart){
+                document.getElementById('form'+cart).submit();
+           }
         </script>
         <script src="js/navigation.js"></script>
         

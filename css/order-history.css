@@ -89,11 +89,11 @@ td {
     color: #000;
 }
 
-#popup {
+.popup {
     display: none;
 }
 
-#popup-bg {
+.popup-bg {
     position: fixed;
     top: 0;
     background: black;
@@ -102,7 +102,7 @@ td {
     opacity: .5;
 }
 
-#popup-fg {
+.popup-fg {
     width: 8%;
     background: #FFFFFF;
     border: 1px solid #FFA200;
@@ -113,16 +113,16 @@ td {
     text-align: center;
 }
 
-#popup label {
+.popup label {
     display: block;
     width: 100%;
 }
 
-#popup label {
+.popup label {
     margin-top: 1em;
 }
 
-#popup .actions {
+.popup .actions {
     text-align: center;
 }
 
