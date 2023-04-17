@@ -131,6 +131,10 @@
             function sub(cart){
                 document.getElementById('form'+cart).submit();
            }
+
+           function orderAgain(cart){
+                document.getElementById('orderForm'+cart).submit();
+           }
         </script>
         <script src="js/navigation.js"></script>
         
