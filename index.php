@@ -1,6 +1,8 @@
 <?php
      session_start();
      require("php/menuFunctions.php");
+     require("php/userType.php");
+     typeCheck('none');
      if(!isset($_SESSION['loginAttempt'])){
          $_SESSION['loginAttempt'] = 0;
      }
