@@ -2,6 +2,9 @@
      session_start();
      require("php/menuFunctions.php");
      require("php/userType.php");
+     if(!isset($_SESSION['account_type'])){
+        $_SESSION['account_type'] = 'none';
+     }
      typeCheck('none');
      if(!isset($_SESSION['loginAttempt'])){
          $_SESSION['loginAttempt'] = 0;

@@ -27,6 +27,10 @@
                     echo '<script>window.location="guest-main.php"</script>';
                     break;
 
+                case 'none':
+                    echo '<script>window.location="index.php"</script>';
+                    break;
+
                 // default:
                 //     echo '<script>window.location="index.php"</script>';
             }
