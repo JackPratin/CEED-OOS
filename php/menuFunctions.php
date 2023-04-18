@@ -203,7 +203,7 @@
                 echo"
                 <div id='cart-items'>
                     <div id='item-img'>
-                        <img src='$item[product_image]' alt='1975 Old-Fashioned Burgers logo' height='60px' width='60px' style='border-radius: 10px;'>
+                        <img src='$item[product_image]' alt='$item[product_name] Image' height='60px' width='60px' style='border-radius: 10px;'>
                     </div>&nbsp; 
                     <div id='item-details' class='bold'>
                         <span class='end-to-end'>$item[product_name] 
