@@ -8,7 +8,9 @@
         // }
         
         if($pageType != $_SESSION['account_type']){
-            echo "<script>alert('Page not available.');</script>";
+            if($pageType != 'none'){
+                echo "<script>alert('Page not available.');</script>";
+            }
 
             switch ($_SESSION['account_type']){
                 case 'customer':    
