@@ -44,7 +44,7 @@
                     <th> Action </th>
                 </tr>
                 
-                <?php historyDisplay(); ?>
+                <?php historyDisplay($_SESSION['customer_id'], 'customer_id'); ?>
                 
             </table>
 
@@ -54,9 +54,9 @@
         <div id="menu-div2">
      
        
-                    <p id="choose-category">
+                    <!-- <p id="choose-category">
                         ORDER HISTORY
-                    </p>
+                    </p> -->
                     <!-- <center>
                         <div class="input-icons">
                             <input type="search" name="" id="search" placeholder="Search...">

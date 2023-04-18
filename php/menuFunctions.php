@@ -525,13 +525,13 @@
 
     }
 
-    function historyDisplay(){
+    function historyDisplay($id, $id_type){
         require("config.php");
 
-        $qry = mysqli_query($con, "SELECT * FROM order_info WHERE status = 'done' || status = 'cancelled'");
+        $qry = mysqli_query($con, "SELECT * FROM order_info WHERE $id_type = $id AND (status = 'done' || status = 'cancelled')");
 
         if(mysqli_num_rows($qry) == 0){
-            echo "<center>No past orders.</center>";
+            echo "<tr><td colspan='8'><b>No past orders.</b></td></tr>";
         }
         else{
             while($order = mysqli_fetch_array($qry, MYSQLI_ASSOC)){
