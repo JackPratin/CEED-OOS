@@ -52,7 +52,9 @@
                         <td>Delivery</td>
                         <td class="delivered">Delivered</td>
                         <td>₱ 214.00</td>
-                        <td><i class="fa-solid fa-ellipsis-vertical" id="icon-popup"></i></td>
+                        <td><div class="actions">
+                                            <button id="submitOrder1">Order Again</button>
+                                            <button id="submitOrder">Order Invoice</button></td>
                         
                     </tr>
                 
@@ -61,9 +63,7 @@
                             <div id="popup">
                                 <div id="popup-bg"></div>
                                     <div id="popup-fg">
-                                        <div class="actions">
-                                            <button id="submitOrder1">Order Again</button>
-                                            <button id="submitOrder">Order Invoice</button>
+                                        
                                             
                                         </div>
                                 </div>
@@ -73,9 +73,9 @@
         <div id="menu-div2">
      
        
-                    <p id="choose-category">
+                    <!-- <p id="choose-category">
                         ORDER HISTORY
-                    </p>
+                    </p> -->
                     <!-- <center>
                         <div class="input-icons">
                             <input type="search" name="" id="search" placeholder="Search...">
