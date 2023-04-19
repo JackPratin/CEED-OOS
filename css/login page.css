@@ -45,10 +45,7 @@ body {
     width: 25%;
     height: 50%;
     border-radius: 50px;
-    margin-top: 10%;
-    margin-bottom: 10%;
-    margin-left: 10%;
-    margin-right: 10%;
+    margin: 10%;
 }
 
 .center {

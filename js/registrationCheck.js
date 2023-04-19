@@ -8,6 +8,7 @@ $('document').ready(function(){
          return;
      }
      $.ajax({
+    //    url: '../../CEED-OOS/php/customerRegistration.php',
        url: '../../CEED-OOS/php/customerRegistration.php',
        type: 'post',
        data: {
@@ -46,7 +47,8 @@ $('document').ready(function(){
             return;
         }
         $.ajax({
-         url: '../../CEED-OOS/php/customerRegistration.php',
+        //  url: '../php/customerRegistration.php',
+         url: '../php/customerRegistration.php',
          type: 'post',
          data: {
              'email_check' : 1,
