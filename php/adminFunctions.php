@@ -103,6 +103,7 @@
                             <input type='hidden' name='cart_number' value='$order[cart_number]'>
                             <input type='hidden' name='customer_id' value='$order[customer_id]'>
                             <input type='submit' name='submit' value='Invoice'>
+                            <input type='submit' name='submit' value='Payment Received'>
                             <input type='submit' name='submit' value='Prepare'>
                             <input type='submit' name='submit' value='Remove'>
                         </form>

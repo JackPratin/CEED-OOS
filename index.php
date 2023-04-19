@@ -206,8 +206,12 @@
             //     window.open('facebook.com');
             // }
 
-            var slideIndex = 1;
+            // var slideIndex = 1;
+            // showSlides(slideIndex);
+            var slideIndex = 1; 
             showSlides(slideIndex);
+
+            setInterval(function(){ showSlides(++slideIndex); }, 2000);
 
             function plusSlides(n) {
             showSlides(slideIndex += n);
