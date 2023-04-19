@@ -7,6 +7,7 @@
     <script src="https://kit.fontawesome.com/484fbcb614.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Montserrat'>
     <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/login page.css">
     <link rel="icon" type="image/x-icon" href="css/system images/favicon.ico">
     <title>Customer Registration</title>
@@ -28,10 +29,10 @@
                 <input type="text" name="lname" class="regInput" placeholder="Last Name">
             </div> <br>
 
-            <div>
+            <div id="emailDiv">
                 Login & Contact Details <br>
-                <input type="text" name="email" class="regInput" placeholder="Email">
-                <input type="text" name="contact" class="regInput" placeholder="Contact Number"> <br>
+                <input type="email" name="email" id="email" class="regInput" placeholder="Email: Sample@email.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required><br>
+                <input type="text" name="contact" id="contact" class="regInput" placeholder="Contact Number: 09xxxxxxxxx"  minlength="11" maxlength="11"> <br>
             </div> <br>
 
             <div>
@@ -41,7 +42,9 @@
                 <input type="text" name="city" class="regInput" placeholder="City">
             </div> <br>
 
-            <input type="submit" value="Login" id="regSubmit">
+            <center>
+                <input type="submit" value="Login" id="regSubmit">
+            </center>
         </form>
     </div>
 
@@ -49,3 +52,5 @@
 
 
 </html>
+
+<script src="js/registrationCheck.js"></script>
