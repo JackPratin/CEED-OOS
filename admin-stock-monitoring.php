@@ -34,13 +34,16 @@
                     $ingredient_qry = mysqli_query($con, "SELECT * FROM `products_tb` WHERE product_category = 4");
                     while($ingredients = mysqli_fetch_array($ingredient_qry, MYSQLI_ASSOC)){
                         echo"
-                            <tr>
-                                <td>$ingredients[product_name]</td>
-                                <td>$ingredients[product_quantity]</td>
-                                <td><input type='button' value='Update' class='stock-actions'></td>
-                                <td><input type='button' value='Replacement/loss' class='stock-actions'></td>
-                                <td><input type='button' value='Delete' class='stock-actions'></td>
-                            </tr>
+                            <form method='post' action='php/stockHandling.php'>
+                                <tr>
+                                    <td>$ingredients[product_name]</td>
+                                    <td>$ingredients[product_quantity]</td>
+                                    <td><input type='submit' name='submit' value='Update' class='stock-actions'></td>
+                                    <td><input type='submit' name='submit' value='Replacement/loss' class='stock-actions'></td>
+                                    <td><input type='submit' name='submit' value='Delete' class='stock-actions' onclick='confirm(\"Are you sure you want to delete $ingredients[product_name] from the stock list?\")'></td>
+                                </tr>
+                                <input type='hidden' name='id' value='$ingredients[product_id]'>
+                            </form>
                         ";
                     }
                 ?>
