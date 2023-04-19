@@ -1,4 +1,11 @@
-
+<?php
+    session_start();
+    require("php/userType.php");
+    if(!isset($_SESSION['account_type'])){
+       $_SESSION['account_type'] = 'none';
+    }
+    typeCheck('none');
+?>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
