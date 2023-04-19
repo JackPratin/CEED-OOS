@@ -136,7 +136,7 @@
             </div>
             <br>
             <br>
-            <center><a href="">Cancellation policy and Terms of use</a></center>
+            <center><a onclick='location.replace("Terms-and-conditions.html")'>Cancellation policy and Terms of use</a></center>
         </div>
 
         <div id="cart-div">

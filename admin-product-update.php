@@ -12,7 +12,7 @@
 
     
     $id = $_POST['id'];
-    $qry = mysqli_query($con, "SELECT * FROM products_tb WHERE product_id = $id");
+    $qry = mysqli_query($con, "SELECT * FROM product_categories_tb WHERE category_id = $id");
     
     while($product = mysqli_fetch_array($qry, MYSQLI_ASSOC)){
 
@@ -33,31 +33,24 @@
     <div style='border: 1px solid black; width: fit-content; padding:10px;'>
         <form action="#" method='post'>
             <h1>Product update</h1>
-            <h3><?php echo $product['product_name']?></h3>
-            <input type="hidden" name="id" id="" value='<?php echo $product['product_id'] ?>' ><br>
+            <h3><?php echo $product['category_name']?></h3>
+            <input type="hidden" name="id" id="" value='<?php echo $product['category_id'] ?>' ><br>
             Name
-            <input type="text" name="name" id="" value='<?php echo $product['product_name'] ?>' ><br>
-
-            
-            Category
-            <select name='category' value='<?php echo $product['product_category'] ?>'>
+            <input type="text" name="name" id="" value='<?php echo $product['category_name'] ?>' ><br>
+            Visible on menu <br>
             <?php
-                 $qry1 = mysqli_query($con, "SELECT * FROM product_categories_tb");
-    
-                 while($cat = mysqli_fetch_array($qry1, MYSQLI_ASSOC)){
-                    if($cat['category_id'] == $product['product_category']){
-                        echo"<option value='$cat[category_id]' selected>$cat[category_name]</option>";
-                    }
-                    else{
-                        echo"<option value='$cat[category_id]'>$cat[category_name]</option>";
-                    }
-                 }
+                if($product['on_menu'] == 'yes'){
+                    echo"<input type='radio' name='visible' id='' value='yes' checked>Yes <br>
+                    <input type='radio' name='visible' id='' value='no'>No";
+                }
+                else{
+                    echo"<input type='radio' name='visible' id='' value='yes'>Yes <br>
+                    <input type='radio' name='visible' id='' value='no' checked>No";
+                }
             ?>
-            </select><br>
-            Price
-            <input type="text" name="price" id="" value='<?php echo $product['product_price'] ?>' ><br>
-            Quantity
-            <input type="text" name="qty" id="" value='<?php echo $product['product_quantity'] ?>' placeholder="Quantity" ><br>
+            <br>
+            
+
             
             
             <input type="submit" name="submitUpdate" class="stock-actions" >

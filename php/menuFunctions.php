@@ -35,12 +35,8 @@
                 </div>
                 <div id='extras-div'>
                     <div style='display:flex; justify-content: space-between;'>
-                        <span>Recommended Extras</span>
                         
-                    </div><br>
-                    Select additional ingredients(optional)<br>
-                    <div style='display:flex; flex-direction:column;'>
-                        <form method='post' action='php/addtocart.php' id='form$id'>";
+                    ";
 
                         
 
@@ -81,6 +77,12 @@
                             }
 
                             if($prod_query['has_additionals'] == 'yes' || $cat_query['has_additionals'] == 'yes'){
+                                echo"<span>Recommended Extras</span>
+                        
+                                </div><br>
+                                Select additional ingredients(optional)<br>
+                                <div style='display:flex; flex-direction:column;'>
+                                    <form method='post' action='php/addtocart.php' id='form$id'>";
                                 foreach($ingredients as $ingredients){
 
                                     $nameqry = mysqli_query($con, "SELECT * FROM products_tb WHERE product_id = '$ingredients'");

@@ -97,7 +97,7 @@
                 <footer>
                     <div>
                         Copyright© 2023 <br>1975 Old-Fashioned Burgers<br>
-                        <a>
+                        <a href='Terms-and-conditions.html'>
                         Terms and Conditions
                         </a><br>
                     </div>&nbsp; | &nbsp;
