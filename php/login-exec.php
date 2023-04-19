@@ -22,9 +22,11 @@
             $_SESSION['loginAttempt']++;
             if($type == 'employee'){
                 echo '<script>window.location="../employee-login.php"</script>';
+                exit();
             }
             else{
                 echo '<script>window.location="../index.php"</script>';
+                exit();
             }
         }
 
