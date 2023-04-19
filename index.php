@@ -51,7 +51,6 @@
                 <div class="text_field">
                     <i class="fa-solid fa-circle-user"></i>
                     <input type="text" form="login" name="username" required>
-                    <span></span>
                     <label>Username</label>    
                 </div>
 
