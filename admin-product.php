@@ -29,9 +29,9 @@
                     <b><div id="addProd">Add new product</div></b><br>
                         
                     Product details <br>
-                    <input type="text" name="pName" class="prodInput" placeholder="Product Name">
-                    <input type="text" name="price" class="prodInput" placeholder="Price"><br>
-                    <input type="text" name="qty" class="prodInput" placeholder="Quantity"><br><br>
+                    <input type="text" name="pName" class="prodInput" placeholder="Product Name" required>
+                    <input type="text" name="price" class="prodInput" placeholder="Price" required><br>
+                    <input type="text" name="qty" class="prodInput" placeholder="Quantity" required><br><br>
 
 
                     
@@ -72,9 +72,9 @@
                         <div id="addIngre"><b>Add new ingredient</b></div> <br>
                         <div>
                             Ingredients <br>
-                            <input type="text" name="name" class="IngreInput" placeholder="Ingredient Name">
-                            <input type="text" name="price" class="IngreInput" placeholder="Price">
-                            <input type="text" name="qty" class="IngreInput" placeholder="Quantity">
+                            <input type="text" name="name" class="IngreInput" placeholder="Ingredient Name" required>
+                            <input type="text" name="price" class="IngreInput" placeholder="Price" required>
+                            <input type="text" name="qty" class="IngreInput" placeholder="Quantity" required>
                         
                         </div> <br>
                 
@@ -87,7 +87,7 @@
                         <div id="addIngre"><b>Add new category</b></div> <br>
                         <div>
                             <!-- Ingredients <br> -->
-                            <input type="text" name="category" class="IngreInput" placeholder="Category Name">
+                            <input type="text" name="category" class="IngreInput" placeholder="Category Name" required>
                         
                         </div> <br>
                 
