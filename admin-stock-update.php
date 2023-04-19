@@ -32,7 +32,7 @@
 <body>
     <div style='border: 1px solid black; width: fit-content; padding:10px;'>
         <form action="#" method='post'>
-            <h1>Replacement/Loss</h1>
+            <h1>Ingredient update</h1>
             <h3><?php echo $product['product_name']?></h3>
             <input type="hidden" name="id" id="" value='<?php echo $product['product_id'] ?>' ><br>
             Name
