@@ -243,6 +243,20 @@ input[type=number]::-webkit-outer-spin-button {
     border-radius: 10px;
 }
 
+footer{
+    border-top: #40403e 1px solid;
+    position: relative;
+    left: 0%;
+    bottom: 0;
+    background-color: #8a8988;
+    width: 100%;
+    height: 25%;
+    color: #ffa200;
+    display: flex;
+    font-size: 0.75.rem;
+    justify-content: space-between;
+}
+
 
 /* navigation-menu */
 

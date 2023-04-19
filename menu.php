@@ -74,7 +74,6 @@
                 <div id="categoryDropdown">
                     <select name="category" id="">
                         
-                      
                         <?php
                             $category_qry = mysqli_query($con, "SELECT * FROM product_categories_tb WHERE category_id != 4");
 
@@ -92,6 +91,30 @@
                 <div id="item-list">
                     <?php itemDisplay(); ?>
                 </div>
+
+                <br>
+                <br>
+                <footer>
+                    <div>
+                        Copyright© 2023 <br>1975 Old-Fashioned Burgers<br>
+                        <a>
+                        Terms and Conditions
+                        </a><br>
+                    </div>&nbsp; | &nbsp;
+                    <div>
+                    Follow us on our:<br> <a href="https://www.facebook.com/1975OldFashionedBurgers">Facebook Page</a> <br>
+                    <a href="https://www.instagram.com/1975_oldfashionedburgers/">Instagram Page</a>
+                    
+                    </div>&nbsp; | &nbsp;
+                    <div>
+                        
+                        #26 Ignacio Cruz St., San Roque, Marikina City.<br>
+
+                        1975oldfashionedburgers@gmail.com<br>
+
+                        0927 253 9416<br>
+                    </div>
+                </footer>
 
             </div>
             
