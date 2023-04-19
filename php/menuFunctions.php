@@ -158,7 +158,7 @@
             
             <div class='slideshow-container'>
                 <div class='mySlides fade'>
-                    <div class='numbertext'>$current_num / $count</div>
+                    
                     <center><img src='$products[product_image]' class='prodDisplay'></center>
                     <div class='text'>$products[product_name]</div>
                 </div>
@@ -168,6 +168,7 @@
           </div>
           <br>
             ";
+            // <div class='numbertext'>$current_num / $count</div>
             $current_num++;
         }
 
