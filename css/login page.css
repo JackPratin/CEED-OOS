@@ -75,9 +75,18 @@ body {
 }
 
 .center form {
-    padding: 0 40px;
+    /* position: relative; */
+    /* position: absolute; */
+    /* left: 20%; */
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    width:60%;
+    margin-left: 15%;
+    /* padding: 0 40px; */
     box-sizing: border-box;
-    margin-top: 40px;
+    /* margin-top: 40px; */
+    margin-top: -1%;
 }
 
 .center2 {
@@ -192,10 +201,10 @@ form .text_field {
 }
 
 input[type="submit"] {
-    position: absolute;
-    left: 25%;
+    /* position: absolute; */
+    /* left: 25%; */
     font-weight: bold;
-    width: 50%;
+    width: 100%;
     height: 40px;
     border: none;
     border-radius: 26px;
@@ -211,10 +220,18 @@ input[type="submit"]:hover {
     transition: .2s;
 }
 
+#loginButton {
+    position: absolute;
+    left: 25%;
+    /* margin-top: 310px; */
+    width: 50%;
+}
+
 #guest {
     margin-top: 60px;
     position: absolute;
     left: 25%;
+    width: 50%;
     border: 1px solid #FFAE42;
     background-color: #ffffff;
 }
@@ -294,12 +311,19 @@ input[type="submit"]:hover {
     color: #FFAE42;
 }
 
+#signUp2 {
+    font-size: 25px;
+    font-weight: bold;
+    color: #FFAE42;
+}
+
 .regInput {
     border: none;
     background-color: #EFEFEF;
-    width: 250px;
+    width: 100%;
     height: 25px;
     margin-bottom: 5px;
+    border-radius: 10px;
 }
 
 #regSubmit {
@@ -314,8 +338,8 @@ input[type="submit"]:hover {
 }
 
 #regSubmit2 {
-    min-width: 50%;
-    max-width: 75%;
+    min-width: 90%;
+    max-width: 100%;
     border: none;
 }
 
@@ -546,6 +570,57 @@ input[type="submit"]:hover {
     to {opacity: 1}
   }
 
+    /* username and email checking using ajax */
+  /*Styling for errors on form*/
+.form_error span {
+    width: 80%;
+    height: 35px;
+    margin: 3px 0;
+    font-size: 0.75em;
+    color: #D83D5A;
+  }
+  .form_error #username {
+    border: 1px solid #D83D5A;
+  }
+  .form_error #email {
+    border: 1px solid #D83D5A;
+  }
+  .form_error #password {
+    border: 1px solid #D83D5A;
+  }
+  .form_error #conPassword {
+    border: 1px solid #D83D5A;
+  }
+  
+  /*Styling in case no errors on form*/
+  .form_success span {
+    width: 80%;
+    height: 35px;
+    margin: 3px 0;
+    font-size: 0.75em;
+    color: green;
+  }
+
+  .form_success #username {
+    border: 1px solid green;
+  }
+  
+  .form_success #email {
+    border: 1px solid green;
+  }.form_success #password {
+    border: 1px solid green;
+  }.form_success #conPassword {
+    border: 1px solid green;
+  }
+
+  #error_msg {
+    color: red;
+    text-align: center;
+    margin: 10px auto;
+  }
+
+
+
 
 
 @media only screen and (max-width: 900px) {
@@ -583,7 +658,7 @@ input[type="submit"]:hover {
     #regSubmit2 {
         position: absolute;
         left: 18%;
-        top: 90%;
+        bottom: 90%;
         width: 65%;
     }
     .go-back {

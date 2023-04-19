@@ -7,6 +7,8 @@
     <script src="https://kit.fontawesome.com/484fbcb614.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Montserrat'>
     <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery3.2.1/jquery.min.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/login page.css">
     <link rel="icon" type="image/x-icon" href="css/system images/favicon.ico">
     <title>Customer Registration</title>
@@ -18,30 +20,38 @@
 
 
     <div class="center regForm">
-        <form action="php/customerRegistration.php" method="post" id="form"><br><br>
-            <a class="go-back2" href="index.php">Go Back</a>
-            <div id="signUp2">Sign up with us!</div> <br>
+        <!-- <form action="php/customerRegistration.php" method="post" id="form"><br><br> -->
+        <form id="form" method="post" action="php/customerRegistration.php"><br><br>
+            <a class="go-back2" href="index.php">Go Back</a><br><br>
+            <div id="signUp2"><b>Sign up with us!</b></div> <br>
             <div>
                 User details <br>
-                <input type="text" name="fname" class="regInput" placeholder="First Name" required>
-                <input type="text" name="mi" class="regInput" maxlength="2" placeholder="Middle Initial">
-                <input type="text" name="lname" class="regInput" placeholder="Last Name" required>
+                <input type="text" name="fname" id="fname" class="regInput" placeholder="First Name" required><br>
+                <input type="text" name="mi" id="mi" class="regInput" maxlength="2" placeholder="Middle Initial"><br>
+                <input type="text" name="lname" id="lname" class="regInput" placeholder="Last Name" required>
             </div> <br>
 
             <div>
                 Login & Contact Details <br>
-                <input type="email" name="email" class="regInput" placeholder="Email: Sample@email.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
-                <input type="text" name="contact" class="regInput" placeholder="Contact Number" required> <br>
-                <input type="text" name="username" class="regInput" placeholder="Username" required>
-                <input type="password" name="password" class="regInput" placeholder="Password" required>
-                <input type="password" name="conPassword" class="regInput" placeholder="Confirm Password" required>
+                <div id="emailDiv">
+                    <input type="email" name="email" id="email" class="regInput" placeholder="Email: Sample@email.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required><br>
+                    <input type="text" name="contact" id="contact" class="regInput" placeholder="Contact Number" required> <br>
+                </div>
+                <div id="usernameDiv">
+                    <input type="text" name="username" id='username' class="regInput" placeholder="Username" required><br>
+                </div>
+                <div id="passwordDiv">
+                    <input type="password" name="password" id="password" class="regInput" placeholder="Password" minlength="8" required> <br>
+                    <input type="password" name="conPassword" id="conPassword" class="regInput" placeholder="Confirm Password"  minlength="8" required><br>
+                    <span style="font-size: 0.75rem;"> Use 8 or more characters with a mix of<br>letters, numbers & symbols</span>
+                </div>
             </div> <br>
 
             <div>
                 Address Details <br>
-                <input type="text" name="address" class="regInput" placeholder="Compound/Street/Subdivision" required>
-                <input type="text" name="brgy" class="regInput" placeholder="Barangay" required>
-                <input type="text" name="city" class="regInput" placeholder="City" required>
+                <input type="text" name="address" id="address" class="regInput" placeholder="Compound/Street/Subdivision" required><br>
+                <input type="text" name="brgy" id="brgy" class="regInput" placeholder="Barangay" required><br>
+                <input type="text" name="city" id="city" class="regInput" placeholder="City" required>
             </div> <br>
 
             <input type="submit" value="Create your Account" id="regSubmit2">
@@ -51,3 +61,8 @@
 </body>
 
 </html>
+<!-- 
+<script src="jquery-3.2.1.min.js"></script> -->
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery3.2.1/jquery.min.js"></script>
+ -->
+<script src="js/registrationCheck.js"></script>
