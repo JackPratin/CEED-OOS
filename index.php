@@ -87,9 +87,10 @@
             <div id="or">
                 <hr style='display:inline-block; width:40%; '> OR <hr style='display:inline-block; width:40%;'>
             </div>
-            <a onclick='fb()'><input type="submit" value="Facebook" id="facebook"></a>
-            
             <input type="submit" value="Login as Guest" id="guest" onclick="location.href='guest-login.html'">
+            <!-- <a onclick='fb()'><input type="submit" value="Facebook" id="facebook"></a> -->
+            
+            
              
         </div>
  
