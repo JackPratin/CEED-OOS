@@ -255,6 +255,7 @@ footer{
     display: flex;
     font-size: 0.75.rem;
     justify-content: space-between;
+    padding: 10px;
     /* outline: 4px black solid; */
 }
 

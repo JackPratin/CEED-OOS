@@ -549,7 +549,8 @@
                         <td>$order[acquirement_type]</td>
                         <td class='delivered'>$order[status]</td>
                         <td>₱ $order[total]</td>
-                        <td><i class='fa-solid fa-ellipsis-vertical' id='hicon-popup$order[cart_number]' onclick='showActions($order[cart_number])'></i>
+                        <td><button id='submitOrder1'onclick=orderAgain($order[cart_number]) >Order Again</button><br>
+                        <button id='submitOrder' onclick=sub($order[cart_number])>Order Invoice</button>
                         </td>
                     </tr>
                     <div id='hpopup$order[cart_number]' class='hpopup'>
