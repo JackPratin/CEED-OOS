@@ -89,42 +89,82 @@ td {
     color: #000;
 }
 
-.popup {
+.hpopup {
     display: none;
 }
 
-.popup-bg {
-    position: fixed;
+.hpopup-bg {
+    position: absolute;
     top: 0;
+    left: 0;
     background: black;
     width: 100%;
     height: 100%;
     opacity: .5;
+    z-index: 1;
 }
 
-.popup-fg {
-    width: 8%;
+.hpopup-fg {
+    /* width: 30%; */
     background: #FFFFFF;
     border: 1px solid #FFA200;
-    z-index: 1;
+    z-index: 2;
     position: absolute;
     right: 0;
     border-radius: 17px;
     text-align: center;
 }
-
-.popup label {
+/* 
+.hpopup label {
     display: block;
     width: 100%;
-}
-
-.popup label {
+} */
+/* 
+.hpopup label {
     margin-top: 1em;
+} */
+/* 
+.hpopup .actions {
+    text-align: center;
+} */
+/* 
+.hpopup {
+    display: none;
+    position: fixed;
+    padding: 10px;
+    width: 25%;
+    left: 37.5%;
+    margin-left: -150px;
+    top: 10%;
+    z-index: 20;
+    border-radius: 15px;
 }
 
-.popup .actions {
-    text-align: center;
+.hpopup:before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgb(239, 239, 239);
+    z-index: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
 }
+
+.hpopup:after {
+    position: fixed;
+    content: "";
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+} */
 
 #submitOrder {
     font-size: 15px;

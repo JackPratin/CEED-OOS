@@ -97,9 +97,10 @@
 
             function showActions(id){
 
-                var triggerPopup = document.querySelector('#icon-popup'+id);
-                var popup = document.querySelector('#popup'+id);
-                var popupBg = document.querySelector('#popup-bg'+id);
+                var triggerPopup = document.querySelector('#hicon-popup'+id);
+                var popup = document.querySelector('#hpopup'+id);
+                // var popupBg = document.querySelector('#popup-bg'+id);
+                var popupBg = document.querySelector('.hpopup-bg');
                 // var close = document.querySelector('#close'+id);
 
                 // console.log(triggerPopup);

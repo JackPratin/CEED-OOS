@@ -549,13 +549,13 @@
                         <td>$order[acquirement_type]</td>
                         <td class='delivered'>$order[status]</td>
                         <td>₱ $order[total]</td>
-                        <td><i class='fa-solid fa-ellipsis-vertical' id='icon-popup$order[cart_number]' onclick='showActions($order[cart_number])'></i>
+                        <td><i class='fa-solid fa-ellipsis-vertical' id='hicon-popup$order[cart_number]' onclick='showActions($order[cart_number])'></i>
                         </td>
                     </tr>
-                    <div id='popup$order[cart_number]' class='popup'>
-                        <div id='popup-bg$order[cart_number]' class='popup-bg'></div>
-                        <div id='popup-fg$order[cart_number]' class='popup-fg'>
-                            <div class='actions$order[cart_number]' class='actions'>
+                    <div id='hpopup$order[cart_number]' class='hpopup'>
+                        <div id='hpopup-bg$order[cart_number]' class='hpopup-bg'></div>
+                        <div id='hpopup-fg$order[cart_number]' class='hpopup-fg'>
+                            <div id='actions$order[cart_number]' class='actions'>
                                 <button id='submitOrder1'onclick=orderAgain($order[cart_number]) >Order Again</button>
                                 <button id='submitOrder' onclick=sub($order[cart_number])>Order Invoice</button>
                                 
