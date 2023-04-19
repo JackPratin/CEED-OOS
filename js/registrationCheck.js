@@ -9,7 +9,7 @@ $('document').ready(function(){
      }
      $.ajax({
     //    url: '../../CEED-OOS/php/customerRegistration.php',
-       url: '../../CEED-OOS/php/customerRegistration.php',
+        url: '../php/customerRegistration.php',
        type: 'post',
        data: {
            'username_check' : 1,
@@ -47,7 +47,7 @@ $('document').ready(function(){
             return;
         }
         $.ajax({
-        //  url: '../php/customerRegistration.php',
+        //  url: '../../CEED-OOS/php/customerRegistration.php',
          url: '../php/customerRegistration.php',
          type: 'post',
          data: {
