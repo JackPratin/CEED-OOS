@@ -4,5 +4,5 @@
     $_SESSION['invoice_id'] = $_SESSION['customer_id'];
     $_SESSION['invoice_cart'] = $_POST['cart'];
 
-    echo '<script>window.location="../invoice.php"</script>';
+    echo '<script>location.replace("../invoice.php")</script>';
 ?>

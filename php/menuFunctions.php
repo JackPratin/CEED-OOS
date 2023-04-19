@@ -299,7 +299,7 @@
                 $i++;
             }
             echo "<br>";
-         
+            
         }
 
 
@@ -381,7 +381,11 @@
                     ";
                 }
                 echo"
-                                    
+                            
+                        <form method='post' action='php/cancelOrder.php'>
+                            <input type='hidden' name='cart_number' value='$orders[cart_number]'>
+                            <input type='submit' value='Cancel order' onclick='confirm(Are you sure you want to cancel this order?)'>
+                        </form>        
                                     
                                 </div>
                             </a>

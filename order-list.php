@@ -26,9 +26,9 @@
         <div id="menu-div">
             <div id="main-menu">
                 <div id="top-main-menu">
-                    <h1 id="choose-category">
+                    <!-- <h1 id="choose-category">
                         Track Order
-                    </h1>
+                    </h1> -->
                     <center>
                         <!-- <input type="search" name="" id="search" placeholder="Search category or menu..."> -->
                     </center>
