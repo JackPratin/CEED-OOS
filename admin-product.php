@@ -100,8 +100,8 @@
 
         <br>
         <div class="orderHistory">
-            
-            <table width="100%">
+            <a href='#productTable'>PRODUCT TABLE</a>&nbsp;|&nbsp;<a href='#categoryTable'>CATEGORY TABLE</a>
+            <table width="100%" id="productTable">
                 <tr>
                     <th>Product Name</th>
                     <th>Product Image</th>
@@ -110,14 +110,36 @@
                 <?php
                     $ingredient_qry = mysqli_query($con, "SELECT * FROM `products_tb` WHERE product_category != 4");
                     while($products = mysqli_fetch_array($ingredient_qry, MYSQLI_ASSOC)){
-                        echo"
+                        echo"<form  method='post' action='php/productManagement.php'>
                             <tr>
                                 <td>$products[product_name]</td>
                                 <td><image src='$products[product_image]' width=30%; height=auto;></image></td>
-                                <td><input type='button' value='Update' class='stock-actions'></td>
-                                <td><input type='button' value='Hide' class='stock-actions'></td>
-                                <td><input type='button' value='Delete' class='stock-actions'></td>
+                                <td><input type='submit' name='submit' value='Update' class='stock-actions' ></td>
+                                <td><input type='submit' value='Delete' class='stock-actions'  name='submit'  onclick='confirm(\"Are you sure you want to delete $products[product_name] from the product list?\")'></td>
                             </tr>
+                            <input type='hidden' name='id' value='$products[product_id]' >
+                            </form>
+                        ";
+                    }
+                ?>
+            </table><br>
+            
+            <table width="100%" id="categoryTable">
+                <tr>
+                    <th>Category</th>
+                    <th colspan="3">Actions</th>
+                </tr>
+                <?php
+                    $ingredient_qry = mysqli_query($con, "SELECT * FROM `product_categories_tb`");
+                    while($products = mysqli_fetch_array($ingredient_qry, MYSQLI_ASSOC)){
+                        echo"<form  method='post' action='php/productManagement.php'>
+                            <tr>
+                                <td>$products[category_name]</td>
+                                <td><input type='submit' name='submit' value='Update' class='stock-actions' ></td>
+                                <td><input type='submit' value='Delete' class='stock-actions'  name='submit'  onclick='confirm(\"Are you sure you want to delete $products[category_name] from the product list?\")'></td>
+                            </tr>
+                            <input type='hidden' name='id' value='$products[category_id]' >
+                            </form>
                         ";
                     }
                 ?>

@@ -7,7 +7,7 @@
 
     if($submit == 'Delete'){
         mysqli_query($con, "DELETE FROM `products_tb` WHERE `product_id`= $id");
-        echo '<script>alert("Product deleted.")</script>';
+        echo '<script>alert("Ingredient deleted.")</script>';
         echo '<script>window.location="../admin-stock-monitoring.php"</script>';
     }
     else if($submit == 'Replacement/loss'){
