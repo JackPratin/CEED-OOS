@@ -25,6 +25,11 @@
         // echo$_POST['id'];
         echo '<script>document.getElementById("update").submit();</script>';
     }
+    else if($submit == 'Delete Category'){
+        mysqli_query($con, "DELETE FROM `product_categories_tb` WHERE `category_id`= $id");
+        echo '<script>alert("Category deleted.")</script>';
+        echo '<script>window.location="../admin-product.php"</script>';
+    }
 
 
     

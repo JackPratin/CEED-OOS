@@ -136,7 +136,7 @@
                             <tr>
                                 <td>$products[category_name]</td>
                                 <td><input type='submit' name='submit' value='Update' class='stock-actions' ></td>
-                                <td><input type='submit' value='Delete' class='stock-actions'  name='submit'  onclick='confirm(\"Are you sure you want to delete $products[category_name] from the product list?\")'></td>
+                                <td><input type='submit' value='Delete Category' class='stock-actions'  name='submit'  onclick='confirm(\"Are you sure you want to delete $products[category_name] from the category list?\")'></td>
                             </tr>
                             <input type='hidden' name='id' value='$products[category_id]' >
                             </form>

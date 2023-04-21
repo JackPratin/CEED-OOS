@@ -1,7 +1,7 @@
 <?php
     require("config.php");
 
-
+                                                        // SQL TABLE EXPORT CODE
     // EXPORT_TABLES("localhost","root","","ceedoos_db");
     //     EXPORT_TABLES("localhost","u287383616_1975","Ceedoos_db_1975","u287383616_ceedoos_db");
     //    function EXPORT_TABLES($host,$user,$pass,$name,  $tables=false, $backup_name=false ){
@@ -24,6 +24,41 @@
     //     $backup_name = $backup_name ? $backup_name : $name."___(".date('d-m-Y').")__rand".rand(1,11111111).".sql";
     //     header('Content-Type: application/octet-stream');   header("Content-Transfer-Encoding: Binary"); header("Content-disposition: attachment; filename=\"".$backup_name."\"");  echo $content; exit;
     // }
+                                                    //HREF TO OTHER WEBSITES          
+        // echo"<a href='https://www.facebook.com'>epbi page</a>"; LINK TO ANOTHER WEBSITE
 
-        echo"<a href='../../../../facebook.com'>epbi page</a>";
+
+                                                    //DATA FROM CSV INSERTED TO SQL DB 
+        // $f_pointer=fopen("../database backup/table_barangay.csv","r"); // file pointer
+        // $first_line="T";
+
+        // // while(! feof($f_pointer)){
+        // //     $ar=fgetcsv($f_pointer);
+            
+        // //     echo $sql;
+        // //     echo "<br>";
+        // // }
+        
+        // $i = 490; // 1366
+        // $mun_id = 31;
+   
+        // while(! feof($f_pointer)){
+        //     $ar=fgetcsv($f_pointer);
+        //     if($first_line<>'T'){
+        //         // if($ar['1'] == '1' || $ar['1'] == '22' ){
+        //         if($i == $ar['1']){
+        //             $sql="INSERT INTO barangay_tb(municipality_id, barangay_name)values('$mun_id','$ar[2]')";
+        //             echo $sql;
+        //             mysqli_query($con, $sql);
+        //             echo "<br>";
+        //             // $i++;
+        //             // continue;
+        //         }
+        //     }
+        //     $first_line='F';
+        // }
+     
+
+
+        
 ?>
