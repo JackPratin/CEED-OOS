@@ -17,14 +17,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- google meta -->
         <meta name="google-site-verification" content="yVghcgd5WgaspO4yJG6fe-cst5ZBw3tKBk9m2prrFmA" />
+        <meta name="description" content="An online ordering system for The 1975 Old-Fashioned Burgers located at 26, 1800 Yamson, Marikina, Metro Manila.">
         
         <script src="https://kit.fontawesome.com/484fbcb614.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Montserrat'>
         <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+        <!-- <link rel="stylesheet" type="text/css" href="css/index.css"> -->
         <link rel="stylesheet" type="text/css" href="css/login page.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-        <link rel="stylesheet" href="css/contents.css">
+        <!-- <link rel="stylesheet" href="css/contents.css"> -->
         <link rel="icon" type="image/x-icon" href="css/system images/favicon.ico">
         <title>1975 Old Fashioned Burgers' Ordering System</title>
     </head>
