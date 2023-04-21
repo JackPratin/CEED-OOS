@@ -135,7 +135,15 @@
                 <input type="hidden" name="modeOfPayment" id="modeOfPayment" form="submitOrder" value="">
             </div>
             <br>
-            <br>
+            <div>
+                <b>Apply for discount?</b><br>
+                <input type="radio" name="discount" id="discount1" value='yes'>Yes<br>
+                <input type="radio" name="discount" id="discount2" value='no'>No
+            </div>
+            <div>Type of ID available:<br><input type="radio" name="type" id="type1" value='sc'>Senior Citizen's ID
+            <input type="radio" name="type" id="type2" value='pwd'>PWD ID
+            <br></div>
+            
             <center><a onclick='location.replace("Terms-and-conditions.html")'>Cancellation policy and Terms of use</a></center>
         </div>
 
