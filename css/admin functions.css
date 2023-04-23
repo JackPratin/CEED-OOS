@@ -703,8 +703,8 @@ input[type=number]::-webkit-outer-spin-button {
     border-radius: 15px 15px 0 0 ;
 }
 
-/* @media only screen and (max-width: 900px) {
-    #popup {
+@media only screen and (max-width: 900px) {
+    /* #popup {
         display: none;
     }
     #popup-bg {
@@ -779,5 +779,9 @@ input[type=number]::-webkit-outer-spin-button {
     }
     table {
         overflow-x: scroll;
+    } */
+
+    .addButton{
+        font-size: 2.5rem;
     }
-} */
+}

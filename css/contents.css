@@ -550,10 +550,10 @@ footer{
 }
 
 @media only screen and (max-width: 900px) {
-    /* .iframe-div {
+    .iframe-div {
         top: -1px;
         left: -1px;
-    } */
+    }
     /* .navigation-div a:not(:first-child) {
         display: none;
     }

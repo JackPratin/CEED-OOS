@@ -111,4 +111,8 @@
     #cartIcon:hover {
         color: #faba66;
     }
+
+    iframe{
+        width: 100%;
+    }
 }
