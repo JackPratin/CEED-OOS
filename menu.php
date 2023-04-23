@@ -102,8 +102,8 @@
                         </a><br>
                     </div>&nbsp; | &nbsp;
                     <div>
-                    Follow us on our:<br> <a href="https://www.facebook.com/1975OldFashionedBurgers">Facebook Page</a> <br>
-                    <a href="https://www.instagram.com/1975_oldfashionedburgers/">Instagram Page</a>
+                    Follow us on our:<br> <a href="https://www.facebook.com/1975OldFashionedBurgers" target="_top">Facebook Page</a> <br>
+                    <a href="https://www.instagram.com/1975_oldfashionedburgers/" target="_top">Instagram Page</a>
                     
                     </div>&nbsp; | &nbsp;
                     <div>
