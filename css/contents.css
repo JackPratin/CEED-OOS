@@ -259,6 +259,19 @@ footer{
     /* outline: 4px black solid; */
 }
 
+.error_msg{
+    color: red;
+    /* outline: 1px solid black; */
+    width: max-content;
+    max-width: 50%;
+    background-color: #FFA200;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    text-shadow: 1px 1px black;
+}
+
 
 /* navigation-menu */
 

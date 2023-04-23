@@ -30,7 +30,17 @@
         <div id="menu-div">
 
             <div id="main-menu">
-                <img src="css/ad banner/sample ads.png"> <br>
+                <!-- <img src="css/ad banner/sample ads.png"> <br> -->
+                <div>
+                    <?php
+                    $qry = mysqli_query($con, "SELECT * FROM `ingredients_tb`");
+                    while($low = mysqli_fetch_array($qry, MYSQLI_ASSOC)){
+                        if($low['item_quantity'] <= 10){
+                            echo"<div class='error_msg'>$low[item_name] IS LOW ON STOCK! $low[item_quantity] LEFT.</div>";
+                        }
+                    }
+                    ?>
+                </div>
 
                 <div id="top-main-menu">
 
