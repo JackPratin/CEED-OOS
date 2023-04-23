@@ -23,65 +23,11 @@
     
     <body>
     <h1>Product Management</h1>
-        <div class="center">
-            <div class="productForm">
-                <form action="php/addProduct.php" method="post" id="form" enctype="multipart/form-data"><br><br>
-                    <b><div id="addProd">Add new product</div></b><br>
-                        
-                    Product details <br>
-                    <input type="text" name="pName" class="prodInput" placeholder="Product Name" required>
-                    <input type="text" name="price" class="prodInput" placeholder="Price" required><br>
+        <div>
+            <div class='center'>
+                <button class='addButton' id='categoryButton'>Add new Category</button>
 
-
-                    
-                    <div class="container">
-                        <!-- the select elemnt should go into div!!!!!  -->
-                        <div class="custom-select" >
-                        Product Category:<br><br>
-                            <select name="category" class="categoryProd" id="" name="category">
-                                <?php
-                                    $category_qry = mysqli_query($con, "SELECT * FROM product_categories_tb");
-                                    while($category = mysqli_fetch_array($category_qry, MYSQLI_ASSOC)){
-                                        echo"<option value='$category[category_id]'>$category[category_name]</option>";
-                                    }
-                                ?>
-                            </select>
-                        </div>
-                    </div><br>
-    
-                    Product Image:<br><br>
-                    <div class="file-upload">
-                        <div class="file-select">
-                            
-                            <div class="file-select-button" id="fileName">Choose File</div>
-                            <div class="file-select-name" id="noFile">No file chosen...</div> 
-                            <input type="file" name="image" id="chooseFile">
-                        </div>
-                    </div>
-
-                    <br>
-                    <input type="submit" value="Add Product" class="addProdBtn" id="prodSubmit">
-                   
-                </form>
-            </div>
-
-            <div style="width: 30%">
-                <div class="productForm1">
-                    <form action="php/addIngredient.php" method="post" id="form"><br><br>
-                        <div id="addIngre"><b>Add new ingredient</b></div> <br>
-                        <div>
-                            Ingredients <br>
-                            <input type="text" name="name" class="IngreInput" placeholder="Ingredient Name" required>
-                            <input type="text" name="price" class="IngreInput" placeholder="Price" required>
-                            <input type="text" name="qty" class="IngreInput" placeholder="Quantity" required>
-                        
-                        </div> <br>
-                
-                        <input type="submit" value="Add Ingredient" id="IngreSubmit">
-                    </form>
-                </div><br>
-
-                <div class="productForm2">
+                <div class="productForm" id='categoryForm'>
                     <form action="php/addCategory.php" method="post" id="form"><br><br>
                         <div id="addIngre"><b>Add new category</b></div> <br>
                         <div>
@@ -94,8 +40,83 @@
                         <input type="submit" value="Add Category" id="cateSubmit">
                     </form>
                 </div>
+                <br><br>
+
+                <button class='addButton' id='ingredientsButton'>Add new Ingredient</button>
+
+                <div class="productForm" id='ingredientsForm'>
+                    <form action="php/addIngredient.php" method="post" id="form"><br><br>
+                        <div id="addIngre"><b>Add new ingredient</b></div> <br>
+                        <div>
+                            Ingredients <br>
+                            <input type="text" name="name" class="IngreInput" placeholder="Ingredient Name" required>
+                            <input type="text" name="price" class="IngreInput" placeholder="Price" required>
+                            <input type="text" name="qty" class="IngreInput" placeholder="Quantity" required>
+                        
+                        </div> <br>
+                
+                        <input type="submit" value="Add Ingredient" id="IngreSubmit">
+                    </form>
+                </div>
+                <br><br>
+
+                <button class='addButton' id='productsButton'>Add new Product</button>
+
+                <div class="productForm" id='productsForm'>
+                    <form action="php/addProduct.php" method="post" id="form" enctype="multipart/form-data"><br><br>
+                        <b><div id="addProd">Add new product</div></b><br>
+                            
+                        Product details <br>
+                        <input type="text" name="pName" class="prodInput" placeholder="Product Name" required>
+                        <input type="text" name="price" class="prodInput" placeholder="Price" required><br>
+
+
+                        
+                        <!-- <div class="container"> -->
+                            <!-- the select elemnt should go into div!!!!!  -->
+                            <div class="custom-select" >
+                            Product Category:<br><br>
+                                <select name="category" class="categoryProd" id="" name="category">
+                                    <?php
+                                        $category_qry = mysqli_query($con, "SELECT * FROM product_categories_tb");
+                                        while($category = mysqli_fetch_array($category_qry, MYSQLI_ASSOC)){
+                                            echo"<option value='$category[category_id]'>$category[category_name]</option>";
+                                        }
+                                    ?>
+                                </select>
+                            </div>
+                        <!-- </div> -->
+                        <br>
+        
+                        Product Image:<br><br>
+                        <div class="file-upload">
+                            <div class="file-select">
+                                
+                                <div class="file-select-button" id="fileName">Choose File</div>
+                                <div class="file-select-name" id="noFile">No file chosen...</div> 
+                                <input type="file" name="image" id="chooseFile">
+                            </div>
+                        </div>
+
+                        <br>
+                        <input type="submit" value="Add Product" class="addProdBtn" id="prodSubmit">
+                    
+                    </form>
+                </div>
             </div>
+            <br>
+            <br>
+
+            
+
+            
+
+            
+            
         </div>
+
+            
+        
 
         <br>
         <div class="orderHistory">
@@ -181,5 +202,47 @@
         <script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
         <script src="js/dropdown.js"></script>
         <script src="js/upload-file.js"></script>
+
+        <script>
+            // var coll = document.getElementsByClassName("collapsible");
+            var categoryButton = document.getElementById("categoryButton");
+            var ingredientsButton = document.getElementById("ingredientsButton");
+            var productButton = document.getElementById("productButton");
+            var i;
+
+            categoryButton.addEventListener("click", function() {
+                this.classList.toggle("addButton-active");
+                // ingredientsButton.classList.toggle("addButton-active");
+                // productsButton.classList.toggle("addButton-active");
+                var content = document.getElementById("categoryForm");
+                if (content.style.display === "block") {
+                content.style.display = "none";
+                } else {
+                content.style.display = "block";
+                }
+            });
+            ingredientsButton.addEventListener("click", function() {
+                // categoryButton.classList.toggle("addButton-active");
+                this.classList.toggle("addButton-active");
+                // productsButton.classList.toggle("addButton-active");
+                var content = document.getElementById("ingredientsForm");
+                if (content.style.display === "block") {
+                content.style.display = "none";
+                } else {
+                content.style.display = "block";
+                }
+            });
+            productsButton.addEventListener("click", function() {
+                // categoryButton.classList.toggle("addButton-active");
+                // ingredientsButton.classList.toggle("addButton-active");
+                this.classList.toggle("addButton-active");
+                var content = document.getElementById("productsForm");
+                if (content.style.display === "block") {
+                content.style.display = "none";
+                } else {
+                content.style.display = "block";
+                }
+            });
+        </script>
     </body>
 </html>
