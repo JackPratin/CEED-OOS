@@ -4,7 +4,7 @@
     if(isset($_POST['submitUpdate'])){
         
 
-        $qry = mysqli_query($con, "UPDATE `ingredients_tb` SET `item_name`='$_POST[name]',`item_category`='$_POST[category]',`item_price`='$_POST[price]',`item_quantity`='$_POST[qty]' WHERE `item_id` = $_POST[id]");
+        $qry = mysqli_query($con, "UPDATE `ingredients_tb` SET `item_name`='$_POST[name]',`item_price`='$_POST[price]',`item_quantity`='$_POST[qty]' WHERE `item_id` = $_POST[id]");
 
         echo"<script>location.replace('admin-stock-monitoring.php')</script>";
     }
@@ -37,23 +37,7 @@
             <input type="hidden" name="id" id="" value='<?php echo $product['item_id'] ?>' ><br>
             Name
             <input type="text" name="name" id="" value='<?php echo $product['item_name'] ?>' ><br>
-
-            
-            Category
-            <select name='category' value='<?php echo $product['product_category'] ?>'>
-            <?php
-                 $qry1 = mysqli_query($con, "SELECT * FROM product_categories_tb");
-    
-                 while($cat = mysqli_fetch_array($qry1, MYSQLI_ASSOC)){
-                    if($cat['category_id'] == $product['product_category']){
-                        echo"<option value='$cat[category_id]' selected>$cat[category_name]</option>";
-                    }
-                    else{
-                        echo"<option value='$cat[category_id]'>$cat[category_name]</option>";
-                    }
-                 }
-            ?>
-            </select><br>
+  
             Price
             <input type="text" name="price" id="" value='<?php echo $product['item_price'] ?>' ><br>
             Quantity
