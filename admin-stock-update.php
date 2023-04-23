@@ -4,7 +4,7 @@
     if(isset($_POST['submitUpdate'])){
         
 
-        $qry = mysqli_query($con, "UPDATE `products_tb` SET `product_name`='$_POST[name]',`product_category`='$_POST[category]',`product_price`='$_POST[price]',`product_quantity`='$_POST[qty]' WHERE `product_id` = $_POST[id]");
+        $qry = mysqli_query($con, "UPDATE `ingredients_tb` SET `item_name`='$_POST[name]',`item_category`='$_POST[category]',`item_price`='$_POST[price]',`item_quantity`='$_POST[qty]' WHERE `item_id` = $_POST[id]");
 
         echo"<script>location.replace('admin-stock-monitoring.php')</script>";
     }
@@ -12,7 +12,7 @@
 
     
     $id = $_POST['id'];
-    $qry = mysqli_query($con, "SELECT * FROM products_tb WHERE product_id = $id");
+    $qry = mysqli_query($con, "SELECT * FROM ingredients_tb WHERE item_id = $id");
     
     while($product = mysqli_fetch_array($qry, MYSQLI_ASSOC)){
 
@@ -33,10 +33,10 @@
     <div style='border: 1px solid black; width: fit-content; padding:10px;'>
         <form action="#" method='post'>
             <h1>Ingredient update</h1>
-            <h3><?php echo $product['product_name']?></h3>
-            <input type="hidden" name="id" id="" value='<?php echo $product['product_id'] ?>' ><br>
+            <h3><?php echo $product['item_name']?></h3>
+            <input type="hidden" name="id" id="" value='<?php echo $product['item_id'] ?>' ><br>
             Name
-            <input type="text" name="name" id="" value='<?php echo $product['product_name'] ?>' ><br>
+            <input type="text" name="name" id="" value='<?php echo $product['item_name'] ?>' ><br>
 
             
             Category
@@ -55,9 +55,9 @@
             ?>
             </select><br>
             Price
-            <input type="text" name="price" id="" value='<?php echo $product['product_price'] ?>' ><br>
+            <input type="text" name="price" id="" value='<?php echo $product['item_price'] ?>' ><br>
             Quantity
-            <input type="text" name="qty" id="" value='<?php echo $product['product_quantity'] ?>' placeholder="Quantity" ><br>
+            <input type="text" name="qty" id="" value='<?php echo $product['item_quantity'] ?>' placeholder="Quantity" ><br>
             
             
             <input type="submit" name="submitUpdate" class="stock-actions" >

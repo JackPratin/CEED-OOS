@@ -6,7 +6,7 @@
     $id = $_POST['id'];
 
     if($submit == 'Delete'){
-        mysqli_query($con, "DELETE FROM `products_tb` WHERE `product_id`= $id");
+        mysqli_query($con, "DELETE FROM `ingredients_tb` WHERE `item_id`= $id");
         echo '<script>alert("Ingredient deleted.")</script>';
         echo '<script>window.location="../admin-stock-monitoring.php"</script>';
     }

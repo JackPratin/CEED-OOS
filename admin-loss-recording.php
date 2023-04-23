@@ -14,7 +14,7 @@
 
     
     $id = $_POST['id'];
-    $qry = mysqli_query($con, "SELECT * FROM products_tb WHERE product_id = $id");
+    $qry = mysqli_query($con, "SELECT * FROM ingredients_tb WHERE item_id = $id");
     
     while($product = mysqli_fetch_array($qry, MYSQLI_ASSOC)){
 
@@ -35,10 +35,10 @@
     <div style='border: 1px solid black; width: fit-content; padding:10px;'>
         <form action="#" method='post'>
             <h1>Replacement/Loss</h1>
-            <h3><?php echo $product['product_name']?></h3>
+            <h3><?php echo $product['item_name']?></h3>
             <input type="text" name="qty" id="" placeholder="Quantity" >
-            <input type="hidden" name="id" id="" value='<?php echo $product['product_id'] ?>' ><br><br>
-            <input type="hidden" name="price" id="" value='<?php echo $product['product_price'] ?>' >
+            <input type="hidden" name="id" id="" value='<?php echo $product['item_id'] ?>' ><br><br>
+            <input type="hidden" name="price" id="" value='<?php echo $product['item_price'] ?>' >
             <input type="submit" name="submitLoss" class="stock-actions" >
         </form>
     </div>

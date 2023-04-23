@@ -31,7 +31,6 @@
                     Product details <br>
                     <input type="text" name="pName" class="prodInput" placeholder="Product Name" required>
                     <input type="text" name="price" class="prodInput" placeholder="Price" required><br>
-                    <input type="text" name="qty" class="prodInput" placeholder="Quantity" required><br><br>
 
 
                     
@@ -41,7 +40,7 @@
                         Product Category:<br><br>
                             <select name="category" class="categoryProd" id="" name="category">
                                 <?php
-                                    $category_qry = mysqli_query($con, "SELECT * FROM product_categories_tb WHERE category_id != 4");
+                                    $category_qry = mysqli_query($con, "SELECT * FROM product_categories_tb");
                                     while($category = mysqli_fetch_array($category_qry, MYSQLI_ASSOC)){
                                         echo"<option value='$category[category_id]'>$category[category_name]</option>";
                                     }

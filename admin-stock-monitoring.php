@@ -31,18 +31,18 @@
                     <th colspan="3">Actions</th>
                 </tr>
                 <?php
-                    $ingredient_qry = mysqli_query($con, "SELECT * FROM `products_tb` WHERE product_category = 4");
+                    $ingredient_qry = mysqli_query($con, "SELECT * FROM `ingredients_tb` ");
                     while($ingredients = mysqli_fetch_array($ingredient_qry, MYSQLI_ASSOC)){
                         echo"
                             <form method='post' action='php/stockHandling.php'>
                                 <tr>
-                                    <td>$ingredients[product_name]</td>
-                                    <td>$ingredients[product_quantity]</td>
+                                    <td>$ingredients[item_name]</td>
+                                    <td>$ingredients[item_quantity]</td>
                                     <td><input type='submit' name='submit' value='Update' class='stock-actions'></td>
                                     <td><input type='submit' name='submit' value='Replacement/loss' class='stock-actions'></td>
-                                    <td><input type='submit' name='submit' value='Delete' class='stock-actions' onclick='confirm(\"Are you sure you want to delete $ingredients[product_name] from the stock list?\")'></td>
+                                    <td><input type='submit' name='submit' value='Delete' class='stock-actions' onclick='confirm(\"Are you sure you want to delete $ingredients[item_name] from the stock list?\")'></td>
                                 </tr>
-                                <input type='hidden' name='id' value='$ingredients[product_id]'>
+                                <input type='hidden' name='id' value='$ingredients[item_id]'>
                             </form>
                         ";
                     }
