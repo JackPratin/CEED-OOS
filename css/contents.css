@@ -260,16 +260,18 @@ footer{
 }
 
 .error_msg{
-    color: red;
+    /* color: red; */
+    color: white;
     /* outline: 1px solid black; */
     width: max-content;
     max-width: 50%;
-    background-color: #FFA200;
+    /* background-color: #FFA200; */
+    background-color: red;
     padding: 5px 10px;
     border-radius: 15px;
     font-weight: bold;
     margin-bottom: 5px;
-    text-shadow: 1px 1px black;
+    /* text-shadow: 1px 1px black; */
 }
 
 
