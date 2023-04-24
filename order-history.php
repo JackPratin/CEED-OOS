@@ -30,8 +30,8 @@
     
     <body>
 
-    <div class="orderHistory">
-        <h1>Order History</h1>
+        <div class="orderHistory">
+            <h1>Order History</h1>
             <table width="100%">
                 <tr>
                     <th> ID </th>
@@ -47,13 +47,11 @@
                 <?php historyDisplay($_SESSION['customer_id'], 'customer_id'); ?>
                 
             </table>
-
-            
-    </div>
+        </div>
 
         <div id="menu-div2">
-     
-       
+        
+        
                     <!-- <p id="choose-category">
                         ORDER HISTORY
                     </p> -->
@@ -63,8 +61,8 @@
                             
                         </div>
                     </center> -->
-         <br>
-         
+            <br>
+            
 
             
             <div id="order-list cart-div">
@@ -88,6 +86,38 @@
                 
             </div>
         </div>
+        <footer id="footer-history">
+            <div>
+                <center><img src="css/system images/company logo.png" alt="1975 Old-Fashioned Burgers logo" height="60px" width="60px" style="border-radius: 50%;"><br>
+                Copyright© 2023 <br></center>
+            </div>
+            <div>
+                Contact us:<br>
+                +63 927 253 9416<br>
+                1975oldfashionedburgers@gmail.com<br>
+                #26 Ignacio Cruz St., San Roque, Marikina City.<br>
+            </div>
+            <div>
+                <a></a><br>
+                <a></a><br>
+                <center>
+                    <a href='Terms-and-conditions.html'>
+                        Terms and Conditions
+                    </a>
+                </center>
+                <br>
+            </div>
+            
+            <div>
+                <center>
+                    For news and updates, follow us:<br> <br> 
+                    <div id="socials">
+                        <a href="https://www.facebook.com/1975OldFashionedBurgers" target="_top"><img src='css/system images/fb.png'></a>
+                        <a href="https://www.instagram.com/1975_oldfashionedburgers/" target="_top"><img src='css/system images/ig.png'></a>
+                    </div>
+                </center>
+            </div>
+        </footer>
         
         <script>
             // document.addEventListener('DOMContentLoaded', function(){
@@ -131,11 +161,11 @@
 
             function sub(cart){
                 document.getElementById('form'+cart).submit();
-           }
+            }
 
-           function orderAgain(cart){
+            function orderAgain(cart){
                 document.getElementById('orderForm'+cart).submit();
-           }
+            }
         </script>
         <script src="js/navigation.js"></script>
         
