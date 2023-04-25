@@ -29,7 +29,7 @@
 </head>
 <body>
 
-<ul>
+<!-- <ul>
   <li><a href="admin-stock-monitoring.php" class="admin-nav-active" onclick="changeIframe('stockMonitoring');changeAdminDisplay('admin-stock-monitoring.php')" onload="changeIframe('stockMonitoring')" id="stockMonitoring" target="adminIframe">Stock Monitoring</a></li>
 
   <li><a href="admin-product.php" onclick="changeIframe('addProduct');changeAdminDisplay('admin-product.php')" onload="changeIframe('addProduct')" id="addProduct" target="adminIframe">Product Management</a></li>
@@ -39,10 +39,22 @@
   <li><a href="admin-sales-report.php" onclick="changeIframe('salesReport');changeAdminDisplay('admin-sales-report.php')" onload="changeIframe('salesReport')" id="salesReport" target="adminIframe">Sales Report</a></li>
 
   <li><a href="admin-add-user.php" onclick="changeIframe('addAccount');changeAdminDisplay('admin-add-user.php')" onload="changeIframe('addAccount')" id="addAccount" target="adminIframe">Account Management</a></li>
+</ul> -->
+<ul>
+  <li><a href="admin-stock-monitoring.php" class="admin-nav-active" onclick="changeIframe('stockMonitoring');" id="stockMonitoring" target="adminIframe">Stock Monitoring</a></li>
+
+  <li><a href="admin-product.php" onclick="changeIframe('addProduct');" id="addProduct" target="adminIframe">Product Management</a></li>
+
+  <li><a href="admin-ad-banner.php" onclick="changeIframe('uploadAd');"  id="uploadAd" target="adminIframe">Upload ad banner</a></li>
+
+  <li><a href="admin-sales-report.php" onclick="changeIframe('salesReport');" id="salesReport" target="adminIframe">Sales Report</a></li>
+
+  <li><a href="admin-add-user.php" onclick="changeIframe('addAccount');"  id="addAccount" target="adminIframe">Account Management</a></li>
 </ul>
 
 <div class="admin-iframe-div">
-    <iframe src="<?php echo $_SESSION['current_admin_page']; ?>" frameborder="0" id="adminIframe"  name="adminIframe" class="admin-iframe" onload="changeIframe('<?php echo $_SESSION['current_admin_page']; ?>+')">hello</iframe>
+    <iframe src='admin-stock-monitoring.php' frameborder="0" id="adminIframe"  name="adminIframe" class="admin-iframe" ></iframe>
+   
     
     <input type="hidden" id="adminIframe-source" name="" value="<?php echo $_SESSION['current_admin_page']; ?>">
 </div>
@@ -52,16 +64,16 @@
 <script>
 
 function changeIframe(option){
-    let = document.getElementById("adminIframe-source").value;
+    // let option = document.getElementById("adminIframe-source").value;
 
-    if(option == "stockMonitoring" || option == "admin-stock-monitoring.php"){
+    if(option == "stockMonitoring"){
         document.getElementById("stockMonitoring").classList = "admin-nav-active";
         document.getElementById("salesReport").classList = "";
         document.getElementById("addAccount").classList = "";
         document.getElementById("addProduct").classList = "";
         document.getElementById("uploadAd").classList = "";
     }
-    else if(option == "salesReport" || option == "admin-product.php"){
+    else if(option == "salesReport"){
         document.getElementById("salesReport").classList = "admin-nav-active";
         document.getElementById("stockMonitoring").classList = "";
         document.getElementById("addAccount").classList = "";
@@ -90,7 +102,7 @@ function changeIframe(option){
         document.getElementById("addProduct").classList = "";
     }
 
-    // console.log(<?php echo $_SESSION['current_admin_page']; ?>);
+    // console.log(<?php //echo $_SESSION['current_admin_page']; ?>);
     // document.getElementById("adminIframe").value = option;
 }
 

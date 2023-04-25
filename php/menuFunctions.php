@@ -179,7 +179,9 @@
             while($item = mysqli_fetch_array($item_qry, MYSQLI_ASSOC)){
                 // $subtotal = $products['quantity'] * $products['item_subtotal'];
                 $subtotal = $products['item_subtotal'];
+                $id = $item['product_id'];
                 echo"
+                <a href='#' onclick='show(\"editpopup$products[product_id]\"); addDetails($products[product_id]); ' style=\"color:black; width:fit-content;\">
                 <div id='cart-items'>
                     <div id='item-img'>
                         <img src='$item[product_image]' alt='$item[product_name] Image' height='60px' width='60px' style='border-radius: 10px;'>
@@ -220,10 +222,113 @@
                             <span id='item-price' class='span-x'>₱$subtotal</span>
                         </span>
                     </div>
-                </div> <br>";
+                </div> 
+            </a>
+            <br>
+            
+            <div class='popup' id='editpopup$id'>
+                <div id='item-div'>
+                    <img src='$item[product_image]' alt='Item image' id='extra-image' width='50%' height='auto'>&nbsp;
+                    <div style='display:flex; flex-direction:column;'>
+                        <h2 id='extra-name'>$item[product_name]</h2>
+                        <h3 id='extra-price'>₱$item[product_price]</h3>
+                    </div>
+                    
+                </div>
+                <div id='extras-div'>
+                
+                <span class='cls'><button href='#' onclick='hide(\"editpopup$id\")'>X</button></span>
+                    <div style='display:flex; justify-content: space-between;'>
+                        <form method='post' action='php/updatecart.php' id='form$id'>
+                        ";
+                            $prod_adds_qry = mysqli_query($con, "SELECT * FROM products_tb WHERE product_id = $item[product_id]");
+                            
+                            $prod_query = mysqli_fetch_array($prod_adds_qry,MYSQLI_ASSOC);
+                            
+                            if($prod_query['has_additionals'] == 'yes'){
+                                 $ingredients = explode(", ",$prod_query['product_additionals']);
+                            }
+                         
+
+                            if($prod_query['has_additionals'] == 'yes'){
+                                echo"<span>Recommended Extras</span>
+                        
+                                </div><br>
+                                Select additional ingredients(optional)<br>
+                                <div style='display:flex; flex-direction:column;'>
+                                   ";
+                                foreach($ingredients as $ingredients){
+
+                                    if($ingredients == ""){
+                                        continue;
+                                    }
+
+                                    $nameqry = mysqli_query($con, "SELECT * FROM ingredients_tb WHERE item_id = '$ingredients'");
+        
+                                    $ingredients_name = mysqli_fetch_array($nameqry, MYSQLI_ASSOC);
+                                    // echo $ingredients_name['product_name'];
+
+                                    // <input type='checkbox' class='checkbox' name=\"extras[]\" value='$ingredients_name[item_id]' id='extra-checkbox' form='form$id'> $ingredients_name[item_name]
+
+                                    echo"
+                                        <div style=\"display:flex; justify-content: space-between;\";>
+                                            <span>
+                                                <input type='checkbox' class='checkbox' name=\"extras[]\" value='$ingredients' id='extra-checkbox' form='form$id'> $ingredients_name[item_name]
+                                            </span> 
+                                            <span>
+                                                ₱$ingredients_name[item_price]
+                                            </span>
+                                        </div>
+                                    ";
+                                }
+                            }
+                           
+                                    // echo"<input type='checkbox'> &nbsp; Bacon";
+                                
+                                
+                                echo"
+                                
+                                <input type='hidden' value='$products[cart_id]' id='form-id' name='id'>
+                                <input type='hidden' value='$item[product_name]' id='form-name' name='name'>
+                                <input type='hidden' value='$item[product_category]' id='form-category' name='category' >
+                                <input type='hidden' value='$item[product_price]' id='form-price' name='price'>
+                                <br>
+                        <div class='number-input'>
+                            <div id='counter'>
+                                <button onclick='this.parentNode.querySelector(\"input[type=number]\").stepDown()' ></button>
+
+                                <input class='quantity' id='currentQty' min='1' name='quantity' value='$products[quantity]' type='number' form='form$id'>
+
+                                <button onclick='this.parentNode.querySelector(\"input[type=number]\").stepUp()' class='plus'></button> 
+                            </div>
+
+                            <div width='100%'>     
+                                <input type='submit' value='Update Cart' class='addCart' onclick='addToCart($id)'>
+                                
+                                    </form>
+                                <!-- hide('popup1') -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            ";
             }
             
         }
+
+        $cart_qry = mysqli_query($con, "SELECT * FROM cart_tb WHERE customer_id = $_SESSION[customer_id]");
+        while($products = mysqli_fetch_array($cart_qry, MYSQLI_ASSOC)){
+            
+            $name_qry = mysqli_query($con, "SELECT * FROM products_tb WHERE product_id = $id");
+            $name=mysqli_fetch_array($name_qry, MYSQLI_ASSOC);
+            
+            echo"
+
+            
+            ";
+        }
+        
     }
 
     function subtotal(){
@@ -282,7 +387,7 @@
 
 
         
-        $qry = mysqli_query($con, "SELECT * FROM order_info WHERE `customer_id` = $_SESSION[customer_id] AND `status` = 'pending' OR `status` = 'deliver'");
+        $qry = mysqli_query($con, "SELECT * FROM order_info WHERE `customer_id` = $_SESSION[customer_id] AND `status` = 'pending' OR `status` = 'delivering' OR `status` = 'preparing'");
 
 
         if(mysqli_num_rows($qry) == 0){
@@ -328,10 +433,15 @@
 
         }
         else{
-
+            $payment_status = "";
             while($orders = mysqli_fetch_array($qry, MYSQLI_ASSOC)){
                 $itemsQry = mysqli_query($con, "SELECT * FROM order_table WHERE `customer_id` = $_SESSION[customer_id] AND cart_number = $orders[cart_number]"); 
-
+                if($orders['payment_method'] == 'gcash' && $orders['gcash_paid'] == 'no'){
+                    $payment_status = 'Gcash payment: Pending';
+                }
+                else if($orders['payment_method'] == 'gcash' && $orders['gcash_paid'] == 'yes'){
+                    $payment_status = 'Gcash payment: Received';
+                }
                 
                     echo"
                         <div class='tracking'>
@@ -341,7 +451,8 @@
                             <a href='#' onclick='sub($orders[cart_number])'>
                                 <div class='order-card'>
                                     <b>Order #$orders[cart_number]</b><br>
-                                    <span style='color: \'gray\''>$orders[order_date], $orders[order_time]</span><br><br>";
+                                    <span style='color: \'gray\''>$orders[order_date], $orders[order_time]</span><br>
+                                    $payment_status<br><br>";
                 while($items = mysqli_fetch_array($itemsQry, MYSQLI_ASSOC)){
                     $id = $items['product_id'];
                     echo "<hr width='50%'>";
@@ -358,20 +469,30 @@
                         <span class='order-card-bottom'>x1 Item/s<br>₱ $sub[total]</span>
                     ";
                 }
-                echo"
-                            
+
+                if($orders['status'] == 'pending'){
+                    echo"
                         <form method='post' action='php/cancelOrder.php'>
                             <input type='hidden' name='cart_number' value='$orders[cart_number]'>
                             <input type='submit' value='Cancel order' onclick='confirm(Are you sure you want to cancel this order?)'>
-                        </form>        
-                                    
+                        </form>  
+                    ";
+                }
+                echo"  
                                 </div>
                             </a>
                             
 
                             <div class='order-status'>
-                                <div class='inner-order-status'>
-                                    <div class='circle-active circle' id='placeCircle'></div>
+                                <div class='inner-order-status'>";
+
+                                if($orders['status'] == 'pending'){
+                                    echo"<div class='circle-active circle' id='placeCircle'></div>";
+                                }
+                                else{
+                                    echo"<div class='circle' id='processCircle'></div>&nbsp;";
+                                }
+                                    echo"
                                     <img src='css/system images/order list icons/order-placed-icon.png' alt='Icon for placed order'>
                                     <div class='order-text'>
                                         <div class='order-upper-text'>Order Placed</div>
@@ -381,8 +502,15 @@
 
                                 <div class='vertical-line'></div>
 
-                                <div class='inner-order-status'>
-                                    <div class='circle' id='processCircle'></div>&nbsp;
+                                <div class='inner-order-status'>";
+
+                                if($orders['status'] == 'preparing'){
+                                    echo"<div class='circle-active circle' id='placeCircle'></div>";
+                                }
+                                else{
+                                    echo"<div class='circle' id='processCircle'></div>&nbsp;";
+                                }
+                                    echo"
                                     <img src='css/system images/order list icons/processed-icon.png' alt='Icon for order processing'>
                                     <div class='order-text'>
                                         <div class='order-upper-text'>Order Accepted</div>
@@ -392,8 +520,15 @@
 
                                 <div class='vertical-line'></div>
 
-                                <div class='inner-order-status'>
-                                    <div class='circle' id='readyCircle'></div>&nbsp;
+                                <div class='inner-order-status'>";
+
+                                if($orders['status'] == 'delivering'){
+                                    echo"<div class='circle-active circle' id='placeCircle'></div>";
+                                }
+                                else{
+                                    echo"<div class='circle' id='processCircle'></div>&nbsp;";
+                                }
+                                    echo"
                                     <img src='css/system images/order list icons/ready-icon.png' alt='Icon for ready to deliver items'>
                                     <div class='order-text'>
                                         <div class='order-upper-text'>Ready to Deliver</div>

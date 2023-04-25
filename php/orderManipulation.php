@@ -10,6 +10,9 @@
         // echo $_POST['cart_number']."<br>";
         // echo $_POST['customer_id']."<br>";
     }
+    elseif($_POST['submit'] == 'Gcash Payment Received'){
+        mysqli_query($con, "UPDATE `order_info` SET `gcash_paid`='yes' WHERE `info_id`='$_POST[info_id]'");
+    }
     elseif($_POST['submit'] == 'Deliver'){
         mysqli_query($con, "UPDATE `order_info` SET `status`='delivering' WHERE `info_id`='$_POST[info_id]'");
     }

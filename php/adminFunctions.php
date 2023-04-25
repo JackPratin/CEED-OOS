@@ -102,8 +102,11 @@
                             <input type='hidden' name='info_id' value='$order[info_id]'>
                             <input type='hidden' name='cart_number' value='$order[cart_number]'>
                             <input type='hidden' name='customer_id' value='$order[customer_id]'>
-                            <input type='submit' name='submit' value='Invoice'>
-                            <input type='submit' name='submit' value='Payment Received'>
+                            <input type='submit' name='submit' value='Invoice'>";
+                            if($order['gcash_paid'] == 'no'){
+                                echo"<input type='submit' name='submit' value='Gcash Payment Received'>";
+                            }
+                            echo"
                             <input type='submit' name='submit' value='Prepare'>
                             <input type='submit' name='submit' value='Remove'>
                         </form>

@@ -36,6 +36,7 @@
                 </div> <br>
                 
                 <h2>Current Orders</h2>
+                <div>The yellow dot indicates the status of your order.</div>
                 <?php
                     trackOrderDisplay();
                 ?>
@@ -82,6 +83,12 @@
         </footer>
 
         <script src="js/navigation.js"></script>
+
+        <script>
+           function sub(cart){
+                document.getElementById('form'+cart).submit();
+           }
+        </script>
         
     </body>
 </html>
