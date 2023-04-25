@@ -1,0 +1,65 @@
+:root {
+    font-family: 'Inter';
+    overflow: hidden;
+}
+
+table{
+    width: 90%;
+    height: 90%;
+}
+
+/* thead, tbody { 
+    display: block; 
+} */
+
+tbody {
+    height: 100%;       /* Just for the demo          */
+    overflow-y: auto;    /* Trigger vertical scroll    */
+    overflow-x: hidden;  /* Hide the horizontal scroll */
+}
+
+td{
+    width: 25%;
+}
+
+th, td{
+    /* border: black 1px solid; */
+    border-radius: 15px;
+}
+
+th{
+    height: 10%;
+    background-color: #FFA200;
+    color: white;
+}
+
+.tableName{
+    background-color: transparent;
+    color: black;
+}
+
+.orderLists{
+    height: 100%;
+    display: block;
+    overflow-y: scroll;
+}
+
+.orderLists::-webkit-scrollbar{
+    display: none;
+}
+
+.preparationList{
+    display: block;
+}
+
+.orderCard{
+    /* border: black 2px solid; */
+    padding: 10px;
+    border-radius: 15px;
+    margin-bottom: 5px;
+    background-color: #f5f5f5;
+}
+
+.orderCard:nth-child(odd) {
+    background-color: white;
+}

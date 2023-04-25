@@ -18,7 +18,8 @@
         <link rel="icon" type="image/x-icon" href="css/system images/favicon.ico">
         <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
         <link rel="stylesheet" href="css/navigation.css">
-        <link rel="stylesheet" href="css/contents.css">
+        <!-- <link rel="stylesheet" href="css/contents.css"> -->
+        <link rel="stylesheet" href="css/order-list.css">
         <title>Order List</title>
     </head>
     
@@ -52,123 +53,35 @@
                     </div>
                 </div>
                 
-                <br>
-                <br>
-                <br><br>
-                <br>
-                <br><br>
                 
             </div>
         </div>
-
-       
-        <div class='popup' id='popup1'>
-            <div > 
-                <div style="display:flex; justify-content: space-between;">
-                    <span>Recommended Extras</span>
-                    <span><button href="#" onclick="hide('popup1')">X</button></span>
-                </div><br>
-            Select additional ingredients(optional)<br>
-            
-                <div style="display:flex; flex-direction:column;";> 
-                    <?php
-
-                        $extras_qry = mysqli_query($con, "SELECT * FROM products_tb WHERE product_category = 4");
-                        
-                        while($extras = mysqli_fetch_array($extras_qry,MYSQLI_ASSOC)){
-                            echo"<div style=\"display:flex; justify-content: space-between;\";><span><input type='checkbox' class='checkbox'> $extras[product_name]</span> <span>₱$extras[product_price]</span></div>";
-                            // echo"<input type='checkbox'> &nbsp; Bacon";
-                        }
-                    ?>
-                </div>
+        <footer id='footer-menu'>
+            <div>
+                <center><img src="css/system images/company logo.png" alt="1975 Old-Fashioned Burgers logo" height="60px" width="60px" style="border-radius: 50%;"><br>
+                Copyright© 2023 <br></center>
             </div>
-            <br>
-            
-            <div class="number-input">
-                <span>
-                    <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" ></button>
-
-                    <input class="quantity" id="currentQty" min="1" name="quantity" value="1" type="number">
-
-                    <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button> 
-                </span>
-
-                <span min-width="90%">     
-                    <input type="submit" value="Add to Cart" class="addCart" onclick='addToCart()'>
-                    <!-- hide("popup1") -->
-                </span>
-                <input type="hidden" name="" id="id" value="">
+            <div>
+                Contact us:<br>
+                +63 927 253 9416<br>
+                1975oldfashionedburgers@gmail.com<br>
+                #26 Ignacio Cruz St., San Roque, Marikina City.<br>
             </div>
-
-            <!-- <a href='#' >Ok!</a> -->
-        </div>
-
-        <div class='popup' id='popup2'>
-            <div style="display:flex; justify-content: space-between;">
-                <span>Flavors</span>
-                <span><button href="#" onclick="hide('popup2')">X</button></span>
-            </div><br>
-
-            <div > <br>
-            
-                <div style="display:flex; flex-direction:column;";> 
-                    <?php
-
-                        // $extras_qry = mysqli_query($con, "SELECT * FROM products_tb WHERE product_category = 4");
-                        
-                        // while($extras = mysqli_fetch_array($extras_qry,MYSQLI_ASSOC)){
-                        //     echo"<div style=\"display:flex; justify-content: space-between;\";><span><input type='checkbox' class='checkbox'> $extras[product_name]</span> <span>₱$extras[product_price]</span></div>";
-                        //     // echo"<input type='checkbox'> &nbsp; Bacon";
-                        // }
-                        echo "<div><input type='checkbox' class='checkbox'> Barbecue</div>
-                        <div><input type='checkbox' class='checkbox'> Buffalo</div>
-                        <div><input type='checkbox' class='checkbox'> Garlic Parmesan</div>
-                        <div><input type='checkbox' class='checkbox'> Honey Garlic</div>
-                        <div><input type='checkbox' class='checkbox'> Salted Egg</div>
-                        ";
-                    ?>
-                </div>
+            <div>
+                <center>
+                    <a href='Terms-and-conditions.html'>
+                        Terms and Conditions
+                    </a><br><br>
+                    For news and updates, follow us:<br> <br> 
+                    <div id="socials">
+                        <a href="https://www.facebook.com/1975OldFashionedBurgers" target="_top"><img src='css/system images/fb.png'></a>
+                        <a href="https://www.instagram.com/1975_oldfashionedburgers/" target="_top"><img src='css/system images/ig.png'></a>
+                    </div>
+                </center>
             </div>
-            <br>
-            
-            <div class="number-input">
-                <span>
-                    <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" ></button>
-
-                    <input class="quantity" id="currentQty" min="6" name="quantity" value="6" step="6" type="number">
-
-                    <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button> 
-                </span>
-
-                <span min-width="90%">     
-                    <input type="submit" value="Add to Cart" class="addCart" onclick='addToCart()'>
-                    <!-- hide("popup1") -->
-                </span>
-                <input type="hidden" name="" id="id" value="">
-            </div>
-        </div>
-        <div class='popup' id='popup3'>
-            <p>This is a popup!</p>
-            <p>Overlay uses <b>:before</b> and <b>:after</b> pseudo-classes.</p>
-                <p>(This one does block elements on the background)</p>
-            <a href='#' onclick='hide("popup3")'>Ok!</a>
-        </div>
-        <div class='popup' id='popup5'>
-            <p>This is a popup!</p>
-            <p>Overlay uses <b>:before</b> and <b>:after</b> pseudo-classes.</p>
-                <p>(This one does block elements on the background)</p>
-            <a href='#' onclick='hide("popup5")'>Ok!</a>
-        </div>
-        
+        </footer>
 
         <script src="js/navigation.js"></script>
-
-        <script>
-           function sub(cart){
-                document.getElementById('form'+cart).submit();
-           }
-        </script>
-        
         
     </body>
 </html>
