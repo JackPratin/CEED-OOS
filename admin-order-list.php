@@ -21,7 +21,7 @@
             <link rel="icon" type="image/x-icon" href="css/system images/favicon.ico">
             <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
             
-            <link rel="stylesheet" href="css/order-list.css">
+            <link rel="stylesheet" href="css/admin-order-list.css">
             <title>Order List</title>
     </head>
     <body>
