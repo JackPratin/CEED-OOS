@@ -48,11 +48,20 @@
                     <form action="php/addIngredient.php" method="post" id="form"><br><br>
                         <div id="addIngre"><b>Add new ingredient</b></div> <br>
                         <div>
-                            Ingredients <br>
+                            Ingredient type:<br>
+                                    <input type='radio' id='stock' name='type' value='stock' onclick=''>Stock<br>
+                                    <input type='radio' id='additional' name='type' value='additional'>Additional<br>
                             <input type="text" name="name" class="IngreInput" placeholder="Ingredient Name" required>
                             <input type="text" name="price" class="IngreInput" placeholder="Price" required>
-                            <input type="text" name="qty" class="IngreInput" placeholder="Quantity" required>
-                        
+                            <input type="text" name="qty" id='ingreQty' class="" placeholder="Quantity" ><br><br>
+                            Ingredient for: <br>
+                                <?php
+                                    $category_qry = mysqli_query($con, "SELECT * FROM product_categories_tb");
+                                    while($category = mysqli_fetch_array($category_qry, MYSQLI_ASSOC)){
+                                        echo"<input type='checkbox' value='$category[category_id]' name='categories[]'>$category[category_name]</input><br>";
+                                        }
+                                    ?>
+                                    <br>
                         </div> <br>
                 
                         <input type="submit" value="Add Ingredient" id="IngreSubmit">
@@ -78,7 +87,6 @@
                             Product Category:<br><br>
                                 <select name="category" class="categoryProd" id="" name="category">
                                     <?php
-                                        $category_qry = mysqli_query($con, "SELECT * FROM product_categories_tb");
                                         while($category = mysqli_fetch_array($category_qry, MYSQLI_ASSOC)){
                                             echo"<option value='$category[category_id]'>$category[category_name]</option>";
                                         }
@@ -107,16 +115,7 @@
             <br>
             <br>
 
-            
-
-            
-
-            
-            
         </div>
-
-            
-        
 
         <br>
         <div class="orderHistory">
@@ -243,6 +242,27 @@
                 content.style.display = "block";
                 }
             });
+        </script>
+
+        <script>
+            const button = document.getElementById("stock");
+            
+            button.addEventListener("click", () => {
+              let qty = document.getElementById("ingreQty");
+              qty.style.display = "block";
+              
+              qty.classList.add("IngreInput");
+            });
+            
+            const button1 = document.getElementById("additional");
+            
+            button1.addEventListener("click", () => {
+              let qty = document.getElementById("ingreQty");
+              qty.style.display = "none";
+              qty.classList.remove("IngreInput");
+            });
+
+
         </script>
     </body>
 </html>

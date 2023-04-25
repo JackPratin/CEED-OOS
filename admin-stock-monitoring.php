@@ -32,19 +32,27 @@
                 </tr>
                 <?php
                     $ingredient_qry = mysqli_query($con, "SELECT * FROM `ingredients_tb` ");
-                    while($ingredients = mysqli_fetch_array($ingredient_qry, MYSQLI_ASSOC)){
+                    if(mysqli_num_rows($ingredient_qry) == 0){
                         echo"
-                            <form method='post' action='php/stockHandling.php'>
-                                <tr>
-                                    <td>$ingredients[item_name]</td>
-                                    <td>$ingredients[item_quantity]</td>
-                                    <td><input type='submit' name='submit' value='Update' class='stock-actions'></td>
-                                    <td><input type='submit' name='submit' value='Replacement/loss' class='stock-actions'></td>
-                                    <td><input type='submit' name='submit' value='Delete' class='stock-actions' onclick='confirm(\"Are you sure you want to delete $ingredients[item_name] from the stock list?\")'></td>
-                                </tr>
-                                <input type='hidden' name='id' value='$ingredients[item_id]'>
-                            </form>
-                        ";
+                            <tr>
+                                <td colspan='5'><center>No ingredients available.</center></td>
+                            </tr>";
+                    }
+                    else{
+                        while($ingredients = mysqli_fetch_array($ingredient_qry, MYSQLI_ASSOC)){
+                            echo"
+                                <form method='post' action='php/stockHandling.php'>
+                                    <tr>
+                                        <td>$ingredients[item_name]</td>
+                                        <td>$ingredients[item_quantity]</td>
+                                        <td><input type='submit' name='submit' value='Update' class='stock-actions'></td>
+                                        <td><input type='submit' name='submit' value='Replacement/loss' class='stock-actions'></td>
+                                        <td><input type='submit' name='submit' value='Delete' class='stock-actions' onclick='confirm(\"Are you sure you want to delete $ingredients[item_name] from the stock list?\")'></td>
+                                    </tr>
+                                    <input type='hidden' name='id' value='$ingredients[item_id]'>
+                                </form>
+                            ";
+                        }
                     }
                 ?>
             </table>
