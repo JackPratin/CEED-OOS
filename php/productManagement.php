@@ -6,6 +6,13 @@
     $id = $_POST['id'];
 
     if($submit == 'Delete'){
+        $image_qry = mysqli_query($con, "SELECT product_image FROM products_tb WHERE product_id = $id");
+
+        $image = mysqli_fetch_array($image_qry, MYSQLI_ASSOC);
+        $filename = "../".$image['product_image'];
+        if (file_exists($filename)) {
+            unlink($filename);
+        }
         mysqli_query($con, "DELETE FROM `products_tb` WHERE `product_id`= $id");
         echo '<script>alert("Product deleted.")</script>';
         echo '<script>window.location="../admin-product.php"</script>';

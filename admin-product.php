@@ -69,7 +69,7 @@
                 </div>
                 <br><br>
 
-                <button class='addButton' id='productsButton'>Add new Product</button>
+                <button class='addButton' id='productsButton' onclick="filtering(document.getElementById('catSelect').value)">Add new Product</button>
 
                 <div class="productForm" id='productsForm'>
                     <form action="php/addProduct.php" method="post" id="form" enctype="multipart/form-data"><br><br>
@@ -83,9 +83,9 @@
                         
                         <!-- <div class="container"> -->
                             <!-- the select elemnt should go into div!!!!!  -->
-                            <div class="custom-select" >
+                            <!-- <div class="custom-select" > -->
                             Product Category:<br><br>
-                                <select name="category" class="categoryProd" id="" name="category">
+                                <select name="category" class="categoryProd" id="catSelect" name="category"  onchange="filtering(this.value)" >
                                     <?php
                                     $category_qry = mysqli_query($con, "SELECT * FROM product_categories_tb");
                                         while($category = mysqli_fetch_array($category_qry, MYSQLI_ASSOC)){
@@ -93,8 +93,41 @@
                                         }
                                     ?>
                                 </select>
-                            </div>
+                            <!-- </div> -->
                         <!-- </div> -->
+                        <br>
+                        <br>
+                        Ingredients:
+                        <div class='itemCheckboxes'>
+                            
+                            <?php
+                                $category_qry = mysqli_query($con, "SELECT * FROM product_categories_tb" );
+
+                                while($category = mysqli_fetch_array($category_qry, MYSQLI_ASSOC)){
+                                    $individual_additional = explode(", ", $category['category_additionals']);
+                                    foreach($individual_additional as $item){
+                                        if($item != ""){
+
+                                       $ingredients_qry = mysqli_query($con, "SELECT * FROM ingredients_tb WHERE item_id = $item");
+
+                                        while($ingredients = mysqli_fetch_array($ingredients_qry, MYSQLI_ASSOC)){
+                                            echo"
+                                            <span class='ingSpan' id='span$category[category_id]$ingredients[item_id]'>
+                                                <input type='checkbox' value='$ingredients[item_id]' name='item[]'>
+                                                    $ingredients[item_name]
+                                                </input>
+                                                <input type='hidden' value='$category[category_id]' id='cat$category[category_id]$ingredients[item_id]'>
+                                            </span>
+                                            <br>
+                                            ";
+                                        }
+                                        }
+                                    }
+                                }
+                            ?>
+                        </div>
+
+                        
                         <br>
         
                         Product Image:<br><br>
@@ -125,15 +158,19 @@
                 <tr>
                     <th>Product Name</th>
                     <th>Product Image</th>
+                    <th>Product Available</th>
+                    <th>Product Ingredients</th>
                     <th colspan="3">Actions</th>
                 </tr>
                 <?php
-                    $ingredient_qry = mysqli_query($con, "SELECT * FROM `products_tb` WHERE product_category != 4");
+                    $ingredient_qry = mysqli_query($con, "SELECT * FROM `products_tb` WHERE product_category");
                     while($products = mysqli_fetch_array($ingredient_qry, MYSQLI_ASSOC)){
                         echo"<form  method='post' action='php/productManagement.php'>
                             <tr>
                                 <td>$products[product_name]</td>
                                 <td><image src='$products[product_image]' width=30%; height=auto;></image></td>
+                                <td>$products[product_name]</td>
+                                <td>$products[product_name]</td>
                                 <td><input type='submit' name='submit' value='Update' class='stock-actions' ></td>
                                 <td><input type='submit' value='Delete' class='stock-actions'  name='submit'  onclick='confirm(\"Are you sure you want to delete $products[product_name] from the product list?\")'></td>
                             </tr>
@@ -264,6 +301,40 @@
             });
 
 
+        </script>
+
+        <script>
+        
+            function filtering(cat){
+				let category;
+				<?php
+					require("php/config.php");
+
+					$item_qry = mysqli_query($con, "SELECT * FROM product_categories_tb");
+					while($item = mysqli_fetch_array($item_qry, MYSQLI_ASSOC)){
+                        $additionals = explode(", ", $item['category_additionals']);
+
+                        foreach($additionals as $add){
+                            if($add != ""){
+				?>
+                                var span = 'cat'+<?php echo "$item[category_id]$add" ?>;
+                                console.log(span);
+                                category = document.getElementById(span).value;
+                                
+
+                                if(cat == 'none' || cat == category){
+                                    document.getElementById('span'+<?php echo "$item[category_id]$add"; ?>).style.display="inline-block";
+                                }
+                                else{
+                                    document.getElementById('span'+<?php echo "$item[category_id]$add"; ?>).style.display="none";
+                                }
+
+				<?php
+                            }
+                        }
+					}
+				?>
+			}
         </script>
     </body>
 </html>
