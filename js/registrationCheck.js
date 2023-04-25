@@ -65,7 +65,6 @@ $('document').ready(function(){
                 element.insertBefore(span, child);
                 element.insertBefore(br, child);
             }
-            
              if (response == 'taken' ) {
                 email_state = false;
                 $('#email').parent().removeClass();
@@ -73,10 +72,18 @@ $('document').ready(function(){
                 $('#email').siblings("span").text('Email is already registered to an account.');
              }
              else if (response == 'not_taken') {
-                email_state = true;
-                $('#email').parent().removeClass();
-                $('#email').parent().addClass("form_success");
-                $('#email').siblings("span").text('Email available.');  
+                if(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/.test(email)){
+                    email_state = true;
+                    $('#email').parent().removeClass();
+                    $('#email').parent().addClass("form_success");
+                    $('#email').siblings("span").text('Email available.');  
+                }
+                else{
+                    email_state = false;
+                    $('#email').parent().removeClass();
+                    $('#email').parent().addClass("form_error");
+                    $('#email').siblings("span").text('Wrong format.');
+                }
              }
          }
         });
@@ -100,6 +107,16 @@ $('document').ready(function(){
                     $('#passwordSpan').text('Password does not match.');
                     
                 }
+            }
+            else if(password.length < 8){
+                $('#passwordSpan').parent().removeClass();
+                $('#passwordSpan').parent().addClass("form_error");
+                $('#passwordSpan').text('Password less than 8 characters.');
+            }
+            else if(/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(password)){
+                $('#passwordSpan').parent().removeClass();
+                $('#passwordSpan').parent().addClass("form_error");
+                $('#passwordSpan').text('Password is weak.');
             }
             else{
                 if(document.getElementById("passwordSpan") != null){
