@@ -60,10 +60,10 @@ require("php/menuFunctions.php");
         <div class="totalprice">
 
             <b><p class="sub"> Subtotal <span> ₱<?php invoiceSubtotal(); ?></span></p></b>
-
+<!-- 
             <p class="del"> Cash <b><span> ₱ </span></b> </p>
 
-            <p class="tot"> Change <b><span> ₱</span></b> </p>
+            <p class="tot"> Change <b><span> ₱</span></b> </p> -->
 
         </div>
         <br><br>
