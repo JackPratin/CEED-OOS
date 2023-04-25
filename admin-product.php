@@ -49,8 +49,8 @@
                         <div id="addIngre"><b>Add new ingredient</b></div> <br>
                         <div>
                             Ingredient type:<br>
-                                    <input type='radio' id='stock' name='type' value='stock' onclick=''>Stock<br>
-                                    <input type='radio' id='additional' name='type' value='additional'>Additional<br>
+                                    <input type='radio' id='stock' name='type' value='stock' required>Stock<br>
+                                    <input type='radio' id='additional' name='type' value='additional' required>Additional<br>
                             <input type="text" name="name" class="IngreInput" placeholder="Ingredient Name" required>
                             <input type="text" name="price" class="IngreInput" placeholder="Price" required>
                             <input type="text" name="qty" id='ingreQty' class="" placeholder="Quantity" ><br><br>
@@ -87,6 +87,7 @@
                             Product Category:<br><br>
                                 <select name="category" class="categoryProd" id="" name="category">
                                     <?php
+                                    $category_qry = mysqli_query($con, "SELECT * FROM product_categories_tb");
                                         while($category = mysqli_fetch_array($category_qry, MYSQLI_ASSOC)){
                                             echo"<option value='$category[category_id]'>$category[category_name]</option>";
                                         }
