@@ -186,65 +186,6 @@
             </footer>
         </div>
         <form action="checkout-page.php" method="post" id="checkout"></form>
-
-       
-        
-        <div class='popup' id='popup2'>
-            <div style="display:flex; justify-content: space-between;">
-                <span>Flavors</span>
-                <span><button href="#" onclick="hide('popup2')">X</button></span>
-            </div><br>
-
-            <div > <br>
-            
-                <div style="display:flex; flex-direction:column;";> 
-                    <?php
-
-                        // $extras_qry = mysqli_query($con, "SELECT * FROM products_tb WHERE product_category = 4");
-                        
-                        // while($extras = mysqli_fetch_array($extras_qry,MYSQLI_ASSOC)){
-                        //     echo"<div style=\"display:flex; justify-content: space-between;\";><span><input type='checkbox' class='checkbox'> $extras[product_name]</span> <span>₱$extras[product_price]</span></div>";
-                        //     // echo"<input type='checkbox'> &nbsp; Bacon";
-                        // }
-                        echo "<div><input type='checkbox' class='checkbox'> Barbecue</div>
-                        <div><input type='checkbox' class='checkbox'> Buffalo</div>
-                        <div><input type='checkbox' class='checkbox'> Garlic Parmesan</div>
-                        <div><input type='checkbox' class='checkbox'> Honey Garlic</div>
-                        <div><input type='checkbox' class='checkbox'> Salted Egg</div>
-                        ";
-                    ?>
-                </div>
-            </div>
-            <br>
-            
-            <div class="number-input">
-                <span>
-                    <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" ></button>
-
-                    <input class="quantity" id="currentQty" min="6" name="quantity" value="6" step="6" type="number">
-
-                    <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button> 
-                </span>
-
-                <span min-width="90%">     
-                    <input type="submit" value="Add to Cart" class="addCart" onclick='addToCart()'>
-                    <!-- hide("popup1") -->
-                </span>
-                <input type="hidden" name="" id="id" value="">
-            </div>
-        </div>
-        <div class='popup' id='popup3'>
-            <p>This is a popup!</p>
-            <p>Overlay uses <b>:before</b> and <b>:after</b> pseudo-classes.</p>
-                <p>(This one does block elements on the background)</p>
-            <a href='#' onclick='hide("popup3")'>Ok!</a>
-        </div>
-        <div class='popup' id='popup5'>
-            <p>This is a popup!</p>
-            <p>Overlay uses <b>:before</b> and <b>:after</b> pseudo-classes.</p>
-                <p>(This one does block elements on the background)</p>
-            <a href='#' onclick='hide("popup5")'>Ok!</a>
-        </div>
         
 
         <script src="js/navigation.js"></script>
@@ -255,7 +196,7 @@
 				<?php
 					require("php/config.php");
 
-					$item_qry = mysqli_query($con, "SELECT * FROM products_tb WHERE product_category < 4");
+					$item_qry = mysqli_query($con, "SELECT * FROM products_tb WHERE product_category");
 					while($item = mysqli_fetch_array($item_qry, MYSQLI_ASSOC)){
 						$id = $item['product_id'];
 				?>
@@ -278,7 +219,7 @@
             }
             
             var show = function(id) {
-                $(id).style.display ='block';
+                $(id).style.display ='flex';
             }
             var hide = function(id) {
                 $(id).style.display ='none';

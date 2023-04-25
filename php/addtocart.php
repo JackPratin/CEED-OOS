@@ -18,34 +18,21 @@
   
    if(isset($_POST['extras'])){
         foreach($_POST['extras'] as $extras){
-            $ingqry = mysqli_query($con, "SELECT product_price FROM products_tb WHERE product_id = $extras");
+            $ingqry = mysqli_query($con, "SELECT item_price FROM ingredients_tb WHERE item_id = $extras");
             $ingprice = mysqli_fetch_array($ingqry, MYSQLI_ASSOC);
             if($_POST['extras'][0] == $extras){
                 $ingredients = $extras;
-                $ingredients_prices =  $ingprice['product_price'];
+                $ingredients_prices =  $ingprice['item_price'];
             }
             else{
                 $ingredients = $ingredients.', '.$extras;
-                $ingredients_prices = $ingredients_prices.', '.$ingprice['product_price'];
+                $ingredients_prices = $ingredients_prices.', '.$ingprice['item_price'];
             }
 
-            $item_price += (float)$ingprice['product_price'];
+            $item_price += (float)$ingprice['item_price'];
             // echo $extras;
             
         }
-        // echo $ingredients;
-        // print_r($_POST['extras']);
-        // echo'<br>';
-
-        // echo $ingredients;
-        // echo'<br>';
-        // echo $ingredients_prices;
-        // echo '<br>';
-        // $try = explode(",",$ingredients);
-        // $try1 = explode(",",$ingredients_prices);
-        // print_r($try);
-        // echo'<br>';
-        // print_r($try1);
    }
 
     // checking for existing item in user's cart
