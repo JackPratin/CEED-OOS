@@ -158,8 +158,6 @@
                 <tr>
                     <th>Product Name</th>
                     <th>Product Image</th>
-                    <th>Product Available</th>
-                    <th>Product Ingredients</th>
                     <th colspan="3">Actions</th>
                 </tr>
                 <?php
@@ -170,8 +168,6 @@
                             <tr>
                                 <td>$products[product_name]</td>
                                 <td><image src='$products[product_image]' width=30%; height=auto;></image></td>
-                                <td>$products[product_name]</td>
-                                <td>$products[product_name]</td>
                                 <td><input type='submit' value='Delete' class='stock-actions'  name='submit'  onclick='confirm(\"Are you sure you want to delete $products[product_name] from the product list?\")'></td>
                             </tr>
                             <input type='hidden' name='id' value='$products[product_id]' >
