@@ -26,7 +26,7 @@
 
             <div class='popup' id='popup$id'>
                 <div id='item-div'>
-                    <img src='$products[product_image]' alt='Item image' id='extra-image' width='50%' height='auto'>&nbsp;
+                    <img src='$products[product_image]' alt='Item image' id='extra-image' width='45%' height='auto'>&nbsp;
                     <div style='display:flex; flex-direction:column;'>
                         <h2 id='extra-name'>$products[product_name]</h2>
                         <h3 id='extra-price'>₱$products[product_price]</h3>
@@ -35,81 +35,82 @@
                 </div>
                 <div id='extras-div'>
                 
-                <span class='cls'><button href='#' onclick='hide(\"popup$id\")'>X</button></span>
+                    <span class='cls'><button href='#' onclick='hide(\"popup$id\")'>X</button></span>
+
                     <div style='display:flex; justify-content: space-between;'>
                         <form method='post' action='php/addtocart.php' id='form$id'>
-                        ";
-                            $prod_adds_qry = mysqli_query($con, "SELECT * FROM products_tb WHERE product_id = $products[product_id]");
-                            
-                            $prod_query = mysqli_fetch_array($prod_adds_qry,MYSQLI_ASSOC);
-                            
-                            if($prod_query['has_additionals'] == 'yes'){
-                                 $ingredients = explode(", ",$prod_query['product_additionals']);
-                            }
-                         
-
-                            if($prod_query['has_additionals'] == 'yes'){
-                                echo"<span>Recommended Extras</span>
-                        
-                                </div><br>
-                                Select additional ingredients(optional)<br>
-                                <div style='display:flex; flex-direction:column;'>
-                                   ";
-                                foreach($ingredients as $ingredients){
-
-                                    if($ingredients == ""){
-                                        continue;
-                                    }
-
-                                    $nameqry = mysqli_query($con, "SELECT * FROM ingredients_tb WHERE item_id = '$ingredients'");
-        
-                                    $ingredients_name = mysqli_fetch_array($nameqry, MYSQLI_ASSOC);
-                                    // echo $ingredients_name['product_name'];
-
-                                    // <input type='checkbox' class='checkbox' name=\"extras[]\" value='$ingredients_name[item_id]' id='extra-checkbox' form='form$id'> $ingredients_name[item_name]
-
-                                    echo"
-                                        <div style=\"display:flex; justify-content: space-between;\";>
-                                            <span>
-                                                <input type='checkbox' class='checkbox' name=\"extras[]\" value='$ingredients' id='extra-checkbox' form='form$id'> $ingredients_name[item_name]
-                                            </span> 
-                                            <span>
-                                                ₱$ingredients_name[item_price]
-                                            </span>
-                                        </div>
-                                    ";
+                            ";
+                                $prod_adds_qry = mysqli_query($con, "SELECT * FROM products_tb WHERE product_id = $products[product_id]");
+                                
+                                $prod_query = mysqli_fetch_array($prod_adds_qry,MYSQLI_ASSOC);
+                                
+                                if($prod_query['has_additionals'] == 'yes'){
+                                    $ingredients = explode(", ",$prod_query['product_additionals']);
                                 }
-                            }
-                           
-                                    // echo"<input type='checkbox'> &nbsp; Bacon";
-                                
-                                
-                                echo"
-                                
+                            
+
+                                if($prod_query['has_additionals'] == 'yes'){
+                                    echo"
+                            <span>Recommended Extras</span>
+                            
+                                    
+                            Select additional ingredients(optional)<br>
+                            <div style='display:flex; flex-direction:column;'>
+                                    ";
+                                    foreach($ingredients as $ingredients){
+
+                                        if($ingredients == ""){
+                                            continue;
+                                        }
+
+                                        $nameqry = mysqli_query($con, "SELECT * FROM ingredients_tb WHERE item_id = '$ingredients'");
+            
+                                        $ingredients_name = mysqli_fetch_array($nameqry, MYSQLI_ASSOC);
+                                        // echo $ingredients_name['product_name'];
+
+                                        // <input type='checkbox' class='checkbox' name=\"extras[]\" value='$ingredients_name[item_id]' id='extra-checkbox' form='form$id'> $ingredients_name[item_name]
+
+                                        echo"
+                                <div style=\"display:flex; justify-content: space-between;\";>
+                                <span>
+                                    <input type='checkbox' class='checkbox' name=\"extras[]\" value='$ingredients' id='extra-checkbox' form='form$id'> $ingredients_name[item_name]
+                                </span> 
+                                <span>
+                                    ₱$ingredients_name[item_price]
+                                </span>
+                                </div>
+                                        ";
+                                    }
+                                }
+                            
+                                        // echo"<input type='checkbox'> &nbsp; Bacon";
+                                    
+                                    
+                                    echo"
+                                    
                                 <input type='hidden' value='$id' id='form-id' name='id'>
                                 <input type='hidden' value='$products[product_name]' id='form-name' name='name'>
                                 <input type='hidden' value='$products[product_category]' id='form-category' name='category' >
                                 <input type='hidden' value='$products[product_price]' id='form-price' name='price'>
                                 <br>
-                        <div class='number-input'>
-                            <div id='counter'>
-                                <button onclick='this.parentNode.querySelector(\"input[type=number]\").stepDown()' ></button>
 
-                                <input class='quantity' id='currentQty' min='1' name='quantity' value='1' type='number' form='form$id'>
+                                <div class='number-input'>
+                                    <div id='counter'>
+                                        <button type='button' onclick='this.parentNode.querySelector(\"input[type=number]\").stepDown()' ></button>
 
-                                <button onclick='this.parentNode.querySelector(\"input[type=number]\").stepUp()' class='plus'></button> 
+                                        <input class='quantity' id='currentQty' min='1' name='quantity' value='1' type='number' form='form$id'>
+
+                                        <button type='button' onclick='this.parentNode.querySelector(\"input[type=number]\").stepUp()' class='plus'></button> 
+                                    </div>
+
+                                    <div width='100%'>     
+                                        <input type='submit' value='Add to Cart' class='addCart' onclick='addToCart($id)'>
+                                    </div>
+                                </div>
                             </div>
-
-                            <div width='100%'>     
-                                <input type='submit' value='Add to Cart' class='addCart' onclick='addToCart($id)'>
-                                
-                                    </form>
-                                <!-- hide('popup1') -->
-                            </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
-            </div>
             ";
         }
     }
