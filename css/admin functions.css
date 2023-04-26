@@ -59,7 +59,8 @@ li a:hover:not(.admin-nav-active) {
 
 .admin-iframe-div {
     position: fixed;
-    min-height: 100%;
+    max-height: 90%;
+    height: 100%;
     width: 89%;
     overflow-y: scroll;
 }
@@ -69,6 +70,8 @@ li a:hover:not(.admin-nav-active) {
     position: fixed;
     width: 89%;
     height: 90%;
+    min-height: 90%;
+    max-height: 90%;
 }
 
 .admin-iframe::-webkit-scrollbar {
@@ -717,6 +720,42 @@ input[type=number]::-webkit-outer-spin-button {
     flex: 0 0 50%;
 }
 
+.top-report{
+    display: flex;
+    width: 100%;
+    flex: 0 0 50%;
+    justify-content: center;
+    color: #FFA200;
+    height: 10%;
+}
+
+.most{
+    /* height: 100%; */
+    background-color: white;
+    font-weight: bolder;
+    text-shadow: 1px 1px red ;
+    font-size: 2rem;
+    padding: 10px;
+    border-radius: 30px;
+    width: fit-content;
+}
+
+#mostOrder{
+    width: 50%;
+}
+
+#salesReportbody{
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+}
+/* 
+.monthlytr{
+    display: none;
+}
+.yearlytr{
+    display: none;
+} */
 @media only screen and (max-width: 900px) {
     /* #popup {
         display: none;
