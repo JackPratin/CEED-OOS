@@ -2,7 +2,16 @@
     require("config.php");
 
     if($_POST['submit'] == 'Invoice'){
-
+        $cart_qry = mysqli_query($con, "SELECT * FROM order_info WHERE info_id = $_POST[info_id]");
+        while($cart = mysqli_fetch_array($cart_qry, MYSQLI_ASSOC)){
+            echo"
+                <form action='receiptSetter.php' id='form$cart[cart_number]' method='post'>
+                    <input type='hidden' name='cart' value='$cart[cart_number]'>
+                    <input type='hidden' name='id' value='$cart[customer_id]'>
+                </form>
+                 <script>document.getElementById('form$cart[cart_number]').submit();</script>
+        ";
+        }
     }
     elseif($_POST['submit'] == 'Prepare'){
         mysqli_query($con, "UPDATE `order_info` SET `status`='preparing' WHERE `info_id`='$_POST[info_id]'");
