@@ -6,6 +6,7 @@
     $id = $_POST['id'];
 
     if($submit == 'Delete'){
+        //delete from category additionals
         $category_qry = mysqli_query($con, "SELECT * FROM `product_categories_tb`");
         echo"<script>var str;</script>";
         while($ingredient = mysqli_fetch_array($category_qry, MYSQLI_ASSOC)){
@@ -41,6 +42,44 @@
                 }
             }
             mysqli_query($con, "UPDATE `product_categories_tb` SET `category_additionals`='$save' WHERE category_id = $ingredient[category_id]");
+        }
+        
+        //delete from product additionals
+        $category_qry = mysqli_query($con, "SELECT * FROM `products_tb`");
+        echo"<script>var str;</script>";
+        while($ingredient = mysqli_fetch_array($category_qry, MYSQLI_ASSOC)){
+            $additionals = $ingredient['product_additionals'];
+            // makes an array of ingredients id
+            $individual_additional = explode(", ", $additionals);
+
+            // makes an array of an id that will be removed
+            $id_array = array($id);
+            
+            // differentiate 2 arrays
+            $new_additional = array_diff($individual_additional, $id_array);
+            
+            
+            $save = "";
+            $new_array = array();
+            
+            foreach($new_additional as $new){
+                array_push($new_array, $new);
+            }
+            
+            // getting the total number of array objects
+            $additional_count = count($new_array);
+
+            for($i= 0; $i< $additional_count; $i++){
+                if($new_array[$i] != ""){
+                    if(0 == $i){
+                        $save = $save.$new_array[$i];
+                        }
+                    else{
+                        $save = $save.", ".$new_array[$i];
+                    }
+                }
+            }
+            mysqli_query($con, "UPDATE `products_tb` SET `product_additionals`='$save' WHERE product_id = $ingredient[product_id]");
         }
 
         
