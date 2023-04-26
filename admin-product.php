@@ -165,13 +165,13 @@
                 <?php
                     $ingredient_qry = mysqli_query($con, "SELECT * FROM `products_tb` WHERE product_category");
                     while($products = mysqli_fetch_array($ingredient_qry, MYSQLI_ASSOC)){
+                        // <td><input type='submit' name='submit' value='Update' class='stock-actions' ></td>
                         echo"<form  method='post' action='php/productManagement.php'>
                             <tr>
                                 <td>$products[product_name]</td>
                                 <td><image src='$products[product_image]' width=30%; height=auto;></image></td>
                                 <td>$products[product_name]</td>
                                 <td>$products[product_name]</td>
-                                <td><input type='submit' name='submit' value='Update' class='stock-actions' ></td>
                                 <td><input type='submit' value='Delete' class='stock-actions'  name='submit'  onclick='confirm(\"Are you sure you want to delete $products[product_name] from the product list?\")'></td>
                             </tr>
                             <input type='hidden' name='id' value='$products[product_id]' >
@@ -189,10 +189,11 @@
                 <?php
                     $ingredient_qry = mysqli_query($con, "SELECT * FROM `product_categories_tb`");
                     while($products = mysqli_fetch_array($ingredient_qry, MYSQLI_ASSOC)){
+                        // <td><input type='submit' name='submit' value='Update' class='stock-actions' ></td>
                         echo"<form  method='post' action='php/productManagement.php'>
                             <tr>
                                 <td>$products[category_name]</td>
-                                <td><input type='submit' name='submit' value='Update' class='stock-actions' ></td>
+                                
                                 <td><input type='submit' value='Delete Category' class='stock-actions'  name='submit'  onclick='confirm(\"Are you sure you want to delete $products[category_name] from the category list?\")'></td>
                             </tr>
                             <input type='hidden' name='id' value='$products[category_id]' >

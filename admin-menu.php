@@ -285,7 +285,7 @@
             }
             
             var show = function(id) {
-                $(id).style.display ='block';
+                $(id).style.display ='flex';
             }
             var hide = function(id) {
                 $(id).style.display ='none';
